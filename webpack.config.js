@@ -1,11 +1,11 @@
-const webpack = require('webpack');
-const path = require('path');
+let webpack = require('webpack');
+let path = require('path');
 
-const DEV = path.resolve(__dirname, 'src');
-const OUTPUT = path.resolve(__dirname, 'output');
+let DEV = path.resolve(__dirname, 'src');
+let OUTPUT = path.resolve(__dirname, 'output');
 
-const config = {
-  entry: `${DEV}/index.jsx`,
+let config = {
+  entry: `${DEV  }/index.jsx`,
   output: {
     path: OUTPUT,
     filename: 'bundle.js',
