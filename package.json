@@ -32,17 +32,24 @@
     "nodemon": "^1.11.0",
     "webpack": "^2.2.1"
   },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
   "dependencies": {
     "axios": "^0.15.3",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "morgan": "^1.8.1",
+    "mysql": "^2.13.0",
     "path": "^0.12.7",
     "react": "^15.4.2",
-    "react-axios": "0.0.9",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "sequelize": "^3.30.2"
   }
 }
