@@ -3,7 +3,7 @@ const controller = require('./controller');
 
 myRouter.route('/')
   .get((req, res) => {
-    controller.createUser(req, res);
+
   })
   .post((req, res) => {
   });
