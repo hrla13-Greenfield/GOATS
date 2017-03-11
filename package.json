@@ -19,14 +19,6 @@
     "url": "https://github.com/BrandonKleiman/what-to-do/issues"
   },
   "homepage": "https://github.com/BrandonKleiman/what-to-do#readme",
-<<<<<<< HEAD
-  "dependencies": {
-    "express": "^4.15.2",
-    "path": "^0.12.7",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "webpack": "^2.2.1"
-=======
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.4.0",
@@ -51,6 +43,5 @@
     "react-dom": "^15.4.2",
     "redux": "^3.6.0",
     "request": "^2.81.0"
->>>>>>> skeleton server setup
   }
 }
