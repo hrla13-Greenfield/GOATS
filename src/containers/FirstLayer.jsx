@@ -1,17 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Dinner from './SecondLayer.jsx'
+//import Dinner from './SecondLayer.jsx';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { selectChoice } from '../actions/index.jsx';
 
-class Restaurant extends React.Component {
-  render (){
-    return(
-      <div>
-       <Dinner />
-       <img src='http://ifthedevilhadmenopause.com/wp-content/uploads/2014/08/sri-santrupti-restaurant-21346657591-1.png' height='150' onClick={this.changeView}/>
-      </div>
-    )
+class FirstLayer extends React.Component {
+  renderChoices (){
+    return this.props.choices.firstLoad.map((choice) => {
+      return (
+        <img
+          key={choice.img}
+          onClick={() => this.props.selectChoice(choice.option)}
+          
+          src={choice.img} />
+      );
+    });
+  }
+
+  render() {
+    return (
+      <div className="col-sm-4">
+      { this.renderChoices() }</div>
+    );
   }
 }
 
-export default Restaurant;
+  function mapStateToProps(state) {
+    return {
+      choices: state.choices,
+    };
+  }
+
+  function mapDispatchToProps(dispatch){
+    return bindActionCreators({ selectChoice: selectChoice }, dispatch);
+  }
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FirstLayer);
