@@ -42728,6 +42728,7 @@ var Button = function (_React$Component) {
         };
         _this.handleIncrease = _this.handleIncrease.bind(_this);
         _this.handleReset = _this.handleReset.bind(_this);
+        _this.handleChanges = _this.handleChanges.bind(_this);
         return _this;
     }
 
@@ -42757,9 +42758,9 @@ var Button = function (_React$Component) {
             var currCount = this.state.count;
             if (event.shiftKey && currCount >= 10) {
                 currCount += 10;
-            } else if (event.ctrlKey && currCount >= 20) {
+            } else if (event.altKey && currCount >= 50) {
                 currCount += 20;
-            } else if (event.shiftKey && currCount >= 100) {
+            } else if (event.shiftKey && currCount >= 300) {
                 currCount = 0;
             } else if (currCount >= 100) {
                 currCount = 0;
