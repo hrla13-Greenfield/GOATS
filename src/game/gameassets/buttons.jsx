@@ -5,32 +5,41 @@ class Button extends React.Component {
     constructor(props) {
       super(props) 
       this.state = {
-        count: 0
+        count: 0,
+        random: ''
       };
       this.handleIncrease = this.handleIncrease.bind(this);
       this.handleReset = this.handleReset.bind(this);
+      this.handleRandom = this.handleRandom.bind(this);
     }
-        
-    handleIncrease(event) {
+
+    handleRandom(event) {
         var charArr = ['a','s','d','f'];
         var randomChar = charArr[Math.floor(charArr.length * Math.random())];
-        console.log('this is the randomChar', randomChar);
+        this.setState({
+            random: randomChar
+        })
+        console.log('this is the random char', randomChar);
+    }    
+
+    handleIncrease(event) {
 
         event = event || window.event;
         var currCount = this.state.count;
         var charCode = event.keyCode || event.which;
         var charStr = String.fromCharCode(charCode);
-
-        if(charStr === randomChar) {     
+        if(charStr === this.state.random) {     
           currCount += 1;
         }
         else {
           currCount -= 1;
         }
-
+        // this.handleRandom();
         this.setState({
             count: currCount
         });
+        this.handleRandom();
+
     }
 
     handleReset() {
