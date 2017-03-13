@@ -43550,7 +43550,6 @@ var Button = function (_React$Component) {
             } else {
                 currCount -= 1;
             }
-            // this.handleRandom();
             this.setState({
                 count: currCount
             });

@@ -34,7 +34,6 @@ class Button extends React.Component {
         else {
           currCount -= 1;
         }
-        // this.handleRandom();
         this.setState({
             count: currCount
         });
