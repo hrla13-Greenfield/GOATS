@@ -1,19 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 //import Dinner from './SecondLayer.jsx';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { selectChoice } from '../actions/index.jsx';
 
 class FirstLayer extends React.Component {
-  renderChoices (){
+  renderChoices () {
     return this.props.choices.firstLoad.map((choice) => {
       return (
         <img
           key={choice.img}
           onClick={() => this.props.selectChoice(choice.option)}
-          
           src={choice.img} />
       );
     });
