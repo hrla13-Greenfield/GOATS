@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 import Tree from './Tree.jsx';
 import Navbar from './Navbar.jsx';
+import Game from '../game/gameindex.jsx';
 
 
 class App extends React.Component {
@@ -23,6 +24,10 @@ class App extends React.Component {
                 <Navbar />
               </div>
               <div className="col-sm-9 col-lg-10">
+                <div>
+                  <h3>Game</h3>
+                  <Game /> 
+                </div>
               <div>
                 <Tree />
               </div>

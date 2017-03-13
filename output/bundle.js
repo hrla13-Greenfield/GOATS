@@ -28227,6 +28227,10 @@ var _Navbar = __webpack_require__(130);
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
+var _gameindex = __webpack_require__(133);
+
+var _gameindex2 = _interopRequireDefault(_gameindex);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28270,6 +28274,16 @@ var App = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'col-sm-9 col-lg-10' },
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'h3',
+                    null,
+                    'Game'
+                  ),
+                  _react2.default.createElement(_gameindex2.default, null)
+                ),
                 _react2.default.createElement(
                   'div',
                   null,
@@ -29804,8 +29818,186 @@ var Tree = function (_React$Component) {
 exports.default = Tree;
 
 /***/ }),
-/* 132 */,
-/* 133 */,
+/* 132 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(19);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Button = function (_React$Component) {
+    _inherits(Button, _React$Component);
+
+    function Button(props) {
+        _classCallCheck(this, Button);
+
+        var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
+
+        _this.state = {
+            count: 0,
+            random: ''
+        };
+        _this.handleIncrease = _this.handleIncrease.bind(_this);
+        _this.handleReset = _this.handleReset.bind(_this);
+        _this.handleRandom = _this.handleRandom.bind(_this);
+        return _this;
+    }
+
+    _createClass(Button, [{
+        key: 'handleRandom',
+        value: function handleRandom(event) {
+            var charArr = ['a', 's', 'd', 'f'];
+            var randomChar = charArr[Math.floor(charArr.length * Math.random())];
+            this.setState({
+                random: randomChar
+            });
+            console.log('this is the random character ', randomChar);
+        }
+    }, {
+        key: 'handleIncrease',
+        value: function handleIncrease(event) {
+
+            event = event || window.event;
+            var currCount = this.state.count;
+            var charCode = event.keyCode || event.which;
+            var charStr = String.fromCharCode(charCode);
+            if (charStr === this.state.random) {
+                currCount += 1;
+            } else {
+                currCount -= 1;
+            }
+            // this.handleRandom();
+            this.setState({
+                count: currCount
+            });
+            this.handleRandom();
+        }
+    }, {
+        key: 'handleReset',
+        value: function handleReset() {
+            var maxCount = this.state.count;
+            maxCount = 0;
+            this.setState({
+                count: maxCount
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { onKeyPress: this.handleIncrease },
+                    _react2.default.createElement(
+                        'div',
+                        { onKeyPress: this.handleIncrease },
+                        this.state.count
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.handleIncrease },
+                        '+'
+                    )
+                ),
+                _react2.default.createElement(
+                    'button',
+                    { onClick: this.handleReset },
+                    'RESET'
+                )
+            );
+        }
+    }]);
+
+    return Button;
+}(_react2.default.Component);
+
+exports.default = Button;
+
+/***/ }),
+/* 133 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(19);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _buttons = __webpack_require__(132);
+
+var _buttons2 = _interopRequireDefault(_buttons);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Game = function (_React$Component) {
+  _inherits(Game, _React$Component);
+
+  function Game(props) {
+    _classCallCheck(this, Game);
+
+    var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Game, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_buttons2.default, null)
+      );
+    }
+  }]);
+
+  return Game;
+}(_react2.default.Component);
+
+exports.default = Game;
+
+/***/ }),
 /* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
