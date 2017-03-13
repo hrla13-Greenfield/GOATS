@@ -28,9 +28,10 @@ export default class Navbar extends React.Component {
       <div >
         <h1>Navbar goes here</h1>
         <ul className="nav nav-pils nav-stacked">
-          <a href="#"><li>Home</li></a>
+          <a href="#/tree"><li>Home</li></a>
           <a href="#"><li>browse all</li></a>
           <a href="#"><li>plan my day</li></a>
+          <a href="#/game"><li>Game</li></a>
           <a href="#"><li>________</li></a>
           My Groups
           {mappedGroups}

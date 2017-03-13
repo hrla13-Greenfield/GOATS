@@ -6,6 +6,10 @@ import axios from 'axios';
 import Tree from './Tree.jsx';
 import Navbar from './Navbar.jsx';
 import Game from '../game/gameindex.jsx';
+import { Router, Route, browserHistory } from 'react-router';
+let createHistory = require('history').createHashHistory;
+const hashHistory = createHistory();
+
 
 
 class App extends React.Component {
@@ -25,11 +29,14 @@ class App extends React.Component {
               </div>
               <div className="col-sm-9 col-lg-10">
                 <div>
-                  <h3>Game</h3>
-                  <Game /> 
+                  <Router history={hashHistory}>
+                    <div>
+                    <Route path="/game" component={Game} />
+                    <Route path="/tree" component={Tree} />
+                    </div>
+                  </Router>
                 </div>
               <div>
-                <Tree />
               </div>
               </div>
             </div>
