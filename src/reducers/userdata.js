@@ -23,6 +23,7 @@ export default function groups(state = initialState, action) {
         userImg: action.userImg,
         userID: action.userID,
       };
+
     case types.GET_STATE:
       return {
         ...state,

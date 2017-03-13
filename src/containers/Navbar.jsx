@@ -7,7 +7,7 @@ import AddGroupInput from '../components/AddGroupInput.jsx'
 
 @connect((store) => {
   return {
-    signedIn: store,
+    userdata: store.userdata,
   };
 }) 
 
@@ -15,7 +15,7 @@ export default class Navbar extends React.Component {
   
   renderlist() {
     // console.log()
-    const mappedGroups = this.props.signedIn.userdata.currentGroupsByID.map(group => {
+    const mappedGroups = this.props.userdata.currentGroupsByID.map(group => {
     const mappedUsers = group.members.map(user => (<li>{user}</li>))
     return(
       <div>
@@ -44,7 +44,7 @@ export default class Navbar extends React.Component {
     var tmp = function() {
       self.props.dispatch(UserActions.signIn());
     }
-    if (this.props.signedIn.userdata.signedIn) {
+    if (this.props.userdata.signedIn) {
     return (
     <div>
       {this.renderlist()}

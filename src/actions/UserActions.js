@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes.jsx';
 
-export function signIn(id) {
+export function signIn() {
   return {
     type: types.SIGN_IN,
     username: 'Brandon',
@@ -9,17 +9,17 @@ export function signIn(id) {
       {
         id: 1,
         name: 'Group1',
-        members: ['Sandra', 'Alex', 'Emily']
+        members: ['Sandra', 'Alex', 'Emily'],
       },
       {
         id: 2,
         name: 'Group2',
-        members: ['Andrew', 'Regina', 'Armen']
+        members: ['Andrew', 'Regina', 'Armen'],
       },
       {
         id: 3,
         name: 'Group3',
-        members: ['Josh', 'Zach', 'Marcie']
+        members: ['Josh', 'Zach', 'Marcie'],
       },
     ],
     userImg: null,
@@ -30,13 +30,13 @@ export function signIn(id) {
 export function addGroup(name) {
   return {
     type: types.ADD_GROUP,
-    name
+    name,
   };
 }
 
 export function deleteGroup(id) {
   return {
     type: types.DELETE_GROUP,
-    id
+    id,
   };
 }

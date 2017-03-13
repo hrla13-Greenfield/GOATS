@@ -1,11 +1,13 @@
+import { createStore, combineReducers } from 'redux';
 import React from 'react';
-import { combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+<<<<<<< HEAD
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Tree from './Tree.jsx';
+=======
+>>>>>>> preparing to rebase
 import Navbar from './Navbar.jsx';
-import { createStore } from 'redux'
 import * as reducers from '../reducers';
 
 const reducer = combineReducers(reducers);

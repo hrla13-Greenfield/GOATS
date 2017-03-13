@@ -1,10 +1,10 @@
-let webpack = require('webpack');
-let path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
-let DEV = path.resolve(__dirname, 'src');
-let OUTPUT = path.resolve(__dirname, 'output');
+const DEV = path.resolve(__dirname, 'src');
+const OUTPUT = path.resolve(__dirname, 'output');
 
-let config = {
+const config = {
   entry: `${DEV  }/index.jsx`,
   output: {
     path: OUTPUT,
