@@ -13,8 +13,7 @@ myRouter.route('/users')
 
   })
   .post((req, res) => {
-    controller.createUser(req, res)
-
+    controller.createUser(req, res);
   });
 
 module.exports = myRouter;
