@@ -29872,7 +29872,7 @@ var Button = function (_React$Component) {
             this.setState({
                 random: randomChar
             });
-            console.log('this is the random character ', randomChar);
+            console.log('this is the random char', randomChar);
         }
     }, {
         key: 'handleIncrease',

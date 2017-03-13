@@ -19,7 +19,7 @@ class Button extends React.Component {
         this.setState({
             random: randomChar
         })
-        console.log('this is the random character ', randomChar);
+        console.log('this is the random char', randomChar);
     }    
 
     handleIncrease(event) {
