@@ -43597,7 +43597,10 @@ var Button = function (_React$Component) {
 
         _this.state = {
             count: 0,
-            random: ''
+            random: "a",
+            winCondition: "Get to 25 points to WIN!",
+            penalty: "Let's Go!",
+            img: "http://opengameart.org/sites/default/files/cat_idle.gif"
         };
         _this.handleIncrease = _this.handleIncrease.bind(_this);
         _this.handleReset = _this.handleReset.bind(_this);
@@ -43623,10 +43626,24 @@ var Button = function (_React$Component) {
             var currCount = this.state.count;
             var charCode = event.keyCode || event.which;
             var charStr = String.fromCharCode(charCode);
-            if (charStr === this.state.random) {
+
+            if (currCount === 25) {
+                this.setState({
+                    winCondition: "YOU WIN!",
+                    img: "http://opengameart.org/sites/default/files/cat_a4.gif"
+                });
+            } else if (charStr === this.state.random) {
                 currCount += 1;
-            } else {
+                this.setState({
+                    penalty: "You Rock!",
+                    img: "http://opengameart.org/sites/default/files/cat_a1.gif"
+                });
+            } else if (charStr !== this.state.random) {
                 currCount -= 1;
+                this.setState({
+                    penalty: "You Suck!",
+                    img: "http://opengameart.org/sites/default/files/cat_spin_kick.gif"
+                });
             }
             this.setState({
                 count: currCount
@@ -43651,6 +43668,22 @@ var Button = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { onKeyPress: this.handleIncrease },
+                    _react2.default.createElement(
+                        'h4',
+                        null,
+                        this.state.random
+                    ),
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        this.state.winCondition
+                    ),
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        this.state.penalty
+                    ),
+                    _react2.default.createElement('img', { src: this.state.img }),
                     _react2.default.createElement(
                         'div',
                         { onKeyPress: this.handleIncrease },
