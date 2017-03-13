@@ -9,7 +9,6 @@ class Button extends React.Component {
       };
       this.handleIncrease = this.handleIncrease.bind(this);
       this.handleReset = this.handleReset.bind(this);
-      this.handleChanges = this.handleChanges.bind(this);
     }
 
 // randomize keys and check if conditions meet to increment; if not decrement count
