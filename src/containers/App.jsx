@@ -25,7 +25,7 @@ class App extends React.Component {
               </div>
               <div className="col-sm-9 col-lg-10">
               <div>
-                <Game />
+                <Tree />
               </div>
               </div>
             </div>
