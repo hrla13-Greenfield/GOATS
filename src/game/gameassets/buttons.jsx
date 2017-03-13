@@ -6,7 +6,10 @@ class Button extends React.Component {
       super(props) 
       this.state = {
         count: 0,
-        random: ''
+        random: "a",
+        winCondition: "Get to 25 points to WIN!",
+        penalty: "Let's Go!",
+        img: "http://opengameart.org/sites/default/files/cat_idle.gif"
       };
       this.handleIncrease = this.handleIncrease.bind(this);
       this.handleReset = this.handleReset.bind(this);
@@ -19,7 +22,7 @@ class Button extends React.Component {
         this.setState({
             random: randomChar
         })
-        console.log('this is the random char', randomChar);
+        console.log('this is the random ', randomChar);
     }    
 
     handleIncrease(event) {
@@ -28,13 +31,27 @@ class Button extends React.Component {
         var currCount = this.state.count;
         var charCode = event.keyCode || event.which;
         var charStr = String.fromCharCode(charCode);
-        if(charStr === this.state.random) {     
+        
+        if(currCount === 25) {
+          this.setState({
+              winCondition: "YOU WIN!",
+              img: "http://opengameart.org/sites/default/files/cat_a4.gif"
+          })
+        }
+        else if(charStr === this.state.random) {     
           currCount += 1;
+          this.setState({
+              penalty: "You Rock!",
+              img: "http://opengameart.org/sites/default/files/cat_a1.gif"
+          })
         }
-        else {
+        else if(charStr !== this.state.random) {
           currCount -= 1;
+          this.setState({
+              penalty: "You Suck!",
+              img: "http://opengameart.org/sites/default/files/cat_spin_kick.gif"
+          })
         }
-        // this.handleRandom();
         this.setState({
             count: currCount
         });
@@ -54,6 +71,10 @@ class Button extends React.Component {
         return(
         <div>
             <div onKeyPress={this.handleIncrease}>
+            <h4>{this.state.random}</h4>
+            <h5>{this.state.winCondition}</h5>
+            <h5>{this.state.penalty}</h5>
+            <img src={this.state.img}/>
             <div onKeyPress={this.handleIncrease}>{this.state.count}</div>
             <button onClick={this.handleIncrease}>+</button>
             </div> 
