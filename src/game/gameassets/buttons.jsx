@@ -9,6 +9,7 @@ class Button extends React.Component {
       };
       this.handleIncrease = this.handleIncrease.bind(this);
       this.handleReset = this.handleReset.bind(this);
+      this.handleChanges = this.handleChanges.bind(this);
     }
 
 // randomize keys and check if conditions meet to increment; if not decrement count
@@ -34,10 +35,10 @@ handleChanges(event) {
         if(event.shiftKey && currCount >= 10) { 
             currCount += 10;
         }
-        else if(event.ctrlKey && currCount >= 20) {
+        else if(event.altKey && currCount >= 50) {
             currCount += 20;
         }
-        else if(event.shiftKey && currCount >= 100) {
+        else if(event.shiftKey && currCount >= 300) {
             currCount = 0;
         }
         else if(currCount >= 100) {
