@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 import Tree from './Tree.jsx';
 import Navbar from './Navbar.jsx';
-import Game from '../game/gameindex.jsx';
 
 
 class App extends React.Component {
