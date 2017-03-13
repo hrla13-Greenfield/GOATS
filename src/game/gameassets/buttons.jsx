@@ -9,43 +9,23 @@ class Button extends React.Component {
       };
       this.handleIncrease = this.handleIncrease.bind(this);
       this.handleReset = this.handleReset.bind(this);
-      this.handleChanges = this.handleChanges.bind(this);
     }
-
-// randomize keys and check if conditions meet to increment; if not decrement count
-handleChanges(event) {
-    var arr = ['a','s','d','f'];
-
-    var count = 0;
-
-    function handleInput(arr, event) {
-    var result = arr[Math.floor(arr.length * Math.random())];
-        if(result === input) {
-        count += 1
-        } else {
-        count -= 1
-        }
-    return count
-    }
-}
-
-
+        
     handleIncrease(event) {
+        var charArr = ['a','s','d','f'];
+        var randomChar = charArr[Math.floor(charArr.length * Math.random())];
+        console.log('this is the randomChar', randomChar);
+
+        event = event || window.event;
         var currCount = this.state.count;
-        if(event.shiftKey && currCount >= 10) { 
-            currCount += 10;
-        }
-        else if(event.altKey && currCount >= 50) {
-            currCount += 20;
-        }
-        else if(event.shiftKey && currCount >= 300) {
-            currCount = 0;
-        }
-        else if(currCount >= 100) {
-            currCount = 0;
+        var charCode = event.keyCode || event.which;
+        var charStr = String.fromCharCode(charCode);
+
+        if(charStr === randomChar) {     
+          currCount += 1;
         }
         else {
-            currCount += 1;
+          currCount -= 1;
         }
 
         this.setState({
@@ -64,8 +44,8 @@ handleChanges(event) {
     render() {
         return(
         <div>
-            <div onClick={this.handleIncrease}>
-            <div onClick={this.handleIncrease}>{this.state.count}</div>
+            <div onKeyPress={this.handleIncrease}>
+            <div onKeyPress={this.handleIncrease}>{this.state.count}</div>
             <button onClick={this.handleIncrease}>+</button>
             </div> 
             <button onClick={this.handleReset}>RESET</button>
