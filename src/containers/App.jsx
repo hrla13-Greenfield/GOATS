@@ -1,10 +1,11 @@
-import { createStore, combineReducers } from 'redux';
 import React from 'react';
-import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 import axios from 'axios';
 import Tree from './Tree.jsx';
 import Navbar from './Navbar.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -22,12 +23,15 @@ class App extends React.Component {
                 <Navbar />
               </div>
               <div className="col-sm-9 col-lg-10">
+              <div>
                 <Tree />
+              </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     );
   }
 }
