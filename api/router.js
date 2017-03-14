@@ -16,4 +16,9 @@ myRouter.route('/users')
     controller.createUser(req, res);
   });
 
+myRouter.route('/getBars')
+  .get((req, res) => {
+    controller.getBars(req, res);
+  });
+
 module.exports = myRouter;

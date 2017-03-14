@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import FirstLayer from './FirstLayer.jsx';
 import Suggestion from './Suggestion.jsx'
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 
 //import restaurant from './assets/treepics/Restaurant.jpeg';
-
-
 
 class Tree extends React.Component {
   render (){

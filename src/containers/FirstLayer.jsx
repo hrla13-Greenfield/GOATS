@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import Dinner from './SecondLayer.jsx';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { selectChoice } from '../actions/index.jsx';
@@ -34,7 +33,5 @@ class FirstLayer extends React.Component {
   function mapDispatchToProps(dispatch){
     return bindActionCreators({ selectChoice: selectChoice }, dispatch);
   }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(FirstLayer);
