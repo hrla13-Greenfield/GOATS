@@ -52,9 +52,3 @@ export function addGroup(name) {
   };
 }
 
-export function deleteGroup(id) {
-  return {
-    type: types.DELETE_GROUP,
-    id,
-  };
-}

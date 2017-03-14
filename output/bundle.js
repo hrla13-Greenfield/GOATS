@@ -8195,7 +8195,6 @@ exports.signInSuccess = signInSuccess;
 exports.isLoading = isLoading;
 exports.signIn = signIn;
 exports.addGroup = addGroup;
-exports.deleteGroup = deleteGroup;
 
 var _ActionTypes = __webpack_require__(79);
 
@@ -8248,13 +8247,6 @@ function addGroup(name) {
   return {
     type: types.ADD_GROUP,
     name: name
-  };
-}
-
-function deleteGroup(id) {
-  return {
-    type: types.DELETE_GROUP,
-    id: id
   };
 }
 
@@ -30724,7 +30716,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
           'div',
           null,
           _react2.default.createElement(
-            'h3',
+            'h4',
             null,
             group.name
           ),
@@ -30784,13 +30776,15 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             )
           ),
           _react2.default.createElement(
-            'a',
-            { href: '#' },
-            _react2.default.createElement(
-              'li',
-              null,
-              '________'
-            )
+            'li',
+            null,
+            '________'
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            ' Welcome, ',
+            this.props.userdata.username
           ),
           _react2.default.createElement(
             'a',
@@ -30801,7 +30795,19 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
               'View Profile'
             )
           ),
-          'My Groups',
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'h3',
+            null,
+            'My Groups  ',
+            _react2.default.createElement(
+              'a',
+              { href: '#/addGroup' },
+              ' ',
+              _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
+            )
+          ),
+          _react2.default.createElement('br', null),
           mappedGroups
         )
       );

@@ -19,7 +19,7 @@ export default class Navbar extends React.Component {
     const mappedUsers = group.members.map(user => (<li>{user}</li>))
     return(
       <div>
-      <h3>{group.name}</h3>
+      <h4>{group.name}</h4>
       <ul>{mappedUsers}</ul>
       </div>
     )})
@@ -34,11 +34,13 @@ export default class Navbar extends React.Component {
           <a href="#"><li>browse all</li></a>
           <a href="#"><li>plan my day</li></a>
           <a href="#/game"><li>Game</li></a>
-          <a href="#"><li>________</li></a>
+          <li>________</li>
+            <li> Welcome, {this.props.userdata.username}</li>
             <a href="#/profile"><li>View Profile</li></a>
             
-          
-          My Groups
+          <hr />
+          <h3>My Groups  <a href="#/addGroup"> <span className="glyphicon glyphicon-plus-sign"></span></a></h3>
+          <br />
           {mappedGroups}
         </ul>
       </div>
