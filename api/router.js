@@ -21,4 +21,21 @@ myRouter.route('/getBars')
     controller.getBars(req, res);
   });
 
+
+myRouter.route('/getClubs')
+  .get((req, res) => {
+    controller.getClubs(req, res);
+  });
+
+// myRouter.route('/getLounges')
+//   .get((req, res) => {
+//     controller.getClubs(req, res);
+//   });
+
+myRouter.route('/getActivities')
+  .get((req, res) => {
+    console.log('bodyyyyyyyyy', req.body);
+    controller.getActivity(req, res);
+  });
+
 module.exports = myRouter;

@@ -11,9 +11,11 @@ class Suggestion extends React.Component {
     return this.props.choices.firstLoad.map((choice) => {
       return (
         <div>
-        <h3> Your suggestion:</h3>
-         <div>Name: {choice.name } </div>
-         <div>Activity: { choice.activity } </div>
+        <h3> Do this:</h3>
+         <div> { choice.name } </div>
+         <div> <img src= { choice.image } height="300" /></div>
+         <div>Phone: { choice.phone } </div>
+         <div>Distance: { choice.distance } </div>
       </div>
       );
     });
