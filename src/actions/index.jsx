@@ -8,9 +8,9 @@ export function getData(selection) {
   return {
     type: 'FINAL_SELECTED',
     payload: [
-      { name: selection.name, 
-        image: selection.image_url, 
-        phone: selection.display_phone, 
+      { name: selection.name,
+        image: selection.image_url,
+        phone: selection.display_phone,
         distance: selection.distance },
     ],
   };
@@ -63,7 +63,12 @@ export function selectChoice(option) {
     };
   } else if (option === 'lounge') {
     return (dispatch) => {
-      axios.get('api/getActivities', { term: 'lounge', filter: 'lounges', zip: '90024' })
+      axios.get('api/getActivities', { params: {
+        term: 'lounge', filter: 'lounges', zip: '90024' },
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      })
       .then((results) => {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];

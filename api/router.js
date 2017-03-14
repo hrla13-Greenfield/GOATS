@@ -34,8 +34,8 @@ myRouter.route('/getClubs')
 
 myRouter.route('/getActivities')
   .get((req, res) => {
-    console.log('bodyyyyyyyyy', req.body);
-    controller.getActivity(req, res);
+    var query = req.query;
+    controller.getActivity(req, res, query);
   });
 
 module.exports = myRouter;
