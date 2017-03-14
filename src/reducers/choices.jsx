@@ -13,8 +13,6 @@ var initialState = {
   //console.log('in redcucer')
 
 export default function(state = initialState, action) {
-  console.log(state);
-  console.log('ACTION++++++', action);
   switch(action.type) {
     case 'CHOICES_SELECTED':
     return Object.assign({}, state, {

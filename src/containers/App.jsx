@@ -6,6 +6,7 @@ import axios from 'axios';
 import Tree from './Tree.jsx';
 import Navbar from './Navbar.jsx';
 import Game from '../game/gameindex.jsx';
+import Profile from './Profile.jsx';
 import { Router, Route, browserHistory } from 'react-router';
 let createHistory = require('history').createHashHistory;
 const hashHistory = createHistory();
@@ -33,6 +34,7 @@ class App extends React.Component {
                     <div>
                     <Route path="/game" component={Game} />
                     <Route path="/tree" component={Tree} />
+                    <Route path="/profile" component={Profile} />
                     </div>
                   </Router>
                 </div>
