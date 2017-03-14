@@ -33,62 +33,6 @@ request(options, function (error, response, body) {
 }
 
 
-exports.getBars = function (req, res) {
- var cb = function(token) {
-  var bearer = JSON.parse(token).access_token;
-   var options = { method: 'GET',
-    url: 'https://api.yelp.com/v3/businesses/search',
-    qs: 
-    { term: 'bars',
-      category_filter: 'bars',
-      location: '90024',
-      sort_by: 'rating',
-      limit: '50' },
-    headers: 
-    { 'postman-token': '93676d7e-657a-46fd-71fc-a9b2fcf909a5',
-      'cache-control': 'no-cache',
-      authorization: 'Bearer '+bearer } };
-      console.log(options.headers);
-  request( options, function (error, response, body) {
-    if (error) throw new Error(error);
-
-    res.send(body);
-    res.end();
-    return;
-  });
-}
-getBearer(cb);
-}
-
-
-
-exports.getClubs = function (req, res) {
- var cb = function(token) {
-  var bearer = JSON.parse(token).access_token;
-   var options = { method: 'GET',
-    url: 'https://api.yelp.com/v3/businesses/search',
-    qs: 
-    { term: 'clubs',
-      category_filter: 'danceclubs',
-      location: '90024',
-      sort_by: 'rating',
-      limit: '50' },
-    headers: 
-    { 'postman-token': '93676d7e-657a-46fd-71fc-a9b2fcf909a5',
-      'cache-control': 'no-cache',
-      authorization: 'Bearer '+bearer } };
-      console.log(options.headers);
-  request( options, function (error, response, body) {
-    if (error) throw new Error(error);
-
-    res.send(body);
-    res.end();
-    return;
-  });
-}
-getBearer(cb);
-}
-
 exports.getActivity = function (req, res, query) {
  var cb = function(token) {
   var bearer = JSON.parse(token).access_token;
@@ -103,7 +47,7 @@ exports.getActivity = function (req, res, query) {
     headers: 
     { 'postman-token': '93676d7e-657a-46fd-71fc-a9b2fcf909a5',
       'cache-control': 'no-cache',
-      authorization: 'Bearer '+ bearer } };
+      authorization: 'Bearer ' + bearer }};
       console.log(options.headers);
   request( options, function (error, response, body) {
     if (error) throw new Error(error);
