@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes.jsx';
 
-export function signIn() {
+export function signInSuccess() {
   return {
     type: types.SIGN_IN,
     username: 'Brandon',
@@ -24,6 +24,24 @@ export function signIn() {
     ],
     userImg: null,
     userID: 12,
+  };
+}
+
+export function isLoading(bool) {
+  return {
+    type: types.USER_LOADING,
+    bool,
+  };
+}
+
+export function signIn() {
+  return (dispatch) => {
+    dispatch(isLoading(true));
+
+    //fetch
+      //then
+      // onsuccess -> 
+    dispatch(signInSuccess());
   };
 }
 

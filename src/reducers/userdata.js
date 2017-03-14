@@ -24,9 +24,10 @@ export default function groups(state = initialState, action) {
         userID: action.userID,
       };
 
-    case types.GET_STATE:
+    case types.USER_LOADING:
       return {
         ...state,
+        isLoading: true,
       };
 
     case types.ADD_GROUP:
