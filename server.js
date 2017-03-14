@@ -8,6 +8,7 @@ const app = express();
 const PORT = 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(morgan('combined'));
 app.use(express.static('./output'));
 app.use('/api', myRouter);

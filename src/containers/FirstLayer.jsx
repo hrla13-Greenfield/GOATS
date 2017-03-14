@@ -5,33 +5,31 @@ import { bindActionCreators } from 'redux';
 import { selectChoice } from '../actions/index.jsx';
 
 class FirstLayer extends React.Component {
-  renderChoices () {
-    return this.props.choices.firstLoad.map((choice) => {
-      return (
-        <img
-          key={choice.img}
+  renderChoices() {
+    return this.props.choices.firstLoad.map((choice) => ( 
+        <img className="img-responsive"
+          key={ choice.img }
           onClick={() => this.props.selectChoice(choice.option)}
-          src={choice.img} />
-      );
-    });
+          src={choice.img} height="250" />
+      ));
   }
 
   render() {
     return (
       <div className="col-sm-4">
-      { this.renderChoices() }</div>
+        { this.renderChoices() }</div>
     );
   }
 }
 
-  function mapStateToProps(state) {
+function mapStateToProps(state) {
     return {
       choices: state.choices,
     };
   }
 
-  function mapDispatchToProps(dispatch){
-    return bindActionCreators({ selectChoice: selectChoice }, dispatch);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ selectChoice }, dispatch);
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FirstLayer);
