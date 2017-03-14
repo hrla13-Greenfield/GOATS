@@ -2342,12 +2342,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+
+
+
+
+
+
+>>>>>>> "Merged axios params, working now"
 /***/ }),
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8195,6 +8204,10 @@ exports.signInSuccess = signInSuccess;
 exports.isLoading = isLoading;
 exports.signIn = signIn;
 exports.addGroup = addGroup;
+<<<<<<< HEAD
+=======
+exports.deleteGroup = deleteGroup;
+>>>>>>> "Merged axios params, working now"
 
 var _ActionTypes = __webpack_require__(79);
 
@@ -8249,6 +8262,16 @@ function addGroup(name) {
     name: name
   };
 }
+<<<<<<< HEAD
+=======
+
+function deleteGroup(id) {
+  return {
+    type: types.DELETE_GROUP,
+    id: id
+  };
+}
+>>>>>>> "Merged axios params, working now"
 
 /***/ }),
 /* 76 */
@@ -30662,6 +30685,8 @@ var _react = __webpack_require__(4);
 var _react2 = _interopRequireDefault(_react);
 
 var _redux = __webpack_require__(15);
+<<<<<<< HEAD
+=======
 
 var _reactRedux = __webpack_require__(18);
 
@@ -30716,7 +30741,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
           'div',
           null,
           _react2.default.createElement(
-            'h4',
+            'h3',
             null,
             group.name
           ),
@@ -30776,15 +30801,13 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             )
           ),
           _react2.default.createElement(
-            'li',
-            null,
-            '________'
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            ' Welcome, ',
-            this.props.userdata.username
+            'a',
+            { href: '#' },
+            _react2.default.createElement(
+              'li',
+              null,
+              '________'
+            )
           ),
           _react2.default.createElement(
             'a',
@@ -30795,19 +30818,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
               'View Profile'
             )
           ),
-          _react2.default.createElement('hr', null),
-          _react2.default.createElement(
-            'h3',
-            null,
-            'My Groups  ',
-            _react2.default.createElement(
-              'a',
-              { href: '#/addGroup' },
-              ' ',
-              _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
-            )
-          ),
-          _react2.default.createElement('br', null),
+          'My Groups',
           mappedGroups
         )
       );
@@ -30868,6 +30879,194 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _redux = __webpack_require__(15);
+>>>>>>> "Merged axios params, working now"
+
+var _reactRedux = __webpack_require__(18);
+
+var _UserActions = __webpack_require__(75);
+
+var UserActions = _interopRequireWildcard(_UserActions);
+
+var _GroupList = __webpack_require__(78);
+
+var _GroupList2 = _interopRequireDefault(_GroupList);
+
+var _AddGroupInput = __webpack_require__(77);
+
+var _AddGroupInput2 = _interopRequireDefault(_AddGroupInput);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
+  return {
+    userdata: store.userdata
+  };
+}), _dec(_class = function (_React$Component) {
+  _inherits(Profile, _React$Component);
+
+  function Profile() {
+    _classCallCheck(this, Profile);
+
+    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+  }
+
+<<<<<<< HEAD
+  _createClass(Navbar, [{
+    key: 'renderlist',
+    value: function renderlist() {
+      // console.log()
+      var mappedGroups = this.props.userdata.currentGroupsByID.map(function (group) {
+        var mappedUsers = group.members.map(function (user) {
+          return _react2.default.createElement(
+            'li',
+            null,
+            user
+          );
+        });
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h4',
+            null,
+            group.name
+          ),
+          _react2.default.createElement(
+            'ul',
+            null,
+            mappedUsers
+          )
+        );
+      });
+
+=======
+  _createClass(Profile, [{
+    key: 'render',
+    value: function render() {
+      console.log(this.props.userdata.username);
+>>>>>>> "Merged axios params, working now"
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          this.props.userdata.username,
+          '\'s Profile'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+<<<<<<< HEAD
+            'li',
+            null,
+            '________'
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            ' Welcome, ',
+            this.props.userdata.username
+=======
+            'div',
+            { className: 'col-md-5' },
+            _react2.default.createElement('img', { height: '125px', width: '125px', src: '' })
+>>>>>>> "Merged axios params, working now"
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-7' },
+            _react2.default.createElement(
+              'h2',
+              null,
+              'Pending group invites'
+            )
+<<<<<<< HEAD
+          ),
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'h3',
+            null,
+            'My Groups  ',
+            _react2.default.createElement(
+              'a',
+              { href: '#/addGroup' },
+              ' ',
+              _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
+            )
+          ),
+          _react2.default.createElement('br', null),
+          mappedGroups
+        )
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var self = this;
+      var tmp = function tmp() {
+        self.props.dispatch(UserActions.signIn());
+      };
+      if (this.props.userdata.signedIn) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          this.renderlist()
+        );
+      } else {
+        return _react2.default.createElement(
+=======
+          )
+        ),
+        _react2.default.createElement(
+>>>>>>> "Merged axios params, working now"
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            ' User history list '
+          )
+        )
+      );
+    }
+  }]);
+
+  return Profile;
+}(_react2.default.Component)) || _class);
+exports.default = Profile;
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+<<<<<<< HEAD
 var _redux = __webpack_require__(15);
 
 var _reactRedux = __webpack_require__(18);
@@ -30972,6 +31171,8 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
+=======
+>>>>>>> "Merged axios params, working now"
 var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
