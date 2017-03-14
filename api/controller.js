@@ -89,15 +89,15 @@ exports.getClubs = function (req, res) {
 getBearer(cb);
 }
 
-exports.getActivity = function (req, res) {
+exports.getActivity = function (req, res, query) {
  var cb = function(token) {
   var bearer = JSON.parse(token).access_token;
    var options = { method: 'GET',
     url: 'https://api.yelp.com/v3/businesses/search',
     qs: 
-    { term: req.body.term,
-      category_filter: req.body.filter,
-      location: req.body.zip,
+    { term: query.term,
+      category_filter: query.filter,
+      location: query.zip,
       sort_by: 'rating',
       limit: '50' },
     headers: 

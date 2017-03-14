@@ -8325,7 +8325,12 @@ function selectChoice(option) {
     };
   } else if (option === 'lounge') {
     return function (dispatch) {
-      _axios2.default.get('api/getActivities', { term: 'lounge', filter: 'lounges', zip: '90024' }).then(function (results) {
+      _axios2.default.get('api/getActivities', { params: {
+          term: 'lounge', filter: 'lounges', zip: '90024' },
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded'
+        }
+      }).then(function (results) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
