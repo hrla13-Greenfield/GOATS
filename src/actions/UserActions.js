@@ -37,6 +37,10 @@ export function isLoading(bool) {
 export function signIn() {
   return (dispatch) => {
     dispatch(isLoading(true));
+
+    //fetch
+      //then
+      // onsuccess -> 
     dispatch(signInSuccess());
   };
 }
