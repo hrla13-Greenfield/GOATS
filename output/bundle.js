@@ -31507,6 +31507,7 @@ var Tree = function (_React$Component) {
   return Tree;
 }(_react2.default.Component);
 
+<<<<<<< HEAD
 function mapStateToProps(state) {
   return {
     choices: state.choices
@@ -31516,6 +31517,19 @@ function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Tree);
 
 //export default Tree;
+=======
+var _reduxThunk = __webpack_require__(285);
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom2.default.render(_react2.default.createElement(
+  _reactRedux.Provider,
+  { store: (0, _redux.createStore)(_index2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default)) },
+  _react2.default.createElement(_App2.default, null)
+), document.getElementById('app'));
+>>>>>>> prep to rebase
 
 /***/ }),
 /* 145 */
@@ -32106,8 +32120,19 @@ function createArrayFromMixed(obj) {
   }
 }
 
+<<<<<<< HEAD
 module.exports = createArrayFromMixed;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+=======
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var SIGN_IN = exports.SIGN_IN = 'SIGN_IN';
+var ADD_GROUP = exports.ADD_GROUP = 'ADD_GROUP';
+var DELETE_GROUP = exports.DELETE_GROUP = 'DELETE_GROUP';
+var GET_STATE = exports.GET_STATE = 'GET_STATE';
+var USER_LOADING = exports.USER_LOADING = 'USER_LOADING';
+>>>>>>> prep to rebase
 
 /***/ }),
 /* 153 */
@@ -41949,7 +41974,18 @@ module.exports = SyntheticInputEvent;
 
 
 
+<<<<<<< HEAD
 var SyntheticUIEvent = __webpack_require__(32);
+=======
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.signInSuccess = signInSuccess;
+exports.isLoading = isLoading;
+exports.signIn = signIn;
+exports.addGroup = addGroup;
+exports.deleteGroup = deleteGroup;
+>>>>>>> prep to rebase
 
 var getEventCharCode = __webpack_require__(54);
 var getEventKey = __webpack_require__(240);
@@ -41985,6 +42021,7 @@ var KeyboardEventInterface = {
     // `keyCode` is the result of a KeyDown/Up event and represents the value of
     // physical keyboard key.
 
+<<<<<<< HEAD
     // The actual meaning of the value depends on the users' keyboard layout
     // which cannot be detected. Assuming that it is a US keyboard layout
     // provides a surprisingly accurate mapping for US and European users.
@@ -42015,6 +42052,50 @@ var KeyboardEventInterface = {
  */
 function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget) {
   return SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
+=======
+function signInSuccess() {
+  return {
+    type: types.SIGN_IN,
+    username: 'Brandon',
+    currentGroups: [1, 2, 3],
+    currentGroupsByID: [{
+      id: 1,
+      name: 'Group1',
+      members: ['Sandra', 'Alex', 'Emily']
+    }, {
+      id: 2,
+      name: 'Group2',
+      members: ['Andrew', 'Regina', 'Armen']
+    }, {
+      id: 3,
+      name: 'Group3',
+      members: ['Josh', 'Zach', 'Marcie']
+    }],
+    userImg: null,
+    userID: 12
+  };
+}
+
+function isLoading(bool) {
+  return {
+    type: types.USER_LOADING,
+    bool: bool
+  };
+}
+
+function signIn() {
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    dispatch(signInSuccess());
+  };
+}
+
+function addGroup(name) {
+  return {
+    type: types.ADD_GROUP,
+    name: name
+  };
+>>>>>>> prep to rebase
 }
 
 SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
@@ -42057,6 +42138,7 @@ var TouchEventInterface = {
   getModifierState: getEventModifierState
 };
 
+<<<<<<< HEAD
 /**
  * @param {object} dispatchConfig Configuration used to dispatch this event.
  * @param {string} dispatchMarker Marker identifying the event target.
@@ -42070,6 +42152,38 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 
 module.exports = SyntheticTouchEvent;
+=======
+var data = void 0;
+
+function selectChoice(option) {
+  console.log('in action creator');
+  // here I would make axios get to db
+  if (option === 'food') {
+    return {
+      type: 'CHOICES_SELECTED',
+      payload: [{ img: 'http://www.peabody.k12.ma.us/cms/lib01/MA01001873/Centricity/Domain/1013/italian_flag_behind_a_smiling_chef_with_a_pizza.jpg', option: 'breakfast' }, { img: 'http://mustseeplaces.eu/wp-content/uploads/2016/11/asian-food-1.jpg', option: 'lunch/dinner' }]
+    };
+  } else if (option === 'party') {
+    return {
+      type: 'CHOICES_SELECTED',
+      payload: [{ img: 'https://i.ytimg.com/vi/CX8Uuynkppw/maxresdefault.jpg', option: 'bar' }, { img: 'https://s-media-cache-ak0.pinimg.com/originals/42/26/8a/42268a15745703bbff25a4ca2e7e461b.jpg', option: 'club' }]
+    };
+  } else if (option === 'bar') {
+    _axios2.default.get('api/getBars').then(function (results) {
+      data = results.data.businesses[0];
+      console.log('results.data.businesses', results.data.businesses);
+    }).catch(function (err) {
+      console.error(err);
+    });
+    return {
+      type: 'FINAL_SELECTED',
+      payload: [{ name: data.name, activity: 'dance' }]
+    };
+  }
+
+  // axios calls go in here NOT in the reducers
+}
+>>>>>>> prep to rebase
 
 /***/ }),
 /* 233 */
@@ -43060,6 +43174,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+<<<<<<< HEAD
+=======
+    case types.USER_LOADING:
+      return _extends({}, state, {
+        isLoading: true
+      });
+>>>>>>> prep to rebase
 
 
 
@@ -47219,6 +47340,35 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
   return Profile;
 }(_react2.default.Component)) || _class);
 exports.default = Profile;
+
+/***/ }),
+/* 285 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+function createThunkMiddleware(extraArgument) {
+  return function (_ref) {
+    var dispatch = _ref.dispatch,
+        getState = _ref.getState;
+    return function (next) {
+      return function (action) {
+        if (typeof action === 'function') {
+          return action(dispatch, getState, extraArgument);
+        }
+
+        return next(action);
+      };
+    };
+  };
+}
+
+var thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;
+
+exports['default'] = thunk;
 
 /***/ })
 /******/ ]);
