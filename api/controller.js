@@ -103,7 +103,7 @@ exports.getActivity = function (req, res, query) {
     headers: 
     { 'postman-token': '93676d7e-657a-46fd-71fc-a9b2fcf909a5',
       'cache-control': 'no-cache',
-      authorization: 'Bearer '+ bearer } };
+      authorization: 'Bearer ' + bearer }};
       console.log(options.headers);
   request( options, function (error, response, body) {
     if (error) throw new Error(error);

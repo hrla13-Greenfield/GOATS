@@ -14,7 +14,6 @@ myRouter.route('/getBars')
     controller.getBars(req, res);
   });
 
-
 myRouter.route('/getClubs')
   .get((req, res) => {
     controller.getClubs(req, res);
