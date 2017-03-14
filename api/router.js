@@ -1,5 +1,15 @@
 const myRouter = require('express').Router();
 const controller = require('./controller');
+const fs = require('fs');
+const Mustache  = require('mustache');
+
+
+myRouter.route('/signin')
+  .get((req, res) => {
+  var view = {};
+  var html = Mustache.to_html(loadLogin(), view);
+  response.send(html);
+});
 
 myRouter.route('/users')
   .get((req, res) => {

@@ -78,6 +78,7 @@ export default class Navbar extends React.Component {
     return (
     <div>
       {this.renderlist()}
+
     </div>
     )
     } else {
