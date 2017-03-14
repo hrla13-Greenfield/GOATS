@@ -24,6 +24,8 @@ export default class Navbar extends React.Component {
       </div>
     )})
 
+    
+
     return (
       <div >
         <h1>Navbar goes here</h1>
@@ -33,6 +35,9 @@ export default class Navbar extends React.Component {
           <a href="#"><li>plan my day</li></a>
           <a href="#/game"><li>Game</li></a>
           <a href="#"><li>________</li></a>
+            <a href="#/profile"><li>View Profile</li></a>
+            
+          
           My Groups
           {mappedGroups}
         </ul>
