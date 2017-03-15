@@ -36,20 +36,19 @@ export default class Navbar extends React.Component {
     this.setState({ text: e.target.value })
   }
   addFriend(groupID) {
-    this.props.dispatch(UserActions.addFriend(groupID, this.state.value))
+    this.props.dispatch(UserActions.addFriend(groupID, this.state.value, this.props.userdata.userID))
   }
   addGroup() {
-    this.props.dispatch(UserActions.addGroup(this.state.value))
+    this.props.dispatch(UserActions.addGroup(this.state.value, this.props.userdata.userID))
   }
   
   renderlist() {
-    console.log(this.props.userdata.currentGroupsByID)
     const mappedGroups = this.props.userdata.currentGroupsByID.map(group => { 
     const mappedUsers = group.members.map(user => (<li>{user}</li>))
     return(
       <div>
-      <h4>{group.name}<a onClick={() => this.friendInput(group.name)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
-      <div>{this.state[group.name]}</div>
+      <h4>{group.name}<a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
+      <div>{this.state[group.id]}</div>
       <ul>{mappedUsers}</ul>
       </div>
     )}) 

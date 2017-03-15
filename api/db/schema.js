@@ -13,6 +13,7 @@ const User = db.define('User', {
   username: Sequelize.STRING,
   current: Sequelize.STRING,
   points: Sequelize.STRING,
+  image: Sequelize.STRING,
 });
 
 const Group = db.define('Group', {
@@ -87,3 +88,4 @@ exports.User = User;
 exports.Group = Group;
 exports.UserGroup = UserGroup;
 exports.UserHistory = UserHistory;
+exports.PendingInvites = PendingInvites;

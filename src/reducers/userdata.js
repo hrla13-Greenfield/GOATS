@@ -32,7 +32,7 @@ export default function groups(state = initialState, action) {
 
     case types.ADD_FRIEND:
       for (let i = 0; i < state.currentGroupsByID.length; i++) {
-        if (state.currentGroupsByID[i].name === action.groupName) {
+        if (state.currentGroupsByID[i].id === action.groupID) {
           var thisGroup = i;
         }
       }

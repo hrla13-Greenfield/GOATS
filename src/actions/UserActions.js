@@ -1,3 +1,4 @@
+import axios from 'axios';
 import * as types from '../constants/ActionTypes.jsx';
 
 export function signInSuccess() {
@@ -45,10 +46,10 @@ export function signIn() {
   };
 }
 
-export function addFriendSuccess(groupName, friendName) {
+export function addFriendSuccess(groupID, friendName) {
   return {
     type: types.ADD_FRIEND,
-    groupName,
+    groupID,
     friendName,
   };
 }
@@ -60,15 +61,25 @@ export function addGroupSuccess(groupName) {
   };
 }
 
-export function addFriend(groupName, friendName) {
+export function addFriend(groupID, friendName, userID) {
   return (dispatch) => {
     dispatch(isLoading(true));
-    dispatch(addFriendSuccess(groupName, friendName));
+    axios.post('/api/users/groups', { 
+      groupID,
+      friendName,
+      userID,
+    }
+    ).then(() => {
+      dispatch(addFriendSuccess(groupID, friendName));
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   };
 }
 
 
-export function addGroup(groupName) {
+export function addGroup(groupName, userID) {
   return (dispatch) => {
     dispatch(isLoading(true));
     dispatch(addGroupSuccess(groupName));
