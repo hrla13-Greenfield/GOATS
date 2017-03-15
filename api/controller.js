@@ -19,7 +19,7 @@ exports.addToGroup = function (req, res) {
         console.log(data);
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
       });
     } else {
       console.log('error!');
@@ -34,25 +34,25 @@ exports.addToGroup = function (req, res) {
 exports.returnUserData = function (req, res) {
   db.User.findOne({ where: { username: req.query.username } }).then((results) => {
     db.UserGroup.findAll({
-      where: {userId: results.id}
+      where: { userId: results.id },
     })
     .then((groupIDs) => {
-      var myGroups = [];
-      for (var i=0; i<groupIDs.length; i++) {
+      let myGroups = [];
+      for (let i = 0; i < groupIDs.length; i++) {
         myGroups.push(groupIDs[i].GroupId);
       }
       db.Group.findAll({
         include: [
-          {model: db.User, through: {
-            where: {GroupId: myGroups}
-          }}
-        ]
+          { model: db.User,
+through: {
+            where: { GroupId: myGroups },
+          } },
+        ],
       }).then((data) => {
         res.send(data);
-      })
-    })
-
-  })
+      });
+    });
+  });
 };
 
 exports.createGroup = function (req, res) {
@@ -60,7 +60,25 @@ exports.createGroup = function (req, res) {
 };
 
 exports.createHistory = function (req, res) {
-
+  const location = JSON.stringify(req.body.selection.location);
+  const categories = JSON.stringify(req.body.selection.categories);
+  const history = db.UserHistory.build({
+    name: req.body.selection.name,
+    url: req.body.selection.url,
+    image: req.body.selection.image_url,
+    address: location,
+    open_hours: req.body.selection.is_closed,
+    category: categories,
+    phone: req.body.selection.display_phone,
+    UserId: req.body.userID,
+  });
+  history.save()
+.then(() => {
+  db.User.findOne({ where: { id: req.body.userID } })
+.then((result) => {
+  result.update({ current: history.id });
+});
+});
 };
 
 const getBearer = function (cb) {
