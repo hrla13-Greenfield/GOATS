@@ -10,7 +10,7 @@ class FirstLayer extends React.Component {
     return this.props.choices.firstLoad.map((choice) => ( 
         <img className="img-responsive"
           key={ choice.img }
-          onClick={() => this.props.selectChoice(choice.option, this.props.choices.updatedZipcode)}
+          onClick={() => this.props.selectChoice(choice.option, this.props.choices.updatedZipcode, this.props.userdata.userID)}
           src={choice.img} height="250" />
       ));
   }
@@ -26,6 +26,7 @@ class FirstLayer extends React.Component {
 function mapStateToProps(state) {
     return {
       choices: state.choices,
+      userdata: state.userdata,
     };
   }
 

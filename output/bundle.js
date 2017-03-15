@@ -5350,7 +5350,7 @@ function getData(selection) {
       distance: selection.distance }]
   };
 }
-function selectChoice(option, zip) {
+function selectChoice(option, zip, userID) {
   if (option === 'food') {
     return {
       type: 'CHOICES_SELECTED',
@@ -5378,6 +5378,7 @@ function selectChoice(option, zip) {
     };
     // server calls
   } else if (option === 'breakfast') {
+    console.log(userID);
     return function (dispatch) {
       _axios2.default.get('api/getActivities', { params: {
           term: 'food', filter: 'coffee', zip: zip },
@@ -5389,7 +5390,9 @@ function selectChoice(option, zip) {
         selection = data[Math.floor(Math.random() * data.length)];
         console.log(selection, '+++++++++');
         dispatch(getData(selection));
-        _axios2.default.post('api/users/history', selection);
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -30831,7 +30834,7 @@ var FirstLayer = function (_React$Component) {
         return _react2.default.createElement('img', { className: 'img-responsive',
           key: choice.img,
           onClick: function onClick() {
-            return _this2.props.selectChoice(choice.option, _this2.props.choices.updatedZipcode);
+            return _this2.props.selectChoice(choice.option, _this2.props.choices.updatedZipcode, _this2.props.userdata.userID);
           },
           src: choice.img, height: '250' });
       });
@@ -30852,7 +30855,8 @@ var FirstLayer = function (_React$Component) {
 
 function mapStateToProps(state) {
   return {
-    choices: state.choices
+    choices: state.choices,
+    userdata: state.userdata
   };
 }
 

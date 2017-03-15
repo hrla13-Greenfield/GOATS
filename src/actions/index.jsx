@@ -23,7 +23,7 @@ export function getData(selection) {
     ],
   };
 }
-export function selectChoice(option, zip) {
+export function selectChoice(option, zip, userID) {
   if (option === 'food') {
     return {
       type: 'CHOICES_SELECTED',
@@ -66,7 +66,8 @@ export function selectChoice(option, zip) {
       ],
     };
   // server calls
-  } else if (option === 'breakfast') {
+} else if (option === 'breakfast') {
+  console.log(userID);
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'food', filter: 'coffee', zip: zip },
@@ -79,7 +80,9 @@ export function selectChoice(option, zip) {
         selection = data[Math.floor(Math.random() * data.length)];
         console.log(selection, '+++++++++');
         dispatch(getData(selection));
-        axios.post('api/users/history', selection);
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);

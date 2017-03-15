@@ -15,19 +15,26 @@ exports.createGroup = function (req, res) {
 };
 
 exports.createHistory = function (req, res) {
-  const location = JSON.stringify(req.body.location);
-  const categories = JSON.stringify(req.body.categories);
+  console.log(req.body);
+  const location = JSON.stringify(req.body.selection.location);
+  const categories = JSON.stringify(req.body.selection.categories);
   const history = db.UserHistory.build({
-    name: req.body.name,
-    url: req.body.url,
-    image: req.body.image_url,
+    name: req.body.selection.name,
+    url: req.body.selection.url,
+    image: req.body.selection.image_url,
     address: location,
-    open_hours: req.body.is_closed,
+    open_hours: req.body.selection.is_closed,
     category: categories,
-    phone: req.body.display_phone,
-  })
+    phone: req.body.selection.display_phone,
+    UserId: req.body.userID,
+  });
   history.save()
-  .then(console.log(history))
+  .then(() => {
+    db.User.findOne({ where: { id: req.body.userID } })
+  .then((result) => {
+    result.update({ current: history.id });
+  });
+  });
 };
 
 const getBearer = function (cb) {
