@@ -44,6 +44,19 @@ export default function groups(state = initialState, action) {
         },
       };
 
+    case types.ADD_FRIEND:
+    console.log(state.currentGroupsByID)
+      for (let i = 0; i < state.currentGroupsByID.length; i++) {
+        if (state.currentGroupsByID[i].name === action.groupName) {
+          var thisGroup = i;
+        }
+      }
+      console.log(state.currentGroupsByID[thisGroup].members)
+      return {
+        ...state,
+        currentGroups: state.currentGroupsByID[thisGroup].members.push(action.friendName),
+      };
+
     case types.DELETE_GROUP:
       return {
         ...state,

@@ -8194,6 +8194,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.signInSuccess = signInSuccess;
 exports.isLoading = isLoading;
 exports.signIn = signIn;
+exports.addFriendSuccess = addFriendSuccess;
+exports.addFriend = addFriend;
 exports.addGroup = addGroup;
 
 var _ActionTypes = __webpack_require__(79);
@@ -8240,6 +8242,21 @@ function signIn() {
     //then
     // onsuccess -> 
     dispatch(signInSuccess());
+  };
+}
+
+function addFriendSuccess(groupName, friendName) {
+  return {
+    type: types.ADD_FRIEND,
+    groupName: groupName,
+    friendName: friendName
+  };
+}
+
+function addFriend(groupName, friendName) {
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    dispatch(addFriendSuccess(groupName, friendName));
   };
 }
 
@@ -8758,6 +8775,7 @@ var ADD_GROUP = exports.ADD_GROUP = 'ADD_GROUP';
 var DELETE_GROUP = exports.DELETE_GROUP = 'DELETE_GROUP';
 var GET_STATE = exports.GET_STATE = 'GET_STATE';
 var USER_LOADING = exports.USER_LOADING = 'USER_LOADING';
+var ADD_FRIEND = exports.ADD_FRIEND = 'ADD_FRIEND';
 
 /***/ }),
 /* 80 */
@@ -30968,10 +30986,16 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
     _this.state = {};
     _this.groupInput = _this.groupInput.bind(_this);
     _this.friendInput = _this.friendInput.bind(_this);
+    _this.handleChange = _this.handleChange.bind(_this);
     return _this;
   }
 
   _createClass(Navbar, [{
+    key: 'handleChange',
+    value: function handleChange(e) {
+      this.setState({ value: e.target.value });
+    }
+  }, {
     key: 'groupInput',
     value: function groupInput() {
       this.setState({
@@ -30989,7 +31013,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             return _this2.addFriend(groupID);
           } },
         ' ',
-        _react2.default.createElement('input', { type: 'text' })
+        _react2.default.createElement('input', { onChange: this.handleChange, type: 'text' })
       )));
     }
   }, {
@@ -31000,7 +31024,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
   }, {
     key: 'addFriend',
     value: function addFriend(groupID) {
-      console.log(groupID);
+      this.props.dispatch(UserActions.addFriend(groupID, this.state.value));
     }
   }, {
     key: 'renderlist',
@@ -31800,6 +31824,18 @@ function groups() {
           id: newId,
           name: action.name
         }))
+      });
+
+    case types.ADD_FRIEND:
+      console.log(state.currentGroupsByID);
+      for (var i = 0; i < state.currentGroupsByID.length; i++) {
+        if (state.currentGroupsByID[i].name === action.groupName) {
+          var thisGroup = i;
+        }
+      }
+      console.log(state.currentGroupsByID[thisGroup].members);
+      return _extends({}, state, {
+        currentGroups: state.currentGroupsByID[thisGroup].members.push(action.friendName)
       });
 
     case types.DELETE_GROUP:

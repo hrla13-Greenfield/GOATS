@@ -17,8 +17,11 @@ export default class Navbar extends React.Component {
     this.state = {}
     this.groupInput = this.groupInput.bind(this)
     this.friendInput = this.friendInput.bind(this)
+    this.handleChange = this.handleChange.bind(this);
   }
-
+  handleChange(e) {
+    this.setState({ value: e.target.value})
+  }
   groupInput() {
     this.setState({
       group: (<input type="text"></input>)
@@ -26,14 +29,14 @@ export default class Navbar extends React.Component {
   }
   friendInput(groupID) {
     this.setState({
-       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input type="text"></input></form>)
+       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input onChange={this.handleChange} type="text"></input></form>)
     })
   }
   inputChange(e, groupID) {
     this.setState({ text: e.target.value })
   }
   addFriend(groupID) {
-    console.log(groupID)
+    this.props.dispatch(UserActions.addFriend(groupID, this.state.value))
   }
   
   renderlist() {

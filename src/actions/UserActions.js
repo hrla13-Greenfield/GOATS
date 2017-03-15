@@ -45,6 +45,21 @@ export function signIn() {
   };
 }
 
+export function addFriendSuccess(groupName, friendName) {
+  return {
+    type: types.ADD_FRIEND,
+    groupName,
+    friendName,
+  };
+}
+
+export function addFriend(groupName, friendName) {
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    dispatch(addFriendSuccess(groupName, friendName));
+  };
+}
+
 export function addGroup(name) {
   return {
     type: types.ADD_GROUP,
