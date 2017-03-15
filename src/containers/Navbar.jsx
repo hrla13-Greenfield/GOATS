@@ -26,10 +26,15 @@ export default class Navbar extends React.Component {
   }
   friendInput(groupID) {
     this.setState({
-       [groupID] : (<input type="text"></input>)
+       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input type="text"></input></form>)
     })
   }
-
+  inputChange(e, groupID) {
+    this.setState({ text: e.target.value })
+  }
+  addFriend(groupID) {
+    console.log(groupID)
+  }
   
   renderlist() {
     const mappedGroups = this.props.userdata.currentGroupsByID.map(group => {

@@ -30966,12 +30966,31 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
   }, {
     key: 'friendInput',
     value: function friendInput(groupID) {
-      this.setState(_defineProperty({}, groupID, _react2.default.createElement('input', { type: 'text' })));
+      var _this2 = this;
+
+      this.setState(_defineProperty({}, groupID, _react2.default.createElement(
+        'form',
+        { onSubmit: function onSubmit() {
+            return _this2.addFriend(groupID);
+          } },
+        ' ',
+        _react2.default.createElement('input', { type: 'text' })
+      )));
+    }
+  }, {
+    key: 'inputChange',
+    value: function inputChange(e, groupID) {
+      this.setState({ text: e.target.value });
+    }
+  }, {
+    key: 'addFriend',
+    value: function addFriend(groupID) {
+      console.log(groupID);
     }
   }, {
     key: 'renderlist',
     value: function renderlist() {
-      var _this2 = this;
+      var _this3 = this;
 
       var mappedGroups = this.props.userdata.currentGroupsByID.map(function (group) {
         var mappedUsers = group.members.map(function (user) {
@@ -30991,7 +31010,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             _react2.default.createElement(
               'a',
               { onClick: function onClick() {
-                  return _this2.friendInput(group.name);
+                  return _this3.friendInput(group.name);
                 } },
               '   ',
               _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
@@ -31000,7 +31019,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
           _react2.default.createElement(
             'div',
             null,
-            _this2.state[group.name]
+            _this3.state[group.name]
           ),
           _react2.default.createElement(
             'ul',
