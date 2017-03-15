@@ -11,13 +11,23 @@ exports.returnUserData = function (req, res) {
     res.send(results);
   });
 };
-
 exports.createGroup = function (req, res) {
-
 };
 
 exports.createHistory = function (req, res) {
-
+  const location = JSON.stringify(req.body.location);
+  const categories = JSON.stringify(req.body.categories);
+  const history = db.UserHistory.build({
+    name: req.body.name,
+    url: req.body.url,
+    image: req.body.image_url,
+    address: location,
+    open_hours: req.body.is_closed,
+    category: categories,
+    phone: req.body.display_phone,
+  })
+  history.save()
+  .then(console.log(history))
 };
 
 const getBearer = function (cb) {
