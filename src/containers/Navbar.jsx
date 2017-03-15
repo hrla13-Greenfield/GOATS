@@ -17,27 +17,34 @@ export default class Navbar extends React.Component {
     this.state = {}
     this.groupInput = this.groupInput.bind(this)
     this.friendInput = this.friendInput.bind(this)
+    this.handleChange = this.handleChange.bind(this);
   }
-
+  handleChange(e) {
+    this.setState({ value: e.target.value})
+  }
   groupInput() {
     this.setState({
-      group: (<input type="text"></input>)
+      group: (<form onSubmit={() => this.addGroup()}><input onChange={this.handleChange} type="text"></input></form>)
     })
   }
   friendInput(groupID) {
     this.setState({
-       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input type="text"></input></form>)
+       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input onChange={this.handleChange} type="text"></input></form>)
     })
   }
   inputChange(e, groupID) {
     this.setState({ text: e.target.value })
   }
   addFriend(groupID) {
-    console.log(groupID)
+    this.props.dispatch(UserActions.addFriend(groupID, this.state.value))
+  }
+  addGroup() {
+    this.props.dispatch(UserActions.addGroup(this.state.value))
   }
   
   renderlist() {
-    const mappedGroups = this.props.userdata.currentGroupsByID.map(group => {
+    console.log(this.props.userdata.currentGroupsByID)
+    const mappedGroups = this.props.userdata.currentGroupsByID.map(group => { 
     const mappedUsers = group.members.map(user => (<li>{user}</li>))
     return(
       <div>
@@ -85,7 +92,7 @@ export default class Navbar extends React.Component {
       return (
         <div>
         <h1>Sign in</h1>
-        <a href="/#/login">Sign in</a>
+        <a onClick={tmp}>Sign in</a>
         </div>
       )
     }  

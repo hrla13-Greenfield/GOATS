@@ -65,9 +65,8 @@ export function selectChoice(option, zip) {
       { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyactivity' },
       ],
     };
-  //server calls
-   } else if (option === 'breakfast') {
-     console.log('updatedZip', zip)
+  // server calls
+  } else if (option === 'breakfast') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'food', filter: 'coffee', zip: zip },
@@ -79,13 +78,12 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
       });
     };
-    } else if (option === 'lunch/dinner') {
+  } else if (option === 'lunch/dinner') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'food', filter: 'restaurants', zip: zip },
@@ -97,14 +95,13 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
       });
     };
-    } else if (option === 'bar') {
-      return (dispatch) => {
+  } else if (option === 'bar') {
+    return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'bars', filter: 'bars', zip: zip },
         headers: {
@@ -115,14 +112,13 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
       });
     };
-    } else if (option === 'club') {
-      return (dispatch) => {
+  } else if (option === 'club') {
+    return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'clubs', filter: 'danceclubs', zip: zip },
         headers: {
@@ -133,7 +129,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -151,7 +146,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -169,7 +163,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -187,7 +180,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -205,7 +197,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -223,7 +214,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -241,7 +231,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -259,7 +248,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -277,7 +265,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -313,7 +300,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -331,7 +317,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -349,7 +334,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);
@@ -367,7 +351,6 @@ export function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       })
       .catch((err) => {
         console.error(err);

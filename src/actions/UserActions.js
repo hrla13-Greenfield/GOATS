@@ -38,17 +38,40 @@ export function signIn() {
   return (dispatch) => {
     dispatch(isLoading(true));
 
-    //fetch
-      //then
-      // onsuccess -> 
+    // fetch
+      // then
+      // onsuccess ->
     dispatch(signInSuccess());
   };
 }
 
-export function addGroup(name) {
+export function addFriendSuccess(groupName, friendName) {
+  return {
+    type: types.ADD_FRIEND,
+    groupName,
+    friendName,
+  };
+}
+
+export function addGroupSuccess(groupName) {
   return {
     type: types.ADD_GROUP,
-    name,
+    groupName,
+  };
+}
+
+export function addFriend(groupName, friendName) {
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    dispatch(addFriendSuccess(groupName, friendName));
+  };
+}
+
+
+export function addGroup(groupName) {
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    dispatch(addGroupSuccess(groupName));
   };
 }
 

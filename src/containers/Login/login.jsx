@@ -1,5 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import * as UserActions from '/Users/brandonkleiman/Desktop/what-to-do/src/actions/UserActions.js';
+
+@connect((store) => {
+  return {
+    userdata: store.userdata,
+  };
+}) 
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -29,6 +38,11 @@ lock.emailcode(function(err, profile, id_token, state){
         localStorage.setItem('userToken', id_token);
         //send a redux action that sets state.auth.authenticated to true
         // state.auth.user to profile
+        window.location.href= "/#/tree"; 
+        let self = this;
+        var tmp = function() {
+          self.props.dispatch(UserActions.signIn());
+        }
     }
 });
 
