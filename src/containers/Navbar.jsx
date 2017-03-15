@@ -85,7 +85,7 @@ export default class Navbar extends React.Component {
       return (
         <div>
         <h1>Sign in</h1>
-        <button onClick={tmp}>Sign in</button>
+        <a href="/#/login">Sign in</a>
         </div>
       )
     }  
