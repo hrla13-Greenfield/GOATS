@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import * as UserActions from '/Users/brandonkleiman/Desktop/what-to-do/src/actions/UserActions.js';
+import * as UserActions from '../../actions/UserActions.js';
 
 @connect((store) => {
   return {
