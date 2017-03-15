@@ -1,5 +1,8 @@
 const myRouter = require('express').Router();
 const controller = require('./controller');
+const fs = require('fs');
+const Mustache  = require('mustache');
+
 
 myRouter.route('/users')
   .get((req, res) => {

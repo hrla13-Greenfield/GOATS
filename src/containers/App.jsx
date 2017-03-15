@@ -8,6 +8,7 @@ import Navbar from './Navbar.jsx';
 import Game from '../game/gameindex.jsx';
 import Profile from './Profile.jsx';
 import { Router, Route, browserHistory } from 'react-router';
+import Login from './Login/login.jsx'
 let createHistory = require('history').createHashHistory;
 const hashHistory = createHistory();
 
@@ -32,6 +33,7 @@ class App extends React.Component {
                 <div>
                   <Router history={hashHistory}>
                     <div>
+                    <Route path="/login" component={Login} />
                     <Route path="/game" component={Game} />
                     <Route path="/tree" component={Tree} />
                     <Route path="/profile" component={Profile} />
