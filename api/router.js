@@ -11,11 +11,30 @@ myRouter.route('/users')
   .post((req, res) => {
     controller.createUser(req, res);
   });
+<<<<<<< HEAD
 
 myRouter.route('/users/history')
  .post((req, res) => {
    controller.createHistory(req, res);
  });
+=======
+myRouter.route('/users/groups')
+  .get((req, res) => {
+    
+  })
+  .post((req, res) => {
+    controller.addToGroup(req, res);
+  })
+myRouter.route('/getBars')
+  .get((req, res) => {
+    controller.getBars(req, res);
+  });
+
+myRouter.route('/getClubs')
+  .get((req, res) => {
+    controller.getClubs(req, res);
+  });
+>>>>>>> getuserdata route working
 
 myRouter.route('/getActivities')
   .get((req, res) => {
