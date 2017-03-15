@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { selectChoice } from '../actions/index.jsx';
 
+
 class FirstLayer extends React.Component {
   renderChoices() {
     return this.props.choices.firstLoad.map((choice) => ( 
         <img className="img-responsive"
           key={ choice.img }
-          onClick={() => this.props.selectChoice(choice.option)}
+          onClick={() => this.props.selectChoice(choice.option, this.props.choices.updatedZipcode)}
           src={choice.img} height="250" />
       ));
   }

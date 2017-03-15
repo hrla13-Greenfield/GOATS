@@ -4,6 +4,14 @@ import axios from 'axios';
 let data;
 let selection;
 
+export function submitLocation(zip){
+  console.log('this works', zip)
+  return {
+    type: 'ZIP_SUBMITTED',
+    payload: zip,
+  }
+}
+
 export function getData(selection) {
   return {
     type: 'FINAL_SELECTED',
@@ -15,7 +23,7 @@ export function getData(selection) {
     ],
   };
 }
-export function selectChoice(option) {
+export function selectChoice(option, zip) {
   if (option === 'food') {
     return {
       type: 'CHOICES_SELECTED',
@@ -59,9 +67,10 @@ export function selectChoice(option) {
     };
   //server calls
    } else if (option === 'breakfast') {
+     console.log('updatedZip', zip)
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'coffee', zip: '90024' },
+        term: 'food', filter: 'coffee', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -79,7 +88,7 @@ export function selectChoice(option) {
     } else if (option === 'lunch/dinner') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'food', filter: 'restaurants', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -97,7 +106,7 @@ export function selectChoice(option) {
     } else if (option === 'bar') {
       return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'bars', filter: 'bars', zip: '90024' },
+        term: 'bars', filter: 'bars', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -115,7 +124,7 @@ export function selectChoice(option) {
     } else if (option === 'club') {
       return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'clubs', filter: 'danceclubs', zip: '90024' },
+        term: 'clubs', filter: 'danceclubs', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -133,7 +142,7 @@ export function selectChoice(option) {
   } else if (option === 'lounge') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'lounge', filter: 'lounges', zip: '90024' },
+        term: 'lounge', filter: 'lounges', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -151,7 +160,7 @@ export function selectChoice(option) {
   } else if (option === 'extreme') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'sports', filter: 'boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving', zip: '90024' },
+        term: 'sports', filter: 'boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -169,7 +178,7 @@ export function selectChoice(option) {
   } else if (option === 'chill') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'fitness', filter: 'tennis,golf,yoga,gyms,hiking,horsebackriding,pilates', zip: '90024' },
+        term: 'fitness', filter: 'tennis,golf,yoga,gyms,hiking,horsebackriding,pilates', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -187,7 +196,7 @@ export function selectChoice(option) {
   } else if (option === 'body&mind') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'beauty', filter: 'beautysvc', zip: '90024' },
+        term: 'beauty', filter: 'beautysvc', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -205,7 +214,7 @@ export function selectChoice(option) {
   } else if (option === 'getOut') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'active', filter: 'farms,parks,beaches,shoppingcenters', zip: '90024' },
+        term: 'active', filter: 'farms,parks,beaches,shoppingcenters', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -223,7 +232,7 @@ export function selectChoice(option) {
   } else if (option === 'entertainment') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'arts', filter: 'museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium, festivals', zip: '90024' },
+        term: 'arts', filter: 'museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium, festivals', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -241,7 +250,7 @@ export function selectChoice(option) {
   } else if (option === 'daredevil') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'active', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball', zip: '90024' },
+        term: 'active', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -259,7 +268,7 @@ export function selectChoice(option) {
   } else if (option === 'any') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: '', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals', zip: '90024' },
+        term: '', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -277,7 +286,7 @@ export function selectChoice(option) {
   } else if (option === 'anyfood') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'food', filter: 'restaurants', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -295,7 +304,7 @@ export function selectChoice(option) {
   } else if (option === 'anyparty') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'clubs', filter: 'nightlife', zip: '90024' },
+        term: 'clubs', filter: 'nightlife', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -313,7 +322,7 @@ export function selectChoice(option) {
   } else if (option === 'anysports') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'fitness', filter: 'fitness', zip: '90024' },
+        term: 'fitness', filter: 'fitness', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -331,7 +340,7 @@ export function selectChoice(option) {
   } else if (option === 'anyrelax') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'spa', filter: 'beautysvc', zip: '90024' },
+        term: 'spa', filter: 'beautysvc', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -349,7 +358,7 @@ export function selectChoice(option) {
   } else if (option === 'anyactivity') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'entertainment', filter: 'arts', zip: '90024' },
+        term: 'entertainment', filter: 'arts', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -365,5 +374,4 @@ export function selectChoice(option) {
       });
     };
   }
-
 }

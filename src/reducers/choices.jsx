@@ -3,6 +3,7 @@
 
 var initialState = {
   finalSelection: false,
+  zipCode: false,
 
   firstLoad: [
     { img: 'http://ifthedevilhadmenopause.com/wp-content/uploads/2014/08/sri-santrupti-restaurant-21346657591-1.png', option: 'food' },
@@ -20,13 +21,18 @@ export default function(state = initialState, action) {
   switch(action.type) {
     case 'CHOICES_SELECTED':
     return Object.assign({}, state, {
-      firstLoad : action.payload
+      firstLoad : action.payload,
     });
     case 'FINAL_SELECTED':
     return Object.assign({}, state, {
       firstLoad : action.payload,
       finalSelection: true,
     });
+    case 'ZIP_SUBMITTED':
+    return Object.assign({}, state, {
+      updatedZipcode: action.payload,
+      zipCode: true,
+    })
   }
   return state;
 }
