@@ -53,6 +53,7 @@ const UserHistory = db.define('UserHistory', {
   address: Sequelize.STRING,
   open_hours: Sequelize.STRING,
   category: Sequelize.STRING,
+  phone: Sequelize.STRING,
   user_rating: Sequelize.STRING,
 });
 

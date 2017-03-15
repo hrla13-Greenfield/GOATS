@@ -77,7 +77,9 @@ export function selectChoice(option, zip) {
       .then((results) => {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
+        console.log(selection, '+++++++++');
         dispatch(getData(selection));
+        axios.post('api/users/history', selection);
       })
       .catch((err) => {
         console.error(err);

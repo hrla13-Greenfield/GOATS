@@ -12,15 +12,10 @@ myRouter.route('/users')
     controller.createUser(req, res);
   });
 
-myRouter.route('/getBars')
-  .get((req, res) => {
-    controller.getBars(req, res);
-  });
-
-myRouter.route('/getClubs')
-  .get((req, res) => {
-    controller.getClubs(req, res);
-  });
+myRouter.route('/users/history')
+ .post((req, res) => {
+   controller.createHistory(req, res);
+ });
 
 myRouter.route('/getActivities')
   .get((req, res) => {

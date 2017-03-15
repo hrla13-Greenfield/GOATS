@@ -5387,7 +5387,9 @@ function selectChoice(option, zip) {
       }).then(function (results) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
+        console.log(selection, '+++++++++');
         dispatch(getData(selection));
+        _axios2.default.post('api/users/history', selection);
       }).catch(function (err) {
         console.error(err);
       });
