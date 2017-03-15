@@ -8195,6 +8195,7 @@ exports.signInSuccess = signInSuccess;
 exports.isLoading = isLoading;
 exports.signIn = signIn;
 exports.addFriendSuccess = addFriendSuccess;
+exports.addGroupSuccess = addGroupSuccess;
 exports.addFriend = addFriend;
 exports.addGroup = addGroup;
 
@@ -8238,9 +8239,9 @@ function signIn() {
   return function (dispatch) {
     dispatch(isLoading(true));
 
-    //fetch
-    //then
-    // onsuccess -> 
+    // fetch
+    // then
+    // onsuccess ->
     dispatch(signInSuccess());
   };
 }
@@ -8253,6 +8254,13 @@ function addFriendSuccess(groupName, friendName) {
   };
 }
 
+function addGroupSuccess(groupName) {
+  return {
+    type: types.ADD_GROUP,
+    groupName: groupName
+  };
+}
+
 function addFriend(groupName, friendName) {
   return function (dispatch) {
     dispatch(isLoading(true));
@@ -8260,10 +8268,10 @@ function addFriend(groupName, friendName) {
   };
 }
 
-function addGroup(name) {
-  return {
-    type: types.ADD_GROUP,
-    name: name
+function addGroup(groupName) {
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    dispatch(addGroupSuccess(groupName));
   };
 }
 
@@ -8333,9 +8341,8 @@ function selectChoice(option, zip) {
       type: 'CHOICES_SELECTED',
       payload: [{ img: 'http://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_D_SantaCruz_T2_Lisa_7547806186_6171c42b54_o_1280x642.jpg', option: 'entertainment' }, { img: 'http://www.travelinsurance.org/wp-content/uploads/2009/11/skydiving.jpg', option: 'daredevil' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyactivity' }]
     };
-    //server calls
+    // server calls
   } else if (option === 'breakfast') {
-    console.log('updatedZip', zip);
     return function (dispatch) {
       _axios2.default.get('api/getActivities', { params: {
           term: 'food', filter: 'coffee', zip: zip },
@@ -8346,7 +8353,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8362,7 +8368,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8378,7 +8383,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8394,7 +8398,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8410,7 +8413,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8426,7 +8428,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8442,7 +8443,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8458,7 +8458,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8474,7 +8473,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8490,7 +8488,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8506,7 +8503,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8522,7 +8518,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8554,7 +8549,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8570,7 +8564,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8586,7 +8579,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -8602,7 +8594,6 @@ function selectChoice(option, zip) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
       }).catch(function (err) {
         console.error(err);
       });
@@ -29753,17 +29744,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(17);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _redux = __webpack_require__(15);
-
-var _reactRedux = __webpack_require__(18);
-
-var _axios = __webpack_require__(40);
-
-var _axios2 = _interopRequireDefault(_axios);
+var _reactRouter = __webpack_require__(69);
 
 var _Tree = __webpack_require__(145);
 
@@ -29781,8 +29762,6 @@ var _Profile = __webpack_require__(143);
 
 var _Profile2 = _interopRequireDefault(_Profile);
 
-var _reactRouter = __webpack_require__(69);
-
 var _login = __webpack_require__(284);
 
 var _login2 = _interopRequireDefault(_login);
@@ -29796,6 +29775,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var createHistory = __webpack_require__(166).createHashHistory;
+
 var hashHistory = createHistory();
 
 var App = function (_React$Component) {
@@ -30998,19 +30978,27 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
   }, {
     key: 'groupInput',
     value: function groupInput() {
+      var _this2 = this;
+
       this.setState({
-        group: _react2.default.createElement('input', { type: 'text' })
+        group: _react2.default.createElement(
+          'form',
+          { onSubmit: function onSubmit() {
+              return _this2.addGroup();
+            } },
+          _react2.default.createElement('input', { onChange: this.handleChange, type: 'text' })
+        )
       });
     }
   }, {
     key: 'friendInput',
     value: function friendInput(groupID) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.setState(_defineProperty({}, groupID, _react2.default.createElement(
         'form',
         { onSubmit: function onSubmit() {
-            return _this2.addFriend(groupID);
+            return _this3.addFriend(groupID);
           } },
         ' ',
         _react2.default.createElement('input', { onChange: this.handleChange, type: 'text' })
@@ -31027,10 +31015,16 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
       this.props.dispatch(UserActions.addFriend(groupID, this.state.value));
     }
   }, {
+    key: 'addGroup',
+    value: function addGroup() {
+      this.props.dispatch(UserActions.addGroup(this.state.value));
+    }
+  }, {
     key: 'renderlist',
     value: function renderlist() {
-      var _this3 = this;
+      var _this4 = this;
 
+      console.log(this.props.userdata.currentGroupsByID);
       var mappedGroups = this.props.userdata.currentGroupsByID.map(function (group) {
         var mappedUsers = group.members.map(function (user) {
           return _react2.default.createElement(
@@ -31049,7 +31043,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             _react2.default.createElement(
               'a',
               { onClick: function onClick() {
-                  return _this3.friendInput(group.name);
+                  return _this4.friendInput(group.name);
                 } },
               '   ',
               _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
@@ -31058,7 +31052,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
           _react2.default.createElement(
             'div',
             null,
-            _this3.state[group.name]
+            _this4.state[group.name]
           ),
           _react2.default.createElement(
             'ul',
@@ -31181,7 +31175,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
           ),
           _react2.default.createElement(
             'a',
-            { href: '/#/login' },
+            { onClick: tmp },
             'Sign in'
           )
         );
@@ -31784,8 +31778,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var initialState = {
   signedIn: false,
   currentGroups: [],
@@ -31816,34 +31808,24 @@ function groups() {
         isLoading: true
       });
 
-    case types.ADD_GROUP:
-      var newId = state.currentGroups[state.currentGroups.length - 1] + 1;
-      return _extends({}, state, {
-        currentGroups: state.currentGroups.concat(newId),
-        currentGroupsByID: _extends({}, state.currentGroupsByID, _defineProperty({}, newId, {
-          id: newId,
-          name: action.name
-        }))
-      });
-
     case types.ADD_FRIEND:
-      console.log(state.currentGroupsByID);
       for (var i = 0; i < state.currentGroupsByID.length; i++) {
         if (state.currentGroupsByID[i].name === action.groupName) {
           var thisGroup = i;
         }
       }
-      console.log(state.currentGroupsByID[thisGroup].members);
       return _extends({}, state, {
         currentGroups: state.currentGroupsByID[thisGroup].members.push(action.friendName)
       });
 
-    case types.DELETE_GROUP:
+    case types.ADD_GROUP:
+      var newGroup = {
+        name: action.groupName,
+        members: [],
+        id: state.currentGroupsByID.length
+      };
       return _extends({}, state, {
-        currentGroups: state.currentGroups.filter(function (id) {
-          return id !== action.id;
-        }),
-        currentGroupsByID: _lodash2.default.omit(state.currentGroupsByID, action.id)
+        currentGroups: state.currentGroupsByID.push(newGroup)
       });
 
     default:
@@ -47047,34 +47029,28 @@ var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(120);
-
-var _App2 = _interopRequireDefault(_App);
-
 var _reactRedux = __webpack_require__(18);
 
 var _redux = __webpack_require__(15);
-
-var _index = __webpack_require__(121);
-
-var _index2 = _interopRequireDefault(_index);
-
-var _reactRouter = __webpack_require__(69);
-
-var _axios = __webpack_require__(40);
-
-var _axios2 = _interopRequireDefault(_axios);
 
 var _reduxThunk = __webpack_require__(122);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
+var _App = __webpack_require__(120);
+
+var _App2 = _interopRequireDefault(_App);
+
+var _index = __webpack_require__(121);
+
+var _index2 = _interopRequireDefault(_index);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var client = _axios2.default.create({
-  baseURL: 'http://localhost:8000/api',
-  responseType: 'json'
-});
+// const client = axios.create({
+//   baseURL: 'http://localhost:8000/api',
+//   responseType: 'json',
+// });
 
 _reactDom2.default.render(_react2.default.createElement(
   _reactRedux.Provider,
@@ -47095,6 +47071,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _dec, _class;
+
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
@@ -47102,6 +47080,14 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRedux = __webpack_require__(18);
+
+var _UserActions = __webpack_require__(75);
+
+var UserActions = _interopRequireWildcard(_UserActions);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -47111,7 +47097,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Login = function (_React$Component) {
+var Login = (_dec = (0, _reactRedux.connect)(function (store) {
+  return {
+    userdata: store.userdata
+  };
+}), _dec(_class = function (_React$Component) {
   _inherits(Login, _React$Component);
 
   function Login(props) {
@@ -47147,6 +47137,11 @@ var Login = function (_React$Component) {
           localStorage.setItem('userToken', id_token);
           //send a redux action that sets state.auth.authenticated to true
           // state.auth.user to profile
+          window.location.href = "/#/tree";
+          var self = this;
+          var tmp = function tmp() {
+            self.props.dispatch(UserActions.signIn());
+          };
         }
       });
 
@@ -47204,8 +47199,7 @@ var Login = function (_React$Component) {
   }]);
 
   return Login;
-}(_react2.default.Component);
-
+}(_react2.default.Component)) || _class);
 exports.default = Login;
 
 /***/ }),

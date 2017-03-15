@@ -1,17 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-import axios from 'axios';
+import { Router, Route } from 'react-router';
 import Tree from './Tree.jsx';
 import Navbar from './Navbar.jsx';
 import Game from '../game/gameindex.jsx';
 import Profile from './Profile.jsx';
-import { Router, Route, browserHistory } from 'react-router';
-import Login from './Login/login.jsx'
-let createHistory = require('history').createHashHistory;
-const hashHistory = createHistory();
+import Login from './Login/login.jsx';
 
+const createHistory = require('history').createHashHistory;
+
+const hashHistory = createHistory();
 
 
 class App extends React.Component {
@@ -33,15 +30,14 @@ class App extends React.Component {
                 <div>
                   <Router history={hashHistory}>
                     <div>
-                    <Route path="/login" component={Login} />
-                    <Route path="/game" component={Game} />
-                    <Route path="/tree" component={Tree} />
-                    <Route path="/profile" component={Profile} />
+                      <Route path="/login" component={Login} />
+                      <Route path="/game" component={Game} />
+                      <Route path="/tree" component={Tree} />
+                      <Route path="/profile" component={Profile} />
                     </div>
                   </Router>
                 </div>
-              <div>
-              </div>
+                <div />
               </div>
             </div>
           </div>
