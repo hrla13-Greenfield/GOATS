@@ -31035,6 +31035,7 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store) {
       // });
       lock.emailcode(function (err, profile, id_token, state) {
         if (!err) {
+          console.log(profile);
           localStorage.setItem('userToken', id_token);
           //send a redux action that sets state.auth.authenticated to true
           // state.auth.user to profile
