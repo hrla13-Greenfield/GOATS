@@ -12,19 +12,40 @@ import AddGroupInput from '../components/AddGroupInput.jsx'
 }) 
 
 export default class Navbar extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+    this.groupInput = this.groupInput.bind(this)
+    this.friendInput = this.friendInput.bind(this)
+  }
+
+  groupInput() {
+    this.setState({
+      group: (<input type="text"></input>)
+    })
+  }
+  friendInput(groupID) {
+    this.setState({
+       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input type="text"></input></form>)
+    })
+  }
+  inputChange(e, groupID) {
+    this.setState({ text: e.target.value })
+  }
+  addFriend(groupID) {
+    console.log(groupID)
+  }
   
   renderlist() {
-    // console.log()
     const mappedGroups = this.props.userdata.currentGroupsByID.map(group => {
     const mappedUsers = group.members.map(user => (<li>{user}</li>))
     return(
       <div>
-      <h4>{group.name}</h4>
+      <h4>{group.name}<a onClick={() => this.friendInput(group.name)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
+      <div>{this.state[group.name]}</div>
       <ul>{mappedUsers}</ul>
       </div>
-    )})
-
-    
+    )}) 
 
     return (
       <div >
@@ -39,7 +60,8 @@ export default class Navbar extends React.Component {
             <a href="#/profile"><li>View Profile</li></a>
             
           <hr />
-          <h3>My Groups  <a href="#/addGroup"> <span className="glyphicon glyphicon-plus-sign"></span></a></h3>
+          <h3>My Groups <a onClick={this.groupInput}> <span className="glyphicon glyphicon-plus-sign"></span></a></h3>
+          <div>{this.state.group}</div>
           <br />
           {mappedGroups}
         </ul>

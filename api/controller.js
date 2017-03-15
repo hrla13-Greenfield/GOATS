@@ -2,7 +2,11 @@ const request = require('request');
 const db = require('./db/schema');
 
 exports.createUser = function (req, res) {
-  
+
+};
+
+exports.returnUserData = function (req, res) {
+  console.log(req.body);
 };
 
 exports.createGroup = function (req, res) {
