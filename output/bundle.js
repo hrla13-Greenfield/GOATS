@@ -5408,6 +5408,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5423,6 +5426,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5438,6 +5444,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5453,6 +5462,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5468,6 +5480,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5483,6 +5498,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5498,6 +5516,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5513,6 +5534,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5528,6 +5552,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5543,6 +5570,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5558,6 +5588,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5573,7 +5606,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5589,6 +5624,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5604,6 +5642,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5619,6 +5660,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });
@@ -5634,6 +5678,9 @@ function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        var input = { selection: selection,
+          userID: userID };
+        _axios2.default.post('api/users/history', input);
       }).catch(function (err) {
         console.error(err);
       });

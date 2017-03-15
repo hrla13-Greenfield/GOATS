@@ -100,6 +100,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -117,6 +120,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -134,6 +140,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -151,6 +160,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -168,6 +180,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -185,6 +200,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -202,6 +220,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -219,6 +240,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -236,6 +260,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -253,6 +280,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -270,6 +300,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -287,7 +320,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        console.log('results.data.businesses', results.data.businesses);
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -305,6 +340,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -322,6 +360,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -339,6 +380,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
@@ -356,6 +400,9 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
+        const input = { selection: selection,
+          userID: userID };
+        axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
