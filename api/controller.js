@@ -6,7 +6,10 @@ exports.createUser = function (req, res) {
 };
 
 exports.returnUserData = function (req, res) {
-  console.log(req.body);
+  console.log(req.query.username);
+  db.User.findAll({ where: { username: req.query.username } }).then((results) => {
+    res.send(results);
+  });
 };
 
 exports.createGroup = function (req, res) {
