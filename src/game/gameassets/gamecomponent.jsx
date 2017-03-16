@@ -19,7 +19,7 @@ class GameComponent extends React.Component {
         random: initRandom,
         winCondition: "Get to 10 points to WIN!",
         penalty: "Let's Go!",
-        img: "http://opengameart.org/sites/default/files/cat_a1.gif",
+        img: "http://opengameart.org/sites/default/files/cat_jump.gif",
         group: "Group 1"
       };
       this.handleCount = this.handleCount.bind(this);
@@ -28,12 +28,16 @@ class GameComponent extends React.Component {
 
     var self = this;
         socket.on('count', function(data) {
-            alert(data);
             self.setState({
                 opponentScore: data
         })
     })
     }
+
+    componentDidMount() {
+        setInterval(this.handleRandom, 900)
+    }
+
 
     handleRandom(event) {
         var charArr = ['a','s','d','f'];
@@ -54,15 +58,18 @@ class GameComponent extends React.Component {
         if(currCount >= 10) {
             return;
         }
-        else if(charStr === this.state.random) {     
+        if(currCount <= -10) {
+            return;
+        }
+        if(charStr === this.state.random) {     
           currCount += 1;
           socket.emit('count', currCount)
           this.setState({
               penalty: "You Rock!",
-              img: "http://opengameart.org/sites/default/files/cat_a1.gif"
+              img: "http://opengameart.org/sites/default/files/cat_a5.gif"
           })
         }
-        else if(charStr !== this.state.random) {
+        if(charStr !== this.state.random) {
           currCount -= 1;
           socket.emit('count', currCount)
           this.setState({
@@ -74,6 +81,12 @@ class GameComponent extends React.Component {
           this.setState({
               winCondition: "YOU WIN!",
               img: "http://opengameart.org/sites/default/files/cat_a4.gif"
+          })
+        }
+        if(currCount <= -10) {
+          this.setState({
+              winCondition: "YOU LOSE! GIT GUD!",
+              img: "http://opengameart.org/sites/default/files/mon1_walk.gif"
           })
         }
         this.setState({
@@ -94,18 +107,15 @@ class GameComponent extends React.Component {
 
     render() {
         return(
-        <div>
+        <div onKeyPress={this.handleCount}>
             <div>{this.state.group}</div>
-            <div onKeyPress={this.handleCount}>
             <div>
-                <h4>{this.state.random}</h4>
                 <h5>{this.state.winCondition}</h5>
-                <h5>{this.state.penalty}</h5>
-                <h3>{this.state.opponentScore}</h3>
+                <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
                 <img src={this.state.img}/>
-            </div>
-            <div onKeyPress={this.handleCount}>{this.state.count}</div>
-            <button onClick={this.handleCount}>+</button>
+                <h5>Opponent Score: {this.state.opponentScore}</h5>
+                <div>Your Score: {this.state.count}</div>
+                <h5>{this.state.penalty}</h5>
             </div> 
             <button onClick={this.handleReset}>RESET</button>
         </div>
