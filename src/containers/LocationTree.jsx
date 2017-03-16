@@ -26,10 +26,11 @@ class Location extends React.Component {
 
    render() {
     return (
-      <div>
+      <div className="jumbotron">
+      <h3>Where should your next adventure take place?</h3>
       <form onSubmit={this.handleSubmit.bind(this)}>
-       <input type="text" onChange={this.handleChange.bind(this)}/>
-       <input type="submit" value="input"/>
+       <input type="text" onChange={this.handleChange.bind(this)} placeholder="zipcode goes here"/>
+       <input type="submit" value="enter" className="btn btn-info btn-sm"/>
        </form>
       </div>
     );

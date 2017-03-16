@@ -30892,12 +30892,17 @@ var FirstLayer = function (_React$Component) {
       var _this2 = this;
 
       return this.props.choices.firstLoad.map(function (choice) {
-        return _react2.default.createElement('img', { className: 'img-responsive',
-          key: choice.img,
-          onClick: function onClick() {
-            return _this2.props.selectChoice(choice.option, _this2.props.choices.updatedZipcode, _this2.props.userdata.userID);
-          },
-          src: choice.img, height: '250' });
+        return _react2.default.createElement(
+          'div',
+          { className: 'col-md-4 col-sm-6 col-xs-12' },
+          _react2.default.createElement('img', { className: 'allPics',
+            key: choice.img,
+            onClick: function onClick() {
+              return _this2.props.selectChoice(choice.option, _this2.props.choices.updatedZipcode, _this2.props.userdata.userID);
+            },
+            src: choice.img,
+            style: { borderRadius: 5, tintColor: '#0000CD' } })
+        );
       });
     }
   }, {
@@ -30905,7 +30910,7 @@ var FirstLayer = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'col-sm-4' },
+        null,
         this.renderChoices()
       );
     }
@@ -30994,12 +30999,17 @@ var Location = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'jumbotron' },
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Where should your next adventure take place?'
+        ),
         _react2.default.createElement(
           'form',
           { onSubmit: this.handleSubmit.bind(this) },
-          _react2.default.createElement('input', { type: 'text', onChange: this.handleChange.bind(this) }),
-          _react2.default.createElement('input', { type: 'submit', value: 'input' })
+          _react2.default.createElement('input', { type: 'text', onChange: this.handleChange.bind(this), placeholder: 'zipcode goes here' }),
+          _react2.default.createElement('input', { type: 'submit', value: 'enter', className: 'btn btn-info btn-sm' })
         )
       );
     }
