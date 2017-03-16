@@ -47146,6 +47146,18 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store) {
 
           window.location.href = "/#/tree";
           self.props.dispatch(UserActions.signIn(profile.email));
+
+          console.log(profile.nickname, "profile");
+          console.log(id_token, "id token");
+          console.log(state, "this is state");
+          if (localStorage.getItem("userToken")) {
+            console.log("true");
+          }
+
+          // let self = this;
+          // var tmp = function() {
+          //   self.props.dispatch(UserActions.signIn());
+          // }
         }
       });
     }
