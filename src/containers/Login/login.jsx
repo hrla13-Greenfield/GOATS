@@ -13,11 +13,12 @@ import * as UserActions from '../../actions/UserActions.js';
 class Login extends React.Component {
   constructor(props) {
     super(props);
-
 this.AUTH0_CLIENT_ID = 'prZdyhStrcE55F4qE5C6V0WK7FiovNoo';
 this.AUTH0_DOMAIN = 'yangemilym.auth0.com';
 this.AUTH0_CALLBACKURL = 'http://localhost:8000/#/tree';
+self = this;
   }
+
 
 loginWithEmailCode() {
 	const lock = new Auth0LockPasswordless(this.AUTH0_CLIENT_ID, this.AUTH0_DOMAIN);
@@ -31,21 +32,11 @@ lock.emailcode(function(err, profile, id_token, state){
         localStorage.setItem('userToken', id_token);
         //send a redux action that sets state.auth.authenticated to true
         // state.auth.user to profile
-        let self = this;
-        var tmp = () => {
-          self.props.dispatch(UserActions.saveNickname(profile.nickname));
-        }
+
         window.location.href= "/#/tree"; 
-        console.log(profile.nickname, "profile")
-        console.log(id_token, "id token")
-        console.log(state, "this is state")
-        if(localStorage.getItem("userToken")){
-          console.log("true")
-        }
-        // let self = this;
-        // var tmp = function() {
-        //   self.props.dispatch(UserActions.signIn());
-        // }
+        self.props.dispatch(UserActions.signIn(profile.email))
+        
+        
     }
 });
 	}

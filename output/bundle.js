@@ -6625,7 +6625,6 @@ function signInSuccess(userinfo, username) {
 }
 
 function isLoading(bool) {
-  console.log("loading");
   return {
     type: types.USER_LOADING,
     isLoading: true
@@ -6640,8 +6639,6 @@ function saveNickname(nickname) {
 }
 
 function signIn(username) {
-  // console.log(username, "this is username")
-  // console.log(JSON.parse(localStorage.getItem("emailcodeCred")).email.email, "email")
   return function (dispatch) {
     dispatch(isLoading(true));
     _axios2.default.get('/api/users', { params: {
@@ -6685,6 +6682,7 @@ function addFriend(groupID, friendName, userID) {
       userID: userID
     }).then(function () {
       dispatch(addFriendSuccess(groupID, friendName));
+      dispatch(doneLoading());
     }).catch(function (err) {
       console.log(err);
     });
@@ -34785,6 +34783,7 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store) {
     _this.AUTH0_CLIENT_ID = 'prZdyhStrcE55F4qE5C6V0WK7FiovNoo';
     _this.AUTH0_DOMAIN = 'yangemilym.auth0.com';
     _this.AUTH0_CALLBACKURL = 'http://localhost:8000/#/tree';
+    self = _this;
     return _this;
   }
 
@@ -34802,21 +34801,9 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store) {
           localStorage.setItem('userToken', id_token);
           //send a redux action that sets state.auth.authenticated to true
           // state.auth.user to profile
-          var self = this;
-          var tmp = function tmp() {
-            self.props.dispatch(UserActions.saveNickname(profile.nickname));
-          };
+
           window.location.href = "/#/tree";
-          console.log(profile.nickname, "profile");
-          console.log(id_token, "id token");
-          console.log(state, "this is state");
-          if (localStorage.getItem("userToken")) {
-            console.log("true");
-          }
-          // let self = this;
-          // var tmp = function() {
-          //   self.props.dispatch(UserActions.signIn());
-          // }
+          self.props.dispatch(UserActions.signIn(profile.email));
         }
       });
     }
@@ -35023,7 +35010,6 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
     value: function renderlist() {
       var _this4 = this;
 
-      console.log(this.props.userdata, "here is userdata <<<<<<");
       var mappedGroups = this.props.userdata.currentGroupsByID.map(function (group) {
         var mappedUsers = group.members.map(function (user) {
           return _react2.default.createElement(
@@ -35160,19 +35146,9 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
   }, {
     key: 'render',
     value: function render() {
-      // let self = this;
-      // var tmp = function() {
-      //   self.props.dispatch(UserActions.signIn());
-      //   window.location.href= "/#/login"
-      // }
 
-      // if (this.props.userdata.currentGroups.length > 0) {
       if (this.props.userdata.isLoading) {
-        return _react2.default.createElement(
-          'div',
-          null,
-          'Loading'
-        );
+        return _react2.default.createElement('div', null);
       } else {
         return _react2.default.createElement(
           'div',
