@@ -19,19 +19,11 @@ this.AUTH0_DOMAIN = 'yangemilym.auth0.com';
 this.AUTH0_CALLBACKURL = 'http://localhost:8000/#/tree';
   }
 
-  loginWithSMS() {
-    const lock = new Auth0LockPasswordless(this.AUTH0_CLIENT_ID, this.AUTH0_DOMAIN);
-    lock.sms({
-      responseType: 'token',
-      callbackURL: this.AUTH0_CALLBACKURL,
-    });
-  }
-
 loginWithEmailCode() {
 	const lock = new Auth0LockPasswordless(this.AUTH0_CLIENT_ID, this.AUTH0_DOMAIN);
-	// 	lock.emailcode({
-	// 	responseType:'token', 
-	// 	callbackURL: this.AUTH0_CALLBACKURL
+		// lock.emailcode({
+		// responseType:'token', 
+		// callbackURL: this.AUTH0_CALLBACKURL
     // });
 lock.emailcode(function(err, profile, id_token, state){
     if(!err){
@@ -40,44 +32,68 @@ lock.emailcode(function(err, profile, id_token, state){
         //send a redux action that sets state.auth.authenticated to true
         // state.auth.user to profile
         window.location.href= "/#/tree"; 
-        let self = this;
-        var tmp = function() {
-          self.props.dispatch(UserActions.signIn());
+        console.log(profile, "profile")
+        console.log(id_token, "id token")
+        console.log(state, "this is state")
+        if(localStorage.getItem("userToken")){
+          console.log("true")
         }
+        // let self = this;
+        // var tmp = function() {
+        //   self.props.dispatch(UserActions.signIn());
+        // }
     }
 });
-
-    // lock.on('authenticated', function(){
-    //     console.log('authenticated')
-    // });
 	}
 
+// loginWithEmailLink(){
+// 	const lock = new Auth0LockPasswordless(this.AUTH0_CLIENT_ID, this.AUTH0_DOMAIN);
+// 		    // lock.magiclink({
+// 		    //   responseType: 'token',
+// 		    //   callbackURL: this.AUTH0_CALLBACKURL
+// 		    // })
+// lock.magiclink(function(err, profile, id_token, state){
+//     if(!err){
+//         localStorage.setItem('userToken', id_token);
+//         window.location.href= "/#/tree"; 
+//         console.log(profile, "profile")
+//         console.log(id_token, "id token")
+//         console.log(state, "this is state")
+//     }
+// });
 
-loginWithEmailLink(){
-	const lock = new Auth0LockPasswordless(this.AUTH0_CLIENT_ID, this.AUTH0_DOMAIN);
-		    lock.magiclink({
-		      responseType: 'token',
-		      callbackURL: this.AUTH0_CALLBACKURL
-		    })
-		  }
+// 		  }
 
-loginWithSocialOrSms(){
+loginWithSocial(){
 	const lock = new Auth0LockPasswordless(this.AUTH0_CLIENT_ID, this.AUTH0_DOMAIN);
-      		lock.socialOrSms({
-  			  connections: ["facebook", "twitter"],
+      		lock.social({
+  			  connections: ["facebook", "linkedin"],
   			  responseType: 'token',
   			  callbackURL : this.AUTH0_CALLBACKURL
-			});
+			}, function(result){
+        console.log(result)
+      });
+      // lock.social(function(err, profile, id_token, state){
+      //   // if(!err){
+      //   connections: ["facebook", "twitter"],
+      //   localStorage.setItem('userToken', id_token);
+      //   window.location.href= "/#/tree"; 
+      // // }
+      // })
+
 		  }
 
+// logout(){
+//   lock.logout(query)
+// }
 
   render() {
     return (
       <div> 
-      <button onClick={this.loginWithSMS.bind(this)}>SMS</button>
       <button onClick={this.loginWithEmailCode.bind(this)}>Email Code</button>
-      <button onClick={this.loginWithEmailLink.bind(this)}>Email Link</button>
-      <button onClick={this.loginWithSocialOrSms.bind(this)} >Social or SMS</button>
+      {/*<button onClick={this.loginWithEmailLink.bind(this)}>Email Link</button>*/}
+      <button onClick={this.loginWithSocial.bind(this)} >Social</button>
+      {/*<button onClick={this.logout.bind(this)}>Logout</button>*/}
       </div>
     );
   }
