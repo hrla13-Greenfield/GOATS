@@ -16,17 +16,30 @@ myRouter.route('/users')
     })
   });
 
+myRouter.route('/users/invites')
+  .post((req, res) => {
+    if (req.body.type === 'acc') {
+      controller.acceptRequest(req.body.reqid, req, res);
+    } else if (req.body.type === 'del') {
+      controller.declineRequest(req.body.reqid, req, res);
+    }
+  })
+
+myRouter.route('/groups')
+  .post((req, res) => {
+    controller.createGroup(req, res);
+  })
+
 myRouter.route('/users/history')
  .post((req, res) => {
    controller.createHistory(req, res);
  });
+
 myRouter.route('/users/groups')
-  .get((req, res) => {
-    
-  })
   .post((req, res) => {
     controller.addToGroup(req, res);
   })
+
 myRouter.route('/getBars')
   .get((req, res) => {
     controller.getBars(req, res);

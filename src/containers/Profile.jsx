@@ -12,19 +12,49 @@ import AddGroupInput from '../components/AddGroupInput.jsx';
 })
 
 export default class Profile extends React.Component {
+
+  acceptRequest(reqid, user) {
+    this.props.dispatch(UserActions.acceptRequest(reqid, user))
+  }
+  declineRequest(reqid, user) {
+    this.props.dispatch(UserActions.declineRequest(reqid, user));
+  }
+
   render() {
-    // console.log(!!localStorage.getItem("userToken"), "this is in profile")
-    // console.log(this.props.userdata.username);
     if(!!localStorage.getItem("userToken") === false){
       window.location.href= "/#/login"
       return false;
     }else{
+    const mappedInvites = this.props.userdata.invites.map(invite => {
+      return(
+        <tr>
+          <td>{invite.groupID}</td>
+          <td>{invite.sentBy}</td>
+          <td><a onClick={() => this.acceptRequest(invite.id, this.props.userdata.username)}><span className="glyphicon glyphicon-ok green"></span></a></td>
+          <td><a onClick={() => this.declineRequest(invite.id, this.props.userdata.username)}><span className="glyphicon glyphicon-remove red"></span></a></td>
+        </tr>
+      )
+    })
     return (
       <div>
         <h1>{this.props.userdata.username}'s Profile</h1>
          <div className="row">
-          <div className="col-md-5"><img height="125px" width="125px" src=""></img></div>
-         <div className="col-md-7"><h2>Pending group invites</h2></div>
+          <div className="col-md-5"><img height="125px" width="125px" src={this.props.userdata.userImg}></img></div>
+         <div className="col-md-7"><h2>Pending group invites</h2>
+         <table className="table">
+           <thead>
+           <tr>
+             <th>Invited to group:</th>
+             <th>Invited by: </th>
+             <th>Accept: </th>
+             <th>Decline: </th>
+           </tr>
+           </thead>
+           <tbody>
+           {mappedInvites}
+           </tbody>
+           </table>
+         </div>
         </div>
         <div className="row">
          <h3> User history list </h3>

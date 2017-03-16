@@ -2,8 +2,13 @@
   height: 250px;
   width: 300px;
 }
-
 .gify {
   margin: 0 auto;
   align-items: center;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
 }

@@ -18,6 +18,7 @@ export default class Navbar extends React.Component {
     this.groupInput = this.groupInput.bind(this)
     this.friendInput = this.friendInput.bind(this)
     this.handleChange = this.handleChange.bind(this);
+    this.changeRoom = this.changeRoom.bind(this);
   }
 
   componentWillMount() {
@@ -48,7 +49,10 @@ export default class Navbar extends React.Component {
     this.props.dispatch(UserActions.addFriend(groupID, this.state.value, this.props.userdata.userID))
   }
   addGroup() {
-    this.props.dispatch(UserActions.addGroup(this.state.value, this.props.userdata.userID))
+    this.props.dispatch(UserActions.addGroup(this.state.value, this.props.userdata.userID, this.props.userdata.username))
+  }
+  changeRoom(groupName) {
+    this.props.dispatch(UserActions.selectRoom(groupName));
   }
 
   logout(){
@@ -64,7 +68,7 @@ export default class Navbar extends React.Component {
     const mappedUsers = group.members.map(user => (<li>{user}</li>))
     return(
       <div>
-      <h4>{group.name}<a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
+      <h4><a onClick={() => this.changeRoom(group.name)}>{group.name}</a><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
       <div>{this.state[group.id]}</div>
       <ul>{mappedUsers}</ul>
       </div>
