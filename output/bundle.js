@@ -35598,6 +35598,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _dec, _class;
+
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
@@ -35605,6 +35607,8 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = __webpack_require__(16);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRedux = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35617,11 +35621,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var io = __webpack_require__(321);
 var socket = io();
 
-socket.on('connect', function (data) {
-    socket.emit('join', 'the client is live!!!');
-});
-
-var GameComponent = function (_React$Component) {
+var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
+    return {
+        userdata: store.userdata
+    };
+}), _dec(_class = function (_React$Component) {
     _inherits(GameComponent, _React$Component);
 
     function GameComponent(props) {
@@ -35646,10 +35650,12 @@ var GameComponent = function (_React$Component) {
 
         var self = _this;
         socket.on('count', function (data) {
+            console.log("what is this data crap? ", data);
             self.setState({
                 opponentScore: data
             });
         });
+
         return _this;
     }
 
@@ -35784,8 +35790,7 @@ var GameComponent = function (_React$Component) {
     }]);
 
     return GameComponent;
-}(_react2.default.Component);
-
+}(_react2.default.Component)) || _class);
 exports.default = GameComponent;
 
 /***/ }),

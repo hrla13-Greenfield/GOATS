@@ -19,19 +19,22 @@ const server = app.listen(PORT, () => {
   console.log('connected to ' + PORT);
 });
 
+// need to get user information
+// get user
+// app.get()
+
 // socket installation for server-side
 const io = require('socket.io')(server);
 
-// connection established once page is loaded
+// need to authenticate user and give user a specific id to identiy which score it owns
+// somewhere in here needs to call get user to get user information
+// requires AUTH - 0 and user schema identification to be finished to proceed
+
 io.on('connection', function(socket) {
   console.log('a user connected!');
   socket.on('count', function(counter) {
     socket.broadcast.emit('count', counter)
     console.log('this is the count ' + counter)
-  })
-  socket.on('join', function(data) {
-    console.log('coming from the client >> ' + data)
-    socket.emit('count', 'get ready to Rumble!')
   })
   socket.on('disconnect', function(socket) {
     console.log('a user disconnected!');
