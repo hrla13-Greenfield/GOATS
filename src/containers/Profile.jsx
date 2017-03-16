@@ -13,7 +13,12 @@ import AddGroupInput from '../components/AddGroupInput.jsx';
 
 export default class Profile extends React.Component {
   render() {
-    console.log(this.props.userdata.username);
+    // console.log(!!localStorage.getItem("userToken"), "this is in profile")
+    // console.log(this.props.userdata.username);
+    if(!!localStorage.getItem("userToken") === false){
+      window.location.href= "/#/login"
+      return false;
+    }else{
     return (
       <div>
         <h1>{this.props.userdata.username}'s Profile</h1>
@@ -26,5 +31,6 @@ export default class Profile extends React.Component {
           </div>
       </div>
     );
+  }
   }
 }

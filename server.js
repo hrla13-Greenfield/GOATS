@@ -19,9 +19,9 @@ const server = app.listen(PORT, () => {
   console.log('connected to ' + PORT);
 });
 
-app.get('/', function(req, res){
-    res.send('./src/containers/Login/login.jsx')
-});
+// app.get('/', function(req, res){
+//     res.send('./src/containers/Login/login.jsx')
+// });
 
 // socket installation for server-side
 const io = require('socket.io')(server);
