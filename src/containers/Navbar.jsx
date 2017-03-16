@@ -90,7 +90,9 @@ export default class Navbar extends React.Component {
       self.props.dispatch(UserActions.signIn());
       window.location.href= "/#/login"
     }
-    if (!!localStorage.getItem("userToken") && this.props.userdata.signedIn) {
+    if (!!localStorage.getItem("userToken")) {
+      var tempEmail = JSON.parse(localStorage.getItem("emailcodeCred")).email.email;
+      self.props.dispatch(UserActions.signIn(tempEmail));
       console.log(!!localStorage.getItem("userToken"), "props usersign")
     return (
     <div>

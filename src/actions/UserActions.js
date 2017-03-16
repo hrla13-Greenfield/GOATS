@@ -69,19 +69,28 @@ export function isLoading(bool) {
   };
 }
 
+export function saveNickname(nickname){
+  return{
+    type: types.SAVE_NICKNAME,
+    nickname,
+  }
+}
+
 export function signIn(username) {
-  var username = "Brandon"
-  return (dispatch) => {
-    dispatch(isLoading(true));
-    axios.get('/api/users', { params: {
-      username
-    }} )
-    .then((result) => {
-      console.log(result);
-      dispatch(signInSuccess(result, username));
-    })
+  console.log(username, "this is username")
+  // console.log(JSON.parse(localStorage.getItem("emailcodeCred")).email.email, "email")
+  // var username = "Brandon"
+  // return (dispatch) => {
+  //   dispatch(isLoading(true));
+  //   axios.get('/api/users', { params: {
+  //     username
+  //   }} )
+  //   .then((result) => {
+  //     console.log(result);
+  //     dispatch(signInSuccess(result, username));
+  //   })
     
-  };
+  // };
 }
 
 export function addFriendSuccess(groupID, friendName) {

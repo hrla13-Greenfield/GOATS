@@ -31,8 +31,12 @@ lock.emailcode(function(err, profile, id_token, state){
         localStorage.setItem('userToken', id_token);
         //send a redux action that sets state.auth.authenticated to true
         // state.auth.user to profile
+        let self = this;
+        var tmp = () => {
+          self.props.dispatch(UserActions.saveNickname(profile.nickname));
+        }
         window.location.href= "/#/tree"; 
-        console.log(profile, "profile")
+        console.log(profile.nickname, "profile")
         console.log(id_token, "id token")
         console.log(state, "this is state")
         if(localStorage.getItem("userToken")){
