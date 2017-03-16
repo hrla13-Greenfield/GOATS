@@ -27,7 +27,6 @@ render() {
       { this.renderChoices() }</div>
     );
   }
-  
 }
 
 

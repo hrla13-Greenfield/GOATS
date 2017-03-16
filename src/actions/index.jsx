@@ -3,8 +3,14 @@ import axios from 'axios';
 
 let data;
 let selection;
+let selection1;
+let selection2;
+let selection3;
+let selection4;
+let selection5;
+let selection6;
 
-export function submitLocation(zip){
+export function submitLocation(zip) {
   console.log('this works', zip)
   return {
     type: 'ZIP_SUBMITTED',
@@ -23,12 +29,84 @@ export function getData(selection) {
     ],
   };
 }
+
+export function getDay(selection1) {
+  return {
+    type: 'DAY_SELECTED',
+    payload: [
+      { name: selection1.name,
+        image: selection1.image_url,
+        phone: selection1.display_phone,
+        distance: selection1.distance },
+    ]
+  }
+}
+
+export function getDay2(selection2) {
+  return {
+    type: 'DAY_SELECTED',
+    payload: [
+      { name: selection2.name,
+        image: selection2.image_url,
+        phone: selection2.display_phone,
+        distance: selection2.distance },
+    ]
+  }
+}
+
+export function getDay3(selection3) {
+  return {
+    type: 'DAY_SELECTED',
+    payload: [
+      { name: selection3.name,
+        image: selection3.image_url,
+        phone: selection3.display_phone,
+        distance: selection3.distance },
+    ]
+  }
+}
+
+export function getDay4(selection4) {
+  return {
+    type: 'DAY_SELECTED',
+    payload: [
+      { name: selection4.name,
+        image: selection4.image_url,
+        phone: selection4.display_phone,
+        distance: selection4.distance },
+    ]
+  }
+}
+
+export function getDay5(selection5) {
+  return {
+    type: 'DAY_SELECTED',
+    payload: [
+      { name: selection5.name,
+        image: selection5.image_url,
+        phone: selection5.display_phone,
+        distance: selection5.distance },
+    ]
+  }
+}
+export function getDay6(selection6) {
+  return {
+    type: 'DAY_SELECTED',
+    payload: [
+      { name: selection6.name,
+        image: selection6.image_url,
+        phone: selection6.display_phone,
+        distance: selection6.distance },
+    ]
+  }
+}
+
 export function selectChoice(option, zip, userID) {
   if (option === 'food') {
     return {
       type: 'CHOICES_SELECTED',
       payload: [{ img: 'http://www.maturetimes.co.uk/wp-content/uploads/2013/10/breakfast-including-coffee-honey-848x478.jpg', option: 'breakfast' },
-      { img: 'https://cpplymouth.com/up/Creekside_event_table_setting_with_salmon_dinner_and_wine.jpg', option: 'lunch/dinner' },
+      { img: 'http://bjxcenter.com/wp-content/uploads/2015/05/dinner.jpg', option: 'lunch/dinner' },
       { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyfood' },
       ],
     };
@@ -410,3 +488,94 @@ export function selectChoice(option, zip, userID) {
     };
   }
 }
+
+export function planDay(){
+  return (dispatch) => {
+      axios.get('api/getActivities', { params: {
+        term: 'food', filter: 'restaurants', zip: '90024' },
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then((results) => {
+        data = results.data.businesses;
+        selection1 = data[Math.floor(Math.random() * data.length)];
+        dispatch(getDay(selection1));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+      axios.get('api/getActivities', { params: {
+        term: 'food', filter: 'restaurants', zip: '90024' },
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then((results) => {
+        data = results.data.businesses;
+        selection2 = data[Math.floor(Math.random() * data.length)];
+        dispatch(getDay2(selection2));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+      axios.get('api/getActivities', { params: {
+        term: 'food', filter: 'restaurants', zip: '90024' },
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then((results) => {
+        data = results.data.businesses;
+        selection3 = data[Math.floor(Math.random() * data.length)];
+        dispatch(getDay3(selection3));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+      axios.get('api/getActivities', { params: {
+        term: 'food', filter: 'restaurants', zip: '90024' },
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then((results) => {
+        data = results.data.businesses;
+        selection4 = data[Math.floor(Math.random() * data.length)];
+        dispatch(getDay4(selection4));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+      axios.get('api/getActivities', { params: {
+        term: 'food', filter: 'restaurants', zip: '90024' },
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then((results) => {
+        data = results.data.businesses;
+        selection5 = data[Math.floor(Math.random() * data.length)];
+        dispatch(getDay5(selection5));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+      axios.get('api/getActivities', { params: {
+        term: 'food', filter: 'restaurants', zip: '90024' },
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then((results) => {
+        data = results.data.businesses;
+        selection6 = data[Math.floor(Math.random() * data.length)];
+        dispatch(getDay(selection6));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+    };
+
+} 

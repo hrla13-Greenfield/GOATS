@@ -76,7 +76,7 @@ export default class Navbar extends React.Component {
         <ul className="nav nav-pils nav-stacked">
           <a href="#/tree"><li>Home</li></a>
           <a href="#"><li>browse all</li></a>
-          <a href="#"><li>plan my day</li></a>
+          <a href="#/dayplanner"><li>plan my day</li></a>
           <a href="#/game"><li>Game</li></a>
           <a onClick={() => this.logout()}>Logout</a>
       
