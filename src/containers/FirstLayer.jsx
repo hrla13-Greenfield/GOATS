@@ -6,6 +6,7 @@ import { selectChoice } from '../actions/index.jsx';
 
 
 class FirstLayer extends React.Component {
+
   renderChoices() {
     return this.props.choices.firstLoad.map((choice) => ( 
         <div className="col-md-4 col-sm-6 col-xs-12">

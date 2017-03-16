@@ -18,6 +18,8 @@ class App extends React.Component {
   }
 
   render() {
+    // if(!!localStorage.getItem("userToken")){
+    //   console.log("inside true")
     return (
       <div>
         <div className="row">
@@ -43,9 +45,14 @@ class App extends React.Component {
           </div>
         </div>
       </div>
-
-    );
-  }
+    )
+  // } else {
+  //   console.log("inside false")
+  // return(
+  //   <div> <Navbar /></div>
+  // )
+  // }
+} 
 }
 
 export default App;
