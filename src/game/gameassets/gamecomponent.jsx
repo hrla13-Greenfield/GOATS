@@ -17,6 +17,7 @@ class GameComponent extends React.Component {
       var charArr = ['a', 's', 'd', 'f']
       var initRandom = charArr[Math.floor(charArr.length * Math.random())]
       this.state = {
+        user: [],
         opponentScore: 0,
         count: 0,
         random: initRandom,
@@ -29,6 +30,13 @@ class GameComponent extends React.Component {
       this.handleReset = this.handleReset.bind(this);
       this.handleRandom = this.handleRandom.bind(this);
 
+    // sockets x users?
+    var self = this;
+        socket.on('user', function(user) {
+            self.setState(this.state.user.push(user))
+        });
+
+    // setting the state for opponents score, opponent is not specified
     var self = this;
         socket.on('count', function(data) {
             self.setState({
@@ -112,6 +120,7 @@ class GameComponent extends React.Component {
         <div onKeyPress={this.handleCount}>
             <div>{this.state.group}</div>
             <div>
+                {console.log("what is this? ", this.props.userdata)}
                 <h5>{this.state.winCondition}</h5>
                 <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
                 <img src={this.state.img}/>

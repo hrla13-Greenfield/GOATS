@@ -14,6 +14,7 @@ app.use(morgan('combined'));
 app.use(express.static('./output'));
 app.use('/api', myRouter);
 
+
 // socket acknowledges if a user has connected or disconnected
 const server = app.listen(PORT, () => {
   console.log('connected to ' + PORT);
@@ -29,6 +30,9 @@ const io = require('socket.io')(server);
 // connection established once page is loaded
 io.on('connection', function(socket) {
   console.log('a user connected!');
+  socket.on('user', function(user) {
+    console.log("this is a user? ", user)
+  })
   socket.on('count', function(counter) {
     socket.broadcast.emit('count', counter)
     console.log('this is the count ' + counter)
