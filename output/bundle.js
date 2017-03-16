@@ -6393,6 +6393,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function signInSuccess(userinfo, username) {
+  console.log(userinfo, "this is userinfo");
   var userinfo = userinfo.data;
   var newGroups = [];
   var newGroupsByID = [];
@@ -6468,20 +6469,17 @@ function saveNickname(nickname) {
 }
 
 function signIn(username) {
-  console.log(username, "this is username");
+  // console.log(username, "this is username")
   // console.log(JSON.parse(localStorage.getItem("emailcodeCred")).email.email, "email")
-  // var username = "Brandon"
-  // return (dispatch) => {
-  //   dispatch(isLoading(true));
-  //   axios.get('/api/users', { params: {
-  //     username
-  //   }} )
-  //   .then((result) => {
-  //     console.log(result);
-  //     dispatch(signInSuccess(result, username));
-  //   })
-
-  // };
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    _axios2.default.get('/api/users', { params: {
+        username: username
+      } }).then(function (result) {
+      console.log(result);
+      dispatch(signInSuccess(result, username));
+    });
+  };
 }
 
 function addFriendSuccess(groupID, friendName) {
@@ -35087,8 +35085,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -35117,41 +35113,26 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
   _createClass(Navbar, [{
     key: 'handleChange',
     value: function handleChange(e) {
-      this.setState({ value: e.target.value });
+      // this.setState({ value: e.target.value})
     }
   }, {
     key: 'groupInput',
     value: function groupInput() {
-      var _this2 = this;
-
-      this.setState({
-        group: _react2.default.createElement(
-          'form',
-          { onSubmit: function onSubmit() {
-              return _this2.addGroup();
-            } },
-          _react2.default.createElement('input', { onChange: this.handleChange, type: 'text' })
-        )
-      });
+      // this.setState({
+      //   group: (<form onSubmit={() => this.addGroup()}><input onChange={this.handleChange} type="text"></input></form>)
+      // })
     }
   }, {
     key: 'friendInput',
     value: function friendInput(groupID) {
-      var _this3 = this;
-
-      this.setState(_defineProperty({}, groupID, _react2.default.createElement(
-        'form',
-        { onSubmit: function onSubmit() {
-            return _this3.addFriend(groupID);
-          } },
-        ' ',
-        _react2.default.createElement('input', { onChange: this.handleChange, type: 'text' })
-      )));
+      // this.setState({
+      //    [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input onChange={this.handleChange} type="text"></input></form>)
+      // })
     }
   }, {
     key: 'inputChange',
     value: function inputChange(e, groupID) {
-      this.setState({ text: e.target.value });
+      // if (this.this.setState({ text: e.target.value })
     }
   }, {
     key: 'addFriend',
@@ -35173,8 +35154,9 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
   }, {
     key: 'renderlist',
     value: function renderlist() {
-      var _this4 = this;
+      var _this2 = this;
 
+      console.log(this.props.userdata, "here is userdata <<<<<<");
       var mappedGroups = this.props.userdata.currentGroupsByID.map(function (group) {
         var mappedUsers = group.members.map(function (user) {
           return _react2.default.createElement(
@@ -35193,7 +35175,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             _react2.default.createElement(
               'a',
               { onClick: function onClick() {
-                  return _this4.friendInput(group.id);
+                  return _this2.friendInput(group.id);
                 } },
               '   ',
               _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
@@ -35202,7 +35184,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
           _react2.default.createElement(
             'div',
             null,
-            _this4.state[group.id]
+            _this2.state[group.id]
           ),
           _react2.default.createElement(
             'ul',
@@ -35262,7 +35244,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
           _react2.default.createElement(
             'a',
             { onClick: function onClick() {
-                return _this4.logout();
+                return _this2.logout();
               } },
             'Logout'
           ),
@@ -35320,11 +35302,20 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
         var tempEmail = JSON.parse(localStorage.getItem("emailcodeCred")).email.email;
         self.props.dispatch(UserActions.signIn(tempEmail));
         console.log(!!localStorage.getItem("userToken"), "props usersign");
-        return _react2.default.createElement(
-          'div',
-          null,
-          this.renderlist()
-        );
+        if (this.props.userdata.currentGroups.length > 0) {
+          console.log("whyy", this.props.userdata.currentGroups);
+          return _react2.default.createElement(
+            'div',
+            null,
+            this.renderlist()
+          );
+        } else {
+          return _react2.default.createElement(
+            'div',
+            null,
+            'Loading'
+          );
+        }
       } else {
         return _react2.default.createElement(
           'div',
