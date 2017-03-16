@@ -9,8 +9,8 @@ export function signInSuccess(userinfo, username) {
   for (var i=0; i<userinfo.usergroups.length; i++) {
     if (userinfo.usergroups[i].Users.length !== 0) {
       newGroups.push(userinfo.usergroups[i].id);
-      
-      var membersTemp = []
+     
+      var membersTemp = [];
       for (var j=0; j<userinfo.usergroups[i].Users.length; j++) {
         if (userinfo.usergroups[i].Users[j].username !== username) {
           membersTemp.push(userinfo.usergroups[i].Users[j].username);
@@ -64,7 +64,6 @@ export function signInSuccess(userinfo, username) {
 }
 
 export function isLoading(bool) {
-  console.log("loading")
   return {
     type: types.USER_LOADING,
     isLoading: true,
@@ -79,8 +78,6 @@ export function saveNickname(nickname){
 }
 
 export function signIn(username) {
-  // console.log(username, "this is username")
-  // console.log(JSON.parse(localStorage.getItem("emailcodeCred")).email.email, "email")
   return (dispatch) => {
     dispatch(isLoading(true));
     axios.get('/api/users', { params: {
@@ -126,6 +123,7 @@ export function addFriend(groupID, friendName, userID) {
     }
     ).then(() => {
       dispatch(addFriendSuccess(groupID, friendName));
+      dispatch(doneLoading());
     })
     .catch((err) => {
       console.log(err)

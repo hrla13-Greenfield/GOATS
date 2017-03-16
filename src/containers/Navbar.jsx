@@ -59,7 +59,6 @@ export default class Navbar extends React.Component {
   }
   
   renderlist() {
-    console.log(this.props.userdata, "here is userdata <<<<<<");
     const mappedGroups = this.props.userdata.currentGroupsByID.map(group => { 
     const mappedUsers = group.members.map(user => (<li>{user}</li>))
     return(
@@ -95,17 +94,11 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    // let self = this;
-    // var tmp = function() {
-    //   self.props.dispatch(UserActions.signIn());
-    //   window.location.href= "/#/login"
-    // }
 
-    // if (this.props.userdata.currentGroups.length > 0) {
     if (this.props.userdata.isLoading) {
       return (
         <div>
-          Loading
+          
         </div>
       )
     } else {
