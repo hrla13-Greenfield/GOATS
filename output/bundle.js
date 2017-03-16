@@ -36444,6 +36444,7 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
         var charArr = ['a', 's', 'd', 'f'];
         var initRandom = charArr[Math.floor(charArr.length * Math.random())];
         _this.state = {
+            user: [],
             opponentScore: 0,
             count: 0,
             random: initRandom,
@@ -36456,6 +36457,13 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
         _this.handleReset = _this.handleReset.bind(_this);
         _this.handleRandom = _this.handleRandom.bind(_this);
 
+        // sockets x users?
+        var self = _this;
+        socket.on('user', function (user) {
+            self.setState(this.state.user.push(user));
+        });
+
+        // setting the state for opponents score, opponent is not specified
         var self = _this;
         socket.on('count', function (data) {
             self.setState({
@@ -36552,6 +36560,7 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
                 _react2.default.createElement(
                     'div',
                     null,
+                    console.log("what is this? ", this.props.userdata),
                     _react2.default.createElement(
                         'h5',
                         null,
