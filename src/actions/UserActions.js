@@ -64,9 +64,10 @@ export function signInSuccess(userinfo, username) {
 }
 
 export function isLoading(bool) {
+  console.log("loading")
   return {
     type: types.USER_LOADING,
-    bool,
+    isLoading: true,
   };
 }
 
@@ -88,6 +89,7 @@ export function signIn(username) {
     .then((result) => {
       console.log(result);
       dispatch(signInSuccess(result, username));
+      dispatch(doneLoading());
     }) 
   };
 }
@@ -97,6 +99,13 @@ export function addFriendSuccess(groupID, friendName) {
     type: types.ADD_FRIEND,
     groupID,
     friendName,
+  };
+}
+
+export function doneLoading() {
+  return {
+    type: types.DONE_LOADING,
+    status: true,
   };
 }
 
