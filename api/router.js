@@ -4,7 +4,6 @@ const fs = require('fs');
 const db = require('./db/schema');
 
 
-
 myRouter.route('/users')
   .get((req, res) => {
     db.User.findAll({where: { username: req.query.username } })

@@ -32,6 +32,7 @@ class App extends React.Component {
                 <div>
                   <Router history={hashHistory}>
                     <div>
+                      <Route exact path="/" component={Login} />
                       <Route path="/login" component={Login} />
                       <Route path="/game" component={Game} />
                       <Route path="/tree" component={Tree} />
