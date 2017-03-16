@@ -8,16 +8,18 @@ import { selectChoice } from '../actions/index.jsx';
 class FirstLayer extends React.Component {
   renderChoices() {
     return this.props.choices.firstLoad.map((choice) => ( 
-        <img className="img-responsive"
+        <div className="col-md-4 col-sm-6 col-xs-12">
+          <img className="allPics"
           key={ choice.img }
           onClick={() => this.props.selectChoice(choice.option, this.props.choices.updatedZipcode, this.props.userdata.userID)}
-          src={choice.img} height="250" />
+          src={choice.img} 
+          style={{borderRadius: 5, tintColor: '#0000CD' }}/></div>
       ));
   }
 
   render() {
     return (
-      <div className="col-sm-4">
+      <div>
         { this.renderChoices() }</div>
     );
   }
