@@ -31396,44 +31396,50 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
   _createClass(Profile, [{
     key: 'render',
     value: function render() {
-      console.log(this.props.userdata.username);
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          null,
-          this.props.userdata.username,
-          '\'s Profile'
-        ),
-        _react2.default.createElement(
+      // console.log(!!localStorage.getItem("userToken"), "this is in profile")
+      // console.log(this.props.userdata.username);
+      if (!!localStorage.getItem("userToken") === false) {
+        window.location.href = "/#/login";
+        return false;
+      } else {
+        return _react2.default.createElement(
           'div',
-          { className: 'row' },
+          null,
           _react2.default.createElement(
-            'div',
-            { className: 'col-md-5' },
-            _react2.default.createElement('img', { height: '125px', width: '125px', src: '' })
+            'h1',
+            null,
+            this.props.userdata.username,
+            '\'s Profile'
           ),
           _react2.default.createElement(
             'div',
-            { className: 'col-md-7' },
+            { className: 'row' },
             _react2.default.createElement(
-              'h2',
+              'div',
+              { className: 'col-md-5' },
+              _react2.default.createElement('img', { height: '125px', width: '125px', src: '' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-7' },
+              _react2.default.createElement(
+                'h2',
+                null,
+                'Pending group invites'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'h3',
               null,
-              'Pending group invites'
+              ' User history list '
             )
           )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'row' },
-          _react2.default.createElement(
-            'h3',
-            null,
-            ' User history list '
-          )
-        )
-      );
+        );
+      }
     }
   }]);
 
@@ -31607,9 +31613,10 @@ var Tree = function (_React$Component) {
   _createClass(Tree, [{
     key: 'render',
     value: function render() {
-      console.log(!!localStorage.getItem("userToken"));
+      // console.log(!!localStorage.getItem("userToken"))
       if (!!localStorage.getItem("userToken") === false) {
         window.location.href = "/#/login";
+        return false;
       } else {
         console.log("there is a token");
         if (this.props.choices.zipCode === false) {
@@ -31695,11 +31702,17 @@ var Game = function (_React$Component) {
   _createClass(Game, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_gamecomponent2.default, null)
-      );
+      // console.log(!!localStorage.getItem("userToken"), "this is in game")
+      if (!!localStorage.getItem("userToken") === false) {
+        window.location.href = "/#/login";
+        return false;
+      } else {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_gamecomponent2.default, null)
+        );
+      }
     }
   }]);
 

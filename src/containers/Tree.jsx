@@ -10,9 +10,10 @@ import { connect } from 'react-redux';
 
 class Tree extends React.Component {
   render() {
-    console.log(!!localStorage.getItem("userToken"))
+    // console.log(!!localStorage.getItem("userToken"))
     if(!!localStorage.getItem("userToken") === false){
       window.location.href= "/#/login"
+      return false;
     }else{
       console.log("there is a token")
     if (this.props.choices.zipCode === false) {
