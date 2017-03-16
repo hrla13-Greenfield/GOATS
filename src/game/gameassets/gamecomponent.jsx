@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
 const io = require('socket.io-client');
 const socket = io();
 
-socket.on('connect', function(data) {
-    socket.emit('join', 'the client is live!!!')
-})
+@connect((store) => {
+  return {
+    userdata: store.userdata,
+  };
+}) 
 
 class GameComponent extends React.Component {
     constructor(props) {
@@ -37,7 +40,6 @@ class GameComponent extends React.Component {
     componentDidMount() {
         setInterval(this.handleRandom, 900)
     }
-
 
     handleRandom(event) {
         var charArr = ['a','s','d','f'];

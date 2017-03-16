@@ -29,16 +29,9 @@ io.on('connection', function(socket) {
     socket.broadcast.emit('count', counter)
     console.log('this is the count ' + counter)
   })
-  socket.on('join', function(data) {
-    console.log('coming from the client >> ' + data)
-    socket.emit('count', 'get ready to Rumble!')
-  })
   socket.on('disconnect', function(socket) {
     console.log('a user disconnected!');
   })
 })
-
-// users are able to communicate with each other through the game
-
 
 module.exports = app;
