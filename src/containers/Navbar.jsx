@@ -41,6 +41,13 @@ export default class Navbar extends React.Component {
   addGroup() {
     this.props.dispatch(UserActions.addGroup(this.state.value, this.props.userdata.userID))
   }
+
+  logout(){
+    console.log("insidelogout")
+    localStorage.clear();
+    location.href= "/#/tree"
+
+  }
   
   renderlist() {
     const mappedGroups = this.props.userdata.currentGroupsByID.map(group => { 
@@ -61,6 +68,8 @@ export default class Navbar extends React.Component {
           <a href="#"><li>browse all</li></a>
           <a href="#"><li>plan my day</li></a>
           <a href="#/game"><li>Game</li></a>
+          <a onClick={() => this.logout()}>Logout</a>
+      
           <li>________</li>
             <li> Welcome, {this.props.userdata.username}</li>
             <a href="#/profile"><li>View Profile</li></a>
