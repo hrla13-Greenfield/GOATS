@@ -2,13 +2,21 @@ const request = require('request');
 const db = require('./db/schema');
 
 exports.createUser = function (req, res) {
-
+  const newuser = db.User.build({
+    username: req.body.username,
+    current: null,
+    points: '0',
+    image: null,
+  })
+  newuser.save()
+  .then((record) => {
+    res.send(record);
+  });
 };
+
 exports.addToGroup = function (req, res) {
-  console.log(req.body); //  groupName: 'Group1', friendName: 'asdf', userID: 12
   db.User.findOne({ where: { username: req.body.friendName } }).then((results) => {
     if (results) {
-      console.log(results.id);
       const newRequest = db.PendingInvites.build({
         sentBy: req.body.userID,
         UserId: results.id,
@@ -16,7 +24,6 @@ exports.addToGroup = function (req, res) {
       });
       newRequest.save()
       .then((data) => {
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -32,7 +39,27 @@ exports.addToGroup = function (req, res) {
 };
 
 exports.returnUserData = function (req, res) {
-  db.User.findOne({ where: { username: req.query.username } }).then((results) => {
+  var cb = function (usergroups, userid, points, image, current) {
+    db.PendingInvites.findAll({where: { UserId: userid } })
+    .then((invites) => {
+      db.UserHistory.findAll({where: { userId: userid } })
+      .then((history) => {
+        var finalObj = {
+          history,
+          invites,
+          usergroups,
+          userid,
+          image,
+          points,
+          current,
+        }
+        res.send(finalObj)
+      })
+    });
+  };
+
+  db.User.findOne({ where: { username: req.query.username } })
+  .then((results) => {
     db.UserGroup.findAll({
       where: { userId: results.id },
     })
@@ -44,12 +71,13 @@ exports.returnUserData = function (req, res) {
       db.Group.findAll({
         include: [
           { model: db.User,
-through: {
-            where: { GroupId: myGroups },
-          } },
+            through: {
+              where: { GroupId: myGroups },
+            } },
         ],
-      }).then((data) => {
-        res.send(data);
+      })
+      .then((data) => {
+        cb(data, results.id, results.points, results.image, results.current);
       });
     });
   });
