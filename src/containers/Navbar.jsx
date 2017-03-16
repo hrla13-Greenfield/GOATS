@@ -54,7 +54,8 @@ export default class Navbar extends React.Component {
   logout(){
     console.log("insidelogout")
     localStorage.clear();
-    location.href= "/#/tree"
+    location.href= "/#/"
+    window.location.reload()
 
   }
   
@@ -98,12 +99,13 @@ export default class Navbar extends React.Component {
     if (this.props.userdata.isLoading) {
       return (
         <div>
-          
+
         </div>
       )
     } else {
        return (
     <div>
+ 
       {this.renderlist()}
     </div>
     )

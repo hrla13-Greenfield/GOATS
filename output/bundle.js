@@ -29950,6 +29950,7 @@ var App = function (_React$Component) {
                     _react2.default.createElement(
                       'div',
                       null,
+                      _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: _login2.default }),
                       _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _login2.default }),
                       _react2.default.createElement(_reactRouter.Route, { path: '/game', component: _gameindex2.default }),
                       _react2.default.createElement(_reactRouter.Route, { path: '/tree', component: _Tree2.default }),
@@ -31172,7 +31173,8 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
     value: function logout() {
       console.log("insidelogout");
       localStorage.clear();
-      location.href = "/#/tree";
+      location.href = "/#/";
+      window.location.reload();
     }
   }, {
     key: 'renderlist',
