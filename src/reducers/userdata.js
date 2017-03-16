@@ -9,6 +9,7 @@ const initialState = {
   userImg: null,
   userID: null,
   currentnickname: null,
+  isLoading: true,
 };
 
 export default function groups(state = initialState, action) {
@@ -29,6 +30,12 @@ export default function groups(state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+      };
+
+    case types.DONE_LOADING:
+      return {
+        ...state,
+        isLoading: false,
       };
 
     case types.SAVE_NICKNAME:

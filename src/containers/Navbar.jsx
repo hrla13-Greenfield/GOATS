@@ -19,22 +19,31 @@ export default class Navbar extends React.Component {
     this.friendInput = this.friendInput.bind(this)
     this.handleChange = this.handleChange.bind(this);
   }
+
+  componentWillMount() {
+    if (!!localStorage.getItem("userToken")) {
+      var tempEmail = JSON.parse(localStorage.getItem("emailcodeCred")).email.email;
+      this.props.dispatch(UserActions.signIn(tempEmail));
+    }
+  }
+
   handleChange(e) {
-    // this.setState({ value: e.target.value})
+    this.setState({ value: e.target.value})
   }
   groupInput() {
-    // this.setState({
-    //   group: (<form onSubmit={() => this.addGroup()}><input onChange={this.handleChange} type="text"></input></form>)
-    // })
+    this.setState({
+      group: (<form onSubmit={() => this.addGroup()}><input onChange={this.handleChange} type="text"></input></form>)
+    })
   }
   friendInput(groupID) {
-    // this.setState({
-    //    [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input onChange={this.handleChange} type="text"></input></form>)
-    // })
+    this.setState({
+       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input onChange={this.handleChange} type="text"></input></form>)
+    })
   }
   inputChange(e, groupID) {
-    // if (this.this.setState({ text: e.target.value })
+    this.this.setState({ text: e.target.value })
   }
+  
   addFriend(groupID) {
     this.props.dispatch(UserActions.addFriend(groupID, this.state.value, this.props.userdata.userID))
   }
@@ -61,7 +70,6 @@ export default class Navbar extends React.Component {
       </div>
     )}) 
   
-
     return (
       <div >
         <h1>Navbar goes here</h1>
@@ -87,39 +95,26 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    let self = this;
-    var tmp = function() {
-      self.props.dispatch(UserActions.signIn());
-      window.location.href= "/#/login"
-    }
-    if (!!localStorage.getItem("userToken")) {
-      var tempEmail = JSON.parse(localStorage.getItem("emailcodeCred")).email.email;
-      self.props.dispatch(UserActions.signIn(tempEmail));
-      console.log(!!localStorage.getItem("userToken"), "props usersign")
-    if (this.props.userdata.currentGroups.length > 0) {
-      console.log("whyy", this.props.userdata.currentGroups);
-    return (
-    <div>
-      {this.renderlist()}
+    // let self = this;
+    // var tmp = function() {
+    //   self.props.dispatch(UserActions.signIn());
+    //   window.location.href= "/#/login"
+    // }
 
-    </div>
-    )
-    } else {
+    // if (this.props.userdata.currentGroups.length > 0) {
+    if (this.props.userdata.isLoading) {
       return (
         <div>
           Loading
-          </div>
-      )
-    }
-    } else {
-      return (
-        <div>
-        <h1>Sign in</h1>
-        <a onClick={tmp}>Sign in</a>
         </div>
       )
-    }  
-
+    } else {
+       return (
+    <div>
+      {this.renderlist()}
+    </div>
+    )
+    }
   }
 }
 
