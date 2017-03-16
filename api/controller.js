@@ -39,12 +39,21 @@ exports.addToGroup = function (req, res) {
 };
 
 exports.returnUserData = function (req, res) {
-  var cb = function (usergroups, userid) {
+  var cb = function (usergroups, userid, points, image, current) {
     db.PendingInvites.findAll({where: { UserId: userid } })
     .then((invites) => {
       db.UserHistory.findAll({where: { userId: userid } })
       .then((history) => {
-        res.send(history);
+        var finalObj = {
+          history,
+          invites,
+          usergroups,
+          userid,
+          image,
+          points,
+          current,
+        }
+        res.send(finalObj)
       })
     });
   };
@@ -68,7 +77,7 @@ exports.returnUserData = function (req, res) {
         ],
       })
       .then((data) => {
-        cb(data, results.id);
+        cb(data, results.id, results.points, results.image, results.current);
       });
     });
   });

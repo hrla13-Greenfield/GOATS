@@ -1,30 +1,64 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes.jsx';
 
-export function signInSuccess() {
+export function signInSuccess(userinfo, username) {
+  var userinfo = userinfo.data;
+  var newGroups = [];
+  var newGroupsByID = [];
+  for (var i=0; i<userinfo.usergroups.length; i++) {
+    if (userinfo.usergroups[i].Users.length !== 0) {
+      newGroups.push(userinfo.usergroups[i].id);
+      
+      var membersTemp = []
+      for (var j=0; j<userinfo.usergroups[i].Users.length; j++) {
+        if (userinfo.usergroups[i].Users[j].username !== username) {
+          membersTemp.push(userinfo.usergroups[i].Users[j].username);
+        }
+      }
+      var newGroupTemp = {
+        id: userinfo.usergroups[i].id,
+        name: userinfo.usergroups[i].name,
+        members: membersTemp,
+      }
+      newGroupsByID.push(newGroupTemp);
+    }
+  }
+  var newHistory = []
+  for (var k=0; k<userinfo.history.length; k++) {
+    var historyTemp = {
+      name: userinfo.history[k].name,
+      address: userinfo.history[k].address,
+      category: userinfo.history[k].category,
+      id: userinfo.history[k].id,
+      open: userinfo.history[k].open_hours,
+      phone: userinfo.history[k].phone,
+      url: userinfo.history[k].url,
+      rating: userinfo.history[k].user_rating,
+      image: userinfo.history[k].image,
+    }
+    newHistory.push(historyTemp)
+  }
+  var newInvites = [];
+  for (var l=0; l<userinfo.invites.length; l++) {
+    var tmpInvite = {
+      groupID: userinfo.invites[l].GroupId,
+      userID: userinfo.invites[l].UserId,
+      sentBy: userinfo.invites[l].sentBy,
+      id: userinfo.invites[l].id,
+    }
+    newInvites.push(tmpInvite);
+  }
+
   return {
     type: types.SIGN_IN,
-    username: 'Brandon',
-    currentGroups: [1, 2, 3],
-    currentGroupsByID: [
-      {
-        id: 1,
-        name: 'Group1',
-        members: ['Sandra', 'Alex', 'Emily'],
-      },
-      {
-        id: 2,
-        name: 'Group2',
-        members: ['Andrew', 'Regina', 'Armen'],
-      },
-      {
-        id: 3,
-        name: 'Group3',
-        members: ['Josh', 'Zach', 'Marcie'],
-      },
-    ],
-    userImg: null,
-    userID: 12,
+    username,
+    currentGroups: newGroups,
+    currentGroupsByID: newGroupsByID,
+    userImg: userinfo.image,
+    points: userinfo.points,
+    userID: userinfo.userid,
+    invites: newInvites,
+    history: newHistory,
   };
 }
 
@@ -35,14 +69,18 @@ export function isLoading(bool) {
   };
 }
 
-export function signIn() {
+export function signIn(username) {
+  var username = "Brandon"
   return (dispatch) => {
     dispatch(isLoading(true));
-
-    // fetch
-      // then
-      // onsuccess ->
-    dispatch(signInSuccess());
+    axios.get('/api/users', { params: {
+      username
+    }} )
+    .then((result) => {
+      console.log(result);
+      dispatch(signInSuccess(result, username));
+    })
+    
   };
 }
 
