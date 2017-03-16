@@ -8,6 +8,7 @@ const initialState = {
   username: null,
   userImg: null,
   userID: null,
+  currentnickname: null,
 };
 
 export default function groups(state = initialState, action) {
@@ -29,6 +30,14 @@ export default function groups(state = initialState, action) {
         ...state,
         isLoading: true,
       };
+
+    case types.SAVE_NICKNAME:
+      return {
+        ...state,
+        currentNickname: action.nickname,
+      };
+
+
 
     case types.ADD_FRIEND:
       for (let i = 0; i < state.currentGroupsByID.length; i++) {

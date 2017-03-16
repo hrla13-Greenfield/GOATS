@@ -8193,6 +8193,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.signInSuccess = signInSuccess;
 exports.isLoading = isLoading;
+exports.saveNickname = saveNickname;
 exports.signIn = signIn;
 exports.addFriendSuccess = addFriendSuccess;
 exports.addGroupSuccess = addGroupSuccess;
@@ -8279,17 +8280,28 @@ function isLoading(bool) {
   };
 }
 
-function signIn(username) {
-  var username = "Brandon";
-  return function (dispatch) {
-    dispatch(isLoading(true));
-    _axios2.default.get('/api/users', { params: {
-        username: username
-      } }).then(function (result) {
-      console.log(result);
-      dispatch(signInSuccess(result, username));
-    });
+function saveNickname(nickname) {
+  return {
+    type: types.SAVE_NICKNAME,
+    nickname: nickname
   };
+}
+
+function signIn(username) {
+  console.log(username, "this is username");
+  // console.log(JSON.parse(localStorage.getItem("emailcodeCred")).email.email, "email")
+  // var username = "Brandon"
+  // return (dispatch) => {
+  //   dispatch(isLoading(true));
+  //   axios.get('/api/users', { params: {
+  //     username
+  //   }} )
+  //   .then((result) => {
+  //     console.log(result);
+  //     dispatch(signInSuccess(result, username));
+  //   })
+
+  // };
 }
 
 function addFriendSuccess(groupID, friendName) {
@@ -8873,6 +8885,7 @@ var DELETE_GROUP = exports.DELETE_GROUP = 'DELETE_GROUP';
 var GET_STATE = exports.GET_STATE = 'GET_STATE';
 var USER_LOADING = exports.USER_LOADING = 'USER_LOADING';
 var ADD_FRIEND = exports.ADD_FRIEND = 'ADD_FRIEND';
+var SAVE_NICKNAME = exports.SAVE_NICKNAME = 'SAVE_NICKNAME';
 
 /***/ }),
 /* 80 */
@@ -31292,7 +31305,9 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
         self.props.dispatch(UserActions.signIn());
         window.location.href = "/#/login";
       };
-      if (!!localStorage.getItem("userToken") && this.props.userdata.signedIn) {
+      if (!!localStorage.getItem("userToken")) {
+        var tempEmail = JSON.parse(localStorage.getItem("emailcodeCred")).email.email;
+        self.props.dispatch(UserActions.signIn(tempEmail));
         console.log(!!localStorage.getItem("userToken"), "props usersign");
         return _react2.default.createElement(
           'div',
@@ -31775,7 +31790,8 @@ var initialState = {
   currentGroupsByID: {},
   username: null,
   userImg: null,
-  userID: null
+  userID: null,
+  currentnickname: null
 };
 
 function groups() {
@@ -31797,6 +31813,11 @@ function groups() {
     case types.USER_LOADING:
       return _extends({}, state, {
         isLoading: true
+      });
+
+    case types.SAVE_NICKNAME:
+      return _extends({}, state, {
+        currentNickname: action.nickname
       });
 
     case types.ADD_FRIEND:
@@ -47120,8 +47141,12 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store) {
           localStorage.setItem('userToken', id_token);
           //send a redux action that sets state.auth.authenticated to true
           // state.auth.user to profile
+          var self = this;
+          var tmp = function tmp() {
+            self.props.dispatch(UserActions.saveNickname(profile.nickname));
+          };
           window.location.href = "/#/tree";
-          console.log(profile, "profile");
+          console.log(profile.nickname, "profile");
           console.log(id_token, "id token");
           console.log(state, "this is state");
           if (localStorage.getItem("userToken")) {
