@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Button from './gameassets/buttons.jsx';
+import GameComponent from './gameassets/gamecomponent.jsx';
 
 class Game extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class Game extends React.Component {
     render() {
         return(
         <div>
-          <Button />
+          <GameComponent />
         </div> 
         )
     }
