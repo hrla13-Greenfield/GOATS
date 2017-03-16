@@ -7,10 +7,14 @@ const db = require('./db/schema');
 
 myRouter.route('/users')
   .get((req, res) => {
-    controller.returnUserData(req, res);
-  })
-  .post((req, res) => {
-    controller.createUser(req, res);
+    db.User.findAll({where: { username: req.query.username } })
+    .then((result) => {
+      if(result.length === 0){
+        controller.createUser(req, res);
+      } else {
+        controller.returnUserData(req, res);
+      }
+    })
   });
 
 myRouter.route('/users/history')

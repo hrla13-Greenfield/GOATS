@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as types from '../constants/ActionTypes.jsx';
 
 export function signInSuccess(userinfo, username) {
+  console.log(userinfo, "this is userinfo")
   var userinfo = userinfo.data;
   var newGroups = [];
   var newGroupsByID = [];
@@ -48,7 +49,7 @@ export function signInSuccess(userinfo, username) {
     }
     newInvites.push(tmpInvite);
   }
-
+  
   return {
     type: types.SIGN_IN,
     username,
@@ -77,20 +78,18 @@ export function saveNickname(nickname){
 }
 
 export function signIn(username) {
-  console.log(username, "this is username")
+  // console.log(username, "this is username")
   // console.log(JSON.parse(localStorage.getItem("emailcodeCred")).email.email, "email")
-  // var username = "Brandon"
-  // return (dispatch) => {
-  //   dispatch(isLoading(true));
-  //   axios.get('/api/users', { params: {
-  //     username
-  //   }} )
-  //   .then((result) => {
-  //     console.log(result);
-  //     dispatch(signInSuccess(result, username));
-  //   })
-    
-  // };
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    axios.get('/api/users', { params: {
+      username
+    }} )
+    .then((result) => {
+      console.log(result);
+      dispatch(signInSuccess(result, username));
+    }) 
+  };
 }
 
 export function addFriendSuccess(groupID, friendName) {

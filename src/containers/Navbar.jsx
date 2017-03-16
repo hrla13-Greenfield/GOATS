@@ -20,20 +20,20 @@ export default class Navbar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
-    this.setState({ value: e.target.value})
+    // this.setState({ value: e.target.value})
   }
   groupInput() {
-    this.setState({
-      group: (<form onSubmit={() => this.addGroup()}><input onChange={this.handleChange} type="text"></input></form>)
-    })
+    // this.setState({
+    //   group: (<form onSubmit={() => this.addGroup()}><input onChange={this.handleChange} type="text"></input></form>)
+    // })
   }
   friendInput(groupID) {
-    this.setState({
-       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input onChange={this.handleChange} type="text"></input></form>)
-    })
+    // this.setState({
+    //    [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input onChange={this.handleChange} type="text"></input></form>)
+    // })
   }
   inputChange(e, groupID) {
-    this.setState({ text: e.target.value })
+    // if (this.this.setState({ text: e.target.value })
   }
   addFriend(groupID) {
     this.props.dispatch(UserActions.addFriend(groupID, this.state.value, this.props.userdata.userID))
@@ -50,6 +50,7 @@ export default class Navbar extends React.Component {
   }
   
   renderlist() {
+    console.log(this.props.userdata, "here is userdata <<<<<<");
     const mappedGroups = this.props.userdata.currentGroupsByID.map(group => { 
     const mappedUsers = group.members.map(user => (<li>{user}</li>))
     return(
@@ -59,6 +60,7 @@ export default class Navbar extends React.Component {
       <ul>{mappedUsers}</ul>
       </div>
     )}) 
+  
 
     return (
       <div >
@@ -94,12 +96,21 @@ export default class Navbar extends React.Component {
       var tempEmail = JSON.parse(localStorage.getItem("emailcodeCred")).email.email;
       self.props.dispatch(UserActions.signIn(tempEmail));
       console.log(!!localStorage.getItem("userToken"), "props usersign")
+    if (this.props.userdata.currentGroups.length > 0) {
+      console.log("whyy", this.props.userdata.currentGroups);
     return (
     <div>
       {this.renderlist()}
 
     </div>
     )
+    } else {
+      return (
+        <div>
+          Loading
+          </div>
+      )
+    }
     } else {
       return (
         <div>

@@ -3,7 +3,7 @@ const db = require('./db/schema');
 
 exports.createUser = function (req, res) {
   const newuser = db.User.build({
-    username: req.body.username,
+    username: req.query.username,
     current: null,
     points: '0',
     image: null,
