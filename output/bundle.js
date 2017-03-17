@@ -1494,7 +1494,11 @@ module.exports = {
 var debugTool = null;
 
 if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
   var ReactDebugTool = __webpack_require__(246);
+=======
+  var ReactDebugTool = __webpack_require__(245);
+>>>>>>> sockets are a bitch
   debugTool = ReactDebugTool;
 }
 
@@ -1616,7 +1620,11 @@ var CallbackQueue = __webpack_require__(106);
 var PooledClass = __webpack_require__(20);
 var ReactFeatureFlags = __webpack_require__(111);
 var ReactReconciler = __webpack_require__(27);
+<<<<<<< HEAD
 var Transaction = __webpack_require__(43);
+=======
+var Transaction = __webpack_require__(41);
+>>>>>>> sockets are a bitch
 
 var invariant = __webpack_require__(1);
 
@@ -2160,6 +2168,74 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(230);
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(289);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
+
+
+
+
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(134);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
+
+
+
+
+
+
+
+/*
+* This is a dummy function to check if the function name has been altered by minification.
+* If the function has been minified and NODE_ENV !== 'production', warn the user.
+*/
+function isCrushed() {}
+
+if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils_warning__["a" /* default */])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
+}
+
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+>>>>>>> sockets are a bitch
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2960,15 +3036,26 @@ module.exports = warning;
  * Module dependencies.
  */
 
+<<<<<<< HEAD
 var keys = __webpack_require__(188);
 var hasBinary = __webpack_require__(97);
 var sliceBuffer = __webpack_require__(146);
 var after = __webpack_require__(145);
+=======
+var keys = __webpack_require__(186);
+var hasBinary = __webpack_require__(95);
+var sliceBuffer = __webpack_require__(145);
+var after = __webpack_require__(144);
+>>>>>>> sockets are a bitch
 var utf8 = __webpack_require__(335);
 
 var base64encoder;
 if (global && global.ArrayBuffer) {
+<<<<<<< HEAD
   base64encoder = __webpack_require__(179);
+=======
+  base64encoder = __webpack_require__(176);
+>>>>>>> sockets are a bitch
 }
 
 /**
@@ -3026,7 +3113,11 @@ var err = { type: 'error', data: 'parser error' };
  * Create a blob api even for blob builder when vendor prefixes exist
  */
 
+<<<<<<< HEAD
 var Blob = __webpack_require__(180);
+=======
+var Blob = __webpack_require__(177);
+>>>>>>> sockets are a bitch
 
 /**
  * Encodes a packet.
@@ -3649,8 +3740,13 @@ var createPath = exports.createPath = function createPath(location) {
 
 
 
+<<<<<<< HEAD
 var DOMNamespaces = __webpack_require__(58);
 var setInnerHTML = __webpack_require__(45);
+=======
+var DOMNamespaces = __webpack_require__(57);
+var setInnerHTML = __webpack_require__(43);
+>>>>>>> sockets are a bitch
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(65);
 var setTextContent = __webpack_require__(124);
@@ -3772,8 +3868,13 @@ module.exports = DOMLazyTree;
 
 
 
+<<<<<<< HEAD
 var ReactRef = __webpack_require__(260);
 var ReactInstrumentation = __webpack_require__(12);
+=======
+var ReactRef = __webpack_require__(259);
+var ReactInstrumentation = __webpack_require__(11);
+>>>>>>> sockets are a bitch
 
 var warning = __webpack_require__(2);
 
@@ -3949,7 +4050,11 @@ module.exports = ReactReconciler;
 var _assign = __webpack_require__(5);
 
 var ReactChildren = __webpack_require__(308);
+<<<<<<< HEAD
 var ReactComponent = __webpack_require__(75);
+=======
+var ReactComponent = __webpack_require__(74);
+>>>>>>> sockets are a bitch
 var ReactPureComponent = __webpack_require__(312);
 var ReactClass = __webpack_require__(309);
 var ReactDOMFactories = __webpack_require__(310);
@@ -4028,6 +4133,94 @@ module.exports = React;
 /* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+=======
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var emptyObject = {};
+
+if (process.env.NODE_ENV !== 'production') {
+  Object.freeze(emptyObject);
+}
+
+module.exports = emptyObject;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var invariant = function(condition, format, a, b, c, d, e, f) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (format === undefined) {
+      throw new Error('invariant requires an error message argument');
+    }
+  }
+
+  if (!condition) {
+    var error;
+    if (format === undefined) {
+      error = new Error(
+        'Minified exception occurred; use the non-minified dev environment ' +
+        'for the full error message and additional helpful warnings.'
+      );
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(
+        format.replace(/%s/g, function() { return args[argIndex++]; })
+      );
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+    throw error;
+  }
+};
+
+module.exports = invariant;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+>>>>>>> sockets are a bitch
 "use strict";
 
 
@@ -4047,7 +4240,13 @@ exports.planDay = planDay;
 
 var _axios = __webpack_require__(81);
 
+<<<<<<< HEAD
 var _axios2 = _interopRequireDefault(_axios);
+=======
+var EventPluginRegistry = __webpack_require__(38);
+var EventPluginUtils = __webpack_require__(58);
+var ReactErrorUtils = __webpack_require__(62);
+>>>>>>> sockets are a bitch
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5091,7 +5290,11 @@ module.exports = EventPluginHub;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 34 */
+=======
+/* 32 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5107,8 +5310,13 @@ module.exports = EventPluginHub;
 
 
 
+<<<<<<< HEAD
 var EventPluginHub = __webpack_require__(33);
 var EventPluginUtils = __webpack_require__(59);
+=======
+var EventPluginHub = __webpack_require__(31);
+var EventPluginUtils = __webpack_require__(58);
+>>>>>>> sockets are a bitch
 
 var accumulateInto = __webpack_require__(118);
 var forEachAccumulated = __webpack_require__(119);
@@ -5231,7 +5439,11 @@ module.exports = EventPropagators;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 35 */
+=======
+/* 33 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5284,7 +5496,11 @@ var ReactInstanceMap = {
 module.exports = ReactInstanceMap;
 
 /***/ }),
+<<<<<<< HEAD
 /* 36 */
+=======
+/* 34 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5348,7 +5564,11 @@ SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 module.exports = SyntheticUIEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 37 */
+=======
+/* 35 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports) {
 
 
@@ -5360,7 +5580,11 @@ module.exports = function(a, b){
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 38 */
+=======
+/* 36 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {
@@ -5370,7 +5594,11 @@ module.exports = function(a, b){
  * Expose `debug()` as the module.
  */
 
+<<<<<<< HEAD
 exports = module.exports = __webpack_require__(187);
+=======
+exports = module.exports = __webpack_require__(185);
+>>>>>>> sockets are a bitch
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -5544,7 +5772,11 @@ function localstorage(){
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 39 */
+=======
+/* 37 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5613,7 +5845,11 @@ var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 40 */
+=======
+/* 38 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5874,7 +6110,11 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 41 */
+=======
+/* 39 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5892,12 +6132,21 @@ module.exports = EventPluginRegistry;
 
 var _assign = __webpack_require__(5);
 
+<<<<<<< HEAD
 var EventPluginRegistry = __webpack_require__(40);
 var ReactEventEmitterMixin = __webpack_require__(250);
 var ViewportMetrics = __webpack_require__(117);
 
 var getVendorPrefixedEventName = __webpack_require__(286);
 var isEventSupported = __webpack_require__(69);
+=======
+var EventPluginRegistry = __webpack_require__(38);
+var ReactEventEmitterMixin = __webpack_require__(249);
+var ViewportMetrics = __webpack_require__(115);
+
+var getVendorPrefixedEventName = __webpack_require__(285);
+var isEventSupported = __webpack_require__(68);
+>>>>>>> sockets are a bitch
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -6207,7 +6456,11 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
+<<<<<<< HEAD
 /* 42 */
+=======
+/* 40 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6223,8 +6476,13 @@ module.exports = ReactBrowserEventEmitter;
 
 
 
+<<<<<<< HEAD
 var SyntheticUIEvent = __webpack_require__(36);
 var ViewportMetrics = __webpack_require__(117);
+=======
+var SyntheticUIEvent = __webpack_require__(34);
+var ViewportMetrics = __webpack_require__(115);
+>>>>>>> sockets are a bitch
 
 var getEventModifierState = __webpack_require__(67);
 
@@ -6284,7 +6542,11 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 module.exports = SyntheticMouseEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 43 */
+=======
+/* 41 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6515,7 +6777,11 @@ module.exports = TransactionImpl;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 44 */
+=======
+/* 42 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6643,7 +6909,11 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
+<<<<<<< HEAD
 /* 45 */
+=======
+/* 43 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6746,7 +7016,11 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
+<<<<<<< HEAD
 /* 46 */
+=======
+/* 44 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {
@@ -6787,6 +7061,8 @@ exports.colors = [
  *
  * TODO: add a `localStorage` variable to explicitly enable/disable colors
  */
+<<<<<<< HEAD
+=======
 
 function useColors() {
   // is webkit? http://stackoverflow.com/a/16459606/376773
@@ -6802,6 +7078,515 @@ function useColors() {
 /**
  * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
  */
+
+exports.formatters.j = function(v) {
+  try {
+    return JSON.stringify(v);
+  } catch (err) {
+    return '[UnexpectedJSONParseError]: ' + err.message;
+  }
+};
+
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs() {
+  var args = arguments;
+  var useColors = this.useColors;
+
+  args[0] = (useColors ? '%c' : '')
+    + this.namespace
+    + (useColors ? ' %c' : ' ')
+    + args[0]
+    + (useColors ? '%c ' : ' ')
+    + '+' + exports.humanize(this.diff);
+
+  if (!useColors) return args;
+
+  var c = 'color: ' + this.color;
+  args = [args[0], c, 'color: inherit'].concat(Array.prototype.slice.call(args, 1));
+
+  // the final "%c" is somewhat tricky, because there could be other
+  // arguments passed either before or after the %c, so we need to
+  // figure out the correct index to insert the CSS into
+  var index = 0;
+  var lastC = 0;
+  args[0].replace(/%[a-z%]/g, function(match) {
+    if ('%%' === match) return;
+    index++;
+    if ('%c' === match) {
+      // we only are interested in the *last* %c
+      // (the user may have provided their own)
+      lastC = index;
+    }
+  });
+
+  args.splice(lastC, 0, c);
+  return args;
+}
+
+/**
+ * Invokes `console.log()` when available.
+ * No-op when `console.log` is not a "function".
+ *
+ * @api public
+ */
+
+function log() {
+  // this hackery is required for IE8/9, where
+  // the `console.log` function doesn't have 'apply'
+  return 'object' === typeof console
+    && console.log
+    && Function.prototype.apply.call(console.log, console, arguments);
+}
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+
+function save(namespaces) {
+  try {
+    if (null == namespaces) {
+      exports.storage.removeItem('debug');
+    } else {
+      exports.storage.debug = namespaces;
+    }
+  } catch(e) {}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+
+function load() {
+  var r;
+  try {
+    return exports.storage.debug;
+  } catch(e) {}
+
+  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+  if (typeof process !== 'undefined' && 'env' in process) {
+    return process.env.DEBUG;
+  }
+}
+
+/**
+ * Enable namespaces listed in `localStorage.debug` initially.
+ */
+
+exports.enable(load());
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage(){
+  try {
+    return window.localStorage;
+  } catch (e) {}
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__(10);
+var normalizeHeaderName = __webpack_require__(160);
+
+var PROTECTION_PREFIX = /^\)\]\}',?\n/;
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(81);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(81);
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      data = data.replace(PROTECTION_PREFIX, '');
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMehtodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.signInSuccess = signInSuccess;
+exports.isLoading = isLoading;
+exports.saveNickname = saveNickname;
+exports.updateNote = updateNote;
+exports.clearNote = clearNote;
+exports.doneLoading = doneLoading;
+exports.unSuccess = unSuccess;
+exports.signIn = signIn;
+exports.addFriendSuccess = addFriendSuccess;
+exports.addGroupSuccess = addGroupSuccess;
+exports.addFriend = addFriend;
+exports.acceptRequest = acceptRequest;
+exports.declineRequest = declineRequest;
+exports.addGroup = addGroup;
+exports.selectRoom = selectRoom;
+
+var _axios = __webpack_require__(80);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _ActionTypes = __webpack_require__(88);
+
+var types = _interopRequireWildcard(_ActionTypes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function signInSuccess(userinfo, username) {
+  var userinfo = userinfo.data;
+  var newGroups = [];
+  var newGroupsByID = [];
+  for (var i = 0; i < userinfo.usergroups.length; i++) {
+    if (userinfo.usergroups[i].Users.length !== 0) {
+      newGroups.push(userinfo.usergroups[i].id);
+
+      var membersTemp = [];
+      for (var j = 0; j < userinfo.usergroups[i].Users.length; j++) {
+        if (userinfo.usergroups[i].Users[j].username !== username) {
+          membersTemp.push(userinfo.usergroups[i].Users[j].username);
+        }
+      }
+      var newGroupTemp = {
+        id: userinfo.usergroups[i].id,
+        name: userinfo.usergroups[i].name,
+        members: membersTemp
+      };
+      newGroupsByID.push(newGroupTemp);
+    }
+  }
+  var newHistory = [];
+  for (var k = 0; k < userinfo.history.length; k++) {
+    var historyTemp = {
+      name: userinfo.history[k].name,
+      address: userinfo.history[k].address,
+      category: userinfo.history[k].category,
+      id: userinfo.history[k].id,
+      open: userinfo.history[k].open_hours,
+      phone: userinfo.history[k].phone,
+      url: userinfo.history[k].url,
+      rating: userinfo.history[k].user_rating,
+      image: userinfo.history[k].image
+    };
+    newHistory.push(historyTemp);
+  }
+  var newInvites = [];
+  for (var l = 0; l < userinfo.invites.length; l++) {
+    var tmpInvite = {
+      groupID: userinfo.invites[l].GroupId,
+      userID: userinfo.invites[l].UserId,
+      sentBy: userinfo.invites[l].sentBy,
+      id: userinfo.invites[l].id
+    };
+    newInvites.push(tmpInvite);
+  }
+
+  return {
+    type: types.SIGN_IN,
+    username: username,
+    currentGroups: newGroups,
+    currentGroupsByID: newGroupsByID,
+    userImg: userinfo.image,
+    points: userinfo.points,
+    userID: userinfo.userid,
+    invites: newInvites,
+    history: newHistory
+  };
+}
+
+function isLoading(bool) {
+  return {
+    type: types.USER_LOADING,
+    isLoading: true
+  };
+}
+
+function saveNickname(nickname) {
+  return {
+    type: types.SAVE_NICKNAME,
+    nickname: nickname
+  };
+}
+
+function updateNote(text) {
+  return {
+    type: types.NOT_SUCCESSFUL,
+    note: text
+  };
+}
+function clearNote() {
+  return {
+    type: types.NOT_SUCCESSFUL,
+    note: ''
+  };
+}
+
+function doneLoading() {
+  return {
+    type: types.DONE_LOADING,
+    status: true
+  };
+}
+function unSuccess(text) {
+  return function (dispatch) {
+    dispatch(updateNote(text));
+    dispatch(doneLoading());
+    setTimeout(function () {
+      dispatch(clearNote());
+    }, 7500);
+  };
+}
+
+function signIn(username) {
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    _axios2.default.get('/api/users', { params: {
+        username: username
+      } }).then(function (result) {
+      dispatch(signInSuccess(result, username));
+      dispatch(doneLoading());
+    });
+  };
+}
+
+function addFriendSuccess(groupID, friendName) {
+  return {
+    type: types.ADD_FRIEND,
+    groupID: groupID,
+    friendName: friendName
+  };
+}
+
+function addGroupSuccess(groupName) {
+  return {
+    type: types.ADD_GROUP,
+    groupName: groupName
+  };
+}
+
+function addFriend(groupID, friendName, userID, username) {
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    _axios2.default.post('/api/users/groups', {
+      groupID: groupID,
+      friendName: friendName,
+      userID: userID
+    }).then(function () {
+      var txt = 'Invite sent to ' + friendName;
+      dispatch(unSuccess(txt));
+      dispatch(signIn(username));
+    }).catch(function (err) {
+      dispatch(unSuccess('Invalid selection, please try again'));
+    });
+  };
+}
+
+function acceptRequest(reqid, user) {
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    _axios2.default.post('/api/users/invites', {
+      reqid: reqid,
+      type: 'acc'
+    }).then(function () {
+      dispatch(signIn(user));
+    }).catch(function () {
+      console.log("error<<<");
+      dispatch(unSuccess('Invalid selection, please try again'));
+    });
+  };
+}
+function declineRequest(reqid, user) {
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    _axios2.default.post('/api/users/invites', {
+      reqid: reqid,
+      type: 'del'
+    }).then(function () {
+      dispatch(signIn(user));
+    }).catch(function (err) {
+      dispatch(unSuccess('Invalid selection, please try again'));
+    });
+  };
+}
+
+function addGroup(groupName, userID, username) {
+  console.log(groupName, userID, username);
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    _axios2.default.post('/api/groups', {
+      groupName: groupName,
+      userID: userID
+    }).then(function () {
+      console.log(username, "here");
+      dispatch(doneLoading());
+      dispatch(signIn(username));
+    }).catch(function () {
+      console.log("fail");
+      dispatch(unSuccess('Unable to create group, please try again'));
+    });
+  };
+}
+>>>>>>> sockets are a bitch
+
+function useColors() {
+  // is webkit? http://stackoverflow.com/a/16459606/376773
+  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+  return (typeof document !== 'undefined' && 'WebkitAppearance' in document.documentElement.style) ||
+    // is firebug? http://stackoverflow.com/a/398120/376773
+    (window.console && (console.firebug || (console.exception && console.table))) ||
+    // is firefox >= v31?
+    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+    (navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31);
+}
+
+<<<<<<< HEAD
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+=======
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> sockets are a bitch
 
 exports.formatters.j = function(v) {
   try {
@@ -7298,7 +8083,7 @@ function selectRoom(groupName) {
 }
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -7306,7 +8091,11 @@ function selectRoom(groupName) {
  */
 
 var parser = __webpack_require__(24);
+<<<<<<< HEAD
 var Emitter = __webpack_require__(30);
+=======
+var Emitter = __webpack_require__(51);
+>>>>>>> sockets are a bitch
 
 /**
  * Module exports.
@@ -7461,12 +8250,16 @@ Transport.prototype.onClose = function () {
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {// browser shim for xmlhttprequest module
 
+<<<<<<< HEAD
 var hasCORS = __webpack_require__(203);
+=======
+var hasCORS = __webpack_require__(202);
+>>>>>>> sockets are a bitch
 
 module.exports = function (opts) {
   var xdomain = opts.xdomain;
@@ -7503,6 +8296,175 @@ module.exports = function (opts) {
 };
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/**
+ * Expose `Emitter`.
+ */
+
+if (true) {
+  module.exports = Emitter;
+}
+
+/**
+ * Initialize a new `Emitter`.
+ *
+ * @api public
+ */
+
+function Emitter(obj) {
+  if (obj) return mixin(obj);
+};
+
+/**
+ * Mixin the emitter properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in Emitter.prototype) {
+    obj[key] = Emitter.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Listen on the given `event` with `fn`.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.on =
+Emitter.prototype.addEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
+    .push(fn);
+  return this;
+};
+
+/**
+ * Adds an `event` listener that will be invoked a single
+ * time then automatically removed.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.once = function(event, fn){
+  function on() {
+    this.off(event, on);
+    fn.apply(this, arguments);
+  }
+
+  on.fn = fn;
+  this.on(event, on);
+  return this;
+};
+
+/**
+ * Remove the given callback for `event` or all
+ * registered callbacks.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.off =
+Emitter.prototype.removeListener =
+Emitter.prototype.removeAllListeners =
+Emitter.prototype.removeEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+
+  // all
+  if (0 == arguments.length) {
+    this._callbacks = {};
+    return this;
+  }
+
+  // specific event
+  var callbacks = this._callbacks['$' + event];
+  if (!callbacks) return this;
+
+  // remove all handlers
+  if (1 == arguments.length) {
+    delete this._callbacks['$' + event];
+    return this;
+  }
+
+  // remove specific handler
+  var cb;
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i];
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1);
+      break;
+    }
+  }
+  return this;
+};
+
+/**
+ * Emit `event` with the given args.
+ *
+ * @param {String} event
+ * @param {Mixed} ...
+ * @return {Emitter}
+ */
+
+Emitter.prototype.emit = function(event){
+  this._callbacks = this._callbacks || {};
+  var args = [].slice.call(arguments, 1)
+    , callbacks = this._callbacks['$' + event];
+
+  if (callbacks) {
+    callbacks = callbacks.slice(0);
+    for (var i = 0, len = callbacks.length; i < len; ++i) {
+      callbacks[i].apply(this, args);
+    }
+  }
+
+  return this;
+};
+
+/**
+ * Return array of callbacks for `event`.
+ *
+ * @param {String} event
+ * @return {Array}
+ * @api public
+ */
+
+Emitter.prototype.listeners = function(event){
+  this._callbacks = this._callbacks || {};
+  return this._callbacks['$' + event] || [];
+};
+
+/**
+ * Check if this emitter has `event` handlers.
+ *
+ * @param {String} event
+ * @return {Boolean}
+ * @api public
+ */
+
+Emitter.prototype.hasListeners = function(event){
+  return !! this.listeners(event).length;
+};
+
 
 /***/ }),
 /* 52 */
@@ -7682,9 +8644,15 @@ module.exports = Array.isArray || function (arr) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(209);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(211);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(216);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(215);
+>>>>>>> sockets are a bitch
 
 
 
@@ -7810,13 +8778,23 @@ exports.decode = function(qs){
 
 
 var DOMLazyTree = __webpack_require__(26);
+<<<<<<< HEAD
 var Danger = __webpack_require__(223);
+=======
+var Danger = __webpack_require__(222);
+>>>>>>> sockets are a bitch
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
 
+<<<<<<< HEAD
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(65);
 var setInnerHTML = __webpack_require__(45);
 var setTextContent = __webpack_require__(124);
+=======
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(64);
+var setInnerHTML = __webpack_require__(43);
+var setTextContent = __webpack_require__(122);
+>>>>>>> sockets are a bitch
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -8639,10 +9617,17 @@ module.exports = ReactErrorUtils;
 
 var _prodInvariant = __webpack_require__(3);
 
+<<<<<<< HEAD
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactUpdates = __webpack_require__(16);
+=======
+var ReactCurrentOwner = __webpack_require__(14);
+var ReactInstanceMap = __webpack_require__(33);
+var ReactInstrumentation = __webpack_require__(11);
+var ReactUpdates = __webpack_require__(13);
+>>>>>>> sockets are a bitch
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -9567,7 +10552,11 @@ function warning(message) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(32);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(30);
+>>>>>>> sockets are a bitch
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -9772,8 +10761,13 @@ var _prodInvariant = __webpack_require__(22);
 
 var ReactNoopUpdateQueue = __webpack_require__(76);
 
+<<<<<<< HEAD
 var canDefineProperty = __webpack_require__(78);
 var emptyObject = __webpack_require__(31);
+=======
+var canDefineProperty = __webpack_require__(77);
+var emptyObject = __webpack_require__(29);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -10095,11 +11089,19 @@ module.exports = getIteratorFn;
  * Module dependencies.
  */
 
+<<<<<<< HEAD
 var debug = __webpack_require__(326)('socket.io-parser');
 var json = __webpack_require__(208);
 var Emitter = __webpack_require__(325);
 var binary = __webpack_require__(324);
 var isBuf = __webpack_require__(140);
+=======
+var debug = __webpack_require__(325)('socket.io-parser');
+var json = __webpack_require__(207);
+var Emitter = __webpack_require__(178);
+var binary = __webpack_require__(324);
+var isBuf = __webpack_require__(139);
+>>>>>>> sockets are a bitch
 
 /**
  * Protocol version.
@@ -10500,7 +11502,11 @@ function error(data){
 /* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(147);
+=======
+module.exports = __webpack_require__(146);
+>>>>>>> sockets are a bitch
 
 /***/ }),
 /* 82 */
@@ -10509,6 +11515,7 @@ module.exports = __webpack_require__(147);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
+<<<<<<< HEAD
 var utils = __webpack_require__(11);
 var settle = __webpack_require__(153);
 var buildURL = __webpack_require__(156);
@@ -10516,6 +11523,15 @@ var parseHeaders = __webpack_require__(162);
 var isURLSameOrigin = __webpack_require__(160);
 var createError = __webpack_require__(85);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(155);
+=======
+var utils = __webpack_require__(10);
+var settle = __webpack_require__(152);
+var buildURL = __webpack_require__(155);
+var parseHeaders = __webpack_require__(161);
+var isURLSameOrigin = __webpack_require__(159);
+var createError = __webpack_require__(84);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(154);
+>>>>>>> sockets are a bitch
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -10611,7 +11627,11 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
+<<<<<<< HEAD
       var cookies = __webpack_require__(158);
+=======
+      var cookies = __webpack_require__(157);
+>>>>>>> sockets are a bitch
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -10732,7 +11752,11 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
+<<<<<<< HEAD
 var enhanceError = __webpack_require__(152);
+=======
+var enhanceError = __webpack_require__(151);
+>>>>>>> sockets are a bitch
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -10870,7 +11894,11 @@ var _lodash = __webpack_require__(102);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+<<<<<<< HEAD
 var _GroupListItem = __webpack_require__(164);
+=======
+var _GroupListItem = __webpack_require__(163);
+>>>>>>> sockets are a bitch
 
 var _GroupListItem2 = _interopRequireDefault(_GroupListItem);
 
@@ -11084,10 +12112,17 @@ module.exports = function(obj, fn){
  * Module dependencies
  */
 
+<<<<<<< HEAD
 var XMLHttpRequest = __webpack_require__(51);
 var XHR = __webpack_require__(185);
 var JSONP = __webpack_require__(184);
 var websocket = __webpack_require__(186);
+=======
+var XMLHttpRequest = __webpack_require__(50);
+var XHR = __webpack_require__(183);
+var JSONP = __webpack_require__(182);
+var websocket = __webpack_require__(184);
+>>>>>>> sockets are a bitch
 
 /**
  * Export transports.
@@ -11144,12 +12179,21 @@ function polling (opts) {
  * Module dependencies.
  */
 
+<<<<<<< HEAD
 var Transport = __webpack_require__(50);
 var parseqs = __webpack_require__(56);
 var parser = __webpack_require__(24);
 var inherit = __webpack_require__(37);
 var yeast = __webpack_require__(141);
 var debug = __webpack_require__(38)('engine.io-client:polling');
+=======
+var Transport = __webpack_require__(49);
+var parseqs = __webpack_require__(55);
+var parser = __webpack_require__(24);
+var inherit = __webpack_require__(35);
+var yeast = __webpack_require__(140);
+var debug = __webpack_require__(36)('engine.io-client:polling');
+>>>>>>> sockets are a bitch
 
 /**
  * Module exports.
@@ -11162,7 +12206,7 @@ module.exports = Polling;
  */
 
 var hasXHR2 = (function () {
-  var XMLHttpRequest = __webpack_require__(51);
+  var XMLHttpRequest = __webpack_require__(50);
   var xhr = new XMLHttpRequest({ xdomain: false });
   return null != xhr.responseType;
 })();
@@ -11558,7 +12602,11 @@ module.exports = getActiveElement;
  * Module requirements.
  */
 
+<<<<<<< HEAD
 var isArray = __webpack_require__(54);
+=======
+var isArray = __webpack_require__(201);
+>>>>>>> sockets are a bitch
 
 /**
  * Module exports.
@@ -11695,7 +12743,11 @@ var _warning2 = _interopRequireDefault(_warning);
 
 var _PathUtils = __webpack_require__(25);
 
+<<<<<<< HEAD
 var _LocationUtils = __webpack_require__(39);
+=======
+var _LocationUtils = __webpack_require__(37);
+>>>>>>> sockets are a bitch
 
 var _createTransitionManager = __webpack_require__(53);
 
@@ -11872,7 +12924,11 @@ module.exports = function(arr, obj){
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(215);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(214);
+>>>>>>> sockets are a bitch
 
 
 /** Built-in value references. */
@@ -28971,7 +30027,11 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
   }
 }.call(this));
 
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(47)(module)))
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(45)(module)))
+>>>>>>> sockets are a bitch
 
 /***/ }),
 /* 103 */
@@ -29472,7 +30532,11 @@ var DOMProperty = __webpack_require__(19);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
 
+<<<<<<< HEAD
 var quoteAttributeValueForBrowser = __webpack_require__(287);
+=======
+var quoteAttributeValueForBrowser = __webpack_require__(286);
+>>>>>>> sockets are a bitch
 var warning = __webpack_require__(2);
 
 var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -30076,11 +31140,19 @@ module.exports = ReactHostComponent;
 
 
 
+<<<<<<< HEAD
 var ReactDOMSelection = __webpack_require__(241);
 
 var containsNode = __webpack_require__(191);
 var focusNode = __webpack_require__(95);
 var getActiveElement = __webpack_require__(96);
+=======
+var ReactDOMSelection = __webpack_require__(240);
+
+var containsNode = __webpack_require__(189);
+var focusNode = __webpack_require__(93);
+var getActiveElement = __webpack_require__(94);
+>>>>>>> sockets are a bitch
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -30210,6 +31282,7 @@ var _prodInvariant = __webpack_require__(3);
 var DOMLazyTree = __webpack_require__(26);
 var DOMProperty = __webpack_require__(19);
 var React = __webpack_require__(28);
+<<<<<<< HEAD
 var ReactBrowserEventEmitter = __webpack_require__(41);
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(6);
@@ -30219,15 +31292,34 @@ var ReactFeatureFlags = __webpack_require__(111);
 var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactMarkupChecksum = __webpack_require__(255);
+=======
+var ReactBrowserEventEmitter = __webpack_require__(39);
+var ReactCurrentOwner = __webpack_require__(14);
+var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMContainerInfo = __webpack_require__(232);
+var ReactDOMFeatureFlags = __webpack_require__(234);
+var ReactFeatureFlags = __webpack_require__(109);
+var ReactInstanceMap = __webpack_require__(33);
+var ReactInstrumentation = __webpack_require__(11);
+var ReactMarkupChecksum = __webpack_require__(254);
+>>>>>>> sockets are a bitch
 var ReactReconciler = __webpack_require__(27);
 var ReactUpdateQueue = __webpack_require__(64);
 var ReactUpdates = __webpack_require__(16);
 
+<<<<<<< HEAD
 var emptyObject = __webpack_require__(31);
 var instantiateReactComponent = __webpack_require__(122);
 var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(45);
 var shouldUpdateReactComponent = __webpack_require__(70);
+=======
+var emptyObject = __webpack_require__(29);
+var instantiateReactComponent = __webpack_require__(120);
+var invariant = __webpack_require__(1);
+var setInnerHTML = __webpack_require__(43);
+var shouldUpdateReactComponent = __webpack_require__(69);
+>>>>>>> sockets are a bitch
 var warning = __webpack_require__(2);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -31025,11 +32117,19 @@ module.exports = getTextContentAccessor;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(5);
 
+<<<<<<< HEAD
 var ReactCompositeComponent = __webpack_require__(230);
 var ReactEmptyComponent = __webpack_require__(110);
 var ReactHostComponent = __webpack_require__(112);
 
 var getNextDebugID = __webpack_require__(284);
+=======
+var ReactCompositeComponent = __webpack_require__(229);
+var ReactEmptyComponent = __webpack_require__(108);
+var ReactHostComponent = __webpack_require__(110);
+
+var getNextDebugID = __webpack_require__(283);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -31213,8 +32313,13 @@ module.exports = isTextInputElement;
 
 
 var ExecutionEnvironment = __webpack_require__(8);
+<<<<<<< HEAD
 var escapeTextContentForBrowser = __webpack_require__(44);
 var setInnerHTML = __webpack_require__(45);
+=======
+var escapeTextContentForBrowser = __webpack_require__(42);
+var setInnerHTML = __webpack_require__(43);
+>>>>>>> sockets are a bitch
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -31271,10 +32376,17 @@ module.exports = setTextContent;
 
 var _prodInvariant = __webpack_require__(3);
 
+<<<<<<< HEAD
 var ReactCurrentOwner = __webpack_require__(17);
 var REACT_ELEMENT_TYPE = __webpack_require__(249);
 
 var getIteratorFn = __webpack_require__(283);
+=======
+var ReactCurrentOwner = __webpack_require__(14);
+var REACT_ELEMENT_TYPE = __webpack_require__(248);
+
+var getIteratorFn = __webpack_require__(282);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 var KeyEscapeUtils = __webpack_require__(60);
 var warning = __webpack_require__(2);
@@ -31439,6 +32551,7 @@ module.exports = traverseAllChildren;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(207);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(32);
@@ -31447,6 +32560,16 @@ module.exports = traverseAllChildren;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(296);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(128);
+=======
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(126);
+>>>>>>> sockets are a bitch
 /* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -32317,7 +33440,11 @@ function compose() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(55);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(54);
+>>>>>>> sockets are a bitch
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_symbol_observable__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ActionTypes; });
@@ -32608,6 +33735,7 @@ function warning(message) {
  * Module dependencies.
  */
 
+<<<<<<< HEAD
 var eio = __webpack_require__(181);
 var Socket = __webpack_require__(139);
 var Emitter = __webpack_require__(30);
@@ -32617,6 +33745,17 @@ var bind = __webpack_require__(91);
 var debug = __webpack_require__(46)('socket.io-client:manager');
 var indexOf = __webpack_require__(100);
 var Backoff = __webpack_require__(178);
+=======
+var eio = __webpack_require__(179);
+var Socket = __webpack_require__(137);
+var Emitter = __webpack_require__(138);
+var parser = __webpack_require__(79);
+var on = __webpack_require__(136);
+var bind = __webpack_require__(89);
+var debug = __webpack_require__(44)('socket.io-client:manager');
+var indexOf = __webpack_require__(98);
+var Backoff = __webpack_require__(175);
+>>>>>>> sockets are a bitch
 
 /**
  * IE6+ hasOwnProperty
@@ -33204,6 +34343,7 @@ function on (obj, ev, fn) {
  * Module dependencies.
  */
 
+<<<<<<< HEAD
 var parser = __webpack_require__(80);
 var Emitter = __webpack_require__(30);
 var toArray = __webpack_require__(332);
@@ -33211,6 +34351,15 @@ var on = __webpack_require__(138);
 var bind = __webpack_require__(91);
 var debug = __webpack_require__(46)('socket.io-client:socket');
 var hasBin = __webpack_require__(97);
+=======
+var parser = __webpack_require__(79);
+var Emitter = __webpack_require__(138);
+var toArray = __webpack_require__(332);
+var on = __webpack_require__(136);
+var bind = __webpack_require__(89);
+var debug = __webpack_require__(44)('socket.io-client:socket');
+var hasBin = __webpack_require__(95);
+>>>>>>> sockets are a bitch
 
 /**
  * Module exports.
@@ -33624,6 +34773,175 @@ Socket.prototype.compress = function (compress) {
 /* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
+
+/**
+ * Expose `Emitter`.
+ */
+
+if (true) {
+  module.exports = Emitter;
+}
+
+/**
+ * Initialize a new `Emitter`.
+ *
+ * @api public
+ */
+
+function Emitter(obj) {
+  if (obj) return mixin(obj);
+};
+
+/**
+ * Mixin the emitter properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in Emitter.prototype) {
+    obj[key] = Emitter.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Listen on the given `event` with `fn`.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.on =
+Emitter.prototype.addEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
+    .push(fn);
+  return this;
+};
+
+/**
+ * Adds an `event` listener that will be invoked a single
+ * time then automatically removed.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.once = function(event, fn){
+  function on() {
+    this.off(event, on);
+    fn.apply(this, arguments);
+  }
+
+  on.fn = fn;
+  this.on(event, on);
+  return this;
+};
+
+/**
+ * Remove the given callback for `event` or all
+ * registered callbacks.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.off =
+Emitter.prototype.removeListener =
+Emitter.prototype.removeAllListeners =
+Emitter.prototype.removeEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+
+  // all
+  if (0 == arguments.length) {
+    this._callbacks = {};
+    return this;
+  }
+
+  // specific event
+  var callbacks = this._callbacks['$' + event];
+  if (!callbacks) return this;
+
+  // remove all handlers
+  if (1 == arguments.length) {
+    delete this._callbacks['$' + event];
+    return this;
+  }
+
+  // remove specific handler
+  var cb;
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i];
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1);
+      break;
+    }
+  }
+  return this;
+};
+
+/**
+ * Emit `event` with the given args.
+ *
+ * @param {String} event
+ * @param {Mixed} ...
+ * @return {Emitter}
+ */
+
+Emitter.prototype.emit = function(event){
+  this._callbacks = this._callbacks || {};
+  var args = [].slice.call(arguments, 1)
+    , callbacks = this._callbacks['$' + event];
+
+  if (callbacks) {
+    callbacks = callbacks.slice(0);
+    for (var i = 0, len = callbacks.length; i < len; ++i) {
+      callbacks[i].apply(this, args);
+    }
+  }
+
+  return this;
+};
+
+/**
+ * Return array of callbacks for `event`.
+ *
+ * @param {String} event
+ * @return {Array}
+ * @api public
+ */
+
+Emitter.prototype.listeners = function(event){
+  this._callbacks = this._callbacks || {};
+  return this._callbacks['$' + event] || [];
+};
+
+/**
+ * Check if this emitter has `event` handlers.
+ *
+ * @param {String} event
+ * @return {Boolean}
+ * @api public
+ */
+
+Emitter.prototype.hasListeners = function(event){
+  return !! this.listeners(event).length;
+};
+
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /* WEBPACK VAR INJECTION */(function(global) {
 module.exports = isBuf;
 
@@ -33641,7 +34959,11 @@ function isBuf(obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 141 */
+=======
+/* 140 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33716,7 +35038,11 @@ module.exports = yeast;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 142 */
+=======
+/* 141 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33732,6 +35058,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
+<<<<<<< HEAD
 var _reactRouter = __webpack_require__(303);
 
 var _Tree = __webpack_require__(173);
@@ -33755,6 +35082,31 @@ var _login = __webpack_require__(169);
 var _login2 = _interopRequireDefault(_login);
 
 var _Day = __webpack_require__(165);
+=======
+var _reactRouter = __webpack_require__(302);
+
+var _Tree = __webpack_require__(170);
+
+var _Tree2 = _interopRequireDefault(_Tree);
+
+var _Navbar = __webpack_require__(167);
+
+var _Navbar2 = _interopRequireDefault(_Navbar);
+
+var _gameindex = __webpack_require__(172);
+
+var _gameindex2 = _interopRequireDefault(_gameindex);
+
+var _Profile = __webpack_require__(168);
+
+var _Profile2 = _interopRequireDefault(_Profile);
+
+var _login = __webpack_require__(166);
+
+var _login2 = _interopRequireDefault(_login);
+
+var _Day = __webpack_require__(338);
+>>>>>>> sockets are a bitch
 
 var _Day2 = _interopRequireDefault(_Day);
 
@@ -33766,7 +35118,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+<<<<<<< HEAD
 var createHistory = __webpack_require__(206).createHashHistory;
+=======
+var createHistory = __webpack_require__(205).createHashHistory;
+>>>>>>> sockets are a bitch
 
 var hashHistory = createHistory();
 
@@ -33846,7 +35202,11 @@ var App = function (_React$Component) {
 exports.default = App;
 
 /***/ }),
+<<<<<<< HEAD
 /* 143 */
+=======
+/* 142 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33858,11 +35218,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(15);
 
+<<<<<<< HEAD
 var _choices = __webpack_require__(176);
 
 var _choices2 = _interopRequireDefault(_choices);
 
 var _userdata = __webpack_require__(177);
+=======
+var _choices = __webpack_require__(173);
+
+var _choices2 = _interopRequireDefault(_choices);
+
+var _userdata = __webpack_require__(174);
+>>>>>>> sockets are a bitch
 
 var _userdata2 = _interopRequireDefault(_userdata);
 
@@ -33877,7 +35245,11 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
+<<<<<<< HEAD
 /* 144 */
+=======
+/* 143 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33906,7 +35278,11 @@ thunk.withExtraArgument = createThunkMiddleware;
 exports['default'] = thunk;
 
 /***/ }),
+<<<<<<< HEAD
 /* 145 */
+=======
+/* 144 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports) {
 
 module.exports = after
@@ -33940,7 +35316,11 @@ function noop() {}
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 146 */
+=======
+/* 145 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports) {
 
 /**
@@ -33975,16 +35355,27 @@ module.exports = function(arraybuffer, start, end) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 147 */
+=======
+/* 146 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(11);
 var bind = __webpack_require__(86);
 var Axios = __webpack_require__(149);
 var defaults = __webpack_require__(48);
+=======
+var utils = __webpack_require__(10);
+var bind = __webpack_require__(85);
+var Axios = __webpack_require__(148);
+var defaults = __webpack_require__(46);
+>>>>>>> sockets are a bitch
 
 /**
  * Create an instance of Axios
@@ -34017,15 +35408,25 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
+<<<<<<< HEAD
 axios.Cancel = __webpack_require__(83);
 axios.CancelToken = __webpack_require__(148);
 axios.isCancel = __webpack_require__(84);
+=======
+axios.Cancel = __webpack_require__(82);
+axios.CancelToken = __webpack_require__(147);
+axios.isCancel = __webpack_require__(83);
+>>>>>>> sockets are a bitch
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
+<<<<<<< HEAD
 axios.spread = __webpack_require__(163);
+=======
+axios.spread = __webpack_require__(162);
+>>>>>>> sockets are a bitch
 
 module.exports = axios;
 
@@ -34034,7 +35435,11 @@ module.exports.default = axios;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 148 */
+=======
+/* 147 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34098,18 +35503,31 @@ module.exports = CancelToken;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 149 */
+=======
+/* 148 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var defaults = __webpack_require__(48);
 var utils = __webpack_require__(11);
 var InterceptorManager = __webpack_require__(150);
 var dispatchRequest = __webpack_require__(151);
 var isAbsoluteURL = __webpack_require__(159);
 var combineURLs = __webpack_require__(157);
+=======
+var defaults = __webpack_require__(46);
+var utils = __webpack_require__(10);
+var InterceptorManager = __webpack_require__(149);
+var dispatchRequest = __webpack_require__(150);
+var isAbsoluteURL = __webpack_require__(158);
+var combineURLs = __webpack_require__(156);
+>>>>>>> sockets are a bitch
 
 /**
  * Create a new instance of Axios
@@ -34190,7 +35608,11 @@ module.exports = Axios;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 150 */
+=======
+/* 149 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34249,16 +35671,27 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 151 */
+=======
+/* 150 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(11);
 var transformData = __webpack_require__(154);
 var isCancel = __webpack_require__(84);
 var defaults = __webpack_require__(48);
+=======
+var utils = __webpack_require__(10);
+var transformData = __webpack_require__(153);
+var isCancel = __webpack_require__(83);
+var defaults = __webpack_require__(46);
+>>>>>>> sockets are a bitch
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -34335,7 +35768,11 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 152 */
+=======
+/* 151 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34361,7 +35798,11 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 153 */
+=======
+/* 152 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34393,7 +35834,11 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 154 */
+=======
+/* 153 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34420,7 +35865,11 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 155 */
+=======
+/* 154 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34463,7 +35912,11 @@ module.exports = btoa;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 156 */
+=======
+/* 155 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34538,7 +35991,11 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 157 */
+=======
+/* 156 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34557,7 +36014,11 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 158 */
+=======
+/* 157 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34617,7 +36078,11 @@ module.exports = (
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 159 */
+=======
+/* 158 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34638,7 +36103,11 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 160 */
+=======
+/* 159 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34713,7 +36182,11 @@ module.exports = (
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 161 */
+=======
+/* 160 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34732,7 +36205,11 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 162 */
+=======
+/* 161 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34776,7 +36253,11 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 163 */
+=======
+/* 162 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34810,7 +36291,11 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 164 */
+=======
+/* 163 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34891,6 +36376,7 @@ var GroupListItem = (_temp = _class = function (_Component) {
 exports.default = GroupListItem;
 
 /***/ }),
+<<<<<<< HEAD
 /* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35263,6 +36749,9 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 /* 167 */
+=======
+/* 164 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35286,7 +36775,11 @@ var _reactRedux = __webpack_require__(10);
 
 var _redux = __webpack_require__(15);
 
+<<<<<<< HEAD
 var _index = __webpack_require__(29);
+=======
+var _index = __webpack_require__(48);
+>>>>>>> sockets are a bitch
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35352,7 +36845,11 @@ function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(FirstLayer);
 
 /***/ }),
+<<<<<<< HEAD
 /* 168 */
+=======
+/* 165 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35376,7 +36873,11 @@ var _reactRedux = __webpack_require__(10);
 
 var _redux = __webpack_require__(15);
 
+<<<<<<< HEAD
 var _index = __webpack_require__(29);
+=======
+var _index = __webpack_require__(48);
+>>>>>>> sockets are a bitch
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35450,7 +36951,11 @@ function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Location);
 
 /***/ }),
+<<<<<<< HEAD
 /* 169 */
+=======
+/* 166 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35474,7 +36979,11 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRedux = __webpack_require__(10);
 
+<<<<<<< HEAD
 var _UserActions = __webpack_require__(49);
+=======
+var _UserActions = __webpack_require__(47);
+>>>>>>> sockets are a bitch
 
 var UserActions = _interopRequireWildcard(_UserActions);
 
@@ -35607,7 +37116,11 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store) {
 exports.default = Login;
 
 /***/ }),
+<<<<<<< HEAD
 /* 170 */
+=======
+/* 167 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35630,7 +37143,11 @@ var _redux = __webpack_require__(15);
 
 var _reactRedux = __webpack_require__(10);
 
+<<<<<<< HEAD
 var _UserActions = __webpack_require__(49);
+=======
+var _UserActions = __webpack_require__(47);
+>>>>>>> sockets are a bitch
 
 var UserActions = _interopRequireWildcard(_UserActions);
 
@@ -35914,6 +37431,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
 exports.default = Navbar;
 
 /***/ }),
+<<<<<<< HEAD
 /* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35995,6 +37513,9 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 /* 172 */
+=======
+/* 168 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36017,7 +37538,11 @@ var _redux = __webpack_require__(15);
 
 var _reactRedux = __webpack_require__(10);
 
+<<<<<<< HEAD
 var _UserActions = __webpack_require__(49);
+=======
+var _UserActions = __webpack_require__(47);
+>>>>>>> sockets are a bitch
 
 var UserActions = _interopRequireWildcard(_UserActions);
 
@@ -36297,7 +37822,120 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
 exports.default = Profile;
 
 /***/ }),
+<<<<<<< HEAD
 /* 173 */
+=======
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(16);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRedux = __webpack_require__(17);
+
+var _index = __webpack_require__(48);
+
+var _redux = __webpack_require__(18);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Suggestion = function (_React$Component) {
+  _inherits(Suggestion, _React$Component);
+
+  function Suggestion() {
+    _classCallCheck(this, Suggestion);
+
+    return _possibleConstructorReturn(this, (Suggestion.__proto__ || Object.getPrototypeOf(Suggestion)).apply(this, arguments));
+  }
+
+  _createClass(Suggestion, [{
+    key: 'renderChoices',
+    value: function renderChoices() {
+      console.log('props in renderChoices', this.props);
+      return this.props.choices.firstLoad.map(function (choice) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h3',
+            null,
+            ' Do this:'
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            ' ',
+            choice.name,
+            ' '
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            ' ',
+            _react2.default.createElement('img', { src: choice.image, height: '300' })
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            'Phone: ',
+            choice.phone,
+            ' '
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            'Distance: ',
+            choice.distance,
+            ' '
+          )
+        );
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'col-sm-4' },
+        this.renderChoices()
+      );
+    }
+  }]);
+
+  return Suggestion;
+}(_react2.default.Component);
+
+function mapStateToProps(state) {
+  return {
+    choices: state.choices
+  };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Suggestion);
+
+/***/ }),
+/* 170 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36317,6 +37955,7 @@ var _reactDom = __webpack_require__(13);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+<<<<<<< HEAD
 var _FirstLayer = __webpack_require__(167);
 
 var _FirstLayer2 = _interopRequireDefault(_FirstLayer);
@@ -36326,6 +37965,17 @@ var _LocationTree = __webpack_require__(168);
 var _LocationTree2 = _interopRequireDefault(_LocationTree);
 
 var _Suggestion = __webpack_require__(90);
+=======
+var _FirstLayer = __webpack_require__(164);
+
+var _FirstLayer2 = _interopRequireDefault(_FirstLayer);
+
+var _LocationTree = __webpack_require__(165);
+
+var _LocationTree2 = _interopRequireDefault(_LocationTree);
+
+var _Suggestion = __webpack_require__(169);
+>>>>>>> sockets are a bitch
 
 var _Suggestion2 = _interopRequireDefault(_Suggestion);
 
@@ -36394,7 +38044,11 @@ function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Tree);
 
 /***/ }),
+<<<<<<< HEAD
 /* 174 */
+=======
+/* 171 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36406,8 +38060,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _class;
-
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
@@ -36416,9 +38068,14 @@ var _reactDom = __webpack_require__(13);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+<<<<<<< HEAD
 var _reactRedux = __webpack_require__(10);
 
+=======
+>>>>>>> sockets are a bitch
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -36429,11 +38086,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var io = __webpack_require__(321);
 var socket = io();
 
-var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
-    return {
-        userdata: store.userdata
-    };
-}), _dec(_class = function (_React$Component) {
+var GameComponent = function (_React$Component) {
     _inherits(GameComponent, _React$Component);
 
     function GameComponent(props) {
@@ -36444,13 +38097,13 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
         var charArr = ['a', 's', 'd', 'f'];
         var initRandom = charArr[Math.floor(charArr.length * Math.random())];
         _this.state = {
-            opponentScore: 0,
             count: 0,
+            opponentScores: [],
             random: initRandom,
             winCondition: "Get to 10 points to WIN!",
             penalty: "Let's Go!",
-            img: "http://opengameart.org/sites/default/files/cat_jump.gif",
-            group: "Group 1"
+            img: "http://opengameart.org/sites/default/files/cat_a1.gif",
+            room: "" // identify which room the user is playing in 
         };
         _this.handleCount = _this.handleCount.bind(_this);
         _this.handleReset = _this.handleReset.bind(_this);
@@ -36458,6 +38111,7 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
 
         var self = _this;
         socket.on('count', function (data) {
+            console.log('this is the data ', data);
             self.setState({
                 opponentScore: data
             });
@@ -36469,6 +38123,17 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             setInterval(this.handleRandom, 900);
+            socket.emit('new-user', "test");
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var self = this;
+            socket.emit('count', function (count) {
+                self.setState({
+                    opponentScores: [].concat(_toConsumableArray(count))
+                });
+            });
         }
     }, {
         key: 'handleRandom',
@@ -36478,7 +38143,6 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
             this.setState({
                 random: randomChar
             });
-            console.log('this is the random ', randomChar);
         }
     }, {
         key: 'handleCount',
@@ -36497,7 +38161,7 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
             }
             if (charStr === this.state.random) {
                 currCount += 1;
-                socket.emit('count', currCount);
+                socket.emit('count', { userScore: currCount });
                 this.setState({
                     penalty: "You Rock!",
                     img: "http://opengameart.org/sites/default/files/cat_a5.gif"
@@ -36505,7 +38169,7 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
             }
             if (charStr !== this.state.random) {
                 currCount -= 1;
-                socket.emit('count', currCount);
+                socket.emit('count', { userScore: currCount });
                 this.setState({
                     penalty: "You Suck!",
                     img: "http://opengameart.org/sites/default/files/cat_spin_kick.gif"
@@ -36596,11 +38260,16 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
     }]);
 
     return GameComponent;
-}(_react2.default.Component)) || _class);
+}(_react2.default.Component);
+
 exports.default = GameComponent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 175 */
+=======
+/* 172 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36620,7 +38289,11 @@ var _reactDom = __webpack_require__(13);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+<<<<<<< HEAD
 var _gamecomponent = __webpack_require__(174);
+=======
+var _gamecomponent = __webpack_require__(171);
+>>>>>>> sockets are a bitch
 
 var _gamecomponent2 = _interopRequireDefault(_gamecomponent);
 
@@ -36638,10 +38311,7 @@ var Game = function (_React$Component) {
   function Game(props) {
     _classCallCheck(this, Game);
 
-    var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
-
-    _this.state = {};
-    return _this;
+    return _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
   }
 
   _createClass(Game, [{
@@ -36667,7 +38337,11 @@ var Game = function (_React$Component) {
 exports.default = Game;
 
 /***/ }),
+<<<<<<< HEAD
 /* 176 */
+=======
+/* 173 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36739,7 +38413,11 @@ var initialState = {
 //console.log('in redcucer')
 
 /***/ }),
+<<<<<<< HEAD
 /* 177 */
+=======
+/* 174 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36850,7 +38528,11 @@ function groups() {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 178 */
+=======
+/* 175 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports) {
 
 
@@ -36941,7 +38623,11 @@ Backoff.prototype.setJitter = function(jitter){
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 179 */
+=======
+/* 176 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports) {
 
 /*
@@ -37014,7 +38700,11 @@ Backoff.prototype.setJitter = function(jitter){
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 180 */
+=======
+/* 177 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -37117,6 +38807,7 @@ module.exports = (function() {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -37130,6 +38821,191 @@ module.exports = __webpack_require__(182);
 
 
 module.exports = __webpack_require__(183);
+=======
+/* 178 */
+/***/ (function(module, exports) {
+
+
+/**
+ * Expose `Emitter`.
+ */
+
+module.exports = Emitter;
+
+/**
+ * Initialize a new `Emitter`.
+ *
+ * @api public
+ */
+
+function Emitter(obj) {
+  if (obj) return mixin(obj);
+};
+
+/**
+ * Mixin the emitter properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in Emitter.prototype) {
+    obj[key] = Emitter.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Listen on the given `event` with `fn`.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.on =
+Emitter.prototype.addEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+  (this._callbacks[event] = this._callbacks[event] || [])
+    .push(fn);
+  return this;
+};
+
+/**
+ * Adds an `event` listener that will be invoked a single
+ * time then automatically removed.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.once = function(event, fn){
+  var self = this;
+  this._callbacks = this._callbacks || {};
+
+  function on() {
+    self.off(event, on);
+    fn.apply(this, arguments);
+  }
+
+  on.fn = fn;
+  this.on(event, on);
+  return this;
+};
+
+/**
+ * Remove the given callback for `event` or all
+ * registered callbacks.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.off =
+Emitter.prototype.removeListener =
+Emitter.prototype.removeAllListeners =
+Emitter.prototype.removeEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+
+  // all
+  if (0 == arguments.length) {
+    this._callbacks = {};
+    return this;
+  }
+
+  // specific event
+  var callbacks = this._callbacks[event];
+  if (!callbacks) return this;
+
+  // remove all handlers
+  if (1 == arguments.length) {
+    delete this._callbacks[event];
+    return this;
+  }
+
+  // remove specific handler
+  var cb;
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i];
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1);
+      break;
+    }
+  }
+  return this;
+};
+
+/**
+ * Emit `event` with the given args.
+ *
+ * @param {String} event
+ * @param {Mixed} ...
+ * @return {Emitter}
+ */
+
+Emitter.prototype.emit = function(event){
+  this._callbacks = this._callbacks || {};
+  var args = [].slice.call(arguments, 1)
+    , callbacks = this._callbacks[event];
+
+  if (callbacks) {
+    callbacks = callbacks.slice(0);
+    for (var i = 0, len = callbacks.length; i < len; ++i) {
+      callbacks[i].apply(this, args);
+    }
+  }
+
+  return this;
+};
+
+/**
+ * Return array of callbacks for `event`.
+ *
+ * @param {String} event
+ * @return {Array}
+ * @api public
+ */
+
+Emitter.prototype.listeners = function(event){
+  this._callbacks = this._callbacks || {};
+  return this._callbacks[event] || [];
+};
+
+/**
+ * Check if this emitter has `event` handlers.
+ *
+ * @param {String} event
+ * @return {Boolean}
+ * @api public
+ */
+
+Emitter.prototype.hasListeners = function(event){
+  return !! this.listeners(event).length;
+};
+
+
+/***/ }),
+/* 179 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = __webpack_require__(180);
+
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = __webpack_require__(181);
+>>>>>>> sockets are a bitch
 
 /**
  * Exports parser
@@ -37141,13 +39017,18 @@ module.exports.parser = __webpack_require__(24);
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 183 */
+=======
+/* 181 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
  * Module dependencies.
  */
 
+<<<<<<< HEAD
 var transports = __webpack_require__(92);
 var Emitter = __webpack_require__(30);
 var debug = __webpack_require__(38)('engine.io-client:socket');
@@ -37156,6 +39037,16 @@ var parser = __webpack_require__(24);
 var parseuri = __webpack_require__(104);
 var parsejson = __webpack_require__(217);
 var parseqs = __webpack_require__(56);
+=======
+var transports = __webpack_require__(90);
+var Emitter = __webpack_require__(51);
+var debug = __webpack_require__(36)('engine.io-client:socket');
+var index = __webpack_require__(98);
+var parser = __webpack_require__(24);
+var parseuri = __webpack_require__(102);
+var parsejson = __webpack_require__(216);
+var parseqs = __webpack_require__(55);
+>>>>>>> sockets are a bitch
 
 /**
  * Module exports.
@@ -37287,8 +39178,13 @@ Socket.protocol = parser.protocol; // this is an int
  */
 
 Socket.Socket = Socket;
+<<<<<<< HEAD
 Socket.Transport = __webpack_require__(50);
 Socket.transports = __webpack_require__(92);
+=======
+Socket.Transport = __webpack_require__(49);
+Socket.transports = __webpack_require__(90);
+>>>>>>> sockets are a bitch
 Socket.parser = __webpack_require__(24);
 
 /**
@@ -37886,7 +39782,11 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 184 */
+=======
+/* 182 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -37894,8 +39794,13 @@ Socket.prototype.filterUpgrades = function (upgrades) {
  * Module requirements.
  */
 
+<<<<<<< HEAD
 var Polling = __webpack_require__(93);
 var inherit = __webpack_require__(37);
+=======
+var Polling = __webpack_require__(91);
+var inherit = __webpack_require__(35);
+>>>>>>> sockets are a bitch
 
 /**
  * Module exports.
@@ -38124,18 +40029,30 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 185 */
+=======
+/* 183 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
  * Module requirements.
  */
 
+<<<<<<< HEAD
 var XMLHttpRequest = __webpack_require__(51);
 var Polling = __webpack_require__(93);
 var Emitter = __webpack_require__(30);
 var inherit = __webpack_require__(37);
 var debug = __webpack_require__(38)('engine.io-client:polling-xhr');
+=======
+var XMLHttpRequest = __webpack_require__(50);
+var Polling = __webpack_require__(91);
+var Emitter = __webpack_require__(51);
+var inherit = __webpack_require__(35);
+var debug = __webpack_require__(36)('engine.io-client:polling-xhr');
+>>>>>>> sockets are a bitch
 
 /**
  * Module exports.
@@ -38555,19 +40472,30 @@ function unloadHandler () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 186 */
+=======
+/* 184 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
  * Module dependencies.
  */
 
-var Transport = __webpack_require__(50);
+var Transport = __webpack_require__(49);
 var parser = __webpack_require__(24);
+<<<<<<< HEAD
 var parseqs = __webpack_require__(56);
 var inherit = __webpack_require__(37);
 var yeast = __webpack_require__(141);
 var debug = __webpack_require__(38)('engine.io-client:websocket');
+=======
+var parseqs = __webpack_require__(55);
+var inherit = __webpack_require__(35);
+var yeast = __webpack_require__(140);
+var debug = __webpack_require__(36)('engine.io-client:websocket');
+>>>>>>> sockets are a bitch
 var BrowserWebSocket = global.WebSocket || global.MozWebSocket;
 var NodeWebSocket;
 if (typeof window === 'undefined') {
@@ -38847,7 +40775,11 @@ WS.prototype.check = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 187 */
+=======
+/* 185 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -39053,7 +40985,11 @@ function coerce(val) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 188 */
+=======
+/* 186 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports) {
 
 
@@ -39078,7 +41014,11 @@ module.exports = Object.keys || function keys (obj){
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 189 */
+=======
+/* 187 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39115,7 +41055,11 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
+<<<<<<< HEAD
 /* 190 */
+=======
+/* 188 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39132,7 +41076,11 @@ module.exports = camelize;
 
 
 
+<<<<<<< HEAD
 var camelize = __webpack_require__(189);
+=======
+var camelize = __webpack_require__(187);
+>>>>>>> sockets are a bitch
 
 var msPattern = /^-ms-/;
 
@@ -39160,7 +41108,11 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
+<<<<<<< HEAD
 /* 191 */
+=======
+/* 189 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39177,7 +41129,11 @@ module.exports = camelizeStyleName;
  * 
  */
 
+<<<<<<< HEAD
 var isTextNode = __webpack_require__(199);
+=======
+var isTextNode = __webpack_require__(197);
+>>>>>>> sockets are a bitch
 
 /*eslint-disable no-bitwise */
 
@@ -39205,7 +41161,11 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
+<<<<<<< HEAD
 /* 192 */
+=======
+/* 190 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39338,7 +41298,11 @@ module.exports = createArrayFromMixed;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 193 */
+=======
+/* 191 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39359,8 +41323,13 @@ module.exports = createArrayFromMixed;
 
 var ExecutionEnvironment = __webpack_require__(8);
 
+<<<<<<< HEAD
 var createArrayFromMixed = __webpack_require__(192);
 var getMarkupWrap = __webpack_require__(194);
+=======
+var createArrayFromMixed = __webpack_require__(190);
+var getMarkupWrap = __webpack_require__(192);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 
 /**
@@ -39428,7 +41397,11 @@ module.exports = createNodesFromMarkup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 194 */
+=======
+/* 192 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39529,7 +41502,11 @@ module.exports = getMarkupWrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 195 */
+=======
+/* 193 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39573,7 +41550,11 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
+<<<<<<< HEAD
 /* 196 */
+=======
+/* 194 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39611,7 +41592,11 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
+<<<<<<< HEAD
 /* 197 */
+=======
+/* 195 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39628,7 +41613,11 @@ module.exports = hyphenate;
 
 
 
+<<<<<<< HEAD
 var hyphenate = __webpack_require__(196);
+=======
+var hyphenate = __webpack_require__(194);
+>>>>>>> sockets are a bitch
 
 var msPattern = /^ms-/;
 
@@ -39655,7 +41644,11 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
+<<<<<<< HEAD
 /* 198 */
+=======
+/* 196 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39683,7 +41676,11 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
+<<<<<<< HEAD
 /* 199 */
+=======
+/* 197 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39700,7 +41697,11 @@ module.exports = isNode;
  * @typechecks
  */
 
+<<<<<<< HEAD
 var isNode = __webpack_require__(198);
+=======
+var isNode = __webpack_require__(196);
+>>>>>>> sockets are a bitch
 
 /**
  * @param {*} object The object to check.
@@ -39713,7 +41714,11 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
+<<<<<<< HEAD
 /* 200 */
+=======
+/* 198 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39748,7 +41753,11 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
+<<<<<<< HEAD
 /* 201 */
+=======
+/* 199 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39776,7 +41785,11 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
+<<<<<<< HEAD
 /* 202 */
+=======
+/* 200 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39793,7 +41806,11 @@ module.exports = performance || {};
  * @typechecks
  */
 
+<<<<<<< HEAD
 var performance = __webpack_require__(201);
+=======
+var performance = __webpack_require__(199);
+>>>>>>> sockets are a bitch
 
 var performanceNow;
 
@@ -39815,7 +41832,20 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
+<<<<<<< HEAD
 /* 203 */
+=======
+/* 201 */
+/***/ (function(module, exports) {
+
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+/* 202 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports) {
 
 
@@ -39838,7 +41868,11 @@ try {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 204 */
+=======
+/* 203 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39854,11 +41888,19 @@ var _warning = __webpack_require__(23);
 
 var _warning2 = _interopRequireDefault(_warning);
 
+<<<<<<< HEAD
 var _invariant = __webpack_require__(32);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(39);
+=======
+var _invariant = __webpack_require__(30);
+
+var _invariant2 = _interopRequireDefault(_invariant);
+
+var _LocationUtils = __webpack_require__(37);
+>>>>>>> sockets are a bitch
 
 var _PathUtils = __webpack_require__(25);
 
@@ -40152,7 +42194,11 @@ var createBrowserHistory = function createBrowserHistory() {
 exports.default = createBrowserHistory;
 
 /***/ }),
+<<<<<<< HEAD
 /* 205 */
+=======
+/* 204 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40166,11 +42212,19 @@ var _warning = __webpack_require__(23);
 
 var _warning2 = _interopRequireDefault(_warning);
 
+<<<<<<< HEAD
 var _invariant = __webpack_require__(32);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(39);
+=======
+var _invariant = __webpack_require__(30);
+
+var _invariant2 = _interopRequireDefault(_invariant);
+
+var _LocationUtils = __webpack_require__(37);
+>>>>>>> sockets are a bitch
 
 var _PathUtils = __webpack_require__(25);
 
@@ -40480,7 +42534,11 @@ var createHashHistory = function createHashHistory() {
 exports.default = createHashHistory;
 
 /***/ }),
+<<<<<<< HEAD
 /* 206 */
+=======
+/* 205 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40489,7 +42547,11 @@ exports.default = createHashHistory;
 exports.__esModule = true;
 exports.createPath = exports.parsePath = exports.locationsAreEqual = exports.createLocation = exports.createMemoryHistory = exports.createHashHistory = exports.createBrowserHistory = undefined;
 
+<<<<<<< HEAD
 var _LocationUtils = __webpack_require__(39);
+=======
+var _LocationUtils = __webpack_require__(37);
+>>>>>>> sockets are a bitch
 
 Object.defineProperty(exports, 'createLocation', {
   enumerable: true,
@@ -40519,11 +42581,19 @@ Object.defineProperty(exports, 'createPath', {
   }
 });
 
+<<<<<<< HEAD
 var _createBrowserHistory2 = __webpack_require__(204);
 
 var _createBrowserHistory3 = _interopRequireDefault(_createBrowserHistory2);
 
 var _createHashHistory2 = __webpack_require__(205);
+=======
+var _createBrowserHistory2 = __webpack_require__(203);
+
+var _createBrowserHistory3 = _interopRequireDefault(_createBrowserHistory2);
+
+var _createHashHistory2 = __webpack_require__(204);
+>>>>>>> sockets are a bitch
 
 var _createHashHistory3 = _interopRequireDefault(_createHashHistory2);
 
@@ -40538,7 +42608,11 @@ exports.createHashHistory = _createHashHistory3.default;
 exports.createMemoryHistory = _createMemoryHistory3.default;
 
 /***/ }),
+<<<<<<< HEAD
 /* 207 */
+=======
+/* 206 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40595,7 +42669,11 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 208 */
+=======
+/* 207 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
@@ -41502,6 +43580,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
   }
 }).call(this);
 
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47)(module), __webpack_require__(7)))
 
 /***/ }),
@@ -41512,6 +43591,18 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(213);
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45)(module), __webpack_require__(7)))
+
+/***/ }),
+/* 208 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(212);
+>>>>>>> sockets are a bitch
 
 
 
@@ -41543,7 +43634,11 @@ function baseGetTag(value) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 210 */
+=======
+/* 209 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41555,11 +43650,19 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(7)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 211 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(214);
+=======
+/* 210 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(213);
+>>>>>>> sockets are a bitch
 
 
 /** Built-in value references. */
@@ -41569,7 +43672,11 @@ var getPrototype = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__overArg_js
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 212 */
+=======
+/* 211 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41623,7 +43730,11 @@ function getRawTag(value) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 213 */
+=======
+/* 212 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41652,7 +43763,11 @@ function objectToString(value) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 214 */
+=======
+/* 213 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41674,11 +43789,19 @@ function overArg(func, transform) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 215 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(210);
+=======
+/* 214 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(209);
+>>>>>>> sockets are a bitch
 
 
 /** Detect free variable `self`. */
@@ -41691,7 +43814,11 @@ var root = __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__["a" /* default */] || fr
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 216 */
+=======
+/* 215 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41727,7 +43854,11 @@ function isObjectLike(value) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 217 */
+=======
+/* 216 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -41765,7 +43896,11 @@ module.exports = function parsejson(data) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 218 */
+=======
+/* 217 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41844,7 +43979,11 @@ var ARIADOMPropertyConfig = {
 module.exports = ARIADOMPropertyConfig;
 
 /***/ }),
+<<<<<<< HEAD
 /* 219 */
+=======
+/* 218 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41873,7 +44012,11 @@ var AutoFocusUtils = {
 module.exports = AutoFocusUtils;
 
 /***/ }),
+<<<<<<< HEAD
 /* 220 */
+=======
+/* 219 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41889,11 +44032,19 @@ module.exports = AutoFocusUtils;
 
 
 
+<<<<<<< HEAD
 var EventPropagators = __webpack_require__(34);
 var ExecutionEnvironment = __webpack_require__(8);
 var FallbackCompositionState = __webpack_require__(226);
 var SyntheticCompositionEvent = __webpack_require__(269);
 var SyntheticInputEvent = __webpack_require__(272);
+=======
+var EventPropagators = __webpack_require__(32);
+var ExecutionEnvironment = __webpack_require__(8);
+var FallbackCompositionState = __webpack_require__(225);
+var SyntheticCompositionEvent = __webpack_require__(268);
+var SyntheticInputEvent = __webpack_require__(271);
+>>>>>>> sockets are a bitch
 
 var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 var START_KEYCODE = 229;
@@ -42263,7 +44414,11 @@ var BeforeInputEventPlugin = {
 module.exports = BeforeInputEventPlugin;
 
 /***/ }),
+<<<<<<< HEAD
 /* 221 */
+=======
+/* 220 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42283,10 +44438,17 @@ var CSSProperty = __webpack_require__(105);
 var ExecutionEnvironment = __webpack_require__(8);
 var ReactInstrumentation = __webpack_require__(12);
 
+<<<<<<< HEAD
 var camelizeStyleName = __webpack_require__(190);
 var dangerousStyleValue = __webpack_require__(279);
 var hyphenateStyleName = __webpack_require__(197);
 var memoizeStringOnly = __webpack_require__(200);
+=======
+var camelizeStyleName = __webpack_require__(188);
+var dangerousStyleValue = __webpack_require__(278);
+var hyphenateStyleName = __webpack_require__(195);
+var memoizeStringOnly = __webpack_require__(198);
+>>>>>>> sockets are a bitch
 var warning = __webpack_require__(2);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
@@ -42478,7 +44640,11 @@ module.exports = CSSPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 222 */
+=======
+/* 221 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42494,8 +44660,13 @@ module.exports = CSSPropertyOperations;
 
 
 
+<<<<<<< HEAD
 var EventPluginHub = __webpack_require__(33);
 var EventPropagators = __webpack_require__(34);
+=======
+var EventPluginHub = __webpack_require__(31);
+var EventPropagators = __webpack_require__(32);
+>>>>>>> sockets are a bitch
 var ExecutionEnvironment = __webpack_require__(8);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(16);
@@ -42804,7 +44975,11 @@ var ChangeEventPlugin = {
 module.exports = ChangeEventPlugin;
 
 /***/ }),
+<<<<<<< HEAD
 /* 223 */
+=======
+/* 222 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42825,8 +45000,13 @@ var _prodInvariant = __webpack_require__(3);
 var DOMLazyTree = __webpack_require__(26);
 var ExecutionEnvironment = __webpack_require__(8);
 
+<<<<<<< HEAD
 var createNodesFromMarkup = __webpack_require__(193);
 var emptyFunction = __webpack_require__(14);
+=======
+var createNodesFromMarkup = __webpack_require__(191);
+var emptyFunction = __webpack_require__(12);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 
 var Danger = {
@@ -42858,7 +45038,11 @@ module.exports = Danger;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 224 */
+=======
+/* 223 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42889,7 +45073,11 @@ var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'Tap
 module.exports = DefaultEventPluginOrder;
 
 /***/ }),
+<<<<<<< HEAD
 /* 225 */
+=======
+/* 224 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42905,9 +45093,15 @@ module.exports = DefaultEventPluginOrder;
 
 
 
+<<<<<<< HEAD
 var EventPropagators = __webpack_require__(34);
 var ReactDOMComponentTree = __webpack_require__(6);
 var SyntheticMouseEvent = __webpack_require__(42);
+=======
+var EventPropagators = __webpack_require__(32);
+var ReactDOMComponentTree = __webpack_require__(6);
+var SyntheticMouseEvent = __webpack_require__(40);
+>>>>>>> sockets are a bitch
 
 var eventTypes = {
   mouseEnter: {
@@ -42994,7 +45188,11 @@ var EnterLeaveEventPlugin = {
 module.exports = EnterLeaveEventPlugin;
 
 /***/ }),
+<<<<<<< HEAD
 /* 226 */
+=======
+/* 225 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43094,7 +45292,11 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 module.exports = FallbackCompositionState;
 
 /***/ }),
+<<<<<<< HEAD
 /* 227 */
+=======
+/* 226 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43311,7 +45513,11 @@ var HTMLDOMPropertyConfig = {
 module.exports = HTMLDOMPropertyConfig;
 
 /***/ }),
+<<<<<<< HEAD
 /* 228 */
+=======
+/* 227 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43471,7 +45677,11 @@ module.exports = ReactChildReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 229 */
+=======
+/* 228 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43487,8 +45697,13 @@ module.exports = ReactChildReconciler;
 
 
 
+<<<<<<< HEAD
 var DOMChildrenOperations = __webpack_require__(57);
 var ReactDOMIDOperations = __webpack_require__(236);
+=======
+var DOMChildrenOperations = __webpack_require__(56);
+var ReactDOMIDOperations = __webpack_require__(235);
+>>>>>>> sockets are a bitch
 
 /**
  * Abstracts away all functionality of the reconciler that requires knowledge of
@@ -43506,7 +45721,11 @@ var ReactComponentBrowserEnvironment = {
 module.exports = ReactComponentBrowserEnvironment;
 
 /***/ }),
+<<<<<<< HEAD
 /* 230 */
+=======
+/* 229 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43526,6 +45745,7 @@ var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(5);
 
 var React = __webpack_require__(28);
+<<<<<<< HEAD
 var ReactComponentEnvironment = __webpack_require__(62);
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactErrorUtils = __webpack_require__(63);
@@ -43539,6 +45759,21 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 var emptyObject = __webpack_require__(31);
+=======
+var ReactComponentEnvironment = __webpack_require__(61);
+var ReactCurrentOwner = __webpack_require__(14);
+var ReactErrorUtils = __webpack_require__(62);
+var ReactInstanceMap = __webpack_require__(33);
+var ReactInstrumentation = __webpack_require__(11);
+var ReactNodeTypes = __webpack_require__(113);
+var ReactReconciler = __webpack_require__(27);
+
+if (process.env.NODE_ENV !== 'production') {
+  var checkReactTypeSpec = __webpack_require__(277);
+}
+
+var emptyObject = __webpack_require__(29);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 var shallowEqual = __webpack_require__(52);
 var shouldUpdateReactComponent = __webpack_require__(70);
@@ -44414,7 +46649,11 @@ module.exports = ReactCompositeComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 231 */
+=======
+/* 230 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44433,6 +46672,7 @@ module.exports = ReactCompositeComponent;
 
 
 var ReactDOMComponentTree = __webpack_require__(6);
+<<<<<<< HEAD
 var ReactDefaultInjection = __webpack_require__(248);
 var ReactMount = __webpack_require__(114);
 var ReactReconciler = __webpack_require__(27);
@@ -44442,6 +46682,17 @@ var ReactVersion = __webpack_require__(263);
 var findDOMNode = __webpack_require__(280);
 var getHostComponentFromComposite = __webpack_require__(120);
 var renderSubtreeIntoContainer = __webpack_require__(288);
+=======
+var ReactDefaultInjection = __webpack_require__(247);
+var ReactMount = __webpack_require__(112);
+var ReactReconciler = __webpack_require__(27);
+var ReactUpdates = __webpack_require__(13);
+var ReactVersion = __webpack_require__(262);
+
+var findDOMNode = __webpack_require__(279);
+var getHostComponentFromComposite = __webpack_require__(118);
+var renderSubtreeIntoContainer = __webpack_require__(287);
+>>>>>>> sockets are a bitch
 var warning = __webpack_require__(2);
 
 ReactDefaultInjection.inject();
@@ -44517,10 +46768,17 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
   var ReactInstrumentation = __webpack_require__(12);
   var ReactDOMUnknownPropertyHook = __webpack_require__(245);
   var ReactDOMNullInputValuePropHook = __webpack_require__(239);
   var ReactDOMInvalidARIAHook = __webpack_require__(238);
+=======
+  var ReactInstrumentation = __webpack_require__(11);
+  var ReactDOMUnknownPropertyHook = __webpack_require__(244);
+  var ReactDOMNullInputValuePropHook = __webpack_require__(238);
+  var ReactDOMInvalidARIAHook = __webpack_require__(237);
+>>>>>>> sockets are a bitch
 
   ReactInstrumentation.debugTool.addHook(ReactDOMUnknownPropertyHook);
   ReactInstrumentation.debugTool.addHook(ReactDOMNullInputValuePropHook);
@@ -44531,7 +46789,11 @@ module.exports = ReactDOM;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 232 */
+=======
+/* 231 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44552,11 +46814,17 @@ module.exports = ReactDOM;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(5);
 
+<<<<<<< HEAD
 var AutoFocusUtils = __webpack_require__(219);
 var CSSPropertyOperations = __webpack_require__(221);
+=======
+var AutoFocusUtils = __webpack_require__(218);
+var CSSPropertyOperations = __webpack_require__(220);
+>>>>>>> sockets are a bitch
 var DOMLazyTree = __webpack_require__(26);
 var DOMNamespaces = __webpack_require__(58);
 var DOMProperty = __webpack_require__(19);
+<<<<<<< HEAD
 var DOMPropertyOperations = __webpack_require__(107);
 var EventPluginHub = __webpack_require__(33);
 var EventPluginRegistry = __webpack_require__(40);
@@ -44573,6 +46841,24 @@ var ReactServerRenderingTransaction = __webpack_require__(261);
 
 var emptyFunction = __webpack_require__(14);
 var escapeTextContentForBrowser = __webpack_require__(44);
+=======
+var DOMPropertyOperations = __webpack_require__(105);
+var EventPluginHub = __webpack_require__(31);
+var EventPluginRegistry = __webpack_require__(38);
+var ReactBrowserEventEmitter = __webpack_require__(39);
+var ReactDOMComponentFlags = __webpack_require__(106);
+var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMInput = __webpack_require__(236);
+var ReactDOMOption = __webpack_require__(239);
+var ReactDOMSelect = __webpack_require__(107);
+var ReactDOMTextarea = __webpack_require__(242);
+var ReactInstrumentation = __webpack_require__(11);
+var ReactMultiChild = __webpack_require__(255);
+var ReactServerRenderingTransaction = __webpack_require__(260);
+
+var emptyFunction = __webpack_require__(12);
+var escapeTextContentForBrowser = __webpack_require__(42);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 var isEventSupported = __webpack_require__(69);
 var shallowEqual = __webpack_require__(52);
@@ -45538,7 +47824,11 @@ module.exports = ReactDOMComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 233 */
+=======
+/* 232 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45577,7 +47867,11 @@ module.exports = ReactDOMContainerInfo;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 234 */
+=======
+/* 233 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45642,7 +47936,11 @@ _assign(ReactDOMEmptyComponent.prototype, {
 module.exports = ReactDOMEmptyComponent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 235 */
+=======
+/* 234 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45666,7 +47964,11 @@ var ReactDOMFeatureFlags = {
 module.exports = ReactDOMFeatureFlags;
 
 /***/ }),
+<<<<<<< HEAD
 /* 236 */
+=======
+/* 235 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45705,7 +48007,11 @@ var ReactDOMIDOperations = {
 module.exports = ReactDOMIDOperations;
 
 /***/ }),
+<<<<<<< HEAD
 /* 237 */
+=======
+/* 236 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45989,7 +48295,11 @@ module.exports = ReactDOMInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 238 */
+=======
+/* 237 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46088,7 +48398,11 @@ module.exports = ReactDOMInvalidARIAHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 239 */
+=======
+/* 238 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46137,7 +48451,11 @@ module.exports = ReactDOMNullInputValuePropHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 240 */
+=======
+/* 239 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46266,7 +48584,11 @@ module.exports = ReactDOMOption;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 241 */
+=======
+/* 240 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46284,8 +48606,13 @@ module.exports = ReactDOMOption;
 
 var ExecutionEnvironment = __webpack_require__(8);
 
+<<<<<<< HEAD
 var getNodeForCharacterOffset = __webpack_require__(285);
 var getTextContentAccessor = __webpack_require__(121);
+=======
+var getNodeForCharacterOffset = __webpack_require__(284);
+var getTextContentAccessor = __webpack_require__(119);
+>>>>>>> sockets are a bitch
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -46483,7 +48810,11 @@ var ReactDOMSelection = {
 module.exports = ReactDOMSelection;
 
 /***/ }),
+<<<<<<< HEAD
 /* 242 */
+=======
+/* 241 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46506,7 +48837,11 @@ var DOMChildrenOperations = __webpack_require__(57);
 var DOMLazyTree = __webpack_require__(26);
 var ReactDOMComponentTree = __webpack_require__(6);
 
+<<<<<<< HEAD
 var escapeTextContentForBrowser = __webpack_require__(44);
+=======
+var escapeTextContentForBrowser = __webpack_require__(42);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 var validateDOMNesting = __webpack_require__(71);
 
@@ -46653,7 +48988,11 @@ module.exports = ReactDOMTextComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 243 */
+=======
+/* 242 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46819,7 +49158,11 @@ module.exports = ReactDOMTextarea;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 244 */
+=======
+/* 243 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46961,7 +49304,11 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 245 */
+=======
+/* 244 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46978,7 +49325,11 @@ module.exports = {
 
 
 var DOMProperty = __webpack_require__(19);
+<<<<<<< HEAD
 var EventPluginRegistry = __webpack_require__(40);
+=======
+var EventPluginRegistry = __webpack_require__(38);
+>>>>>>> sockets are a bitch
 var ReactComponentTreeHook = __webpack_require__(9);
 
 var warning = __webpack_require__(2);
@@ -47079,7 +49430,11 @@ module.exports = ReactDOMUnknownPropertyHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 246 */
+=======
+/* 245 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47096,12 +49451,21 @@ module.exports = ReactDOMUnknownPropertyHook;
 
 
 
+<<<<<<< HEAD
 var ReactInvalidSetStateWarningHook = __webpack_require__(254);
 var ReactHostOperationHistoryHook = __webpack_require__(252);
 var ReactComponentTreeHook = __webpack_require__(9);
 var ExecutionEnvironment = __webpack_require__(8);
 
 var performanceNow = __webpack_require__(202);
+=======
+var ReactInvalidSetStateWarningHook = __webpack_require__(253);
+var ReactHostOperationHistoryHook = __webpack_require__(251);
+var ReactComponentTreeHook = __webpack_require__(9);
+var ExecutionEnvironment = __webpack_require__(8);
+
+var performanceNow = __webpack_require__(200);
+>>>>>>> sockets are a bitch
 var warning = __webpack_require__(2);
 
 var hooks = [];
@@ -47446,7 +49810,11 @@ module.exports = ReactDebugTool;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 247 */
+=======
+/* 246 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47464,8 +49832,13 @@ module.exports = ReactDebugTool;
 
 var _assign = __webpack_require__(5);
 
+<<<<<<< HEAD
 var ReactUpdates = __webpack_require__(16);
 var Transaction = __webpack_require__(43);
+=======
+var ReactUpdates = __webpack_require__(13);
+var Transaction = __webpack_require__(41);
+>>>>>>> sockets are a bitch
 
 var emptyFunction = __webpack_require__(14);
 
@@ -47519,7 +49892,11 @@ var ReactDefaultBatchingStrategy = {
 module.exports = ReactDefaultBatchingStrategy;
 
 /***/ }),
+<<<<<<< HEAD
 /* 248 */
+=======
+/* 247 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47535,6 +49912,7 @@ module.exports = ReactDefaultBatchingStrategy;
 
 
 
+<<<<<<< HEAD
 var ARIADOMPropertyConfig = __webpack_require__(218);
 var BeforeInputEventPlugin = __webpack_require__(220);
 var ChangeEventPlugin = __webpack_require__(222);
@@ -47554,6 +49932,27 @@ var ReactReconcileTransaction = __webpack_require__(259);
 var SVGDOMPropertyConfig = __webpack_require__(264);
 var SelectEventPlugin = __webpack_require__(265);
 var SimpleEventPlugin = __webpack_require__(266);
+=======
+var ARIADOMPropertyConfig = __webpack_require__(217);
+var BeforeInputEventPlugin = __webpack_require__(219);
+var ChangeEventPlugin = __webpack_require__(221);
+var DefaultEventPluginOrder = __webpack_require__(223);
+var EnterLeaveEventPlugin = __webpack_require__(224);
+var HTMLDOMPropertyConfig = __webpack_require__(226);
+var ReactComponentBrowserEnvironment = __webpack_require__(228);
+var ReactDOMComponent = __webpack_require__(231);
+var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMEmptyComponent = __webpack_require__(233);
+var ReactDOMTreeTraversal = __webpack_require__(243);
+var ReactDOMTextComponent = __webpack_require__(241);
+var ReactDefaultBatchingStrategy = __webpack_require__(246);
+var ReactEventListener = __webpack_require__(250);
+var ReactInjection = __webpack_require__(252);
+var ReactReconcileTransaction = __webpack_require__(258);
+var SVGDOMPropertyConfig = __webpack_require__(263);
+var SelectEventPlugin = __webpack_require__(264);
+var SimpleEventPlugin = __webpack_require__(265);
+>>>>>>> sockets are a bitch
 
 var alreadyInjected = false;
 
@@ -47610,7 +50009,11 @@ module.exports = {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 249 */
+=======
+/* 248 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47635,7 +50038,11 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
+<<<<<<< HEAD
 /* 250 */
+=======
+/* 249 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47651,7 +50058,11 @@ module.exports = REACT_ELEMENT_TYPE;
 
 
 
+<<<<<<< HEAD
 var EventPluginHub = __webpack_require__(33);
+=======
+var EventPluginHub = __webpack_require__(31);
+>>>>>>> sockets are a bitch
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -47673,7 +50084,11 @@ var ReactEventEmitterMixin = {
 module.exports = ReactEventEmitterMixin;
 
 /***/ }),
+<<<<<<< HEAD
 /* 251 */
+=======
+/* 250 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47697,8 +50112,13 @@ var PooledClass = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(16);
 
+<<<<<<< HEAD
 var getEventTarget = __webpack_require__(68);
 var getUnboundedScrollPosition = __webpack_require__(195);
+=======
+var getEventTarget = __webpack_require__(67);
+var getUnboundedScrollPosition = __webpack_require__(193);
+>>>>>>> sockets are a bitch
 
 /**
  * Find the deepest React component completely containing the root of the
@@ -47833,7 +50253,11 @@ var ReactEventListener = {
 module.exports = ReactEventListener;
 
 /***/ }),
+<<<<<<< HEAD
 /* 252 */
+=======
+/* 251 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47872,7 +50296,11 @@ var ReactHostOperationHistoryHook = {
 module.exports = ReactHostOperationHistoryHook;
 
 /***/ }),
+<<<<<<< HEAD
 /* 253 */
+=======
+/* 252 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47889,6 +50317,7 @@ module.exports = ReactHostOperationHistoryHook;
 
 
 var DOMProperty = __webpack_require__(19);
+<<<<<<< HEAD
 var EventPluginHub = __webpack_require__(33);
 var EventPluginUtils = __webpack_require__(59);
 var ReactComponentEnvironment = __webpack_require__(62);
@@ -47896,6 +50325,15 @@ var ReactEmptyComponent = __webpack_require__(110);
 var ReactBrowserEventEmitter = __webpack_require__(41);
 var ReactHostComponent = __webpack_require__(112);
 var ReactUpdates = __webpack_require__(16);
+=======
+var EventPluginHub = __webpack_require__(31);
+var EventPluginUtils = __webpack_require__(58);
+var ReactComponentEnvironment = __webpack_require__(61);
+var ReactEmptyComponent = __webpack_require__(108);
+var ReactBrowserEventEmitter = __webpack_require__(39);
+var ReactHostComponent = __webpack_require__(110);
+var ReactUpdates = __webpack_require__(13);
+>>>>>>> sockets are a bitch
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -47911,7 +50349,11 @@ var ReactInjection = {
 module.exports = ReactInjection;
 
 /***/ }),
+<<<<<<< HEAD
 /* 254 */
+=======
+/* 253 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47954,7 +50396,11 @@ module.exports = ReactInvalidSetStateWarningHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 255 */
+=======
+/* 254 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47970,7 +50416,11 @@ module.exports = ReactInvalidSetStateWarningHook;
 
 
 
+<<<<<<< HEAD
 var adler32 = __webpack_require__(277);
+=======
+var adler32 = __webpack_require__(276);
+>>>>>>> sockets are a bitch
 
 var TAG_END = /\/?>/;
 var COMMENT_START = /^<\!\-\-/;
@@ -48009,7 +50459,11 @@ var ReactMarkupChecksum = {
 module.exports = ReactMarkupChecksum;
 
 /***/ }),
+<<<<<<< HEAD
 /* 256 */
+=======
+/* 255 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48027,16 +50481,29 @@ module.exports = ReactMarkupChecksum;
 
 var _prodInvariant = __webpack_require__(3);
 
+<<<<<<< HEAD
 var ReactComponentEnvironment = __webpack_require__(62);
 var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(12);
+=======
+var ReactComponentEnvironment = __webpack_require__(61);
+var ReactInstanceMap = __webpack_require__(33);
+var ReactInstrumentation = __webpack_require__(11);
+>>>>>>> sockets are a bitch
 
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactReconciler = __webpack_require__(27);
+<<<<<<< HEAD
 var ReactChildReconciler = __webpack_require__(228);
 
 var emptyFunction = __webpack_require__(14);
 var flattenChildren = __webpack_require__(281);
+=======
+var ReactChildReconciler = __webpack_require__(227);
+
+var emptyFunction = __webpack_require__(12);
+var flattenChildren = __webpack_require__(280);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 
 /**
@@ -48465,7 +50932,11 @@ module.exports = ReactMultiChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 257 */
+=======
+/* 256 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48565,7 +51036,11 @@ module.exports = ReactOwner;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 258 */
+=======
+/* 257 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48596,7 +51071,11 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 259 */
+=======
+/* 258 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48616,11 +51095,19 @@ var _assign = __webpack_require__(5);
 
 var CallbackQueue = __webpack_require__(106);
 var PooledClass = __webpack_require__(20);
+<<<<<<< HEAD
 var ReactBrowserEventEmitter = __webpack_require__(41);
 var ReactInputSelection = __webpack_require__(113);
 var ReactInstrumentation = __webpack_require__(12);
 var Transaction = __webpack_require__(43);
 var ReactUpdateQueue = __webpack_require__(64);
+=======
+var ReactBrowserEventEmitter = __webpack_require__(39);
+var ReactInputSelection = __webpack_require__(111);
+var ReactInstrumentation = __webpack_require__(11);
+var Transaction = __webpack_require__(41);
+var ReactUpdateQueue = __webpack_require__(63);
+>>>>>>> sockets are a bitch
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -48780,7 +51267,11 @@ module.exports = ReactReconcileTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 260 */
+=======
+/* 259 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48797,7 +51288,11 @@ module.exports = ReactReconcileTransaction;
 
 
 
+<<<<<<< HEAD
 var ReactOwner = __webpack_require__(257);
+=======
+var ReactOwner = __webpack_require__(256);
+>>>>>>> sockets are a bitch
 
 var ReactRef = {};
 
@@ -48874,7 +51369,11 @@ ReactRef.detachRefs = function (instance, element) {
 module.exports = ReactRef;
 
 /***/ }),
+<<<<<<< HEAD
 /* 261 */
+=======
+/* 260 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48893,9 +51392,15 @@ module.exports = ReactRef;
 var _assign = __webpack_require__(5);
 
 var PooledClass = __webpack_require__(20);
+<<<<<<< HEAD
 var Transaction = __webpack_require__(43);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactServerUpdateQueue = __webpack_require__(262);
+=======
+var Transaction = __webpack_require__(41);
+var ReactInstrumentation = __webpack_require__(11);
+var ReactServerUpdateQueue = __webpack_require__(261);
+>>>>>>> sockets are a bitch
 
 /**
  * Executed within the scope of the `Transaction` instance. Consider these as
@@ -48970,7 +51475,11 @@ module.exports = ReactServerRenderingTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 262 */
+=======
+/* 261 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49115,7 +51624,11 @@ module.exports = ReactServerUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 263 */
+=======
+/* 262 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49134,7 +51647,11 @@ module.exports = ReactServerUpdateQueue;
 module.exports = '15.4.2';
 
 /***/ }),
+<<<<<<< HEAD
 /* 264 */
+=======
+/* 263 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49441,7 +51958,11 @@ Object.keys(ATTRS).forEach(function (key) {
 module.exports = SVGDOMPropertyConfig;
 
 /***/ }),
+<<<<<<< HEAD
 /* 265 */
+=======
+/* 264 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49457,7 +51978,11 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
+<<<<<<< HEAD
 var EventPropagators = __webpack_require__(34);
+=======
+var EventPropagators = __webpack_require__(32);
+>>>>>>> sockets are a bitch
 var ExecutionEnvironment = __webpack_require__(8);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInputSelection = __webpack_require__(113);
@@ -49637,7 +52162,11 @@ var SelectEventPlugin = {
 module.exports = SelectEventPlugin;
 
 /***/ }),
+<<<<<<< HEAD
 /* 266 */
+=======
+/* 265 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49656,6 +52185,7 @@ module.exports = SelectEventPlugin;
 
 var _prodInvariant = __webpack_require__(3);
 
+<<<<<<< HEAD
 var EventListener = __webpack_require__(94);
 var EventPropagators = __webpack_require__(34);
 var ReactDOMComponentTree = __webpack_require__(6);
@@ -49673,6 +52203,25 @@ var SyntheticWheelEvent = __webpack_require__(276);
 
 var emptyFunction = __webpack_require__(14);
 var getEventCharCode = __webpack_require__(66);
+=======
+var EventListener = __webpack_require__(92);
+var EventPropagators = __webpack_require__(32);
+var ReactDOMComponentTree = __webpack_require__(6);
+var SyntheticAnimationEvent = __webpack_require__(266);
+var SyntheticClipboardEvent = __webpack_require__(267);
+var SyntheticEvent = __webpack_require__(15);
+var SyntheticFocusEvent = __webpack_require__(270);
+var SyntheticKeyboardEvent = __webpack_require__(272);
+var SyntheticMouseEvent = __webpack_require__(40);
+var SyntheticDragEvent = __webpack_require__(269);
+var SyntheticTouchEvent = __webpack_require__(273);
+var SyntheticTransitionEvent = __webpack_require__(274);
+var SyntheticUIEvent = __webpack_require__(34);
+var SyntheticWheelEvent = __webpack_require__(275);
+
+var emptyFunction = __webpack_require__(12);
+var getEventCharCode = __webpack_require__(65);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 
 /**
@@ -49871,7 +52420,11 @@ module.exports = SimpleEventPlugin;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 267 */
+=======
+/* 266 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49915,7 +52468,11 @@ SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 module.exports = SyntheticAnimationEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 268 */
+=======
+/* 267 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49958,7 +52515,11 @@ SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 module.exports = SyntheticClipboardEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 269 */
+=======
+/* 268 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49999,7 +52560,11 @@ SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface
 module.exports = SyntheticCompositionEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 270 */
+=======
+/* 269 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50015,7 +52580,11 @@ module.exports = SyntheticCompositionEvent;
 
 
 
+<<<<<<< HEAD
 var SyntheticMouseEvent = __webpack_require__(42);
+=======
+var SyntheticMouseEvent = __webpack_require__(40);
+>>>>>>> sockets are a bitch
 
 /**
  * @interface DragEvent
@@ -50040,7 +52609,11 @@ SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 module.exports = SyntheticDragEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 271 */
+=======
+/* 270 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50056,7 +52629,11 @@ module.exports = SyntheticDragEvent;
 
 
 
+<<<<<<< HEAD
 var SyntheticUIEvent = __webpack_require__(36);
+=======
+var SyntheticUIEvent = __webpack_require__(34);
+>>>>>>> sockets are a bitch
 
 /**
  * @interface FocusEvent
@@ -50081,7 +52658,11 @@ SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 module.exports = SyntheticFocusEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 272 */
+=======
+/* 271 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50123,7 +52704,11 @@ SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 module.exports = SyntheticInputEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 273 */
+=======
+/* 272 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50139,11 +52724,19 @@ module.exports = SyntheticInputEvent;
 
 
 
+<<<<<<< HEAD
 var SyntheticUIEvent = __webpack_require__(36);
 
 var getEventCharCode = __webpack_require__(66);
 var getEventKey = __webpack_require__(282);
 var getEventModifierState = __webpack_require__(67);
+=======
+var SyntheticUIEvent = __webpack_require__(34);
+
+var getEventCharCode = __webpack_require__(65);
+var getEventKey = __webpack_require__(281);
+var getEventModifierState = __webpack_require__(66);
+>>>>>>> sockets are a bitch
 
 /**
  * @interface KeyboardEvent
@@ -50212,7 +52805,11 @@ SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 module.exports = SyntheticKeyboardEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 274 */
+=======
+/* 273 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50228,7 +52825,11 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
+<<<<<<< HEAD
 var SyntheticUIEvent = __webpack_require__(36);
+=======
+var SyntheticUIEvent = __webpack_require__(34);
+>>>>>>> sockets are a bitch
 
 var getEventModifierState = __webpack_require__(67);
 
@@ -50262,7 +52863,11 @@ SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 module.exports = SyntheticTouchEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 275 */
+=======
+/* 274 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50306,7 +52911,11 @@ SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 module.exports = SyntheticTransitionEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 276 */
+=======
+/* 275 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50322,7 +52931,11 @@ module.exports = SyntheticTransitionEvent;
 
 
 
+<<<<<<< HEAD
 var SyntheticMouseEvent = __webpack_require__(42);
+=======
+var SyntheticMouseEvent = __webpack_require__(40);
+>>>>>>> sockets are a bitch
 
 /**
  * @interface WheelEvent
@@ -50365,7 +52978,11 @@ SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 module.exports = SyntheticWheelEvent;
 
 /***/ }),
+<<<<<<< HEAD
 /* 277 */
+=======
+/* 276 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50414,7 +53031,11 @@ function adler32(data) {
 module.exports = adler32;
 
 /***/ }),
+<<<<<<< HEAD
 /* 278 */
+=======
+/* 277 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50432,8 +53053,13 @@ module.exports = adler32;
 
 var _prodInvariant = __webpack_require__(3);
 
+<<<<<<< HEAD
 var ReactPropTypeLocationNames = __webpack_require__(258);
 var ReactPropTypesSecret = __webpack_require__(116);
+=======
+var ReactPropTypeLocationNames = __webpack_require__(257);
+var ReactPropTypesSecret = __webpack_require__(114);
+>>>>>>> sockets are a bitch
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -50507,7 +53133,11 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 279 */
+=======
+/* 278 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50592,7 +53222,11 @@ module.exports = dangerousStyleValue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 280 */
+=======
+/* 279 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50612,7 +53246,11 @@ var _prodInvariant = __webpack_require__(3);
 
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(6);
+<<<<<<< HEAD
 var ReactInstanceMap = __webpack_require__(35);
+=======
+var ReactInstanceMap = __webpack_require__(33);
+>>>>>>> sockets are a bitch
 
 var getHostComponentFromComposite = __webpack_require__(120);
 var invariant = __webpack_require__(1);
@@ -50658,7 +53296,11 @@ module.exports = findDOMNode;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 281 */
+=======
+/* 280 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50740,7 +53382,11 @@ module.exports = flattenChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 282 */
+=======
+/* 281 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50847,7 +53493,11 @@ function getEventKey(nativeEvent) {
 module.exports = getEventKey;
 
 /***/ }),
+<<<<<<< HEAD
 /* 283 */
+=======
+/* 282 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50893,7 +53543,11 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
+<<<<<<< HEAD
 /* 284 */
+=======
+/* 283 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50919,7 +53573,11 @@ function getNextDebugID() {
 module.exports = getNextDebugID;
 
 /***/ }),
+<<<<<<< HEAD
 /* 285 */
+=======
+/* 284 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50998,7 +53656,11 @@ function getNodeForCharacterOffset(root, offset) {
 module.exports = getNodeForCharacterOffset;
 
 /***/ }),
+<<<<<<< HEAD
 /* 286 */
+=======
+/* 285 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51104,7 +53766,11 @@ function getVendorPrefixedEventName(eventName) {
 module.exports = getVendorPrefixedEventName;
 
 /***/ }),
+<<<<<<< HEAD
 /* 287 */
+=======
+/* 286 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51120,7 +53786,11 @@ module.exports = getVendorPrefixedEventName;
 
 
 
+<<<<<<< HEAD
 var escapeTextContentForBrowser = __webpack_require__(44);
+=======
+var escapeTextContentForBrowser = __webpack_require__(42);
+>>>>>>> sockets are a bitch
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -51135,7 +53805,11 @@ function quoteAttributeValueForBrowser(value) {
 module.exports = quoteAttributeValueForBrowser;
 
 /***/ }),
+<<<<<<< HEAD
 /* 288 */
+=======
+/* 287 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51156,7 +53830,11 @@ var ReactMount = __webpack_require__(114);
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ }),
+<<<<<<< HEAD
 /* 289 */
+=======
+/* 288 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51235,6 +53913,7 @@ Provider.displayName = 'Provider';
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 290 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -51245,6 +53924,18 @@ Provider.displayName = 'Provider';
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(293);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(294);
+=======
+/* 289 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(293);
+>>>>>>> sockets are a bitch
 /* unused harmony export createConnect */
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -51351,7 +54042,11 @@ function createConnect() {
 /* harmony default export */ __webpack_exports__["a"] = createConnect();
 
 /***/ }),
+<<<<<<< HEAD
 /* 291 */
+=======
+/* 290 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51382,7 +54077,11 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 /* harmony default export */ __webpack_exports__["a"] = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
 
 /***/ }),
+<<<<<<< HEAD
 /* 292 */
+=======
+/* 291 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51404,7 +54103,11 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* harmony default export */ __webpack_exports__["a"] = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
 
 /***/ }),
+<<<<<<< HEAD
 /* 293 */
+=======
+/* 292 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51461,11 +54164,19 @@ function whenMergePropsIsOmitted(mergeProps) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 294 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(295);
+=======
+/* 293 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(294);
+>>>>>>> sockets are a bitch
 /* unused harmony export impureFinalPropsSelectorFactory */
 /* unused harmony export pureFinalPropsSelectorFactory */
 /* harmony export (immutable) */ __webpack_exports__["a"] = finalPropsSelectorFactory;
@@ -51574,7 +54285,11 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 295 */
+=======
+/* 294 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51599,7 +54314,11 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 296 */
+=======
+/* 295 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51695,7 +54414,11 @@ var Subscription = function () {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 297 */
+=======
+/* 296 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51732,7 +54455,11 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 298 */
+=======
+/* 297 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51789,7 +54516,11 @@ MemoryRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = MemoryRouter;
 
 /***/ }),
+<<<<<<< HEAD
 /* 299 */
+=======
+/* 298 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51872,7 +54603,11 @@ Prompt.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = Prompt;
 
 /***/ }),
+<<<<<<< HEAD
 /* 300 */
+=======
+/* 299 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51955,11 +54690,19 @@ Redirect.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = Redirect;
 
 /***/ }),
+<<<<<<< HEAD
 /* 301 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant__ = __webpack_require__(32);
+=======
+/* 300 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant__ = __webpack_require__(30);
+>>>>>>> sockets are a bitch
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
@@ -52128,7 +54871,11 @@ StaticRouter.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = StaticRouter;
 
 /***/ }),
+<<<<<<< HEAD
 /* 302 */
+=======
+/* 301 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52209,28 +54956,50 @@ Switch.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = Switch;
 
 /***/ }),
+<<<<<<< HEAD
 /* 303 */
+=======
+/* 302 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MemoryRouter__ = __webpack_require__(298);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__MemoryRouter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Prompt__ = __webpack_require__(299);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_1__Prompt__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Redirect__ = __webpack_require__(300);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MemoryRouter__ = __webpack_require__(297);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__MemoryRouter__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Prompt__ = __webpack_require__(298);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_1__Prompt__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Redirect__ = __webpack_require__(299);
+>>>>>>> sockets are a bitch
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_2__Redirect__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(130);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_3__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(73);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_4__Router__["a"]; });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__StaticRouter__ = __webpack_require__(301);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_5__StaticRouter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Switch__ = __webpack_require__(302);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__StaticRouter__ = __webpack_require__(300);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_5__StaticRouter__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Switch__ = __webpack_require__(301);
+>>>>>>> sockets are a bitch
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return __WEBPACK_IMPORTED_MODULE_6__Switch__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__matchPath__ = __webpack_require__(74);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return __WEBPACK_IMPORTED_MODULE_7__matchPath__["a"]; });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__withRouter__ = __webpack_require__(304);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__withRouter__ = __webpack_require__(303);
+>>>>>>> sockets are a bitch
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_8__withRouter__["a"]; });
 
 
@@ -52252,7 +55021,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 304 */
+=======
+/* 303 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52282,10 +55055,26 @@ var withRouter = function withRouter(Component) {
 /* harmony default export */ __webpack_exports__["a"] = withRouter;
 
 /***/ }),
+<<<<<<< HEAD
 /* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isarray = __webpack_require__(54)
+=======
+/* 304 */
+/***/ (function(module, exports) {
+
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+/* 305 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isarray = __webpack_require__(304)
+>>>>>>> sockets are a bitch
 
 /**
  * Expose `pathToRegexp`.
@@ -52915,7 +55704,11 @@ module.exports = PooledClass;
 var PooledClass = __webpack_require__(307);
 var ReactElement = __webpack_require__(21);
 
+<<<<<<< HEAD
 var emptyFunction = __webpack_require__(14);
+=======
+var emptyFunction = __webpack_require__(12);
+>>>>>>> sockets are a bitch
 var traverseAllChildren = __webpack_require__(316);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
@@ -53116,7 +55909,11 @@ var ReactElement = __webpack_require__(21);
 var ReactPropTypeLocationNames = __webpack_require__(77);
 var ReactNoopUpdateQueue = __webpack_require__(76);
 
+<<<<<<< HEAD
 var emptyObject = __webpack_require__(31);
+=======
+var emptyObject = __webpack_require__(29);
+>>>>>>> sockets are a bitch
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -54452,7 +57249,11 @@ var _assign = __webpack_require__(5);
 var ReactComponent = __webpack_require__(75);
 var ReactNoopUpdateQueue = __webpack_require__(76);
 
+<<<<<<< HEAD
 var emptyObject = __webpack_require__(31);
+=======
+var emptyObject = __webpack_require__(29);
+>>>>>>> sockets are a bitch
 
 /**
  * Base class helpers for the updating state of a component.
@@ -55151,9 +57952,15 @@ module.exports = resolvePathname;
  */
 
 var url = __webpack_require__(322);
+<<<<<<< HEAD
 var parser = __webpack_require__(80);
 var Manager = __webpack_require__(137);
 var debug = __webpack_require__(46)('socket.io-client');
+=======
+var parser = __webpack_require__(79);
+var Manager = __webpack_require__(135);
+var debug = __webpack_require__(44)('socket.io-client');
+>>>>>>> sockets are a bitch
 
 /**
  * Module exports.
@@ -55265,8 +58072,13 @@ exports.Socket = __webpack_require__(139);
  * Module dependencies.
  */
 
+<<<<<<< HEAD
 var parseuri = __webpack_require__(104);
 var debug = __webpack_require__(46)('socket.io-client:url');
+=======
+var parseuri = __webpack_require__(102);
+var debug = __webpack_require__(44)('socket.io-client:url');
+>>>>>>> sockets are a bitch
 
 /**
  * Module exports.
@@ -55554,8 +58366,13 @@ function coerce(val) {
  * Module requirements
  */
 
+<<<<<<< HEAD
 var isArray = __webpack_require__(54);
 var isBuf = __webpack_require__(140);
+=======
+var isArray = __webpack_require__(327);
+var isBuf = __webpack_require__(139);
+>>>>>>> sockets are a bitch
 
 /**
  * Replaces every Buffer | ArrayBuffer in packet with a numbered placeholder.
@@ -55694,6 +58511,7 @@ exports.removeBlobs = function(data, callback) {
 
 /***/ }),
 /* 325 */
+<<<<<<< HEAD
 /***/ (function(module, exports) {
 
 
@@ -55864,6 +58682,8 @@ Emitter.prototype.hasListeners = function(event){
 
 /***/ }),
 /* 326 */
+=======
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -55873,7 +58693,11 @@ Emitter.prototype.hasListeners = function(event){
  * Expose `debug()` as the module.
  */
 
+<<<<<<< HEAD
 exports = module.exports = __webpack_require__(327);
+=======
+exports = module.exports = __webpack_require__(326);
+>>>>>>> sockets are a bitch
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -56037,7 +58861,11 @@ function localstorage(){
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 327 */
+=======
+/* 326 */
+>>>>>>> sockets are a bitch
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -56240,6 +59068,18 @@ function coerce(val) {
 
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 327 */
+/***/ (function(module, exports) {
+
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+>>>>>>> sockets are a bitch
 /* 328 */
 /***/ (function(module, exports) {
 
@@ -56411,7 +59251,11 @@ if (typeof self !== 'undefined') {
 
 var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(47)(module)))
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(45)(module)))
+>>>>>>> sockets are a bitch
 
 /***/ }),
 /* 331 */
@@ -56758,7 +59602,11 @@ module.exports = __webpack_amd_options__;
 
 }(this));
 
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47)(module), __webpack_require__(7)))
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45)(module), __webpack_require__(7)))
+>>>>>>> sockets are a bitch
 
 /***/ }),
 /* 336 */
@@ -56785,6 +59633,7 @@ var _reactRedux = __webpack_require__(10);
 
 var _redux = __webpack_require__(15);
 
+<<<<<<< HEAD
 var _reduxThunk = __webpack_require__(144);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
@@ -56794,6 +59643,17 @@ var _App = __webpack_require__(142);
 var _App2 = _interopRequireDefault(_App);
 
 var _index = __webpack_require__(143);
+=======
+var _reduxThunk = __webpack_require__(143);
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+var _App = __webpack_require__(141);
+
+var _App2 = _interopRequireDefault(_App);
+
+var _index = __webpack_require__(142);
+>>>>>>> sockets are a bitch
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -56810,5 +59670,407 @@ _reactDom2.default.render(_react2.default.createElement(
   _react2.default.createElement(_App2.default, null)
 ), document.getElementById('app'));
 
+<<<<<<< HEAD
+=======
+/***/ }),
+/* 338 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(16);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _DayPlanner = __webpack_require__(339);
+
+var _DayPlanner2 = _interopRequireDefault(_DayPlanner);
+
+var _NoPlan = __webpack_require__(340);
+
+var _NoPlan2 = _interopRequireDefault(_NoPlan);
+
+var _Suggestion = __webpack_require__(169);
+
+var _Suggestion2 = _interopRequireDefault(_Suggestion);
+
+var _reactRedux = __webpack_require__(17);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Day = function (_React$Component) {
+  _inherits(Day, _React$Component);
+
+  function Day() {
+    _classCallCheck(this, Day);
+
+    return _possibleConstructorReturn(this, (Day.__proto__ || Object.getPrototypeOf(Day)).apply(this, arguments));
+  }
+
+  _createClass(Day, [{
+    key: 'render',
+    value: function render() {
+      console.log('inDay');
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_DayPlanner2.default, null)
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_NoPlan2.default, null)
+        )
+      );
+    }
+  }]);
+
+  return Day;
+}(_react2.default.Component);
+
+function mapStateToProps(state) {
+  return {
+    choices: state.choices
+  };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Day);
+
+/***/ }),
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(16);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRedux = __webpack_require__(17);
+
+var _redux = __webpack_require__(18);
+
+var _index = __webpack_require__(48);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DayPlanner = function (_React$Component) {
+  _inherits(DayPlanner, _React$Component);
+
+  function DayPlanner() {
+    _classCallCheck(this, DayPlanner);
+
+    return _possibleConstructorReturn(this, (DayPlanner.__proto__ || Object.getPrototypeOf(DayPlanner)).apply(this, arguments));
+  }
+
+  _createClass(DayPlanner, [{
+    key: 'render',
+    value: function render() {
+      console.log('inDayplanner');
+      console.log('this.props.choices.dayLoad', this.props.choices.dayLoad);
+      var items = this.props.choices.dayLoad.map(function (item) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.name,
+              ' '
+            ),
+            _react2.default.createElement('img', { src: item.image }),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.phone,
+              ' '
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.distance,
+              ' '
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.name,
+              ' '
+            ),
+            _react2.default.createElement('img', { src: item.image }),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.phone,
+              ' '
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.distance,
+              ' '
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.name,
+              ' '
+            ),
+            _react2.default.createElement('img', { src: item.image }),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.phone,
+              ' '
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.distance,
+              ' '
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.name,
+              ' '
+            ),
+            _react2.default.createElement('img', { src: item.image }),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.phone,
+              ' '
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.distance,
+              ' '
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.name,
+              ' '
+            ),
+            _react2.default.createElement('img', { src: item.image }),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.phone,
+              ' '
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.distance,
+              ' '
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.name,
+              ' '
+            ),
+            _react2.default.createElement('img', { src: item.image }),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.phone,
+              ' '
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              ' ',
+              item.distance,
+              ' '
+            )
+          )
+        );
+      });
+      console.log(items);
+      return _react2.default.createElement(
+        'div',
+        null,
+        items
+      );
+    }
+  }]);
+
+  return DayPlanner;
+}(_react2.default.Component);
+
+function mapStateToProps(state) {
+  return {
+    choices: state.choices
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)({ planDay: _index.planDay }, dispatch);
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(DayPlanner);
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(16);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRedux = __webpack_require__(17);
+
+var _redux = __webpack_require__(18);
+
+var _index = __webpack_require__(48);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NoPlan = function (_React$Component) {
+  _inherits(NoPlan, _React$Component);
+
+  function NoPlan() {
+    _classCallCheck(this, NoPlan);
+
+    return _possibleConstructorReturn(this, (NoPlan.__proto__ || Object.getPrototypeOf(NoPlan)).apply(this, arguments));
+  }
+
+  _createClass(NoPlan, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      console.log('inNoPlan');
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement('iframe', { src: 'http://i.giphy.com/PtziVPCCEn6so.gif', width: '480', height: '391', frameBorder: '0', className: 'gify' }),
+        _react2.default.createElement(
+          'button',
+          { onClick: function onClick() {
+              return _this2.props.planDay();
+            }, className: 'btn btn-info btn-sm' },
+          'Help!'
+        )
+      );
+    }
+  }]);
+
+  return NoPlan;
+}(_react2.default.Component);
+
+function mapStateToProps(state) {
+  return {
+    choices: state.choices
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)({ planDay: _index.planDay }, dispatch);
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NoPlan);
+
+>>>>>>> sockets are a bitch
 /***/ })
 /******/ ]);
