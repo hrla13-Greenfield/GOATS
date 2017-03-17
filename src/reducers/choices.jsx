@@ -68,7 +68,10 @@ export default function(state = initialState, action) {
     return Object.assign({}, state, {
       dayLoadsix: action.payload,
     });
-
+    case 'BROWSE':
+    return Object.assign({}, state, {
+      showAll: action.payload,
+    });
   }
   return state;
 }
