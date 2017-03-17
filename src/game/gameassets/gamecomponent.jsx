@@ -1,15 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { connect } from 'react-redux';
 
 const io = require('socket.io-client');
 const socket = io();
-
-@connect((store) => {
-  return {
-    userdata: store.userdata,
-  };
-}) 
 
 class GameComponent extends React.Component {
     constructor(props) {
@@ -17,28 +10,39 @@ class GameComponent extends React.Component {
       var charArr = ['a', 's', 'd', 'f']
       var initRandom = charArr[Math.floor(charArr.length * Math.random())]
       this.state = {
-        opponentScore: 0,
         count: 0,
+        opponentScores: [],
         random: initRandom,
         winCondition: "Get to 10 points to WIN!",
         penalty: "Let's Go!",
-        img: "http://opengameart.org/sites/default/files/cat_jump.gif",
-        group: "Group 1"
+        img: "http://opengameart.org/sites/default/files/cat_a1.gif",
+        room: "" // identify which room the user is playing in 
       };
       this.handleCount = this.handleCount.bind(this);
       this.handleReset = this.handleReset.bind(this);
       this.handleRandom = this.handleRandom.bind(this);
 
     var self = this;
-        socket.on('count', function(data) {
-            self.setState({
-                opponentScore: data
+    socket.on('count', function(data) {
+        console.log('this is the data ', data)
+        self.setState({
+            opponentScore: data
         })
     })
     }
 
     componentDidMount() {
         setInterval(this.handleRandom, 900)
+        socket.emit('new-user', "test")
+    }
+
+    componentWillMount() {
+        var self = this;
+        socket.emit('count', function(count) {
+            self.setState({
+                opponentScores: [...count]
+            })
+        })
     }
 
     handleRandom(event) {
@@ -47,7 +51,6 @@ class GameComponent extends React.Component {
         this.setState({
             random: randomChar
         })
-        console.log('this is the random ', randomChar);
     }    
 
     handleCount(event) {
@@ -65,7 +68,7 @@ class GameComponent extends React.Component {
         }
         if(charStr === this.state.random) {     
           currCount += 1;
-          socket.emit('count', currCount)
+          socket.emit('count', {userScore: currCount})
           this.setState({
               penalty: "You Rock!",
               img: "http://opengameart.org/sites/default/files/cat_a5.gif"
@@ -73,7 +76,7 @@ class GameComponent extends React.Component {
         }
         if(charStr !== this.state.random) {
           currCount -= 1;
-          socket.emit('count', currCount)
+          socket.emit('count', {userScore: currCount})
           this.setState({
               penalty: "You Suck!",
               img: "http://opengameart.org/sites/default/files/cat_spin_kick.gif"

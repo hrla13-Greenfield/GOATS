@@ -5,8 +5,6 @@ import GameComponent from './gameassets/gamecomponent.jsx';
 class Game extends React.Component {
     constructor(props) {
       super(props) 
-      this.state = {
-      };
     }
 
     render() {
