@@ -137,10 +137,13 @@ class GameComponent extends React.Component {
                 <div>Your Score: {this.state.count}</div>
                 <h6>{this.state.penalty}</h6>
                 <h6>myRoom: {this.state.myRoom}</h6>
-                <h6>Room: {this.state.room}</h6>
-                <h6>Opponent Picture: {this.state.opponentPicture}</h6>
-                <h6>Opponent Username: {this.state.opponentUsername}</h6>
-                <h6>Opponent Score: {this.state.opponentScore}</h6>
+                <div>
+                    <h4>Opponent Information:</h4>
+                    <h6>Username: {this.state.opponentUsername}</h6>
+                    <h6>Picture: {this.state.opponentPicture}</h6>
+                    <h6>Room: {this.state.room}</h6>
+                    <h6>Score: {this.state.opponentScore}</h6>
+                </div>
             </div> 
             <button onClick={this.handleReset}>RESET</button>
         </div>
