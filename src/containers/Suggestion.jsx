@@ -15,7 +15,7 @@ class Suggestion extends React.Component {
          <div> { choice.name } </div>
          <div> <img src= { choice.image } height="300" /></div>
          <div>Phone: { choice.phone } </div>
-         <div>Distance: { choice.distance } </div>
+         <div>Distance: {Math.round(choice.distance * 0.000621371*100)/100} miles from you </div>
       </div>
       );
     });
