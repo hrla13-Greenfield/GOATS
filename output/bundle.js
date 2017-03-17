@@ -36421,6 +36421,12 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
     value: function render() {
       var _this3 = this;
 
+      var divStyle = {
+        width: '200px',
+        height: '200px',
+        overflow: 'hidden'
+      };
+
       if (!!localStorage.getItem("userToken") === false) {
         window.location.href = "/#/login";
         return false;
@@ -36480,7 +36486,11 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
               _react2.default.createElement(
                 'a',
                 { href: historyitem.url },
-                _react2.default.createElement('img', { height: '150', src: historyitem.image })
+                _react2.default.createElement(
+                  'div',
+                  { style: divStyle },
+                  _react2.default.createElement('img', { height: '200', src: historyitem.image })
+                )
               )
             ),
             _react2.default.createElement(

@@ -40,6 +40,12 @@ export default class Profile extends React.Component {
   }
 
   render() {
+    const divStyle = {
+      width: '200px',
+      height: '200px',
+      overflow: 'hidden',
+    };
+
     if(!!localStorage.getItem("userToken") === false){
       window.location.href= "/#/login"
       return false;
@@ -64,7 +70,7 @@ export default class Profile extends React.Component {
       tmpCategory = tmpCategory.join(', ');
       return(
         <tr key={index}>
-          <td><a href={historyitem.url}><img height="150" src={historyitem.image}></img></a></td>
+          <td><a href={historyitem.url}><div style={divStyle}><img height="200" src={historyitem.image}></img></div></a></td>
           <td>{historyitem.name}</td>
           <td>{tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}</td>
           <td>{historyitem.phone}</td>
