@@ -10,9 +10,6 @@ myRouter.route('/groups')
       name: req.body.groupName,
     });
     newGroup.save().then((result) => {
-      console.log(result.id);
-      console.log(req.body.userID);
-      console.log('______')
       const newUserGroup = db.UserGroup.build({
         GroupId: result.id,
         UserId: req.body.userID,
@@ -31,6 +28,10 @@ myRouter.route('/groups')
     });
   });
 
+myRouter.route('/users/picture')
+  .post((req, res) => {
+    controller.updatePic(req, res);
+  });
 
 myRouter.route('/users')
   .get((req, res) => {

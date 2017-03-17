@@ -214,3 +214,20 @@ export function selectRoom(groupName) {
     groupName,
   };
 }
+
+export function changePic(url, userid, user) {
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    axios.post('/api/users/picture', {
+      url,
+      userid,
+    },
+    ).then(() => {
+      dispatch(signIn(user));
+    })
+    .catch(() => {
+      console.log("error<<<")
+      dispatch(unSuccess('Invalid selection, please try again'));
+    });
+  };
+}

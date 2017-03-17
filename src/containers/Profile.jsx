@@ -12,7 +12,14 @@ import AddGroupInput from '../components/AddGroupInput.jsx';
 })
 
 export default class Profile extends React.Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {}
+    this.renderPicInput = this.renderPicInput.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.changePic = this.changePic.bind(this);
+  }
+  
   acceptRequest(reqid, user) {
     this.props.dispatch(UserActions.acceptRequest(reqid, user))
   }
@@ -20,14 +27,26 @@ export default class Profile extends React.Component {
     this.props.dispatch(UserActions.declineRequest(reqid, user));
   }
 
+  changePic() {
+    this.props.dispatch(UserActions.changePic(this.state.value, this.props.userdata.userID, this.props.userdata.username))
+  }
+  handleChange(e) {
+    this.setState({ value: e.target.value})
+  }
+  renderPicInput() {
+    this.setState({
+      picInput: (<div>New image URL:<form onSubmit={() => this.changePic()}><input onChange={this.handleChange} type="text"></input></form></div>)
+    })
+  }
+
   render() {
     if(!!localStorage.getItem("userToken") === false){
       window.location.href= "/#/login"
       return false;
     }else{
-    const mappedInvites = this.props.userdata.invites.map(invite => {
+    const mappedInvites = this.props.userdata.invites.map((invite, idx) => {
       return(
-        <tr>
+        <tr key={idx}>
           <td>{invite.groupID}</td>
           <td>{invite.sentBy}</td>
           <td><a onClick={() => this.acceptRequest(invite.id, this.props.userdata.username)}><span className="glyphicon glyphicon-ok green"></span></a></td>
@@ -35,7 +54,7 @@ export default class Profile extends React.Component {
         </tr>
       )
     })
-    const mappedHistory = this.props.userdata.history.map(historyitem => {
+    const mappedHistory = this.props.userdata.history.map((historyitem, index) => {
       var tmpHistory = JSON.parse(historyitem.address);
       var cat = JSON.parse(historyitem.category)
       var tmpCategory = [];
@@ -44,8 +63,8 @@ export default class Profile extends React.Component {
       })
       tmpCategory = tmpCategory.join(', ');
       return(
-        <tr>
-          <td><a href={historyitem.url}><img height="150" width="150" src={historyitem.image}></img></a></td>
+        <tr key={index}>
+          <td><a href={historyitem.url}><img height="150" src={historyitem.image}></img></a></td>
           <td>{historyitem.name}</td>
           <td>{tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}</td>
           <td>{historyitem.phone}</td>
@@ -59,7 +78,8 @@ export default class Profile extends React.Component {
         <h1>{this.props.userdata.username}<small> | Profile</small></h1>
          <div className="row">
           <div className="col-md-5"><br /><img height="125px" width="125px" src={this.props.userdata.userImg}></img>
-          <br /><a><small>Change</small></a></div>
+          <br /><a onClick={() => this.renderPicInput()}><small>Change</small></a>
+          <br />{this.state.picInput}</div>
          <div className="col-md-7"><h3>Pending group invites</h3>
          <table className="table">
            <thead>

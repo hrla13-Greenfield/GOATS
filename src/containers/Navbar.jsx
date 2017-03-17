@@ -63,11 +63,23 @@ export default class Navbar extends React.Component {
 
   }
   
+  renderInviteNotification() {
+    if (this.props.userdata.invites.length > 0) {
+    return (
+      <div><small><i className="material-icons">group</i> </small> New Group Invites!</div>
+    )
+    } else {
+      return (
+        <div></div>
+      )
+    }
+  }
+
   renderlist() {
-    const mappedGroups = this.props.userdata.currentGroupsByID.map(group => { 
-    const mappedUsers = group.members.map(user => (<li>{user}</li>))
+    const mappedGroups = this.props.userdata.currentGroupsByID.map((group, idx) => { 
+    const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>))
     return(
-      <div>
+      <div key={idx}>
       <h4><a onClick={() => this.changeRoom(group.name)}>{group.name}</a><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
       <div>{this.state[group.id]}</div>
       <ul>{mappedUsers}</ul>
@@ -87,6 +99,9 @@ export default class Navbar extends React.Component {
           <li>________</li>
             <li> Welcome, {this.props.userdata.username}</li>
             <a href="#/profile"><li>View Profile</li></a>
+            <br />
+            <a href="#/profile">{this.renderInviteNotification()}</a>
+            
             
           <hr />
           <h3>My Groups <a onClick={this.groupInput}> <span className="glyphicon glyphicon-plus-sign"></span></a></h3>
