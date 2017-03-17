@@ -25,9 +25,9 @@ export default class Profile extends React.Component {
       window.location.href= "/#/login"
       return false;
     }else{
-    const mappedInvites = this.props.userdata.invites.map(invite => {
+    const mappedInvites = this.props.userdata.invites.map((invite, idx) => {
       return(
-        <tr>
+        <tr key={idx}>
           <td>{invite.groupID}</td>
           <td>{invite.sentBy}</td>
           <td><a onClick={() => this.acceptRequest(invite.id, this.props.userdata.username)}><span className="glyphicon glyphicon-ok green"></span></a></td>
@@ -35,7 +35,7 @@ export default class Profile extends React.Component {
         </tr>
       )
     })
-    const mappedHistory = this.props.userdata.history.map(historyitem => {
+    const mappedHistory = this.props.userdata.history.map((historyitem, index) => {
       var tmpHistory = JSON.parse(historyitem.address);
       var cat = JSON.parse(historyitem.category)
       var tmpCategory = [];
@@ -44,8 +44,8 @@ export default class Profile extends React.Component {
       })
       tmpCategory = tmpCategory.join(', ');
       return(
-        <tr>
-          <td><a href={historyitem.url}><img height="150" width="150" src={historyitem.image}></img></a></td>
+        <tr key={index}>
+          <td><a href={historyitem.url}><img height="150" src={historyitem.image}></img></a></td>
           <td>{historyitem.name}</td>
           <td>{tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}</td>
           <td>{historyitem.phone}</td>
@@ -59,7 +59,7 @@ export default class Profile extends React.Component {
         <h1>{this.props.userdata.username}<small> | Profile</small></h1>
          <div className="row">
           <div className="col-md-5"><br /><img height="125px" width="125px" src={this.props.userdata.userImg}></img>
-          <br /><a><small>Change</small></a></div>
+          <br /><a onClick={() => this.changePic()}><small>Change</small></a></div>
          <div className="col-md-7"><h3>Pending group invites</h3>
          <table className="table">
            <thead>

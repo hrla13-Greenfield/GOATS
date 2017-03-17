@@ -35291,21 +35291,44 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
       window.location.reload();
     }
   }, {
+    key: 'renderInviteNotification',
+    value: function renderInviteNotification() {
+      if (this.props.userdata.invites.length > 0) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'small',
+            null,
+            _react2.default.createElement(
+              'i',
+              { className: 'material-icons' },
+              'group'
+            ),
+            ' '
+          ),
+          ' New Group Invites!'
+        );
+      } else {
+        return _react2.default.createElement('div', null);
+      }
+    }
+  }, {
     key: 'renderlist',
     value: function renderlist() {
       var _this4 = this;
 
-      var mappedGroups = this.props.userdata.currentGroupsByID.map(function (group) {
-        var mappedUsers = group.members.map(function (user) {
+      var mappedGroups = this.props.userdata.currentGroupsByID.map(function (group, idx) {
+        var mappedUsers = group.members.map(function (user, index) {
           return _react2.default.createElement(
             'li',
-            null,
+            { key: index },
             user
           );
         });
         return _react2.default.createElement(
           'div',
-          null,
+          { key: idx },
           _react2.default.createElement(
             'h4',
             null,
@@ -35411,6 +35434,12 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
               null,
               'View Profile'
             )
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'a',
+            { href: '#/profile' },
+            this.renderInviteNotification()
           ),
           _react2.default.createElement('hr', null),
           _react2.default.createElement(
@@ -35537,10 +35566,10 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
         window.location.href = "/#/login";
         return false;
       } else {
-        var mappedInvites = this.props.userdata.invites.map(function (invite) {
+        var mappedInvites = this.props.userdata.invites.map(function (invite, idx) {
           return _react2.default.createElement(
             'tr',
-            null,
+            { key: idx },
             _react2.default.createElement(
               'td',
               null,
@@ -35575,7 +35604,7 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
             )
           );
         });
-        var mappedHistory = this.props.userdata.history.map(function (historyitem) {
+        var mappedHistory = this.props.userdata.history.map(function (historyitem, index) {
           var tmpHistory = JSON.parse(historyitem.address);
           var cat = JSON.parse(historyitem.category);
           var tmpCategory = [];
@@ -35585,14 +35614,14 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
           tmpCategory = tmpCategory.join(', ');
           return _react2.default.createElement(
             'tr',
-            null,
+            { key: index },
             _react2.default.createElement(
               'td',
               null,
               _react2.default.createElement(
                 'a',
                 { href: historyitem.url },
-                _react2.default.createElement('img', { height: '150', width: '150', src: historyitem.image })
+                _react2.default.createElement('img', { height: '150', src: historyitem.image })
               )
             ),
             _react2.default.createElement(
@@ -35648,7 +35677,9 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',
-                null,
+                { onClick: function onClick() {
+                    return _this2.changePic();
+                  } },
                 _react2.default.createElement(
                   'small',
                   null,
