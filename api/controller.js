@@ -196,7 +196,6 @@ const getBearer = function (cb) {
   //   if (error) throw new Error(error);
 
   //   cb(body);
-  });
 };
 
 
