@@ -11,7 +11,7 @@ class GameComponent extends React.Component {
       var initRandom = charArr[Math.floor(charArr.length * Math.random())]
       this.state = {
         count: 0,
-        opponentScores: [],
+        opponentScore: 0,
         random: initRandom,
         winCondition: "Get to 10 points to WIN!",
         penalty: "Let's Go!",
@@ -33,17 +33,17 @@ class GameComponent extends React.Component {
 
     componentDidMount() {
         setInterval(this.handleRandom, 900)
-        socket.emit('new-user', "test")
+        // socket.emit('new-user', "test")
     }
 
-    componentWillMount() {
-        var self = this;
-        socket.emit('count', function(count) {
-            self.setState({
-                opponentScores: [...count]
-            })
-        })
-    }
+    // componentWillMount() {
+    //     var self = this;
+    //     socket.emit('count', function(count) {
+    //         self.setState({
+    //             opponentScores: [...count]
+    //         })
+    //     })
+    // }
 
     handleRandom(event) {
         var charArr = ['a','s','d','f'];
@@ -68,7 +68,7 @@ class GameComponent extends React.Component {
         }
         if(charStr === this.state.random) {     
           currCount += 1;
-          socket.emit('count', {userScore: currCount})
+          socket.emit('count', currCount)
           this.setState({
               penalty: "You Rock!",
               img: "http://opengameart.org/sites/default/files/cat_a5.gif"
@@ -76,7 +76,7 @@ class GameComponent extends React.Component {
         }
         if(charStr !== this.state.random) {
           currCount -= 1;
-          socket.emit('count', {userScore: currCount})
+          socket.emit('count', currCount)
           this.setState({
               penalty: "You Suck!",
               img: "http://opengameart.org/sites/default/files/cat_spin_kick.gif"
@@ -85,7 +85,7 @@ class GameComponent extends React.Component {
         if(currCount >= 10) {
           this.setState({
               winCondition: "YOU WIN!",
-              img: "http://opengameart.org/sites/default/files/cat_a4.gif"
+              img: "http://opengameart.org/sites/default/files/cat_a1_super.gif"
           })
         }
         if(currCount <= -10) {
