@@ -22,6 +22,8 @@ const io = require('socket.io')(server);
 
 var rooms = {};
 
+console.log("sup")
+
   var user = {
       userid: this.id,
       userScore: 0
