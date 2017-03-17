@@ -5,20 +5,27 @@ import NoPlan from './NoPlan.jsx';
 import Suggestion from './Suggestion.jsx'
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
+import Location from './LocationTree.jsx';
 
 class Day extends React.Component {
   render(){
-    console.log('inDay');
-    return(
+     if (this.props.choices.zipCode === false) {
+      return (
+        <div>
+          <Location />
+        </div>
+      )} else {
+    return (
     <div>
-      <div> 
-        <DayPlanner /> 
-      </div>
       <div> 
         <NoPlan /> 
       </div>
+      <div> 
+        <DayPlanner /> 
+      </div>
     </div>
     )
+  }
   }
 }
 

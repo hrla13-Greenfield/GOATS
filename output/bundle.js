@@ -4337,6 +4337,7 @@ function getDay6(selection6) {
 }
 
 function selectChoice(option, zip, userID) {
+  console.log('zip in selectChoice', zip);
   if (option === 'food') {
     return {
       type: 'CHOICES_SELECTED',
@@ -4674,10 +4675,11 @@ function selectChoice(option, zip, userID) {
   }
 }
 
-function planDay() {
+function planDay(zip) {
+  console.log('zip in planday', zip);
   return function (dispatch) {
     _axios2.default.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'breakfast', filter: 'restaurants', zip: '90024' },
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -4689,7 +4691,7 @@ function planDay() {
       console.error(err);
     });
     _axios2.default.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'spa', filter: 'beautysvc', zip: '90024' },
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -4701,7 +4703,7 @@ function planDay() {
       console.error(err);
     });
     _axios2.default.get('api/getActivities', { params: {
-        term: 'fitness', filter: 'fitness', zip: '90024' },
+        term: 'food', filter: 'restaurants', zip: '90024' },
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -4713,7 +4715,7 @@ function planDay() {
       console.error(err);
     });
     _axios2.default.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'fitness', filter: 'fitness', zip: '90024' },
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -4737,7 +4739,7 @@ function planDay() {
       console.error(err);
     });
     _axios2.default.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'clubs', filter: 'nightlife', zip: '90024' },
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -36411,6 +36413,10 @@ var _Suggestion2 = _interopRequireDefault(_Suggestion);
 
 var _reactRedux = __webpack_require__(10);
 
+var _LocationTree = __webpack_require__(168);
+
+var _LocationTree2 = _interopRequireDefault(_LocationTree);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36431,21 +36437,28 @@ var Day = function (_React$Component) {
   _createClass(Day, [{
     key: 'render',
     value: function render() {
-      console.log('inDay');
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
+      if (this.props.choices.zipCode === false) {
+        return _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(_DayPlanner2.default, null)
-        ),
-        _react2.default.createElement(
+          _react2.default.createElement(_LocationTree2.default, null)
+        );
+      } else {
+        return _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(_NoPlan2.default, null)
-        )
-      );
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(_NoPlan2.default, null)
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(_DayPlanner2.default, null)
+          )
+        );
+      }
     }
   }]);
 
@@ -38406,8 +38419,7 @@ var initialState = {
   finalSelection: false,
   zipCode: false,
 
-  firstLoad: [{ img: 'http://ifthedevilhadmenopause.com/wp-content/uploads/2014/08/sri-santrupti-restaurant-21346657591-1.png', option: 'food' }, { img: 'http://www.miamiandbeaches.com/~/media/Images/GMCVB/MiamiAndBeaches/Featured%20Articles/Featured%20Article%20Headers/clubs-101-3-612-x-338.jpg', option: 'party' }, { img: 'http://www.pkvitality.com/wp-content/uploads/2016/12/accuracy.jpg', option: 'sports' }, { img: 'http://s.hswstatic.com/gif/relaxation-quiz-orig.jpg', option: 'relax' }, { img: 'https://secure.parksandresorts.wdpromedia.com/resize/mwImage/1/640/360/75/wdpromedia.disney.go.com/media/wdpro-assets/dlr/gallery/destinations/disneyland-park/disneyland-gallery25.jpg?21042014145156', option: 'activity' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'any' }],
-  dayLoad: [{ name: 'food' }, { image: 'kale' }, { phone: 'kale' }, { distance: 'kale' }]
+  firstLoad: [{ img: 'http://ifthedevilhadmenopause.com/wp-content/uploads/2014/08/sri-santrupti-restaurant-21346657591-1.png', option: 'food' }, { img: 'http://www.miamiandbeaches.com/~/media/Images/GMCVB/MiamiAndBeaches/Featured%20Articles/Featured%20Article%20Headers/clubs-101-3-612-x-338.jpg', option: 'party' }, { img: 'http://www.pkvitality.com/wp-content/uploads/2016/12/accuracy.jpg', option: 'sports' }, { img: 'http://s.hswstatic.com/gif/relaxation-quiz-orig.jpg', option: 'relax' }, { img: 'https://secure.parksandresorts.wdpromedia.com/resize/mwImage/1/640/360/75/wdpromedia.disney.go.com/media/wdpro-assets/dlr/gallery/destinations/disneyland-park/disneyland-gallery25.jpg?21042014145156', option: 'activity' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'any' }]
 };
 
 //console.log('in redcucer')

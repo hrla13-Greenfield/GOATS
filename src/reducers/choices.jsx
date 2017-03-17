@@ -13,12 +13,12 @@ var initialState = {
     { img: 'https://secure.parksandresorts.wdpromedia.com/resize/mwImage/1/640/360/75/wdpromedia.disney.go.com/media/wdpro-assets/dlr/gallery/destinations/disneyland-park/disneyland-gallery25.jpg?21042014145156', option: 'activity' },
     { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'any' },
   ],
-  dayLoad: [
+ /* dayLoad: [
     { name: 'food' },
     { image: 'kale' },
     { phone: 'kale' },
     { distance: 'kale' },
-  ],
+  ],*/
 };
 
   //console.log('in redcucer')

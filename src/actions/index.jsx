@@ -102,6 +102,7 @@ export function getDay6(selection6) {
 }
 
 export function selectChoice(option, zip, userID) {
+  console.log('zip in selectChoice', zip);
   if (option === 'food') {
     return {
       type: 'CHOICES_SELECTED',
@@ -489,10 +490,11 @@ export function selectChoice(option, zip, userID) {
   }
 }
 
-export function planDay(){
+export function planDay(zip) {
+  console.log('zip in planday', zip);
   return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'breakfast', filter: 'restaurants', zip: '90024' },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -506,7 +508,7 @@ export function planDay(){
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'spa', filter: 'beautysvc', zip: '90024' },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -520,7 +522,7 @@ export function planDay(){
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'fitness', filter: 'fitness', zip: '90024' },
+        term: 'food', filter: 'restaurants', zip: '90024' },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -534,7 +536,7 @@ export function planDay(){
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'fitness', filter: 'fitness', zip: '90024' },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -562,7 +564,7 @@ export function planDay(){
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'clubs', filter: 'nightlife', zip: '90024' },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
