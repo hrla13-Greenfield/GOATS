@@ -36265,28 +36265,37 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
                         this.state.myRoom
                     ),
                     _react2.default.createElement(
-                        'h6',
+                        'div',
                         null,
-                        'Room: ',
-                        this.state.room
-                    ),
-                    _react2.default.createElement(
-                        'h6',
-                        null,
-                        'Opponent Picture: ',
-                        this.state.opponentPicture
-                    ),
-                    _react2.default.createElement(
-                        'h6',
-                        null,
-                        'Opponent Username: ',
-                        this.state.opponentUsername
-                    ),
-                    _react2.default.createElement(
-                        'h6',
-                        null,
-                        'Opponent Score: ',
-                        this.state.opponentScore
+                        _react2.default.createElement(
+                            'h4',
+                            null,
+                            'Opponent Information:'
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Username: ',
+                            this.state.opponentUsername
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Picture: ',
+                            this.state.opponentPicture
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Room: ',
+                            this.state.room
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Score: ',
+                            this.state.opponentScore
+                        )
                     )
                 ),
                 _react2.default.createElement(
