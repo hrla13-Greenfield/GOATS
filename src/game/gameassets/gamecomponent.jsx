@@ -60,8 +60,7 @@ class GameComponent extends React.Component {
                 opponentScore: [data.score]
             })
         }
-    })
-    }
+        })
 
     componentDidMount() {
         setInterval(this.handleRandom, 900)
