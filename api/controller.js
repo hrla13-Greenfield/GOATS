@@ -155,8 +155,7 @@ exports.returnUserData = function (req, res) {
   });
 };
 
-exports.createGroup = function (req, res) {
-};
+
 
 exports.createHistory = function (req, res) {
   const location = JSON.stringify(req.body.selection.location);
@@ -181,28 +180,29 @@ exports.createHistory = function (req, res) {
 };
 
 const getBearer = function (cb) {
-  const options = { method: 'POST',
-    url: 'https://api.yelp.com/oauth2/token',
-    headers:
-    { 'postman-token': 'c465c84a-3343-1ece-227e-07bd5a1d10b8',
-      'cache-control': 'no-cache',
-      'content-type': 'application/x-www-form-urlencoded' },
-    form:
-    { client_id: '9JNu_Qv6gcSDeJfRp0QeJw',
-      client_secret: '7PgGA0q6SORkr8xaB1Be568k648NrVK5B0ACV65ZcXpcW4bRfYr2ADphGkXZ4YYV',
-      grant_type: 'client_credentials' } };
+  cb('SdD00ggp7OHQgJemq0WJjtjf_LjFvvydOwCVxc1t3tYBCAXCShdoWNlWlOV-hGVp6l-Uvkq8PDVpX5atIxgw_MPQOdVg7qksvS3QCZOqMN_8k42TnaLBEvIQ0h3CWHYx')
+  // const options = { method: 'POST',
+  //   url: 'https://api.yelp.com/oauth2/token',
+  //   headers:
+  //   { 'postman-token': 'c465c84a-3343-1ece-227e-07bd5a1d10b8',
+  //     'cache-control': 'no-cache',
+  //     'content-type': 'application/x-www-form-urlencoded' },
+  //   form:
+  //   { client_id: '9JNu_Qv6gcSDeJfRp0QeJw',
+  //     client_secret: '7PgGA0q6SORkr8xaB1Be568k648NrVK5B0ACV65ZcXpcW4bRfYr2ADphGkXZ4YYV',
+  //     grant_type: 'client_credentials' } };
 
-  request(options, (error, response, body) => {
-    if (error) throw new Error(error);
+  // request(options, (error, response, body) => {
+  //   if (error) throw new Error(error);
 
-    cb(body);
+  //   cb(body);
   });
 };
 
 
 exports.getActivity = function (req, res, query) {
   const cb = function (token) {
-    const bearer = JSON.parse(token).access_token;
+    const bearer = token;
     const options = { method: 'GET',
       url: 'https://api.yelp.com/v3/businesses/search',
       qs:
