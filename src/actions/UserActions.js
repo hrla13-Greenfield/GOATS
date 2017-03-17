@@ -1,32 +1,33 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes.jsx';
 
+
+
 export function signInSuccess(userinfo, username) {
-  console.log(userinfo, "this is userinfo")
   var userinfo = userinfo.data;
-  var newGroups = [];
-  var newGroupsByID = [];
-  for (var i=0; i<userinfo.usergroups.length; i++) {
+  const newGroups = [];
+  const newGroupsByID = [];
+  for (let i = 0; i < userinfo.usergroups.length; i++) {
     if (userinfo.usergroups[i].Users.length !== 0) {
       newGroups.push(userinfo.usergroups[i].id);
-     
-      var membersTemp = [];
-      for (var j=0; j<userinfo.usergroups[i].Users.length; j++) {
+
+      const membersTemp = [];
+      for (let j = 0; j < userinfo.usergroups[i].Users.length; j++) {
         if (userinfo.usergroups[i].Users[j].username !== username) {
           membersTemp.push(userinfo.usergroups[i].Users[j].username);
         }
       }
-      var newGroupTemp = {
+      const newGroupTemp = {
         id: userinfo.usergroups[i].id,
         name: userinfo.usergroups[i].name,
         members: membersTemp,
-      }
+      };
       newGroupsByID.push(newGroupTemp);
     }
   }
-  var newHistory = []
-  for (var k=0; k<userinfo.history.length; k++) {
-    var historyTemp = {
+  const newHistory = [];
+  for (let k = 0; k < userinfo.history.length; k++) {
+    const historyTemp = {
       name: userinfo.history[k].name,
       address: userinfo.history[k].address,
       category: userinfo.history[k].category,
@@ -36,20 +37,20 @@ export function signInSuccess(userinfo, username) {
       url: userinfo.history[k].url,
       rating: userinfo.history[k].user_rating,
       image: userinfo.history[k].image,
-    }
-    newHistory.push(historyTemp)
+    };
+    newHistory.push(historyTemp);
   }
-  var newInvites = [];
-  for (var l=0; l<userinfo.invites.length; l++) {
-    var tmpInvite = {
+  const newInvites = [];
+  for (let l = 0; l < userinfo.invites.length; l++) {
+    const tmpInvite = {
       groupID: userinfo.invites[l].GroupId,
       userID: userinfo.invites[l].UserId,
       sentBy: userinfo.invites[l].sentBy,
       id: userinfo.invites[l].id,
-    }
+    };
     newInvites.push(tmpInvite);
   }
-  
+
   return {
     type: types.SIGN_IN,
     username,
@@ -70,24 +71,52 @@ export function isLoading(bool) {
   };
 }
 
-export function saveNickname(nickname){
-  return{
+export function saveNickname(nickname) {
+  return {
     type: types.SAVE_NICKNAME,
     nickname,
-  }
+  };
+}
+
+export function updateNote(text) {
+  return {
+    type: types.NOT_SUCCESSFUL,
+    note: text,
+  };
+}
+export function clearNote() {
+  return {
+    type: types.NOT_SUCCESSFUL,
+    note: '',
+  };
+}
+
+export function doneLoading() {
+  return {
+    type: types.DONE_LOADING,
+    status: true,
+  };
+}
+export function unSuccess(text) {
+  return (dispatch) => {
+    dispatch(updateNote(text));
+    dispatch(doneLoading());
+    setTimeout(() => {
+      dispatch(clearNote());
+    }, 7500);
+  };
 }
 
 export function signIn(username) {
   return (dispatch) => {
     dispatch(isLoading(true));
     axios.get('/api/users', { params: {
-      username
-    }} )
+      username,
+    } })
     .then((result) => {
-      console.log(result);
       dispatch(signInSuccess(result, username));
       dispatch(doneLoading());
-    }) 
+    });
   };
 }
 
@@ -99,12 +128,6 @@ export function addFriendSuccess(groupID, friendName) {
   };
 }
 
-export function doneLoading() {
-  return {
-    type: types.DONE_LOADING,
-    status: true,
-  };
-}
 
 export function addGroupSuccess(groupName) {
   return {
@@ -113,29 +136,81 @@ export function addGroupSuccess(groupName) {
   };
 }
 
-export function addFriend(groupID, friendName, userID) {
+export function addFriend(groupID, friendName, userID, username) {
   return (dispatch) => {
     dispatch(isLoading(true));
-    axios.post('/api/users/groups', { 
+    axios.post('/api/users/groups', {
       groupID,
       friendName,
       userID,
-    }
+    },
     ).then(() => {
-      dispatch(addFriendSuccess(groupID, friendName));
-      dispatch(doneLoading());
+      var txt = 'Invite sent to '+friendName;
+      dispatch(unSuccess(txt));
+      dispatch(signIn(username));
     })
     .catch((err) => {
-      console.log(err)
+      dispatch(unSuccess('Invalid selection, please try again'));
+    });
+  };
+}
+
+export function acceptRequest(reqid, user) {
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    axios.post('/api/users/invites', {
+      reqid,
+      type: 'acc',
+    },
+    ).then(() => {
+      dispatch(signIn(user));
+    })
+    .catch(() => {
+      console.log("error<<<")
+      dispatch(unSuccess('Invalid selection, please try again'));
+    });
+  };
+}
+export function declineRequest(reqid, user) {
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    axios.post('/api/users/invites', {
+      reqid,
+      type: 'del',
+    },
+    ).then(() => {
+      dispatch(signIn(user));
+    })
+    .catch((err) => {
+      dispatch(unSuccess('Invalid selection, please try again'));
+    });
+  };
+}
+
+
+export function addGroup(groupName, userID, username) {
+  console.log(groupName, userID, username)
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    axios.post('/api/groups', {
+      groupName,
+      userID,
+    })
+    .then(() => {
+      console.log(username, "here")
+      dispatch(doneLoading());
+      dispatch(signIn(username));
+    })
+    .catch(() => {
+      console.log("fail")
+      dispatch(unSuccess('Unable to create group, please try again'))
     })
   };
 }
 
-
-export function addGroup(groupName, userID) {
-  return (dispatch) => {
-    dispatch(isLoading(true));
-    dispatch(addGroupSuccess(groupName));
+export function selectRoom(groupName) {
+  return {
+    type: types.SELECT_ROOM,
+    groupName,
   };
 }
-

@@ -10,6 +10,11 @@ const initialState = {
   userID: null,
   currentnickname: null,
   isLoading: true,
+  roomSelected: null,
+  points: 0,
+  invites: [],
+  history: [],
+  note: '',
 };
 
 export default function groups(state = initialState, action) {
@@ -24,12 +29,26 @@ export default function groups(state = initialState, action) {
         username: action.username,
         userImg: action.userImg,
         userID: action.userID,
+        invites: action.invites,
+        history: action.history,
+        points: action.points,
       };
 
+    case types.NOT_SUCCESSFUL:
+      return {
+        ...state,
+        note: action.note,
+      }
     case types.USER_LOADING:
       return {
         ...state,
         isLoading: true,
+      };
+
+    case types.SELECT_ROOM:
+      return {
+        ...state,
+        roomSelected: action.groupName,
       };
 
     case types.DONE_LOADING:

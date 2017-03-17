@@ -7,12 +7,69 @@ exports.createUser = function (req, res) {
     current: null,
     points: '0',
     image: null,
-  })
+  });
   newuser.save()
   .then((record) => {
     res.send(record);
   });
 };
+
+exports.createGroup = function (req, res) {
+  console.log(req);
+  console.log('_____________')
+  const newGroup = db.Group.build({
+    name: req.query.groupName,
+  })
+  console.log('line 21')
+  newGroup.save().then((result) => {
+    const newUserGroup = db.userGroup.build({
+      GroupId: result.id,
+      UserId: req.query.userID,
+    })
+    console.log('line 27')
+    newUserGroup.save().then((record) => {
+      res.send("Success")
+    })
+    .catch((err) => {
+      console.log(err, 'error!!!!')
+      res.sendStatus(500);
+    })
+  })
+  .catch((err) => {
+    res.send(err);
+    console.log(err)
+  })
+}
+
+exports.acceptRequest = function (requestID, req, res) {
+  db.PendingInvites.find({ where: { id: requestID } })
+  .then((result) => {
+    console.log(result);
+    let newMember = db.UserGroup.build({
+      UserId: result.UserId,
+      GroupId: result.GroupId,
+    });
+    newMember.save()
+    .then((record) => {
+      db.PendingInvites.destroy({ where: { id: requestID } });
+      res.send("Success");
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+    });
+  });
+};
+
+exports.declineRequest = function (requestID, req, res) {
+  db.PendingInvites.destroy({ where: { id: requestID } })
+  .then(() => {
+    res.send("Success")
+  })
+  .catch((err) => {
+    res.sendStatus(500);
+  });
+};
+
 
 exports.addToGroup = function (req, res) {
   db.User.findOne({ where: { username: req.body.friendName } }).then((results) => {
@@ -24,27 +81,27 @@ exports.addToGroup = function (req, res) {
       });
       newRequest.save()
       .then((data) => {
+        res.send(data);
       })
       .catch((err) => {
         console.log(err);
       });
     } else {
-      console.log('error!');
+      res.sendStatus(500);
     }
   })
   .catch((err) => {
-    console.log(err);
-    console.log('not found');
+    res.sendStatus(500);
   });
 };
 
 exports.returnUserData = function (req, res) {
-  var cb = function (usergroups, userid, points, image, current) {
-    db.PendingInvites.findAll({where: { UserId: userid } })
+  const cb = function (usergroups, userid, points, image, current) {
+    db.PendingInvites.findAll({ where: { UserId: userid } })
     .then((invites) => {
-      db.UserHistory.findAll({where: { userId: userid } })
+      db.UserHistory.findAll({ where: { userId: userid } })
       .then((history) => {
-        var finalObj = {
+        const finalObj = {
           history,
           invites,
           usergroups,
@@ -52,11 +109,17 @@ exports.returnUserData = function (req, res) {
           image,
           points,
           current,
-        }
-        res.send(finalObj)
+        };
+        res.send(finalObj);
       })
-    });
-  };
+     .catch((err) => {
+      res.sendStatus(500);  
+    })
+  })
+  .catch((err) => {
+    res.sendStatus(500);
+  })
+}
 
   db.User.findOne({ where: { username: req.query.username } })
   .then((results) => {
@@ -64,7 +127,7 @@ exports.returnUserData = function (req, res) {
       where: { userId: results.id },
     })
     .then((groupIDs) => {
-      let myGroups = [];
+      const myGroups = [];
       for (let i = 0; i < groupIDs.length; i++) {
         myGroups.push(groupIDs[i].GroupId);
       }
