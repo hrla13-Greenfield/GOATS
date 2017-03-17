@@ -4569,7 +4569,7 @@ function browse(zip) {
   console.log('zip in planday', zip);
   return function (dispatch) {
     _axios2.default.get('api/getActivities', { params: {
-        term: '', filter: '', zip: '90024' },
+        term: '', filter: '', zip: zip },
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -33788,9 +33788,9 @@ var _Day = __webpack_require__(165);
 
 var _Day2 = _interopRequireDefault(_Day);
 
-var _Browse = __webpack_require__(338);
+var _Feed = __webpack_require__(339);
 
-var _Browse2 = _interopRequireDefault(_Browse);
+var _Feed2 = _interopRequireDefault(_Feed);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33856,7 +33856,7 @@ var App = function (_React$Component) {
                       _react2.default.createElement(_reactRouter.Route, { path: '/tree', component: _Tree2.default }),
                       _react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _Profile2.default }),
                       _react2.default.createElement(_reactRouter.Route, { path: '/dayplanner', component: _Day2.default }),
-                      _react2.default.createElement(_reactRouter.Route, { path: '/browse', component: _Browse2.default })
+                      _react2.default.createElement(_reactRouter.Route, { path: '/browse', component: _Feed2.default })
                     )
                   )
                 ),
@@ -56908,7 +56908,7 @@ var Browse = function (_React$Component) {
   _createClass(Browse, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this.props.dispatch((0, _index.browse)());
+      this.props.dispatch((0, _index.browse)(this.props.choices.updatedZipcode));
     }
   }, {
     key: 'renderAll',
@@ -56976,6 +56976,84 @@ function mapDispatchToProps(dispatch) {
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Browse);
+
+/***/ }),
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(13);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _Browse = __webpack_require__(338);
+
+var _Browse2 = _interopRequireDefault(_Browse);
+
+var _reactRedux = __webpack_require__(10);
+
+var _LocationTree = __webpack_require__(168);
+
+var _LocationTree2 = _interopRequireDefault(_LocationTree);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Feed = function (_React$Component) {
+  _inherits(Feed, _React$Component);
+
+  function Feed() {
+    _classCallCheck(this, Feed);
+
+    return _possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).apply(this, arguments));
+  }
+
+  _createClass(Feed, [{
+    key: 'render',
+    value: function render() {
+      if (this.props.choices.zipCode === false) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_LocationTree2.default, null)
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_Browse2.default, null)
+        );
+      }
+    }
+  }]);
+
+  return Feed;
+}(_react2.default.Component);
+
+function mapStateToProps(state) {
+  return {
+    choices: state.choices
+  };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Feed);
 
 /***/ })
 /******/ ]);

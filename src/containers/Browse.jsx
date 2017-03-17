@@ -7,7 +7,7 @@ import { browse } from '../actions/index.jsx';
 class Browse extends React.Component {
 
 componentWillMount(){
-  this.props.dispatch(browse())
+  this.props.dispatch(browse(this.props.choices.updatedZipcode))
 }
   renderAll(){
     console.log(this.props.choices.showAll.data, 'this.props.choices.showAll')

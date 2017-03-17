@@ -594,7 +594,7 @@ export function browse(zip){
   console.log('zip in planday', zip);
   return (dispatch) => {
     axios.get('api/getActivities', { params: {
-      term: '', filter: '', zip: '90024' },
+      term: '', filter: '', zip: zip },
       headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
