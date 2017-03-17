@@ -9,6 +9,7 @@ let selection3;
 let selection4;
 let selection5;
 let selection6;
+const array = [];
 
 export function submitLocation(zip) {
   console.log('this works', zip)
@@ -98,6 +99,15 @@ export function getDay6(selection6) {
         phone: selection6.display_phone,
         distance: selection6.distance },
     ]
+  }
+}
+
+export function getAll(data) {
+  console.log(data, 'data');
+  return {
+    type: 'BROWSE',
+    payload: 
+      { data: data }
   }
 }
 
@@ -494,7 +504,7 @@ export function planDay(zip) {
   console.log('zip in planday', zip);
   return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'breakfast', filter: 'restaurants', zip: '90024' },
+        term: 'breakfast', filter: 'restaurants', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -508,7 +518,7 @@ export function planDay(zip) {
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'spa', filter: 'beautysvc', zip: '90024' },
+        term: 'spa', filter: 'beautysvc', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -522,7 +532,7 @@ export function planDay(zip) {
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'food', filter: 'restaurants', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -536,7 +546,7 @@ export function planDay(zip) {
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'fitness', filter: 'fitness', zip: '90024' },
+        term: 'fitness', filter: 'fitness', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -550,7 +560,7 @@ export function planDay(zip) {
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'food', filter: 'restaurants', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -564,7 +574,7 @@ export function planDay(zip) {
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'clubs', filter: 'nightlife', zip: '90024' },
+        term: 'clubs', filter: 'nightlife', zip: zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -578,4 +588,24 @@ export function planDay(zip) {
         console.error(err);
       })
   };
-} 
+}
+
+export function browse(zip){ 
+  console.log('zip in planday', zip);
+  return (dispatch) => {
+    axios.get('api/getActivities', { params: {
+      term: '', filter: '', zip: '90024' },
+      headers: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then((results) => {
+        data = results.data.businesses;
+        dispatch(getAll(data));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    } 
+  }
+

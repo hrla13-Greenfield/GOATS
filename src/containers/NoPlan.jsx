@@ -10,7 +10,7 @@ class NoPlan extends React.Component {
   return (
     <div>
       <iframe src="http://i.giphy.com/PtziVPCCEn6so.gif" width="480" height="391" frameBorder="0" className="gify"></iframe>
-      <button onClick={() => this.props.planDay()} className="btn btn-info btn-sm">Help!</button>
+      <button onClick={() => this.props.planDay(this.props.choices.updatedZipcode)} className="btn btn-info btn-sm">Help!</button>
     </div>
    )
  } 

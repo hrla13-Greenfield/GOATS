@@ -6,6 +6,7 @@ import Game from '../game/gameindex.jsx';
 import Profile from './Profile.jsx';
 import Login from './Login/login.jsx';
 import Day from './Day.jsx';
+import Browse from './Browse.jsx';
 
 
 const createHistory = require('history').createHashHistory;
@@ -40,6 +41,7 @@ class App extends React.Component {
                       <Route path="/tree" component={Tree} />
                       <Route path="/profile" component={Profile} />
                       <Route path="/dayplanner" component={Day} />
+                      <Route path="/browse" component={Browse} />
                     </div>
                   </Router>
                 </div>
