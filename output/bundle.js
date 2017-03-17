@@ -36359,6 +36359,7 @@ var Game = function (_React$Component) {
     key: 'render',
     value: function render() {
       // console.log(!!localStorage.getItem("userToken"), "this is in game")
+      console.log("emily wai?!");
       if (!!localStorage.getItem("userToken") === false) {
         window.location.href = "/#/login";
         return false;
