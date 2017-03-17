@@ -44,7 +44,7 @@ export function getDay(selection1) {
 
 export function getDay2(selection2) {
   return {
-    type: 'DAY_SELECTED',
+    type: 'DAY_SELECTED2',
     payload: [
       { name: selection2.name,
         image: selection2.image_url,
@@ -56,7 +56,7 @@ export function getDay2(selection2) {
 
 export function getDay3(selection3) {
   return {
-    type: 'DAY_SELECTED',
+    type: 'DAY_SELECTED3',
     payload: [
       { name: selection3.name,
         image: selection3.image_url,
@@ -68,7 +68,7 @@ export function getDay3(selection3) {
 
 export function getDay4(selection4) {
   return {
-    type: 'DAY_SELECTED',
+    type: 'DAY_SELECTED4',
     payload: [
       { name: selection4.name,
         image: selection4.image_url,
@@ -80,7 +80,7 @@ export function getDay4(selection4) {
 
 export function getDay5(selection5) {
   return {
-    type: 'DAY_SELECTED',
+    type: 'DAY_SELECTED5',
     payload: [
       { name: selection5.name,
         image: selection5.image_url,
@@ -91,7 +91,7 @@ export function getDay5(selection5) {
 }
 export function getDay6(selection6) {
   return {
-    type: 'DAY_SELECTED',
+    type: 'DAY_SELECTED6',
     payload: [
       { name: selection6.name,
         image: selection6.image_url,
@@ -520,7 +520,7 @@ export function planDay(){
         console.error(err);
       });
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: '90024' },
+        term: 'fitness', filter: 'fitness', zip: '90024' },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -570,12 +570,10 @@ export function planDay(){
       .then((results) => {
         data = results.data.businesses;
         selection6 = data[Math.floor(Math.random() * data.length)];
-        dispatch(getDay(selection6));
+        dispatch(getDay6(selection6));
       })
       .catch((err) => {
         console.error(err);
-      });
-
-    };
-
+      })
+  };
 } 
