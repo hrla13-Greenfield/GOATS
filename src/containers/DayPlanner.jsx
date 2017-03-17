@@ -15,61 +15,73 @@ class DayPlanner extends React.Component {
   renderDay() {
       items = (this.props.choices.dayLoad.map((item) => {
         return (
-          <div>
+          <div className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
-            <img src={item.image} height="250" />
+            <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
+            <img src={item.image} height="180" />
+            </div>
             <div> {item.phone} </div>
-            <div> {item.distance} </div>
+            <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
         )
       }))
       items2 = (this.props.choices.dayLoadtwo.map((item) => {
         return (
-          <div>
+          <div className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
-            <img src={item.image} height="250" />
+            <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
+            <img src={item.image} height="180" />
+            </div>
             <div> {item.phone} </div>
-            <div> {item.distance} </div>
+            <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
         )
       }))
       items3 = (this.props.choices.dayLoadthree.map((item) => {
         return (
-          <div>
+          <div className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
-            <img src={item.image} height="250" />
+            <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
+            <img src={item.image} height="180" />
+            </div>
             <div> {item.phone} </div>
-            <div> {item.distance} </div>
+            <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
         )
       }))
       items4 = (this.props.choices.dayLoadfour.map((item) => {
         return (
-          <div>
+          <div  className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
-            <img src={item.image} height="250" />
+            <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
+            <img src={item.image} height="180" />
+            </div>
             <div> {item.phone} </div>
-            <div> {item.distance} </div>
+            <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
         )
       }))
       items5 = (this.props.choices.dayLoadfive.map((item) => {
         return (
-          <div>
+          <div  className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
-            <img src={item.image} height="250" />
+            <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
+            <img src={item.image} height="180" />
+            </div>
             <div> {item.phone} </div>
-            <div> {item.distance} </div>
+            <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
         )
       }));
       items6 = (this.props.choices.dayLoadsix.map((item) => {
         return (
-          <div>
+          <div  className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
-            <img src={item.image} height="250" />
+            <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
+            <img src={item.image} height="180" />
+            </div>
             <div> {item.phone} </div>
-            <div> {item.distance} </div>
+            <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
         )
       }));
@@ -79,13 +91,23 @@ class DayPlanner extends React.Component {
       return (
         <div>
           <div>{this.renderDay()}</div>
+        <div> 
+          <div><h2>Morning</h2><div/>
           <div>{items}</div>
           <div>{items2}</div>
+        </div>
+        <div>
+         <div><h2>Afternoon</h2></div>
           <div>{items3}</div>
           <div>{items4}</div>
+        </div>
+        <div>
+         <div><h2>Night</h2></div>
           <div>{items5}</div>
           <div>{items6}</div>
         </div>
+      </div>
+      </div>
       );
     } else {
       return <div></div>

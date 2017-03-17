@@ -4566,10 +4566,9 @@ function planDay(zip) {
 }
 
 function browse(zip) {
-  console.log('zip in planday', zip);
   return function (dispatch) {
     _axios2.default.get('api/getActivities', { params: {
-        term: '', filter: '', zip: zip },
+        term: 'fun', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals, restaurants', zip: zip },
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -11056,8 +11055,8 @@ var Suggestion = function (_React$Component) {
             'div',
             null,
             'Distance: ',
-            choice.distance,
-            ' '
+            Math.round(choice.distance * 0.000621371 * 100) / 100,
+            ' miles from you '
           )
         );
       });
@@ -35253,7 +35252,7 @@ var DayPlanner = function (_React$Component) {
       items = this.props.choices.dayLoad.map(function (item) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'col-md-6 col-sm-12 col-xs-12' },
           _react2.default.createElement(
             'div',
             null,
@@ -35261,7 +35260,11 @@ var DayPlanner = function (_React$Component) {
             item.name,
             ' '
           ),
-          _react2.default.createElement('img', { src: item.image, height: '250' }),
+          _react2.default.createElement(
+            'div',
+            { style: { width: '200px', height: '180px', overflow: 'hidden' } },
+            _react2.default.createElement('img', { src: item.image, height: '180' })
+          ),
           _react2.default.createElement(
             'div',
             null,
@@ -35273,15 +35276,15 @@ var DayPlanner = function (_React$Component) {
             'div',
             null,
             ' ',
-            item.distance,
-            ' '
+            Math.round(item.distance * 0.000621371 * 100) / 100,
+            ' miles from you '
           )
         );
       });
       items2 = this.props.choices.dayLoadtwo.map(function (item) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'col-md-6 col-sm-12 col-xs-12' },
           _react2.default.createElement(
             'div',
             null,
@@ -35289,7 +35292,11 @@ var DayPlanner = function (_React$Component) {
             item.name,
             ' '
           ),
-          _react2.default.createElement('img', { src: item.image, height: '250' }),
+          _react2.default.createElement(
+            'div',
+            { style: { width: '200px', height: '180px', overflow: 'hidden' } },
+            _react2.default.createElement('img', { src: item.image, height: '180' })
+          ),
           _react2.default.createElement(
             'div',
             null,
@@ -35301,15 +35308,15 @@ var DayPlanner = function (_React$Component) {
             'div',
             null,
             ' ',
-            item.distance,
-            ' '
+            Math.round(item.distance * 0.000621371 * 100) / 100,
+            ' miles from you '
           )
         );
       });
       items3 = this.props.choices.dayLoadthree.map(function (item) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'col-md-6 col-sm-12 col-xs-12' },
           _react2.default.createElement(
             'div',
             null,
@@ -35317,7 +35324,11 @@ var DayPlanner = function (_React$Component) {
             item.name,
             ' '
           ),
-          _react2.default.createElement('img', { src: item.image, height: '250' }),
+          _react2.default.createElement(
+            'div',
+            { style: { width: '200px', height: '180px', overflow: 'hidden' } },
+            _react2.default.createElement('img', { src: item.image, height: '180' })
+          ),
           _react2.default.createElement(
             'div',
             null,
@@ -35329,15 +35340,15 @@ var DayPlanner = function (_React$Component) {
             'div',
             null,
             ' ',
-            item.distance,
-            ' '
+            Math.round(item.distance * 0.000621371 * 100) / 100,
+            ' miles from you '
           )
         );
       });
       items4 = this.props.choices.dayLoadfour.map(function (item) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'col-md-6 col-sm-12 col-xs-12' },
           _react2.default.createElement(
             'div',
             null,
@@ -35345,7 +35356,11 @@ var DayPlanner = function (_React$Component) {
             item.name,
             ' '
           ),
-          _react2.default.createElement('img', { src: item.image, height: '250' }),
+          _react2.default.createElement(
+            'div',
+            { style: { width: '200px', height: '180px', overflow: 'hidden' } },
+            _react2.default.createElement('img', { src: item.image, height: '180' })
+          ),
           _react2.default.createElement(
             'div',
             null,
@@ -35357,15 +35372,15 @@ var DayPlanner = function (_React$Component) {
             'div',
             null,
             ' ',
-            item.distance,
-            ' '
+            Math.round(item.distance * 0.000621371 * 100) / 100,
+            ' miles from you '
           )
         );
       });
       items5 = this.props.choices.dayLoadfive.map(function (item) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'col-md-6 col-sm-12 col-xs-12' },
           _react2.default.createElement(
             'div',
             null,
@@ -35373,7 +35388,11 @@ var DayPlanner = function (_React$Component) {
             item.name,
             ' '
           ),
-          _react2.default.createElement('img', { src: item.image, height: '250' }),
+          _react2.default.createElement(
+            'div',
+            { style: { width: '200px', height: '180px', overflow: 'hidden' } },
+            _react2.default.createElement('img', { src: item.image, height: '180' })
+          ),
           _react2.default.createElement(
             'div',
             null,
@@ -35385,15 +35404,15 @@ var DayPlanner = function (_React$Component) {
             'div',
             null,
             ' ',
-            item.distance,
-            ' '
+            Math.round(item.distance * 0.000621371 * 100) / 100,
+            ' miles from you '
           )
         );
       });
       items6 = this.props.choices.dayLoadsix.map(function (item) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'col-md-6 col-sm-12 col-xs-12' },
           _react2.default.createElement(
             'div',
             null,
@@ -35401,7 +35420,11 @@ var DayPlanner = function (_React$Component) {
             item.name,
             ' '
           ),
-          _react2.default.createElement('img', { src: item.image, height: '250' }),
+          _react2.default.createElement(
+            'div',
+            { style: { width: '200px', height: '180px', overflow: 'hidden' } },
+            _react2.default.createElement('img', { src: item.image, height: '180' })
+          ),
           _react2.default.createElement(
             'div',
             null,
@@ -35413,8 +35436,8 @@ var DayPlanner = function (_React$Component) {
             'div',
             null,
             ' ',
-            item.distance,
-            ' '
+            Math.round(item.distance * 0.000621371 * 100) / 100,
+            ' miles from you '
           )
         );
       });
@@ -35434,32 +35457,72 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             null,
-            items
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            items2
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            items3
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            items4
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            items5
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            items6
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'h2',
+                null,
+                'Morning'
+              ),
+              _react2.default.createElement('div', null),
+              _react2.default.createElement(
+                'div',
+                null,
+                items
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                items2
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'h2',
+                  null,
+                  'Afternoon'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                items3
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                items4
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'h2',
+                  null,
+                  'Night'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                items5
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                items6
+              )
+            )
           )
         );
       } else {
@@ -36217,7 +36280,11 @@ var NoPlan = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement('iframe', { src: 'http://i.giphy.com/PtziVPCCEn6so.gif', width: '480', height: '391', frameBorder: '0', className: 'gify' }),
+        _react2.default.createElement(
+          'div',
+          { style: { width: '300px', height: '250px', overflow: 'hidden' } },
+          _react2.default.createElement('iframe', { src: 'http://i.giphy.com/PtziVPCCEn6so.gif', width: '480', height: '391', frameBorder: '0', className: 'gify' })
+        ),
         _react2.default.createElement(
           'button',
           { onClick: function onClick() {
@@ -57187,28 +57254,42 @@ var Browse = function (_React$Component) {
       return this.props.choices.showAll.data.map(function (item) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'col-md-4 col-sm-6 col-xs-12' },
           _react2.default.createElement(
             'div',
-            null,
-            ' ',
-            item.name,
-            ' '
-          ),
-          _react2.default.createElement('img', { src: item.image_url, height: '250' }),
-          _react2.default.createElement(
-            'div',
-            null,
-            ' ',
-            item.phone,
-            ' '
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            ' ',
-            item.distance,
-            ' '
+            { className: 'thumbnail' },
+            _react2.default.createElement(
+              'div',
+              { style: { width: '200px', height: '180px', overflow: 'hidden' } },
+              _react2.default.createElement('img', { src: item.image_url, height: '180', className: 'feedPics' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'caption' },
+              _react2.default.createElement(
+                'h5',
+                null,
+                ' ',
+                item.name,
+                ' '
+              ),
+              _react2.default.createElement(
+                'h6',
+                null,
+                ' ',
+                Math.round(item.distance * 0.000621371 * 100) / 100,
+                ' miles from you '
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-success' },
+                  'I want to do this!'
+                )
+              )
+            )
           )
         );
       });
@@ -57246,6 +57327,19 @@ function mapDispatchToProps(dispatch) {
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Browse);
+
+/*<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>*/
 
 /***/ }),
 /* 342 */

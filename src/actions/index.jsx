@@ -591,10 +591,9 @@ export function planDay(zip) {
 }
 
 export function browse(zip){ 
-  console.log('zip in planday', zip);
   return (dispatch) => {
     axios.get('api/getActivities', { params: {
-      term: '', filter: '', zip: zip },
+      term: 'fun', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals, restaurants', zip: zip },
       headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },

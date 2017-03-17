@@ -156,7 +156,6 @@ exports.returnUserData = function (req, res) {
 };
 
 exports.createGroup = function (req, res) {
-
 };
 
 exports.createHistory = function (req, res) {
@@ -211,7 +210,8 @@ exports.getActivity = function (req, res, query) {
         category_filter: query.filter,
         location: query.zip,
         sort_by: 'rating',
-        limit: '50' },
+        limit: '50',
+        offset: '25' },
       headers:
       { 'postman-token': '93676d7e-657a-46fd-71fc-a9b2fcf909a5',
         'cache-control': 'no-cache',
