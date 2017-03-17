@@ -46,7 +46,7 @@ export default class Navbar extends React.Component {
   }
   
   addFriend(groupID) {
-    this.props.dispatch(UserActions.addFriend(groupID, this.state.value, this.props.userdata.userID))
+    this.props.dispatch(UserActions.addFriend(groupID, this.state.value, this.props.userdata.userID, this.props.userdata.username))
   }
   addGroup() {
     this.props.dispatch(UserActions.addGroup(this.state.value, this.props.userdata.userID, this.props.userdata.username))
@@ -91,6 +91,7 @@ export default class Navbar extends React.Component {
           <hr />
           <h3>My Groups <a onClick={this.groupInput}> <span className="glyphicon glyphicon-plus-sign"></span></a></h3>
           <div>{this.state.group}</div>
+          <div className="red">{this.props.userdata.note}</div>
           <br />
           {mappedGroups}
         </ul>
@@ -103,13 +104,11 @@ export default class Navbar extends React.Component {
     if (this.props.userdata.isLoading) {
       return (
         <div>
-
         </div>
       )
     } else {
        return (
     <div>
- 
       {this.renderlist()}
     </div>
     )

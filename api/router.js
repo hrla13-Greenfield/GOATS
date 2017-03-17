@@ -4,16 +4,44 @@ const fs = require('fs');
 const db = require('./db/schema');
 
 
+myRouter.route('/groups')
+  .post((req, res) => {
+    const newGroup = db.Group.build({
+      name: req.body.groupName,
+    });
+    newGroup.save().then((result) => {
+      console.log(result.id);
+      console.log(req.body.userID);
+      console.log('______')
+      const newUserGroup = db.UserGroup.build({
+        GroupId: result.id,
+        UserId: req.body.userID,
+      });
+      newUserGroup.save().then((record) => {
+        res.send('Success');
+      })
+      .catch((err) => {
+        console.log(err, 'error!!!!');
+        res.sendStatus(500);
+      });
+    })
+    .catch((err) => {
+      res.send(err);
+      console.log(err);
+    });
+  });
+
+
 myRouter.route('/users')
   .get((req, res) => {
-    db.User.findAll({where: { username: req.query.username } })
+    db.User.findAll({ where: { username: req.query.username } })
     .then((result) => {
-      if(result.length === 0){
+      if (result.length === 0) {
         controller.createUser(req, res);
       } else {
         controller.returnUserData(req, res);
       }
-    })
+    });
   });
 
 myRouter.route('/users/invites')
@@ -23,12 +51,8 @@ myRouter.route('/users/invites')
     } else if (req.body.type === 'del') {
       controller.declineRequest(req.body.reqid, req, res);
     }
-  })
+  });
 
-myRouter.route('/groups')
-  .post((req, res) => {
-    controller.createGroup(req, res);
-  })
 
 myRouter.route('/users/history')
  .post((req, res) => {
@@ -38,7 +62,7 @@ myRouter.route('/users/history')
 myRouter.route('/users/groups')
   .post((req, res) => {
     controller.addToGroup(req, res);
-  })
+  });
 
 myRouter.route('/getBars')
   .get((req, res) => {
@@ -52,7 +76,7 @@ myRouter.route('/getClubs')
 
 myRouter.route('/getActivities')
   .get((req, res) => {
-    var query = req.query;
+    let query = req.query;
     controller.getActivity(req, res, query);
   });
 

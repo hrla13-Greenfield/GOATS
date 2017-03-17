@@ -15,17 +15,29 @@ exports.createUser = function (req, res) {
 };
 
 exports.createGroup = function (req, res) {
+  console.log(req);
+  console.log('_____________')
   const newGroup = db.Group.build({
     name: req.query.groupName,
   })
+  console.log('line 21')
   newGroup.save().then((result) => {
     const newUserGroup = db.userGroup.build({
       GroupId: result.id,
       UserId: req.query.userID,
     })
+    console.log('line 27')
     newUserGroup.save().then((record) => {
       res.send("Success")
     })
+    .catch((err) => {
+      console.log(err, 'error!!!!')
+      res.sendStatus(500);
+    })
+  })
+  .catch((err) => {
+    res.send(err);
+    console.log(err)
   })
 }
 
@@ -41,13 +53,21 @@ exports.acceptRequest = function (requestID, req, res) {
     .then((record) => {
       db.PendingInvites.destroy({ where: { id: requestID } });
       res.send("Success");
+    })
+    .catch((err) => {
+      res.sendStatus(500);
     });
   });
 };
 
 exports.declineRequest = function (requestID, req, res) {
-  db.PendingInvites.destroy({ where: { id: requestID } });
-  res.send("Success");
+  db.PendingInvites.destroy({ where: { id: requestID } })
+  .then(() => {
+    res.send("Success")
+  })
+  .catch((err) => {
+    res.sendStatus(500);
+  });
 };
 
 
@@ -67,12 +87,11 @@ exports.addToGroup = function (req, res) {
         console.log(err);
       });
     } else {
-      console.log('error!');
+      res.sendStatus(500);
     }
   })
   .catch((err) => {
-    console.log(err);
-    console.log('not found');
+    res.sendStatus(500);
   });
 };
 
@@ -92,9 +111,15 @@ exports.returnUserData = function (req, res) {
           current,
         };
         res.send(finalObj);
-      });
-    });
-  };
+      })
+     .catch((err) => {
+      res.sendStatus(500);  
+    })
+  })
+  .catch((err) => {
+    res.sendStatus(500);
+  })
+}
 
   db.User.findOne({ where: { username: req.query.username } })
   .then((results) => {

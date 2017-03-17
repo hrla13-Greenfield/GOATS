@@ -35,12 +35,32 @@ export default class Profile extends React.Component {
         </tr>
       )
     })
+    const mappedHistory = this.props.userdata.history.map(historyitem => {
+      var tmpHistory = JSON.parse(historyitem.address);
+      var cat = JSON.parse(historyitem.category)
+      var tmpCategory = [];
+      cat.forEach(function(element) {
+        tmpCategory.push(element.title)
+      })
+      tmpCategory = tmpCategory.join(', ');
+      return(
+        <tr>
+          <td><a href={historyitem.url}><img height="150" width="150" src={historyitem.image}></img></a></td>
+          <td>{historyitem.name}</td>
+          <td>{tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}</td>
+          <td>{historyitem.phone}</td>
+          <td>{tmpCategory}</td>
+          <td>{historyitem.rating}</td>
+        </tr>
+      )
+    })
     return (
-      <div>
-        <h1>{this.props.userdata.username}'s Profile</h1>
+      <div className="col-md-12">
+        <h1>{this.props.userdata.username}<small> | Profile</small></h1>
          <div className="row">
-          <div className="col-md-5"><img height="125px" width="125px" src={this.props.userdata.userImg}></img></div>
-         <div className="col-md-7"><h2>Pending group invites</h2>
+          <div className="col-md-5"><br /><img height="125px" width="125px" src={this.props.userdata.userImg}></img>
+          <br /><a><small>Change</small></a></div>
+         <div className="col-md-7"><h3>Pending group invites</h3>
          <table className="table">
            <thead>
            <tr>
@@ -57,7 +77,22 @@ export default class Profile extends React.Component {
          </div>
         </div>
         <div className="row">
+          <br />  <br />
          <h3> User history list </h3>
+                  <table className="table">
+           <thead>
+           <tr>
+             <th></th>
+             <th>Name: </th>
+             <th>Address: </th>
+             <th>Phone: </th>
+             <th>Category: </th>
+           </tr>
+           </thead>
+           <tbody>
+           {mappedHistory}
+           </tbody>
+           </table>
           </div>
       </div>
     );

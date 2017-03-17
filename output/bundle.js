@@ -6543,9 +6543,12 @@ Object.defineProperty(exports, "__esModule", {
 exports.signInSuccess = signInSuccess;
 exports.isLoading = isLoading;
 exports.saveNickname = saveNickname;
+exports.updateNote = updateNote;
+exports.clearNote = clearNote;
+exports.doneLoading = doneLoading;
+exports.unSuccess = unSuccess;
 exports.signIn = signIn;
 exports.addFriendSuccess = addFriendSuccess;
-exports.doneLoading = doneLoading;
 exports.addGroupSuccess = addGroupSuccess;
 exports.addFriend = addFriend;
 exports.acceptRequest = acceptRequest;
@@ -6640,6 +6643,35 @@ function saveNickname(nickname) {
   };
 }
 
+function updateNote(text) {
+  return {
+    type: types.NOT_SUCCESSFUL,
+    note: text
+  };
+}
+function clearNote() {
+  return {
+    type: types.NOT_SUCCESSFUL,
+    note: ''
+  };
+}
+
+function doneLoading() {
+  return {
+    type: types.DONE_LOADING,
+    status: true
+  };
+}
+function unSuccess(text) {
+  return function (dispatch) {
+    dispatch(updateNote(text));
+    dispatch(doneLoading());
+    setTimeout(function () {
+      dispatch(clearNote());
+    }, 7500);
+  };
+}
+
 function signIn(username) {
   return function (dispatch) {
     dispatch(isLoading(true));
@@ -6660,13 +6692,6 @@ function addFriendSuccess(groupID, friendName) {
   };
 }
 
-function doneLoading() {
-  return {
-    type: types.DONE_LOADING,
-    status: true
-  };
-}
-
 function addGroupSuccess(groupName) {
   return {
     type: types.ADD_GROUP,
@@ -6674,7 +6699,7 @@ function addGroupSuccess(groupName) {
   };
 }
 
-function addFriend(groupID, friendName, userID) {
+function addFriend(groupID, friendName, userID, username) {
   return function (dispatch) {
     dispatch(isLoading(true));
     _axios2.default.post('/api/users/groups', {
@@ -6682,10 +6707,11 @@ function addFriend(groupID, friendName, userID) {
       friendName: friendName,
       userID: userID
     }).then(function () {
-      dispatch(addFriendSuccess(groupID, friendName));
-      dispatch(doneLoading());
+      var txt = 'Invite sent to ' + friendName;
+      dispatch(unSuccess(txt));
+      dispatch(signIn(username));
     }).catch(function (err) {
-      console.log(err);
+      dispatch(unSuccess('Invalid selection, please try again'));
     });
   };
 }
@@ -6698,8 +6724,9 @@ function acceptRequest(reqid, user) {
       type: 'acc'
     }).then(function () {
       dispatch(signIn(user));
-    }).catch(function (err) {
-      console.log(err);
+    }).catch(function () {
+      console.log("error<<<");
+      dispatch(unSuccess('Invalid selection, please try again'));
     });
   };
 }
@@ -6712,19 +6739,25 @@ function declineRequest(reqid, user) {
     }).then(function () {
       dispatch(signIn(user));
     }).catch(function (err) {
-      console.log(err);
+      dispatch(unSuccess('Invalid selection, please try again'));
     });
   };
 }
 
 function addGroup(groupName, userID, username) {
+  console.log(groupName, userID, username);
   return function (dispatch) {
     dispatch(isLoading(true));
     _axios2.default.post('/api/groups', {
       groupName: groupName,
       userID: userID
     }).then(function () {
-      dispatch(signin(username));
+      console.log(username, "here");
+      dispatch(doneLoading());
+      dispatch(signIn(username));
+    }).catch(function () {
+      console.log("fail");
+      dispatch(unSuccess('Unable to create group, please try again'));
     });
   };
 }
@@ -10894,6 +10927,7 @@ var ADD_FRIEND = exports.ADD_FRIEND = 'ADD_FRIEND';
 var SAVE_NICKNAME = exports.SAVE_NICKNAME = 'SAVE_NICKNAME';
 var DONE_LOADING = exports.DONE_LOADING = 'DONE_LOADING';
 var SELECT_ROOM = exports.SELECT_ROOM = 'SELECT_ROOM';
+var NOT_SUCCESSFUL = exports.NOT_SUCCESSFUL = 'NOT_SUCCESSFUL';
 
 /***/ }),
 /* 89 */
@@ -35201,7 +35235,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
   }, {
     key: 'addFriend',
     value: function addFriend(groupID) {
-      this.props.dispatch(UserActions.addFriend(groupID, this.state.value, this.props.userdata.userID));
+      this.props.dispatch(UserActions.addFriend(groupID, this.state.value, this.props.userdata.userID, this.props.userdata.username));
     }
   }, {
     key: 'addGroup',
@@ -35360,6 +35394,11 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             null,
             this.state.group
           ),
+          _react2.default.createElement(
+            'div',
+            { className: 'red' },
+            this.props.userdata.note
+          ),
           _react2.default.createElement('br', null),
           mappedGroups
         )
@@ -35501,14 +35540,67 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
             )
           );
         });
+        var mappedHistory = this.props.userdata.history.map(function (historyitem) {
+          var tmpHistory = JSON.parse(historyitem.address);
+          var cat = JSON.parse(historyitem.category);
+          var tmpCategory = [];
+          cat.forEach(function (element) {
+            tmpCategory.push(element.title);
+          });
+          tmpCategory = tmpCategory.join(', ');
+          return _react2.default.createElement(
+            'tr',
+            null,
+            _react2.default.createElement(
+              'td',
+              null,
+              _react2.default.createElement(
+                'a',
+                { href: historyitem.url },
+                _react2.default.createElement('img', { height: '150', width: '150', src: historyitem.image })
+              )
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              historyitem.name
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              tmpHistory.display_address[0],
+              _react2.default.createElement('br', null),
+              tmpHistory.display_address[1]
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              historyitem.phone
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              tmpCategory
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              historyitem.rating
+            )
+          );
+        });
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'col-md-12' },
           _react2.default.createElement(
             'h1',
             null,
             this.props.userdata.username,
-            '\'s Profile'
+            _react2.default.createElement(
+              'small',
+              null,
+              ' | Profile'
+            )
           ),
           _react2.default.createElement(
             'div',
@@ -35516,13 +35608,24 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
             _react2.default.createElement(
               'div',
               { className: 'col-md-5' },
-              _react2.default.createElement('img', { height: '125px', width: '125px', src: this.props.userdata.userImg })
+              _react2.default.createElement('br', null),
+              _react2.default.createElement('img', { height: '125px', width: '125px', src: this.props.userdata.userImg }),
+              _react2.default.createElement('br', null),
+              _react2.default.createElement(
+                'a',
+                null,
+                _react2.default.createElement(
+                  'small',
+                  null,
+                  'Change'
+                )
+              )
             ),
             _react2.default.createElement(
               'div',
               { className: 'col-md-7' },
               _react2.default.createElement(
-                'h2',
+                'h3',
                 null,
                 'Pending group invites'
               ),
@@ -35568,10 +35671,51 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
           _react2.default.createElement(
             'div',
             { className: 'row' },
+            _react2.default.createElement('br', null),
+            '  ',
+            _react2.default.createElement('br', null),
             _react2.default.createElement(
               'h3',
               null,
               ' User history list '
+            ),
+            _react2.default.createElement(
+              'table',
+              { className: 'table' },
+              _react2.default.createElement(
+                'thead',
+                null,
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement('th', null),
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    'Name: '
+                  ),
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    'Address: '
+                  ),
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    'Phone: '
+                  ),
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    'Category: '
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'tbody',
+                null,
+                mappedHistory
+              )
             )
           )
         );
@@ -36152,7 +36296,8 @@ var initialState = {
   roomSelected: null,
   points: 0,
   invites: [],
-  history: []
+  history: [],
+  note: ''
 };
 
 function groups() {
@@ -36174,6 +36319,10 @@ function groups() {
         points: action.points
       });
 
+    case types.NOT_SUCCESSFUL:
+      return _extends({}, state, {
+        note: action.note
+      });
     case types.USER_LOADING:
       return _extends({}, state, {
         isLoading: true

@@ -7,3 +7,4 @@ export const ADD_FRIEND = 'ADD_FRIEND';
 export const SAVE_NICKNAME = 'SAVE_NICKNAME';
 export const DONE_LOADING = 'DONE_LOADING';
 export const SELECT_ROOM = 'SELECT_ROOM';
+export const NOT_SUCCESSFUL = 'NOT_SUCCESSFUL';

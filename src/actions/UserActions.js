@@ -1,21 +1,23 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes.jsx';
 
+
+
 export function signInSuccess(userinfo, username) {
   var userinfo = userinfo.data;
-  let newGroups = [];
-  let newGroupsByID = [];
+  const newGroups = [];
+  const newGroupsByID = [];
   for (let i = 0; i < userinfo.usergroups.length; i++) {
     if (userinfo.usergroups[i].Users.length !== 0) {
       newGroups.push(userinfo.usergroups[i].id);
 
-      let membersTemp = [];
+      const membersTemp = [];
       for (let j = 0; j < userinfo.usergroups[i].Users.length; j++) {
         if (userinfo.usergroups[i].Users[j].username !== username) {
           membersTemp.push(userinfo.usergroups[i].Users[j].username);
         }
       }
-      let newGroupTemp = {
+      const newGroupTemp = {
         id: userinfo.usergroups[i].id,
         name: userinfo.usergroups[i].name,
         members: membersTemp,
@@ -23,9 +25,9 @@ export function signInSuccess(userinfo, username) {
       newGroupsByID.push(newGroupTemp);
     }
   }
-  let newHistory = [];
+  const newHistory = [];
   for (let k = 0; k < userinfo.history.length; k++) {
-    let historyTemp = {
+    const historyTemp = {
       name: userinfo.history[k].name,
       address: userinfo.history[k].address,
       category: userinfo.history[k].category,
@@ -38,9 +40,9 @@ export function signInSuccess(userinfo, username) {
     };
     newHistory.push(historyTemp);
   }
-  let newInvites = [];
+  const newInvites = [];
   for (let l = 0; l < userinfo.invites.length; l++) {
-    let tmpInvite = {
+    const tmpInvite = {
       groupID: userinfo.invites[l].GroupId,
       userID: userinfo.invites[l].UserId,
       sentBy: userinfo.invites[l].sentBy,
@@ -76,6 +78,35 @@ export function saveNickname(nickname) {
   };
 }
 
+export function updateNote(text) {
+  return {
+    type: types.NOT_SUCCESSFUL,
+    note: text,
+  };
+}
+export function clearNote() {
+  return {
+    type: types.NOT_SUCCESSFUL,
+    note: '',
+  };
+}
+
+export function doneLoading() {
+  return {
+    type: types.DONE_LOADING,
+    status: true,
+  };
+}
+export function unSuccess(text) {
+  return (dispatch) => {
+    dispatch(updateNote(text));
+    dispatch(doneLoading());
+    setTimeout(() => {
+      dispatch(clearNote());
+    }, 7500);
+  };
+}
+
 export function signIn(username) {
   return (dispatch) => {
     dispatch(isLoading(true));
@@ -97,12 +128,6 @@ export function addFriendSuccess(groupID, friendName) {
   };
 }
 
-export function doneLoading() {
-  return {
-    type: types.DONE_LOADING,
-    status: true,
-  };
-}
 
 export function addGroupSuccess(groupName) {
   return {
@@ -111,7 +136,7 @@ export function addGroupSuccess(groupName) {
   };
 }
 
-export function addFriend(groupID, friendName, userID) {
+export function addFriend(groupID, friendName, userID, username) {
   return (dispatch) => {
     dispatch(isLoading(true));
     axios.post('/api/users/groups', {
@@ -120,11 +145,12 @@ export function addFriend(groupID, friendName, userID) {
       userID,
     },
     ).then(() => {
-      dispatch(addFriendSuccess(groupID, friendName));
-      dispatch(doneLoading());
+      var txt = 'Invite sent to '+friendName;
+      dispatch(unSuccess(txt));
+      dispatch(signIn(username));
     })
     .catch((err) => {
-      console.log(err);
+      dispatch(unSuccess('Invalid selection, please try again'));
     });
   };
 }
@@ -139,8 +165,9 @@ export function acceptRequest(reqid, user) {
     ).then(() => {
       dispatch(signIn(user));
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      console.log("error<<<")
+      dispatch(unSuccess('Invalid selection, please try again'));
     });
   };
 }
@@ -155,13 +182,14 @@ export function declineRequest(reqid, user) {
       dispatch(signIn(user));
     })
     .catch((err) => {
-      console.log(err);
+      dispatch(unSuccess('Invalid selection, please try again'));
     });
   };
 }
 
 
 export function addGroup(groupName, userID, username) {
+  console.log(groupName, userID, username)
   return (dispatch) => {
     dispatch(isLoading(true));
     axios.post('/api/groups', {
@@ -169,7 +197,13 @@ export function addGroup(groupName, userID, username) {
       userID,
     })
     .then(() => {
-      dispatch(signin(username));
+      console.log(username, "here")
+      dispatch(doneLoading());
+      dispatch(signIn(username));
+    })
+    .catch(() => {
+      console.log("fail")
+      dispatch(unSuccess('Unable to create group, please try again'))
     })
   };
 }
