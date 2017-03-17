@@ -6555,6 +6555,7 @@ exports.acceptRequest = acceptRequest;
 exports.declineRequest = declineRequest;
 exports.addGroup = addGroup;
 exports.selectRoom = selectRoom;
+exports.changePic = changePic;
 
 var _axios = __webpack_require__(80);
 
@@ -6766,6 +6767,21 @@ function selectRoom(groupName) {
   return {
     type: types.SELECT_ROOM,
     groupName: groupName
+  };
+}
+
+function changePic(url, userid, user) {
+  return function (dispatch) {
+    dispatch(isLoading(true));
+    _axios2.default.post('/api/users/picture', {
+      url: url,
+      userid: userid
+    }).then(function () {
+      dispatch(signIn(user));
+    }).catch(function () {
+      console.log("error<<<");
+      dispatch(unSuccess('Invalid selection, please try again'));
+    });
   };
 }
 
@@ -35541,10 +35557,16 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
 }), _dec(_class = function (_React$Component) {
   _inherits(Profile, _React$Component);
 
-  function Profile() {
+  function Profile(props) {
     _classCallCheck(this, Profile);
 
-    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+
+    _this.state = {};
+    _this.renderPicInput = _this.renderPicInput.bind(_this);
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.changePic = _this.changePic.bind(_this);
+    return _this;
   }
 
   _createClass(Profile, [{
@@ -35558,9 +35580,39 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
       this.props.dispatch(UserActions.declineRequest(reqid, user));
     }
   }, {
+    key: 'changePic',
+    value: function changePic() {
+      this.props.dispatch(UserActions.changePic(this.state.value, this.props.userdata.userID, this.props.userdata.username));
+    }
+  }, {
+    key: 'handleChange',
+    value: function handleChange(e) {
+      this.setState({ value: e.target.value });
+    }
+  }, {
+    key: 'renderPicInput',
+    value: function renderPicInput() {
+      var _this2 = this;
+
+      this.setState({
+        picInput: _react2.default.createElement(
+          'div',
+          null,
+          'New image URL:',
+          _react2.default.createElement(
+            'form',
+            { onSubmit: function onSubmit() {
+                return _this2.changePic();
+              } },
+            _react2.default.createElement('input', { onChange: this.handleChange, type: 'text' })
+          )
+        )
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (!!localStorage.getItem("userToken") === false) {
         window.location.href = "/#/login";
@@ -35586,7 +35638,7 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
               _react2.default.createElement(
                 'a',
                 { onClick: function onClick() {
-                    return _this2.acceptRequest(invite.id, _this2.props.userdata.username);
+                    return _this3.acceptRequest(invite.id, _this3.props.userdata.username);
                   } },
                 _react2.default.createElement('span', { className: 'glyphicon glyphicon-ok green' })
               )
@@ -35597,7 +35649,7 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
               _react2.default.createElement(
                 'a',
                 { onClick: function onClick() {
-                    return _this2.declineRequest(invite.id, _this2.props.userdata.username);
+                    return _this3.declineRequest(invite.id, _this3.props.userdata.username);
                   } },
                 _react2.default.createElement('span', { className: 'glyphicon glyphicon-remove red' })
               )
@@ -35678,14 +35730,16 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
               _react2.default.createElement(
                 'a',
                 { onClick: function onClick() {
-                    return _this2.changePic();
+                    return _this3.renderPicInput();
                   } },
                 _react2.default.createElement(
                   'small',
                   null,
                   'Change'
                 )
-              )
+              ),
+              _react2.default.createElement('br', null),
+              this.state.picInput
             ),
             _react2.default.createElement(
               'div',

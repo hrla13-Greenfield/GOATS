@@ -14,6 +14,15 @@ exports.createUser = function (req, res) {
   });
 };
 
+exports.updatePic = function (req, res) {
+  db.User.update(
+    { image: req.body.url },
+    { where: { id: req.body.userid } })
+  .then((result) => {
+    res.send(result);
+  });
+};
+
 exports.createGroup = function (req, res) {
   console.log(req);
   console.log('_____________')

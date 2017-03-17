@@ -12,12 +12,31 @@ import AddGroupInput from '../components/AddGroupInput.jsx';
 })
 
 export default class Profile extends React.Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {}
+    this.renderPicInput = this.renderPicInput.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.changePic = this.changePic.bind(this);
+  }
+  
   acceptRequest(reqid, user) {
     this.props.dispatch(UserActions.acceptRequest(reqid, user))
   }
   declineRequest(reqid, user) {
     this.props.dispatch(UserActions.declineRequest(reqid, user));
+  }
+
+  changePic() {
+    this.props.dispatch(UserActions.changePic(this.state.value, this.props.userdata.userID, this.props.userdata.username))
+  }
+  handleChange(e) {
+    this.setState({ value: e.target.value})
+  }
+  renderPicInput() {
+    this.setState({
+      picInput: (<div>New image URL:<form onSubmit={() => this.changePic()}><input onChange={this.handleChange} type="text"></input></form></div>)
+    })
   }
 
   render() {
@@ -59,7 +78,8 @@ export default class Profile extends React.Component {
         <h1>{this.props.userdata.username}<small> | Profile</small></h1>
          <div className="row">
           <div className="col-md-5"><br /><img height="125px" width="125px" src={this.props.userdata.userImg}></img>
-          <br /><a onClick={() => this.changePic()}><small>Change</small></a></div>
+          <br /><a onClick={() => this.renderPicInput()}><small>Change</small></a>
+          <br />{this.state.picInput}</div>
          <div className="col-md-7"><h3>Pending group invites</h3>
          <table className="table">
            <thead>
