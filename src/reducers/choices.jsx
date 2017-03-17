@@ -48,6 +48,27 @@ export default function(state = initialState, action) {
       dayLoad5: action.payload,
       dayLoad6: action.payload,*/
     });
+    case 'DAY_SELECTED2':
+    return Object.assign({}, state, {
+      dayLoadtwo: action.payload,
+    });
+    case 'DAY_SELECTED3':
+    return Object.assign({}, state, {
+      dayLoadthree: action.payload,
+    });
+    case 'DAY_SELECTED4':
+    return Object.assign({}, state, {
+      dayLoadfour: action.payload,
+    });
+    case 'DAY_SELECTED5':
+    return Object.assign({}, state, {
+      dayLoadfive: action.payload,
+    });
+    case 'DAY_SELECTED6':
+    return Object.assign({}, state, {
+      dayLoadsix: action.payload,
+    });
+
   }
   return state;
 }
