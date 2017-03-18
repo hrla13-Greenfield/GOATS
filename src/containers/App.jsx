@@ -12,6 +12,11 @@ import Feed from './Feed.jsx';
 const createHistory = require('history').createHashHistory;
 
 const hashHistory = createHistory();
+// const location = history.location;
+
+// const unlisten = history.listen((location, action) => {
+  // console.log(action, location.pathname, location.state)
+// })
 
 
 class App extends React.Component {
