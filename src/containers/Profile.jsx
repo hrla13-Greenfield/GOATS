@@ -39,6 +39,7 @@ export default class Profile extends React.Component {
       picInput: (<div>New image URL:<form onSubmit={() => this.changePic()}><input onChange={this.handleChange} type="text"></input></form></div>)
     })
   }
+  
 
   chooseRating(num) {
     var tmprating = num.target.value.split(",")
