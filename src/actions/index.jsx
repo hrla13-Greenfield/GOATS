@@ -620,6 +620,7 @@ export function wantToDo(item, userID) {
   .catch((err) => {
     console.error(err);
   });
-  };
+};
+
 }
 
