@@ -6795,7 +6795,7 @@ function chooseRating(rating, historyid, username) {
   };
 }
 
-function deletehistory(historyid) {
+function deletehistory(historyid, username) {
   return function (dispatch) {
     dispatch(isLoading(true));
     _axios2.default.post('/api/users/deletehistory', {
