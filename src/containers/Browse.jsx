@@ -26,6 +26,7 @@ _loadMore() {
           </div>
             <div className="caption">
             <h5> {item.name} </h5>
+            <h6> Description:{ item.categories.map((item) => ( <div>{item.title}</div>)) } </h6>
             <h6> {Math.round(item.distance * 0.000621371*100)/100} miles from you </h6>
             <div><button onClick={() => this.props.dispatch(wantToDo(item, this.props.userdata.userID))} className="btn btn-success">I want to do this!</button></div>
           </div>

@@ -26,7 +26,9 @@ export function getData(selection) {
       { name: selection.name,
         image: selection.image_url,
         phone: selection.display_phone,
-        distance: selection.distance },
+        distance: selection.distance,
+        description: selection.categories,
+        url: selection.url },
     ],
   };
 }
@@ -38,7 +40,9 @@ export function getDay(selection1) {
       { name: selection1.name,
         image: selection1.image_url,
         phone: selection1.display_phone,
-        distance: selection1.distance },
+        distance: selection1.distance,
+        description: selection1.categories,
+        url: selection1.url },
     ],
   };
 }
@@ -50,7 +54,9 @@ export function getDay2(selection2) {
       { name: selection2.name,
         image: selection2.image_url,
         phone: selection2.display_phone,
-        distance: selection2.distance },
+        distance: selection2.distance,
+        description: selection2.categories,
+        url: selection2.url },
     ],
   };
 }
@@ -62,7 +68,9 @@ export function getDay3(selection3) {
       { name: selection3.name,
         image: selection3.image_url,
         phone: selection3.display_phone,
-        distance: selection3.distance },
+        distance: selection3.distance,
+        description: selection3.categories,
+        url: selection3.url },
     ],
   };
 }
@@ -74,7 +82,9 @@ export function getDay4(selection4) {
       { name: selection4.name,
         image: selection4.image_url,
         phone: selection4.display_phone,
-        distance: selection4.distance },
+        distance: selection4.distance,
+        description: selection4.categories,
+        url: selection4.url },
     ],
   };
 }
@@ -86,7 +96,9 @@ export function getDay5(selection5) {
       { name: selection5.name,
         image: selection5.image_url,
         phone: selection5.display_phone,
-        distance: selection5.distance },
+        distance: selection5.distance,
+        description: selection5.categories,
+        url: selection5.url },
     ],
   };
 }
@@ -97,7 +109,9 @@ export function getDay6(selection6) {
       { name: selection6.name,
         image: selection6.image_url,
         phone: selection6.display_phone,
-        distance: selection6.distance },
+        distance: selection6.distance,
+        description: selection6.categories,
+        url: selection6.url },
     ],
   };
 }

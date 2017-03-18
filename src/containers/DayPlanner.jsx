@@ -18,8 +18,9 @@ class DayPlanner extends React.Component {
           <div className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
-            <img src={item.image} height="180" />
+            <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
             <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
@@ -30,8 +31,9 @@ class DayPlanner extends React.Component {
           <div className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
-            <img src={item.image} height="180" />
+            <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
             <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
@@ -42,8 +44,9 @@ class DayPlanner extends React.Component {
           <div className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
-            <img src={item.image} height="180" />
+            <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
             <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
@@ -54,8 +57,9 @@ class DayPlanner extends React.Component {
           <div  className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
-            <img src={item.image} height="180" />
+            <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
             <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
@@ -66,8 +70,9 @@ class DayPlanner extends React.Component {
           <div  className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
-            <img src={item.image} height="180" />
+            <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
             <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>
@@ -78,8 +83,9 @@ class DayPlanner extends React.Component {
           <div  className="col-md-6 col-sm-12 col-xs-12">
             <div> {item.name} </div>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
-            <img src={item.image} height="180" />
+            <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
             <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
           </div>

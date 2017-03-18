@@ -3006,7 +3006,9 @@ function getData(selection) {
     payload: [{ name: selection.name,
       image: selection.image_url,
       phone: selection.display_phone,
-      distance: selection.distance }]
+      distance: selection.distance,
+      description: selection.categories,
+      url: selection.url }]
   };
 }
 
@@ -3016,7 +3018,9 @@ function getDay(selection1) {
     payload: [{ name: selection1.name,
       image: selection1.image_url,
       phone: selection1.display_phone,
-      distance: selection1.distance }]
+      distance: selection1.distance,
+      description: selection1.categories,
+      url: selection1.url }]
   };
 }
 
@@ -3026,7 +3030,9 @@ function getDay2(selection2) {
     payload: [{ name: selection2.name,
       image: selection2.image_url,
       phone: selection2.display_phone,
-      distance: selection2.distance }]
+      distance: selection2.distance,
+      description: selection2.categories,
+      url: selection2.url }]
   };
 }
 
@@ -3036,7 +3042,9 @@ function getDay3(selection3) {
     payload: [{ name: selection3.name,
       image: selection3.image_url,
       phone: selection3.display_phone,
-      distance: selection3.distance }]
+      distance: selection3.distance,
+      description: selection3.categories,
+      url: selection3.url }]
   };
 }
 
@@ -3046,7 +3054,9 @@ function getDay4(selection4) {
     payload: [{ name: selection4.name,
       image: selection4.image_url,
       phone: selection4.display_phone,
-      distance: selection4.distance }]
+      distance: selection4.distance,
+      description: selection4.categories,
+      url: selection4.url }]
   };
 }
 
@@ -3056,7 +3066,9 @@ function getDay5(selection5) {
     payload: [{ name: selection5.name,
       image: selection5.image_url,
       phone: selection5.display_phone,
-      distance: selection5.distance }]
+      distance: selection5.distance,
+      description: selection5.categories,
+      url: selection5.url }]
   };
 }
 function getDay6(selection6) {
@@ -3065,7 +3077,9 @@ function getDay6(selection6) {
     payload: [{ name: selection6.name,
       image: selection6.image_url,
       phone: selection6.display_phone,
-      distance: selection6.distance }]
+      distance: selection6.distance,
+      description: selection6.categories,
+      url: selection6.url }]
   };
 }
 
@@ -11195,14 +11209,30 @@ var Suggestion = function (_React$Component) {
           _react2.default.createElement(
             'div',
             null,
-            ' ',
-            _react2.default.createElement('img', { src: choice.image, height: '300' })
+            _react2.default.createElement(
+              'a',
+              { href: choice.url },
+              _react2.default.createElement('img', { src: choice.image, height: '300' })
+            )
           ),
           _react2.default.createElement(
             'div',
             null,
             'Phone: ',
             choice.phone,
+            ' '
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            ' Description:',
+            choice.description.map(function (item) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                item.title
+              );
+            }),
             ' '
           ),
           _react2.default.createElement(
@@ -35294,6 +35324,19 @@ var Browse = function (_React$Component) {
               _react2.default.createElement(
                 'h6',
                 null,
+                ' Description:',
+                item.categories.map(function (item) {
+                  return _react2.default.createElement(
+                    'div',
+                    null,
+                    item.title
+                  );
+                }),
+                ' '
+              ),
+              _react2.default.createElement(
+                'h6',
+                null,
                 ' ',
                 Math.round(item.distance * 0.000621371 * 100) / 100,
                 ' miles from you '
@@ -35518,7 +35561,24 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { style: { width: '200px', height: '180px', overflow: 'hidden' } },
-            _react2.default.createElement('img', { src: item.image, height: '180' })
+            _react2.default.createElement(
+              'a',
+              { href: item.url },
+              _react2.default.createElement('img', { src: item.image, height: '180' })
+            )
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            ' Description:',
+            item.description.map(function (item) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                item.title
+              );
+            }),
+            ' '
           ),
           _react2.default.createElement(
             'div',
@@ -35550,7 +35610,24 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { style: { width: '200px', height: '180px', overflow: 'hidden' } },
-            _react2.default.createElement('img', { src: item.image, height: '180' })
+            _react2.default.createElement(
+              'a',
+              { href: item.url },
+              _react2.default.createElement('img', { src: item.image, height: '180' })
+            )
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            ' Description:',
+            item.description.map(function (item) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                item.title
+              );
+            }),
+            ' '
           ),
           _react2.default.createElement(
             'div',
@@ -35582,7 +35659,24 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { style: { width: '200px', height: '180px', overflow: 'hidden' } },
-            _react2.default.createElement('img', { src: item.image, height: '180' })
+            _react2.default.createElement(
+              'a',
+              { href: item.url },
+              _react2.default.createElement('img', { src: item.image, height: '180' })
+            )
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            ' Description:',
+            item.description.map(function (item) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                item.title
+              );
+            }),
+            ' '
           ),
           _react2.default.createElement(
             'div',
@@ -35614,7 +35708,24 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { style: { width: '200px', height: '180px', overflow: 'hidden' } },
-            _react2.default.createElement('img', { src: item.image, height: '180' })
+            _react2.default.createElement(
+              'a',
+              { href: item.url },
+              _react2.default.createElement('img', { src: item.image, height: '180' })
+            )
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            ' Description:',
+            item.description.map(function (item) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                item.title
+              );
+            }),
+            ' '
           ),
           _react2.default.createElement(
             'div',
@@ -35646,7 +35757,24 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { style: { width: '200px', height: '180px', overflow: 'hidden' } },
-            _react2.default.createElement('img', { src: item.image, height: '180' })
+            _react2.default.createElement(
+              'a',
+              { href: item.url },
+              _react2.default.createElement('img', { src: item.image, height: '180' })
+            )
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            ' Description:',
+            item.description.map(function (item) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                item.title
+              );
+            }),
+            ' '
           ),
           _react2.default.createElement(
             'div',
@@ -35678,7 +35806,24 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { style: { width: '200px', height: '180px', overflow: 'hidden' } },
-            _react2.default.createElement('img', { src: item.image, height: '180' })
+            _react2.default.createElement(
+              'a',
+              { href: item.url },
+              _react2.default.createElement('img', { src: item.image, height: '180' })
+            )
+          ),
+          _react2.default.createElement(
+            'h6',
+            null,
+            ' Description:',
+            item.description.map(function (item) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                item.title
+              );
+            }),
+            ' '
           ),
           _react2.default.createElement(
             'div',

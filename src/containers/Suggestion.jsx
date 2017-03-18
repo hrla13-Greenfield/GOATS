@@ -13,8 +13,9 @@ class Suggestion extends React.Component {
         <div>
         <h3> Do this:</h3>
          <div> { choice.name } </div>
-         <div> <img src= { choice.image } height="300" /></div>
+         <div><a href={choice.url}><img src= { choice.image } height="300" /></a></div>
          <div>Phone: { choice.phone } </div>
+         <h6> Description:{ choice.description.map((item) => ( <div>{item.title}</div>)) } </h6>
          <div>Distance: {Math.round(choice.distance * 0.000621371*100)/100} miles from you </div>
       </div>
       );
