@@ -33,14 +33,31 @@ class GameComponent extends React.Component {
       this.handleRandom = this.handleRandom.bind(this);
 
     var self = this;
+    socket.on('init-game', function(data) {
+        if(data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
+            self.setState({
+                opponentPicture: [<img src={data.opponentPicture} height='50px'/>],
+                opponentUsername: [data.opponentUsername],
+                opponentScore: [data.opponentScore],
+                room: data.room
+            })
+        socket.emit('init-game2', self.props.userdata)
+        }
+    })
+    socket.on('init-game2', function(data) {
+        if(data.roomSelected === self.state.myRoom && data.username !== self.props.userdata.username) {
+            self.setState({
+                opponentPicture: [<img src={data.userImg} height='50px'/>],
+                opponentUsername:[data.username],
+                opponentScore: 0,
+                room: data.roomSelected
+            })
+        }
+    })
     socket.on('count', function(data) {
-        console.log('this is the data ', data)
         if(data.selectedRoom === self.state.myRoom) {
             self.setState({
-                opponentPicture: [<img src={data.userPic} height='50px'/>],
-                opponentUsername: [data.username],
-                opponentScore: [data.score],
-                room: data.selectedRoom
+                opponentScore: [data.score]
             })
         }
     })
@@ -129,7 +146,6 @@ class GameComponent extends React.Component {
         return(
         <div onKeyPress={this.handleCount}>
             <div>{this.state.group}</div>
-            {console.log("objects", this.props.userdata)}
             <div>
                 <h5>{this.state.winCondition}</h5>
                 <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>

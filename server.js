@@ -28,15 +28,18 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function(socket) {
     console.log('a user disconnected!');
   })
+  socket.on('init-game', function(info) {
+    socket.broadcast.emit('init-game', info)
+    console.log('this is opponent ' + info)
+  })
+  socket.on('init-game2', function(info) {
+    socket.broadcast.emit('init-game2', info)
+    console.log('this is something ' + info)
+  })
   socket.on('count', function(counter) {
     socket.broadcast.emit('count', counter)
     console.log('this is the count ' + counter)
   })
-  // socket.on('new-room', function(room) {
-      //  var user = // user information from db?
-  //   rooms[this.id] = user,
-  //   console.log("this is rooms", rooms);
-  // })
 })
 
 module.exports = app;

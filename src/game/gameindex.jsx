@@ -5,16 +5,17 @@ import GameComponent from './gameassets/gamecomponent.jsx';
 class Game extends React.Component {
     constructor(props) {
       super(props) 
+      this.state = {
+      }
     }
 
     render() {
       // console.log(!!localStorage.getItem("userToken"), "this is in game")
-      console.log("emily wai?!")
       if(!!localStorage.getItem("userToken") === false){
       window.location.href= "/#/login"
       return false;
     }else{
-        return(
+        return(  
         <div>
           <GameComponent />
         </div> 

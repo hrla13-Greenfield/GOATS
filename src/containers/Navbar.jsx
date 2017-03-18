@@ -3,7 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UserActions from '../actions/UserActions';
 import GroupList from '../components/GroupList.jsx';
-import AddGroupInput from '../components/AddGroupInput.jsx'
+import AddGroupInput from '../components/AddGroupInput.jsx';
+
+const io = require('socket.io-client');
+const socket = io();
 
 @connect((store) => {
   return {
@@ -53,6 +56,12 @@ export default class Navbar extends React.Component {
   }
   changeRoom(groupName) {
     this.props.dispatch(UserActions.selectRoom(groupName));
+    socket.emit('init-game', {
+      opponentPicture: this.props.userdata.userImg,
+      opponentUsername: this.props.userdata.username,
+      opponentScore: 0,
+      room: groupName
+    })
   }
 
   logout(){
