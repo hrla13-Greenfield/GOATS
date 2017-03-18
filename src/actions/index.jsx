@@ -12,11 +12,11 @@ let selection6;
 const array = [];
 
 export function submitLocation(zip) {
-  console.log('this works', zip)
+  console.log('this works', zip);
   return {
     type: 'ZIP_SUBMITTED',
     payload: zip,
-  }
+  };
 }
 
 export function getData(selection) {
@@ -39,8 +39,8 @@ export function getDay(selection1) {
         image: selection1.image_url,
         phone: selection1.display_phone,
         distance: selection1.distance },
-    ]
-  }
+    ],
+  };
 }
 
 export function getDay2(selection2) {
@@ -51,8 +51,8 @@ export function getDay2(selection2) {
         image: selection2.image_url,
         phone: selection2.display_phone,
         distance: selection2.distance },
-    ]
-  }
+    ],
+  };
 }
 
 export function getDay3(selection3) {
@@ -63,8 +63,8 @@ export function getDay3(selection3) {
         image: selection3.image_url,
         phone: selection3.display_phone,
         distance: selection3.distance },
-    ]
-  }
+    ],
+  };
 }
 
 export function getDay4(selection4) {
@@ -75,8 +75,8 @@ export function getDay4(selection4) {
         image: selection4.image_url,
         phone: selection4.display_phone,
         distance: selection4.distance },
-    ]
-  }
+    ],
+  };
 }
 
 export function getDay5(selection5) {
@@ -87,8 +87,8 @@ export function getDay5(selection5) {
         image: selection5.image_url,
         phone: selection5.display_phone,
         distance: selection5.distance },
-    ]
-  }
+    ],
+  };
 }
 export function getDay6(selection6) {
   return {
@@ -98,17 +98,17 @@ export function getDay6(selection6) {
         image: selection6.image_url,
         phone: selection6.display_phone,
         distance: selection6.distance },
-    ]
-  }
+    ],
+  };
 }
 
 export function getAll(data) {
   console.log(data, 'data');
   return {
     type: 'BROWSE',
-    payload: 
-      { data: data }
-  }
+    payload:
+      { data },
+  };
 }
 
 export function selectChoice(option, zip, userID) {
@@ -155,22 +155,22 @@ export function selectChoice(option, zip, userID) {
       ],
     };
   // server calls
-} else if (option === 'breakfast') {
-  console.log(userID);
+  } else if (option === 'breakfast') {
+    console.log(userID);
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'coffee', zip: zip },
-        headers: {
+      term: 'food', filter: 'coffee', zip },
+      headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
-      })
+    })
       .then((results) => {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         console.log(selection, '+++++++++');
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -179,8 +179,8 @@ export function selectChoice(option, zip, userID) {
     };
   } else if (option === 'lunch/dinner') {
     return (dispatch) => {
-      axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: zip },
+    axios.get('api/getActivities', { params: {
+        term: 'food', filter: 'restaurants', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -189,18 +189,18 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
       });
-    };
+  };
   } else if (option === 'bar') {
-    return (dispatch) => {
+  return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'bars', filter: 'bars', zip: zip },
+        term: 'bars', filter: 'bars', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -209,18 +209,18 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
         console.error(err);
       });
     };
-  } else if (option === 'club') {
+} else if (option === 'club') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'clubs', filter: 'danceclubs', zip: zip },
+        term: 'clubs', filter: 'danceclubs', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -229,8 +229,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -240,7 +240,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'lounge') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'lounge', filter: 'lounges', zip: zip },
+        term: 'lounge', filter: 'lounges', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -249,8 +249,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -260,7 +260,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'extreme') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'sports', filter: 'boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving', zip: zip },
+        term: 'sports', filter: 'boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -269,8 +269,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -280,7 +280,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'chill') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'fitness', filter: 'tennis,golf,yoga,gyms,hiking,horsebackriding,pilates', zip: zip },
+        term: 'fitness', filter: 'tennis,golf,yoga,gyms,hiking,horsebackriding,pilates', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -289,8 +289,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -300,7 +300,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'body&mind') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'beauty', filter: 'beautysvc', zip: zip },
+        term: 'beauty', filter: 'beautysvc', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -309,8 +309,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -320,7 +320,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'getOut') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'active', filter: 'farms,parks,beaches,shoppingcenters', zip: zip },
+        term: 'active', filter: 'farms,parks,beaches,shoppingcenters', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -329,8 +329,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -340,7 +340,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'entertainment') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'arts', filter: 'museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium, festivals', zip: zip },
+        term: 'arts', filter: 'museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium, festivals', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -349,8 +349,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -360,7 +360,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'daredevil') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'active', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball', zip: zip },
+        term: 'active', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -369,8 +369,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -380,7 +380,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'any') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: '', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals', zip: zip },
+        term: '', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -389,8 +389,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -400,7 +400,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'anyfood') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: zip },
+        term: 'food', filter: 'restaurants', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -409,8 +409,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -420,7 +420,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'anyparty') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'clubs', filter: 'nightlife', zip: zip },
+        term: 'clubs', filter: 'nightlife', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -429,8 +429,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -440,7 +440,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'anysports') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'fitness', filter: 'fitness', zip: zip },
+        term: 'fitness', filter: 'fitness', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -449,8 +449,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -460,7 +460,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'anyrelax') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'spa', filter: 'beautysvc', zip: zip },
+        term: 'spa', filter: 'beautysvc', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -469,8 +469,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -480,7 +480,7 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'anyactivity') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-        term: 'entertainment', filter: 'arts', zip: zip },
+        term: 'entertainment', filter: 'arts', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -489,8 +489,8 @@ export function selectChoice(option, zip, userID) {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
         dispatch(getData(selection));
-        const input = { selection: selection,
-          userID: userID };
+        const input = { selection,
+          userID };
         axios.post('api/users/history', input);
       })
       .catch((err) => {
@@ -503,12 +503,12 @@ export function selectChoice(option, zip, userID) {
 export function planDay(zip) {
   console.log('zip in planday', zip);
   return (dispatch) => {
-      axios.get('api/getActivities', { params: {
-        term: 'breakfast', filter: 'restaurants', zip: zip },
-        headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-        },
-      })
+    axios.get('api/getActivities', { params: {
+      term: 'breakfast', filter: 'restaurants', zip },
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
       .then((results) => {
         data = results.data.businesses;
         selection1 = data[Math.floor(Math.random() * data.length)];
@@ -517,12 +517,12 @@ export function planDay(zip) {
       .catch((err) => {
         console.error(err);
       });
-      axios.get('api/getActivities', { params: {
-        term: 'spa', filter: 'beautysvc', zip: zip },
-        headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-        },
-      })
+    axios.get('api/getActivities', { params: {
+      term: 'spa', filter: 'beautysvc', zip },
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
       .then((results) => {
         data = results.data.businesses;
         selection2 = data[Math.floor(Math.random() * data.length)];
@@ -531,12 +531,12 @@ export function planDay(zip) {
       .catch((err) => {
         console.error(err);
       });
-      axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: zip },
-        headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-        },
-      })
+    axios.get('api/getActivities', { params: {
+      term: 'food', filter: 'restaurants', zip },
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
       .then((results) => {
         data = results.data.businesses;
         selection3 = data[Math.floor(Math.random() * data.length)];
@@ -545,12 +545,12 @@ export function planDay(zip) {
       .catch((err) => {
         console.error(err);
       });
-      axios.get('api/getActivities', { params: {
-        term: 'fitness', filter: 'fitness', zip: zip },
-        headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-        },
-      })
+    axios.get('api/getActivities', { params: {
+      term: 'fitness', filter: 'fitness', zip },
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
       .then((results) => {
         data = results.data.businesses;
         selection4 = data[Math.floor(Math.random() * data.length)];
@@ -559,12 +559,12 @@ export function planDay(zip) {
       .catch((err) => {
         console.error(err);
       });
-      axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip: zip },
-        headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-        },
-      })
+    axios.get('api/getActivities', { params: {
+      term: 'food', filter: 'restaurants', zip },
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
       .then((results) => {
         data = results.data.businesses;
         selection5 = data[Math.floor(Math.random() * data.length)];
@@ -573,12 +573,12 @@ export function planDay(zip) {
       .catch((err) => {
         console.error(err);
       });
-      axios.get('api/getActivities', { params: {
-        term: 'clubs', filter: 'nightlife', zip: zip },
-        headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-        },
-      })
+    axios.get('api/getActivities', { params: {
+      term: 'clubs', filter: 'nightlife', zip },
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
       .then((results) => {
         data = results.data.businesses;
         selection6 = data[Math.floor(Math.random() * data.length)];
@@ -586,18 +586,18 @@ export function planDay(zip) {
       })
       .catch((err) => {
         console.error(err);
-      })
+      });
   };
 }
 
-export function browse(zip){ 
+export function browse(zip, page) {
   return (dispatch) => {
     axios.get('api/getActivities', { params: {
-      term: 'fun', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals, restaurants', zip: zip },
+      term: 'fun', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals, restaurants', zip, page },
       headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-        },
-      })
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
       .then((results) => {
         data = results.data.businesses;
         dispatch(getAll(data));
@@ -605,6 +605,22 @@ export function browse(zip){
       .catch((err) => {
         console.error(err);
       });
-    } 
-  }
+  };
+}
+
+export function wantToDo(item, userID) {
+  return () => {
+    const input = { selection: item,
+      userID };
+    console.log(input, 'input');
+    axios.post('api/users/history', input)
+  .then((result) => {
+    console.log('result', result);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+};
+
+}
 

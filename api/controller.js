@@ -176,7 +176,8 @@ exports.createHistory = function (req, res) {
 .then((result) => {
   result.update({ current: history.id });
 });
-});
+})
+.then((result) => res.send(result));
 };
 
 const getBearer = function (cb) {
@@ -200,6 +201,12 @@ const getBearer = function (cb) {
 
 
 exports.getActivity = function (req, res, query) {
+  let offset;
+  if (req.query.page === undefined){
+    offset = 0;
+  } else {
+    offset = req.query.page*50;
+  }
   const cb = function (token) {
     const bearer = token;
     const options = { method: 'GET',
@@ -210,7 +217,8 @@ exports.getActivity = function (req, res, query) {
         location: query.zip,
         sort_by: 'rating',
         limit: '50',
-        offset: '25' },
+        offset: '25',  
+        },
       headers:
       { 'postman-token': '93676d7e-657a-46fd-71fc-a9b2fcf909a5',
         'cache-control': 'no-cache',
