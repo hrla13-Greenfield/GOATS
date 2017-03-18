@@ -3,7 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UserActions from '../actions/UserActions';
 import GroupList from '../components/GroupList.jsx';
-import AddGroupInput from '../components/AddGroupInput.jsx'
+import AddGroupInput from '../components/AddGroupInput.jsx';
+
+const io = require('socket.io-client');
+const socket = io();
 
 @connect((store) => {
   return {
@@ -38,7 +41,7 @@ export default class Navbar extends React.Component {
   }
   friendInput(groupID) {
     this.setState({
-       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input onChange={this.handleChange} type="text"></input></form>)
+       [groupID] : (<form onSubmit={() => this.addFriend(groupID)}> <input placeholder='email' onChange={this.handleChange} type="text"></input></form>)
     })
   }
   inputChange(e, groupID) {
@@ -53,6 +56,12 @@ export default class Navbar extends React.Component {
   }
   changeRoom(groupName) {
     this.props.dispatch(UserActions.selectRoom(groupName));
+    socket.emit('init-game', {
+      opponentPicture: this.props.userdata.userImg,
+      opponentUsername: this.props.userdata.username,
+      opponentScore: 0,
+      room: groupName
+    })
   }
 
   logout(){
@@ -80,7 +89,7 @@ export default class Navbar extends React.Component {
     const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>))
     return(
       <div key={idx}>
-      <h4><a onClick={() => this.changeRoom(group.name)}>{group.name}</a><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
+      <h4><a href="#/game" onClick={() => this.changeRoom(group.name)}>{group.name}</a><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
       <div>{this.state[group.id]}</div>
       <ul>{mappedUsers}</ul>
       </div>
@@ -93,7 +102,6 @@ export default class Navbar extends React.Component {
           <a href="#/tree"><li>Home</li></a>
           <a href="#/browse"><li>browse all</li></a>
           <a href="#/dayplanner"><li>plan my day</li></a>
-          <a href="#/game"><li>Game</li></a>
           <a onClick={() => this.logout()}>Logout</a>
       
           <li>________</li>

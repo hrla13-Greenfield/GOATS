@@ -5,6 +5,8 @@ import GameComponent from './gameassets/gamecomponent.jsx';
 class Game extends React.Component {
     constructor(props) {
       super(props) 
+      this.state = {
+      }
     }
 
     render() {
@@ -13,7 +15,7 @@ class Game extends React.Component {
       window.location.href= "/#/login"
       return false;
     }else{
-        return(
+        return(  
         <div>
           <GameComponent />
         </div> 

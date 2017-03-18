@@ -21,13 +21,6 @@ const server = app.listen(PORT, () => {
 const io = require('socket.io')(server);
 
 var rooms = {};
-
-console.log("sup")
-
-  var user = {
-      userid: this.id,
-      userScore: 0
-    }
     
 // standard user connection through browser
 io.on('connection', function(socket) {
@@ -35,22 +28,18 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function(socket) {
     console.log('a user disconnected!');
   })
+  socket.on('init-game', function(info) {
+    socket.broadcast.emit('init-game', info)
+    console.log('this is opponent ' + info)
+  })
+  socket.on('init-game2', function(info) {
+    socket.broadcast.emit('init-game2', info)
+    console.log('this is something ' + info)
+  })
   socket.on('count', function(counter) {
     socket.broadcast.emit('count', counter)
     console.log('this is the count ' + counter)
   })
-  // socket.on('new-user', function(user) {
-  //   var user = {
-  //     userid: this.id,
-  //     userScore: 0
-  //   }
-  //   rooms[this.id] = user,
-  //   console.log("this is rooms", rooms);
-  // })
-  // socket.on('count', function(count) {
-  //   user.userScore = count
-  //   console.log("this is user score ", user.userScore)
-  // })
 })
 
 module.exports = app;
