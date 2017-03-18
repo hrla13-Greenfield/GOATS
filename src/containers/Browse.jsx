@@ -27,13 +27,8 @@ class Browse extends React.Component {
           </div>
         ));
   }
-<<<<<<< HEAD
   render() {
   if (this.props.choices.showAll !== undefined){
-=======
-render() {
-  if (this.props.choices.showAll !== undefined) {
->>>>>>> "Update on onClick in browse"
       return (
         <div>
           <div>{this.renderAll()}</div>
