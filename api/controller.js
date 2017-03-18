@@ -23,6 +23,27 @@ exports.updatePic = function (req, res) {
   });
 };
 
+exports.chooseRating = function (req, res) {
+  db.UserHistory.update(
+    { user_rating: req.body.rating },
+    { where: { id: req.body.historyid } })
+  .then((result) => {
+    res.send(result);
+  });
+};
+
+exports.deletehistory = function (req, res) {
+  console.log(req.body.historyid, "this is history id")
+  db.UserHistory.destroy({ where: { id: req.body.historyid } })
+  .then(() => {
+    res.send("Success")
+  })
+  .catch(() => {
+    res.sendStatus(500);
+  });
+};
+
+
 exports.createGroup = function (req, res) {
   console.log(req);
   console.log('_____________')

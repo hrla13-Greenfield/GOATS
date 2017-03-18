@@ -108,7 +108,10 @@ export function unSuccess(text) {
 }
 
 export function signIn(username) {
+  //dispatch is a redux term- call an action from our action handler list
+  //we are using thunk- which allows us to return a function instead of simple obj
   return (dispatch) => {
+    //things won't show up if isLoading is true for the store
     dispatch(isLoading(true));
     axios.get('/api/users', { params: {
       username,
@@ -188,7 +191,7 @@ export function declineRequest(reqid, user) {
 
 
 export function addGroup(groupName, userID, username) {
-  console.log(groupName, userID, username)
+  console.log(groupName, userID, username);
   return (dispatch) => {
     dispatch(isLoading(true));
     axios.post('/api/groups', {
@@ -196,14 +199,14 @@ export function addGroup(groupName, userID, username) {
       userID,
     })
     .then(() => {
-      console.log(username, "here")
+      console.log(username, "here");
       dispatch(doneLoading());
       dispatch(signIn(username));
     })
     .catch(() => {
-      console.log("fail")
-      dispatch(unSuccess('Unable to create group, please try again'))
-    })
+      console.log("fail");
+      dispatch(unSuccess('Unable to create group, please try again'));
+    });
   };
 }
 
@@ -212,6 +215,39 @@ export function selectRoom(groupName) {
     type: types.SELECT_ROOM,
     groupName,
   };
+}
+
+export function chooseRating(rating, historyid, username) {
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    axios.post('/api/users/rating', {
+      rating,
+      historyid,
+    },
+  ).then(() => {
+    dispatch(signIn(username));
+  })
+  .catch(() => {
+    console.log("error<<<");
+    dispatch(unSuccess('Invalid selection, please try again'));
+  });
+  };
+}
+
+export function deletehistory(historyid) {
+  return (dispatch) => {
+    dispatch(isLoading(true));
+    axios.post('/api/users/deletehistory', {
+      historyid,
+    },
+    ).then(() => {
+      dispatch(signIn(username));
+    })
+    .catch(() => {
+      dispatch(unSuccess('Invalid selection, please try again'));
+    });
+  };
+
 }
 
 export function changePic(url, userid, user) {
@@ -225,7 +261,7 @@ export function changePic(url, userid, user) {
       dispatch(signIn(user));
     })
     .catch(() => {
-      console.log("error<<<")
+      console.log("error<<<");
       dispatch(unSuccess('Invalid selection, please try again'));
     });
   };

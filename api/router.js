@@ -33,6 +33,12 @@ myRouter.route('/users/picture')
     controller.updatePic(req, res);
   });
 
+myRouter.route('/users/rating')
+  .post((req, res) => {
+    console.log(req.body, "this is req.body")
+    controller.chooseRating(req, res);
+  });
+
 myRouter.route('/users')
   .get((req, res) => {
     db.User.findAll({ where: { username: req.query.username } })
@@ -54,6 +60,10 @@ myRouter.route('/users/invites')
     }
   });
 
+myRouter.route('/users/deletehistory')
+  .post((req, res) => {
+    controller.deletehistory(req, res);
+  });
 
 myRouter.route('/users/history')
  .post((req, res) => {
