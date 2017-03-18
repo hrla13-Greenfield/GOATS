@@ -35665,9 +35665,11 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
           var tmpHistory = JSON.parse(historyitem.address);
           var cat = JSON.parse(historyitem.category);
           var tmpCategory = [];
-          cat.forEach(function (element) {
-            tmpCategory.push(element.title);
-          });
+          if (cat) {
+            cat.forEach(function (element) {
+              tmpCategory.push(element.title);
+            });
+          }
           tmpCategory = tmpCategory.join(', ');
           return _react2.default.createElement(
             'tr',

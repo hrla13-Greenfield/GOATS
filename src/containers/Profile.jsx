@@ -64,9 +64,11 @@ export default class Profile extends React.Component {
       var tmpHistory = JSON.parse(historyitem.address);
       var cat = JSON.parse(historyitem.category)
       var tmpCategory = [];
+      if (cat) {
       cat.forEach(function(element) {
         tmpCategory.push(element.title)
       })
+      }
       tmpCategory = tmpCategory.join(', ');
       return(
         <tr key={index}>
