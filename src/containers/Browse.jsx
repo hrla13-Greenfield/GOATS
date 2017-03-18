@@ -51,6 +51,7 @@ _loadMore() {
   }
 }
 
+
 function mapStateToProps(state) {
   return {
     choices: state.choices,
