@@ -48003,9 +48003,277 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 /* 286 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected ; (65:24)\n\n\u001b[0m \u001b[90m 63 | \u001b[39m        })\n \u001b[90m 64 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 65 | \u001b[39m    componentDidMount() {\n \u001b[90m    | \u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 66 | \u001b[39m        setInterval(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mhandleRandom\u001b[33m,\u001b[39m \u001b[35m900\u001b[39m)\n \u001b[90m 67 | \u001b[39m    }\n \u001b[90m 68 | \u001b[39m\u001b[0m\n");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(17);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRedux = __webpack_require__(18);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var io = __webpack_require__(324);
+var socket = io();
+
+var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
+    return {
+        userdata: store.userdata
+    };
+}), _dec(_class = function (_React$Component) {
+    _inherits(GameComponent, _React$Component);
+
+    function GameComponent(props) {
+        _classCallCheck(this, GameComponent);
+
+        var _this = _possibleConstructorReturn(this, (GameComponent.__proto__ || Object.getPrototypeOf(GameComponent)).call(this, props));
+
+        var charArr = ['a', 's', 'd', 'f'];
+        var initRandom = charArr[Math.floor(charArr.length * Math.random())];
+        _this.state = {
+            count: 0,
+            opponentPicture: [],
+            opponentUsername: [],
+            opponentScore: [],
+            random: initRandom,
+            winCondition: "Get to 10 points to WIN!",
+            penalty: "Let's Go!",
+            img: "http://opengameart.org/sites/default/files/cat_a1.gif",
+            myRoom: _this.props.userdata.roomSelected,
+            room: ""
+        };
+        _this.handleCount = _this.handleCount.bind(_this);
+        _this.handleReset = _this.handleReset.bind(_this);
+        _this.handleRandom = _this.handleRandom.bind(_this);
+
+        var self = _this;
+        socket.on('init-game', function (data) {
+            if (data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
+                self.setState({
+                    opponentPicture: [_react2.default.createElement('img', { src: data.opponentPicture, height: '50px' })],
+                    opponentUsername: [data.opponentUsername],
+                    opponentScore: [data.opponentScore],
+                    room: data.room
+                });
+                socket.emit('init-game2', self.props.userdata);
+            }
+        });
+        socket.on('init-game2', function (data) {
+            if (data.roomSelected === self.state.myRoom && data.username !== self.props.userdata.username) {
+                self.setState({
+                    opponentPicture: [_react2.default.createElement('img', { src: data.userImg, height: '50px' })],
+                    opponentUsername: [data.username],
+                    opponentScore: 0,
+                    room: data.roomSelected
+                });
+            }
+        });
+        socket.on('count', function (data) {
+            if (data.selectedRoom === self.state.myRoom) {
+                self.setState({
+                    opponentScore: [data.score]
+                });
+            }
+        });
+        return _this;
+    }
+
+    _createClass(GameComponent, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            setInterval(this.handleRandom, 900);
+        }
+    }, {
+        key: 'handleRandom',
+        value: function handleRandom(event) {
+            var charArr = ['a', 's', 'd', 'f'];
+            var randomChar = charArr[Math.floor(charArr.length * Math.random())];
+            this.setState({
+                random: randomChar
+            });
+        }
+    }, {
+        key: 'handleCount',
+        value: function handleCount(event) {
+
+            event = event || window.event;
+            var currCount = this.state.count;
+            var charCode = event.keyCode || event.which;
+            var charStr = String.fromCharCode(charCode);
+
+            if (currCount >= 10) {
+                return;
+            }
+            if (currCount <= -10) {
+                return;
+            }
+            if (charStr === this.state.random) {
+                currCount += 1;
+                socket.emit('count', {
+                    username: this.props.userdata.username,
+                    userPic: this.props.userdata.userImg,
+                    selectedRoom: this.props.userdata.roomSelected,
+                    currSuggestion: "TBD",
+                    score: currCount });
+                this.setState({
+                    penalty: "You Rock!",
+                    img: "http://opengameart.org/sites/default/files/cat_a5.gif"
+                });
+            }
+            if (charStr !== this.state.random) {
+                currCount -= 1;
+                socket.emit('count', {
+                    username: this.props.userdata.username,
+                    userPic: this.props.userdata.userImg,
+                    selectedRoom: this.props.userdata.roomSelected,
+                    currSuggestion: "TBD",
+                    score: currCount });
+                this.setState({
+                    penalty: "You Suck!",
+                    img: "http://opengameart.org/sites/default/files/cat_spin_kick.gif"
+                });
+            }
+            if (currCount >= 10) {
+                this.setState({
+                    winCondition: "YOU WIN!",
+                    img: "http://opengameart.org/sites/default/files/cat_a1_super.gif"
+                });
+            }
+            if (currCount <= -10) {
+                this.setState({
+                    winCondition: "YOU LOSE! GIT GUD!",
+                    img: "http://opengameart.org/sites/default/files/mon1_walk.gif"
+                });
+            }
+            this.setState({
+                count: currCount
+            });
+            this.handleRandom();
+        }
+    }, {
+        key: 'handleReset',
+        value: function handleReset() {
+            var maxCount = this.state.count;
+            maxCount = 0;
+            this.setState({
+                count: maxCount,
+                winCondition: "Let's go again!"
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { onKeyPress: this.handleCount },
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    this.state.group
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        this.state.winCondition
+                    ),
+                    _react2.default.createElement(
+                        'h3',
+                        null,
+                        'PRESS: ',
+                        _react2.default.createElement(
+                            'b',
+                            null,
+                            this.state.random.toUpperCase()
+                        )
+                    ),
+                    _react2.default.createElement('img', { src: this.state.img }),
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        'Your Score: ',
+                        this.state.count
+                    ),
+                    _react2.default.createElement(
+                        'h6',
+                        null,
+                        this.state.penalty
+                    ),
+                    _react2.default.createElement(
+                        'h6',
+                        null,
+                        'myRoom: ',
+                        this.state.myRoom
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'h4',
+                            null,
+                            'Opponent Information:'
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Username: ',
+                            this.state.opponentUsername
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Picture: ',
+                            this.state.opponentPicture
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Room: ',
+                            this.state.room
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Score: ',
+                            this.state.opponentScore
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'button',
+                    { onClick: this.handleReset },
+                    'RESET'
+                )
+            );
+        }
+    }]);
+
+    return GameComponent;
+}(_react2.default.Component)) || _class);
+exports.default = GameComponent;
 
 /***/ }),
 /* 287 */
