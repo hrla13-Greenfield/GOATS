@@ -41,8 +41,14 @@ export default class Profile extends React.Component {
   }
 
   chooseRating(num) {
-    // this.props.dispatch(UserActions.chooseRating(num))
-    console.log(num.target.value,"this is num")
+    var tmprating = num.target.value.split(",")
+    this.props.dispatch(UserActions.chooseRating(tmprating[0], tmprating[1], this.props.userdata.username))
+  }
+
+  deletehistory(historyid){
+    this.props.dispatch(UserActions.deletehistory(historyid, this.props.userdata.username))
+    console.log(this.props.userdata.username, "this is username")
+    console.log(historyid, "this is historyid")
   }
 
 
@@ -99,6 +105,7 @@ export default class Profile extends React.Component {
             {twoselected ? (<option selected="selected" value={['2', historyitem.id]}>2</option>) : (<option value={['2', historyitem.id]}>2</option>)}
             {oneselected ? (<option selected="selected" value={['1', historyitem.id]}>1 - Do not come here</option>) : (<option value={['1', historyitem.id]}>1 - Do not come here</option>)}
             </select>{historyitem.rating}</td>
+            <td><a onClick={() => this.deletehistory(historyitem.id)}><span className="glyphicon glyphicon-remove red"></span></a></td>
         </tr>
       )
     })
