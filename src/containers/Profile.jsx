@@ -77,6 +77,12 @@ export default class Profile extends React.Component {
       })
       }
       tmpCategory = tmpCategory.join(', ');
+      var fiveselected = (historyitem.rating === '5');
+      var fourselected = (historyitem.rating === '4');
+      var threeselected = (historyitem.rating === '3');
+      var twoselected = (historyitem.rating === '2');
+      var oneselected = (historyitem.rating === '1');
+      var notsure = (historyitem.rating === 'notsure');
       return(
         <tr key={index}>
           <td><a href={historyitem.url}><div style={divStyle}><img height="200" src={historyitem.image}></img></div></a></td>
@@ -86,12 +92,13 @@ export default class Profile extends React.Component {
           <td>{tmpCategory}</td>
           <td><select onChange={this.chooseRating.bind(this)}>
             <option value="notsure"> </option>
-            <option value="5">5 - the best!</option>
-            <option value="4">4</option>
-            <option value="3">3</option>
-            <option value="2">2</option>
-            <option value="1">1 - do not come here</option>
-            </select> {historyitem.rating}</td>
+            {notsure ? (<option selected="selected" value={['notsure', historyitem.id]}>5 - the best!</option>) : (<option value={['notsure', historyitem.id]}>Not Sure</option>)}
+            {fiveselected ? (<option selected="selected" value={['5', historyitem.id]}>5 - the best!</option>) : (<option value={['5', historyitem.id]}>5 - the best!</option>)}
+            {fourselected ? (<option selected="selected" value={['4', historyitem.id]}>4</option>) : (<option value={['4', historyitem.id]}>4</option>)}
+            {threeselected ? (<option selected="selected" value={['3', historyitem.id]}>3</option>) : (<option value={['3', historyitem.id]}>3</option>)}
+            {twoselected ? (<option selected="selected" value={['2', historyitem.id]}>2</option>) : (<option value={['2', historyitem.id]}>2</option>)}
+            {oneselected ? (<option selected="selected" value={['1', historyitem.id]}>1 - Do not come here</option>) : (<option value={['1', historyitem.id]}>1 - Do not come here</option>)}
+            </select>{historyitem.rating}</td>
         </tr>
       )
     })
@@ -99,7 +106,7 @@ export default class Profile extends React.Component {
       <div className="col-md-12">
         <h1>{this.props.userdata.username}<small> | Profile</small></h1>
          <div className="row">
-          <div className="col-md-5"><br /><img height="125px" width="125px" src={this.props.userdata.userImg}></img>
+          <div className="col-md-5"><br /><div style={{width:"125px",height:"125px",overflow:'hidden', 'textAlign':'center'}}><img style={{display:'block','textAlign':'center', margin:'auto'}}height="125px" src={this.props.userdata.userImg}></img></div>
           <br /><a onClick={() => this.renderPicInput()}><small>Change</small></a>
           <br />{this.state.picInput}</div>
          <div className="col-md-7"><h3>Pending group invites</h3>
