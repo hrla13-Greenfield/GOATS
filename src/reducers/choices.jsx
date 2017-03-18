@@ -4,6 +4,7 @@
 var initialState = {
   finalSelection: false,
   zipCode: false,
+  showAll: [],
 
   firstLoad: [
     { img: 'http://ifthedevilhadmenopause.com/wp-content/uploads/2014/08/sri-santrupti-restaurant-21346657591-1.png', option: 'food' },
@@ -70,7 +71,7 @@ export default function(state = initialState, action) {
     });
     case 'BROWSE':
     return Object.assign({}, state, {
-      showAll: action.payload,
+      showAll: state.showAll.concat(action.payload.data),
     });
   }
   return state;
