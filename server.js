@@ -21,13 +21,6 @@ const server = app.listen(PORT, () => {
 const io = require('socket.io')(server);
 
 var rooms = {};
-
-console.log("sup")
-
-  var user = {
-      userid: this.id,
-      userScore: 0
-    }
     
 // standard user connection through browser
 io.on('connection', function(socket) {
@@ -39,17 +32,10 @@ io.on('connection', function(socket) {
     socket.broadcast.emit('count', counter)
     console.log('this is the count ' + counter)
   })
-  // socket.on('new-user', function(user) {
-  //   var user = {
-  //     userid: this.id,
-  //     userScore: 0
-  //   }
+  // socket.on('new-room', function(room) {
+      //  var user = // user information from db?
   //   rooms[this.id] = user,
   //   console.log("this is rooms", rooms);
-  // })
-  // socket.on('count', function(count) {
-  //   user.userScore = count
-  //   console.log("this is user score ", user.userScore)
   // })
 })
 

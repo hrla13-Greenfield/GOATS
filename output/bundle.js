@@ -35274,7 +35274,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             return _this3.addFriend(groupID);
           } },
         ' ',
-        _react2.default.createElement('input', { onChange: this.handleChange, type: 'text' })
+        _react2.default.createElement('input', { placeholder: 'email', onChange: this.handleChange, type: 'text' })
       )));
     }
   }, {
@@ -35349,7 +35349,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             null,
             _react2.default.createElement(
               'a',
-              { onClick: function onClick() {
+              { href: '#/game', onClick: function onClick() {
                   return _this4.changeRoom(group.name);
                 } },
               group.name
@@ -35412,15 +35412,6 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
               'li',
               null,
               'plan my day'
-            )
-          ),
-          _react2.default.createElement(
-            'a',
-            { href: '#/game' },
-            _react2.default.createElement(
-              'li',
-              null,
-              'Game'
             )
           ),
           _react2.default.createElement(
@@ -36085,6 +36076,8 @@ var _reactDom = __webpack_require__(16);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _reactRedux = __webpack_require__(13);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36096,7 +36089,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var io = __webpack_require__(319);
 var socket = io();
 
-var GameComponent = function (_React$Component) {
+var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
+    return {
+        userdata: store.userdata
+    };
+}), _dec(_class = function (_React$Component) {
     _inherits(GameComponent, _React$Component);
 
     function GameComponent(props) {
@@ -36108,12 +36105,15 @@ var GameComponent = function (_React$Component) {
         var initRandom = charArr[Math.floor(charArr.length * Math.random())];
         _this.state = {
             count: 0,
-            opponentScore: 0,
+            opponentPicture: [],
+            opponentUsername: [],
+            opponentScore: [],
             random: initRandom,
             winCondition: "Get to 10 points to WIN!",
             penalty: "Let's Go!",
             img: "http://opengameart.org/sites/default/files/cat_a1.gif",
-            room: "" // identify which room the user is playing in 
+            myRoom: _this.props.userdata.roomSelected,
+            room: ""
         };
         _this.handleCount = _this.handleCount.bind(_this);
         _this.handleReset = _this.handleReset.bind(_this);
@@ -36122,9 +36122,14 @@ var GameComponent = function (_React$Component) {
         var self = _this;
         socket.on('count', function (data) {
             console.log('this is the data ', data);
-            self.setState({
-                opponentScore: data
-            });
+            if (data.selectedRoom === self.state.myRoom) {
+                self.setState({
+                    opponentPicture: [_react2.default.createElement('img', { src: data.userPic, height: '50px' })],
+                    opponentUsername: [data.username],
+                    opponentScore: [data.score],
+                    room: data.selectedRoom
+                });
+            }
         });
         return _this;
     }
@@ -36133,18 +36138,7 @@ var GameComponent = function (_React$Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             setInterval(this.handleRandom, 900);
-            // socket.emit('new-user', "test")
         }
-
-        // componentWillMount() {
-        //     var self = this;
-        //     socket.emit('count', function(count) {
-        //         self.setState({
-        //             opponentScores: [...count]
-        //         })
-        //     })
-        // }
-
     }, {
         key: 'handleRandom',
         value: function handleRandom(event) {
@@ -36171,7 +36165,12 @@ var GameComponent = function (_React$Component) {
             }
             if (charStr === this.state.random) {
                 currCount += 1;
-                socket.emit('count', currCount);
+                socket.emit('count', {
+                    username: this.props.userdata.username,
+                    userPic: this.props.userdata.userImg,
+                    selectedRoom: this.props.userdata.roomSelected,
+                    currSuggestion: "TBD",
+                    score: currCount });
                 this.setState({
                     penalty: "You Rock!",
                     img: "http://opengameart.org/sites/default/files/cat_a5.gif"
@@ -36179,7 +36178,12 @@ var GameComponent = function (_React$Component) {
             }
             if (charStr !== this.state.random) {
                 currCount -= 1;
-                socket.emit('count', currCount);
+                socket.emit('count', {
+                    username: this.props.userdata.username,
+                    userPic: this.props.userdata.userImg,
+                    selectedRoom: this.props.userdata.roomSelected,
+                    currSuggestion: "TBD",
+                    score: currCount });
                 this.setState({
                     penalty: "You Suck!",
                     img: "http://opengameart.org/sites/default/files/cat_spin_kick.gif"
@@ -36223,6 +36227,7 @@ var GameComponent = function (_React$Component) {
                     null,
                     this.state.group
                 ),
+                console.log("objects", this.props.userdata),
                 _react2.default.createElement(
                     'div',
                     null,
@@ -36243,21 +36248,54 @@ var GameComponent = function (_React$Component) {
                     ),
                     _react2.default.createElement('img', { src: this.state.img }),
                     _react2.default.createElement(
-                        'h5',
-                        null,
-                        'Opponent Score: ',
-                        this.state.opponentScore
-                    ),
-                    _react2.default.createElement(
                         'div',
                         null,
                         'Your Score: ',
                         this.state.count
                     ),
                     _react2.default.createElement(
-                        'h5',
+                        'h6',
                         null,
                         this.state.penalty
+                    ),
+                    _react2.default.createElement(
+                        'h6',
+                        null,
+                        'myRoom: ',
+                        this.state.myRoom
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'h4',
+                            null,
+                            'Opponent Information:'
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Username: ',
+                            this.state.opponentUsername
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Picture: ',
+                            this.state.opponentPicture
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Room: ',
+                            this.state.room
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Score: ',
+                            this.state.opponentScore
+                        )
                     )
                 ),
                 _react2.default.createElement(
@@ -36270,8 +36308,7 @@ var GameComponent = function (_React$Component) {
     }]);
 
     return GameComponent;
-}(_react2.default.Component);
-
+}(_react2.default.Component)) || _class);
 exports.default = GameComponent;
 
 /***/ }),
@@ -36286,6 +36323,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
 
 var _react = __webpack_require__(4);
 
@@ -36320,6 +36359,7 @@ var Game = function (_React$Component) {
     key: 'render',
     value: function render() {
       // console.log(!!localStorage.getItem("userToken"), "this is in game")
+      console.log("emily wai?!");
       if (!!localStorage.getItem("userToken") === false) {
         window.location.href = "/#/login";
         return false;

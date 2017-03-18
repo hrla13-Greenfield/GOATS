@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
 const io = require('socket.io-client');
 const socket = io();
+
+@connect((store) => {
+  return {
+    userdata: store.userdata,
+  };
+}) 
 
 class GameComponent extends React.Component {
     constructor(props) {
@@ -11,12 +18,15 @@ class GameComponent extends React.Component {
       var initRandom = charArr[Math.floor(charArr.length * Math.random())]
       this.state = {
         count: 0,
-        opponentScore: 0,
+        opponentPicture: [],
+        opponentUsername: [],
+        opponentScore: [],
         random: initRandom,
         winCondition: "Get to 10 points to WIN!",
         penalty: "Let's Go!",
         img: "http://opengameart.org/sites/default/files/cat_a1.gif",
-        room: "" // identify which room the user is playing in 
+        myRoom: this.props.userdata.roomSelected,
+        room: "" 
       };
       this.handleCount = this.handleCount.bind(this);
       this.handleReset = this.handleReset.bind(this);
@@ -25,25 +35,20 @@ class GameComponent extends React.Component {
     var self = this;
     socket.on('count', function(data) {
         console.log('this is the data ', data)
-        self.setState({
-            opponentScore: data
-        })
+        if(data.selectedRoom === self.state.myRoom) {
+            self.setState({
+                opponentPicture: [<img src={data.userPic} height='50px'/>],
+                opponentUsername: [data.username],
+                opponentScore: [data.score],
+                room: data.selectedRoom
+            })
+        }
     })
     }
 
     componentDidMount() {
         setInterval(this.handleRandom, 900)
-        // socket.emit('new-user', "test")
     }
-
-    // componentWillMount() {
-    //     var self = this;
-    //     socket.emit('count', function(count) {
-    //         self.setState({
-    //             opponentScores: [...count]
-    //         })
-    //     })
-    // }
 
     handleRandom(event) {
         var charArr = ['a','s','d','f'];
@@ -68,7 +73,12 @@ class GameComponent extends React.Component {
         }
         if(charStr === this.state.random) {     
           currCount += 1;
-          socket.emit('count', currCount)
+          socket.emit('count', {
+              username: this.props.userdata.username,
+              userPic: this.props.userdata.userImg,
+              selectedRoom: this.props.userdata.roomSelected,
+              currSuggestion: "TBD",
+              score: currCount})
           this.setState({
               penalty: "You Rock!",
               img: "http://opengameart.org/sites/default/files/cat_a5.gif"
@@ -76,7 +86,12 @@ class GameComponent extends React.Component {
         }
         if(charStr !== this.state.random) {
           currCount -= 1;
-          socket.emit('count', currCount)
+          socket.emit('count', {
+              username: this.props.userdata.username,
+              userPic: this.props.userdata.userImg,
+              selectedRoom: this.props.userdata.roomSelected,
+              currSuggestion: "TBD",
+              score: currCount})
           this.setState({
               penalty: "You Suck!",
               img: "http://opengameart.org/sites/default/files/cat_spin_kick.gif"
@@ -114,13 +129,21 @@ class GameComponent extends React.Component {
         return(
         <div onKeyPress={this.handleCount}>
             <div>{this.state.group}</div>
+            {console.log("objects", this.props.userdata)}
             <div>
                 <h5>{this.state.winCondition}</h5>
                 <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
                 <img src={this.state.img}/>
-                <h5>Opponent Score: {this.state.opponentScore}</h5>
                 <div>Your Score: {this.state.count}</div>
-                <h5>{this.state.penalty}</h5>
+                <h6>{this.state.penalty}</h6>
+                <h6>myRoom: {this.state.myRoom}</h6>
+                <div>
+                    <h4>Opponent Information:</h4>
+                    <h6>Username: {this.state.opponentUsername}</h6>
+                    <h6>Picture: {this.state.opponentPicture}</h6>
+                    <h6>Room: {this.state.room}</h6>
+                    <h6>Score: {this.state.opponentScore}</h6>
+                </div>
             </div> 
             <button onClick={this.handleReset}>RESET</button>
         </div>
