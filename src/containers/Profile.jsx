@@ -51,6 +51,13 @@ export default class Profile extends React.Component {
     console.log(historyid, "this is historyid")
   }
 
+  renderCurrent() {
+    console.log(this.props.userdata.current)
+    return(
+    <div><div style={{width:"200px",height:"200px",overflow:'hidden', 'textAlign':'center'}}><img height="200px" src={this.props.userdata.current.image}></img></div>
+    {this.props.userdata.current.name}<br /></div>
+    )
+  }
 
   render() {
     const divStyle = {
@@ -91,7 +98,7 @@ export default class Profile extends React.Component {
       var notsure = (historyitem.rating === 'notsure');
       return(
         <tr key={index}>
-          <td><a href={historyitem.url}><div style={divStyle}><img height="200" src={historyitem.image}></img></div></a></td>
+          <td><a href={historyitem.url}><div style={divStyle}><img height="125px" src={historyitem.image}></img></div></a></td>
           <td>{historyitem.name}</td>
           <td>{tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}</td>
           <td>{historyitem.phone}</td>
@@ -111,11 +118,13 @@ export default class Profile extends React.Component {
     })
     return (
       <div className="col-md-12">
-        <h1>{this.props.userdata.username}<small> | Profile</small></h1>
+        <div className="row"><div className="col-md-9"><h1>{this.props.userdata.username}<small> | Profile</small></h1></div><div className="col-md-2"><br /><div style={{width:"80px",height:"80px",overflow:'hidden', 'textAlign':'center'}}><img style={{display:'block','textAlign':'center', margin:'auto'}}height="80px" src={this.props.userdata.userImg}></img></div>
+        <a onClick={() => this.renderPicInput()}><small>Change</small></a><br />{this.state.picInput}</div></div>
          <div className="row">
-          <div className="col-md-5"><br /><div style={{width:"125px",height:"125px",overflow:'hidden', 'textAlign':'center'}}><img style={{display:'block','textAlign':'center', margin:'auto'}}height="125px" src={this.props.userdata.userImg}></img></div>
-          <br /><a onClick={() => this.renderPicInput()}><small>Change</small></a>
-          <br />{this.state.picInput}</div>
+          <div className="col-md-5"><br />
+          <h3>Currently Selected Activity</h3>
+          {this.renderCurrent()}
+          </div>
          <div className="col-md-7"><h3>Pending group invites</h3>
          <table className="table">
            <thead>

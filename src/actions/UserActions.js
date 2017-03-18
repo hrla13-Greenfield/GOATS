@@ -25,8 +25,13 @@ export function signInSuccess(userinfo, username) {
       newGroupsByID.push(newGroupTemp);
     }
   }
+  var newCurrent;
   const newHistory = [];
-  for (let k = 0; k < userinfo.history.length; k++) {
+  for (let k = userinfo.history.length - 1; k >= 0; k -= 1) {
+    if (userinfo.history[k].id.toString() === userinfo.current) {
+      newCurrent = userinfo.history[k];
+      continue;
+    }
     const historyTemp = {
       name: userinfo.history[k].name,
       address: userinfo.history[k].address,
@@ -61,6 +66,7 @@ export function signInSuccess(userinfo, username) {
     userID: userinfo.userid,
     invites: newInvites,
     history: newHistory,
+    current: newCurrent,
   };
 }
 

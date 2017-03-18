@@ -15,6 +15,7 @@ const initialState = {
   invites: [],
   history: [],
   note: '',
+  current: {},
 };
 
 export default function groups(state = initialState, action) {
@@ -32,6 +33,7 @@ export default function groups(state = initialState, action) {
         invites: action.invites,
         history: action.history,
         points: action.points,
+        current: action.current,
       };
 
     case types.NOT_SUCCESSFUL:
