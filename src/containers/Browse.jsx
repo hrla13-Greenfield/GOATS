@@ -4,20 +4,26 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browse } from '../actions/index.jsx';
 import { wantToDo } from '../actions/index.jsx';
+import InfiniteScroll from 'redux-infinite-scroll';
 
 class Browse extends React.Component {
 
-  componentWillMount() {
-  this.props.dispatch(browse(this.props.choices.updatedZipcode));
-}
+ // componentWillMount() {
+ // this.props.dispatch(browse(this.props.choices.updatedZipcode));
+//}
+
+_loadMore() {
+    this.props.dispatch(browse(this.props.choices.updatedZipcode, this.props.choices.showAll.length))
+  }
+
   renderAll() {
-    console.log(this.props.choices.showAll.data, 'this.props.choices.showAll');
-    return this.props.choices.showAll.data.map((item) => (
-          <div className="col-md-4 col-sm-6 col-xs-12">
-           <div className="thumbnail">
-            <div style={{ width: '200px', height:'180px', overflow:'hidden'}}>
+    console.log(this.props.choices.showAll, 'this.props.choices.showAll');
+    return this.props.choices.showAll.map((item) => (
+      <div className="col-md-4 col-sm-6 col-xs-12">
+        <div className="thumbnail">
+          <div style={{ width: '200px', height:'180px', overflow:'hidden'}}>
             <a href={item.url}><img src={item.image_url} height="180" className="feedPics"/></a>
-            </div>
+          </div>
             <div className="caption">
             <h5> {item.name} </h5>
             <h6> {Math.round(item.distance * 0.000621371*100)/100} miles from you </h6>
@@ -32,11 +38,15 @@ class Browse extends React.Component {
       return (
         <div>
           <div>{this.renderAll()}</div>
+        <div>
+        <InfiniteScroll
+         loadMore={this._loadMore.bind(this)}
+        />
+        </div>
         </div>
       );
     } 
-      return <div></div>
-    
+      return <div></div>  
   }
 }
 
@@ -54,16 +64,3 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(mapStateToProps)(Browse);
 
-
-/* <div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-  </div>
-</div>*/

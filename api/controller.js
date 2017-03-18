@@ -46,43 +46,43 @@ exports.deletehistory = function (req, res) {
 
 exports.createGroup = function (req, res) {
   console.log(req);
-  console.log('_____________')
+  console.log('_____________');
   const newGroup = db.Group.build({
     name: req.query.groupName,
-  })
-  console.log('line 21')
+  });
+  console.log('line 21');
   newGroup.save().then((result) => {
     const newUserGroup = db.userGroup.build({
       GroupId: result.id,
       UserId: req.query.userID,
-    })
-    console.log('line 27')
+    });
+    console.log('line 27');
     newUserGroup.save().then((record) => {
-      res.send("Success")
+      res.send('Success');
     })
     .catch((err) => {
-      console.log(err, 'error!!!!')
+      console.log(err, 'error!!!!');
       res.sendStatus(500);
-    })
+    });
   })
   .catch((err) => {
     res.send(err);
-    console.log(err)
-  })
-}
+    console.log(err);
+  });
+};
 
 exports.acceptRequest = function (requestID, req, res) {
   db.PendingInvites.find({ where: { id: requestID } })
   .then((result) => {
     console.log(result);
-    let newMember = db.UserGroup.build({
+    const newMember = db.UserGroup.build({
       UserId: result.UserId,
       GroupId: result.GroupId,
     });
     newMember.save()
     .then((record) => {
       db.PendingInvites.destroy({ where: { id: requestID } });
-      res.send("Success");
+      res.send('Success');
     })
     .catch((err) => {
       res.sendStatus(500);
@@ -93,7 +93,7 @@ exports.acceptRequest = function (requestID, req, res) {
 exports.declineRequest = function (requestID, req, res) {
   db.PendingInvites.destroy({ where: { id: requestID } })
   .then(() => {
-    res.send("Success")
+    res.send('Success');
   })
   .catch((err) => {
     res.sendStatus(500);
@@ -143,13 +143,13 @@ exports.returnUserData = function (req, res) {
         res.send(finalObj);
       })
      .catch((err) => {
-      res.sendStatus(500);  
+       res.sendStatus(500);
+     });
     })
-  })
   .catch((err) => {
     res.sendStatus(500);
-  })
-}
+  });
+  };
 
   db.User.findOne({ where: { username: req.query.username } })
   .then((results) => {
@@ -177,7 +177,6 @@ exports.returnUserData = function (req, res) {
 };
 
 
-
 exports.createHistory = function (req, res) {
   const location = JSON.stringify(req.body.selection.location);
   const categories = JSON.stringify(req.body.selection.categories);
@@ -198,11 +197,11 @@ exports.createHistory = function (req, res) {
   result.update({ current: history.id });
 });
 })
-.then((result) => res.send(result));
+.then(result => res.send(result));
 };
 
 const getBearer = function (cb) {
-  cb('SdD00ggp7OHQgJemq0WJjtjf_LjFvvydOwCVxc1t3tYBCAXCShdoWNlWlOV-hGVp6l-Uvkq8PDVpX5atIxgw_MPQOdVg7qksvS3QCZOqMN_8k42TnaLBEvIQ0h3CWHYx')
+  cb('SdD00ggp7OHQgJemq0WJjtjf_LjFvvydOwCVxc1t3tYBCAXCShdoWNlWlOV-hGVp6l-Uvkq8PDVpX5atIxgw_MPQOdVg7qksvS3QCZOqMN_8k42TnaLBEvIQ0h3CWHYx');
   // const options = { method: 'POST',
   //   url: 'https://api.yelp.com/oauth2/token',
   //   headers:
@@ -223,10 +222,11 @@ const getBearer = function (cb) {
 
 exports.getActivity = function (req, res, query) {
   let offset;
-  if (req.query.page === undefined){
+  if (req.query.offset === undefined) {
     offset = 0;
   } else {
-    offset = req.query.page*50;
+    console.log('OFFSEEEETTT', req.query.offset);
+    offset = req.query.offset;
   }
   const cb = function (token) {
     const bearer = token;
@@ -238,8 +238,9 @@ exports.getActivity = function (req, res, query) {
         location: query.zip,
         sort_by: 'rating',
         limit: '50',
-        offset: '25',  
-        },
+        offset: req.query.offset,
+        radius_filter: '25000',
+      },
       headers:
       { 'postman-token': '93676d7e-657a-46fd-71fc-a9b2fcf909a5',
         'cache-control': 'no-cache',
@@ -247,7 +248,7 @@ exports.getActivity = function (req, res, query) {
     console.log(options.headers);
     request(options, (error, response, body) => {
       if (error) throw new Error(error);
-
+      console.log('booooooody', body);
       res.send(body);
       res.end();
     });

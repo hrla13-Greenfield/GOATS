@@ -159,11 +159,11 @@ export function selectChoice(option, zip, userID) {
     console.log(userID);
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-      term: 'food', filter: 'coffee', zip },
-      headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-        },
-    })
+        term: 'food', filter: 'coffee', zip },
+        headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+      })
       .then((results) => {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
@@ -179,12 +179,12 @@ export function selectChoice(option, zip, userID) {
     };
   } else if (option === 'lunch/dinner') {
     return (dispatch) => {
-    axios.get('api/getActivities', { params: {
-        term: 'food', filter: 'restaurants', zip },
-        headers: {
+      axios.get('api/getActivities', { params: {
+      term: 'food', filter: 'restaurants', zip },
+      headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
-      })
+    })
       .then((results) => {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
@@ -196,10 +196,10 @@ export function selectChoice(option, zip, userID) {
       .catch((err) => {
         console.error(err);
       });
-  };
+    };
   } else if (option === 'bar') {
-  return (dispatch) => {
-      axios.get('api/getActivities', { params: {
+    return (dispatch) => {
+    axios.get('api/getActivities', { params: {
         term: 'bars', filter: 'bars', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
@@ -216,9 +216,9 @@ export function selectChoice(option, zip, userID) {
       .catch((err) => {
         console.error(err);
       });
-    };
-} else if (option === 'club') {
-    return (dispatch) => {
+  };
+  } else if (option === 'club') {
+  return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'clubs', filter: 'danceclubs', zip },
         headers: {
@@ -237,7 +237,7 @@ export function selectChoice(option, zip, userID) {
         console.error(err);
       });
     };
-  } else if (option === 'lounge') {
+} else if (option === 'lounge') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'lounge', filter: 'lounges', zip },
@@ -590,16 +590,17 @@ export function planDay(zip) {
   };
 }
 
-export function browse(zip, page) {
+export function browse(zip, offset) {
   return (dispatch) => {
     axios.get('api/getActivities', { params: {
-      term: 'fun', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals, restaurants', zip, page },
+      term: 'fun', filter: 'bungeejumping,hot_air_balloons,jetskis,ziplining,gokarts,paintball,museums,opera,theater,wineries,winetastingrooms,galleries,movietheaters,zoos,amusementparks,fleamarkets,zoos,planetarium,farms,parks,beaches,shoppingcenters,beautysvc,tennis,golf,yoga,gyms,hiking,horsebackriding,pilates,boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving,launches,danceclubs,bars,festivals, restaurants', zip, offset },
       headers: {
         'Content-type': 'application/x-www-form-urlencoded',
       },
     })
       .then((results) => {
         data = results.data.businesses;
+        console.log('DATAAAA', data);
         dispatch(getAll(data));
       })
       .catch((err) => {
@@ -620,7 +621,6 @@ export function wantToDo(item, userID) {
   .catch((err) => {
     console.error(err);
   });
-};
-
+  };
 }
 
