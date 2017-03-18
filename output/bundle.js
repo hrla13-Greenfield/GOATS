@@ -31722,6 +31722,7 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
     _this.renderPicInput = _this.renderPicInput.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
     _this.changePic = _this.changePic.bind(_this);
+
     return _this;
   }
 
@@ -31764,6 +31765,12 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
           )
         )
       });
+    }
+  }, {
+    key: 'chooseRating',
+    value: function chooseRating(num) {
+      // this.props.dispatch(UserActions.chooseRating(num))
+      console.log(num.target.value, "this is num");
     }
   }, {
     key: 'render',
@@ -31869,6 +31876,41 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
             _react2.default.createElement(
               'td',
               null,
+              _react2.default.createElement(
+                'select',
+                { onChange: _this3.chooseRating.bind(_this3) },
+                _react2.default.createElement(
+                  'option',
+                  { value: 'notsure' },
+                  ' '
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: '5' },
+                  '5 - the best!'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: '4' },
+                  '4'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: '3' },
+                  '3'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: '2' },
+                  '2'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: '1' },
+                  '1 - do not come here'
+                )
+              ),
+              ' ',
               historyitem.rating
             )
           );
@@ -31996,6 +32038,11 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
                     'th',
                     null,
                     'Category: '
+                  ),
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    'My Rating: '
                   )
                 )
               ),

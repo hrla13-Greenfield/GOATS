@@ -27,6 +27,7 @@ io.on('connection', (socket) => {
   console.log('a user connected!');
   socket.on('disconnect', (socket) => {
     console.log('a user disconnected!');
+<<<<<<< HEAD
   });
   socket.on('init-game', (info) => {
     socket.broadcast.emit('init-game', info);
@@ -41,5 +42,26 @@ io.on('connection', (socket) => {
     console.log(`this is the count ${counter}`);
   });
 });
+=======
+  })
+  socket.on('count', function(counter) {
+    socket.broadcast.emit('count', counter)
+    console.log('this is the count ' + counter)
+  })
+  // socket.on('new-user', function(user) {
+  //   var user = {
+  //     userid: this.id,
+  //     userScore: 0
+  //   }
+  //   rooms[this.id] = user,
+  //   console.log("this is rooms", rooms);
+  // })
+  // socket.on('count', function(count) {
+  //   user.userScore = count
+  //   console.log("this is user score ", user.userScore)
+  // })
+
+})
+>>>>>>> added rating, need to finish
 
 module.exports = app;
