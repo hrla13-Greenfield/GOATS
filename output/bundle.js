@@ -35403,8 +35403,8 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
         null,
         _react2.default.createElement(
           'h1',
-          null,
-          'Navbar goes here'
+          { style: { 'fontFamily': "Brush Script MT, cursive", 'fontSize': "72px" } },
+          'goats'
         ),
         _react2.default.createElement(
           'ul',
@@ -35691,6 +35691,12 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
             });
           }
           tmpCategory = tmpCategory.join(', ');
+          var fiveselected = historyitem.rating === '5';
+          var fourselected = historyitem.rating === '4';
+          var threeselected = historyitem.rating === '3';
+          var twoselected = historyitem.rating === '2';
+          var oneselected = historyitem.rating === '1';
+          var notsure = historyitem.rating === 'notsure';
           return _react2.default.createElement(
             'tr',
             { key: index },
@@ -35740,33 +35746,61 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
                   { value: 'notsure' },
                   ' '
                 ),
-                _react2.default.createElement(
+                notsure ? _react2.default.createElement(
                   'option',
-                  { value: '5' },
+                  { selected: 'selected', value: ['notsure', historyitem.id] },
+                  '5 - the best!'
+                ) : _react2.default.createElement(
+                  'option',
+                  { value: ['notsure', historyitem.id] },
+                  'Not Sure'
+                ),
+                fiveselected ? _react2.default.createElement(
+                  'option',
+                  { selected: 'selected', value: ['5', historyitem.id] },
+                  '5 - the best!'
+                ) : _react2.default.createElement(
+                  'option',
+                  { value: ['5', historyitem.id] },
                   '5 - the best!'
                 ),
-                _react2.default.createElement(
+                fourselected ? _react2.default.createElement(
                   'option',
-                  { value: '4' },
+                  { selected: 'selected', value: ['4', historyitem.id] },
+                  '4'
+                ) : _react2.default.createElement(
+                  'option',
+                  { value: ['4', historyitem.id] },
                   '4'
                 ),
-                _react2.default.createElement(
+                threeselected ? _react2.default.createElement(
                   'option',
-                  { value: '3' },
+                  { selected: 'selected', value: ['3', historyitem.id] },
+                  '3'
+                ) : _react2.default.createElement(
+                  'option',
+                  { value: ['3', historyitem.id] },
                   '3'
                 ),
-                _react2.default.createElement(
+                twoselected ? _react2.default.createElement(
                   'option',
-                  { value: '2' },
+                  { selected: 'selected', value: ['2', historyitem.id] },
+                  '2'
+                ) : _react2.default.createElement(
+                  'option',
+                  { value: ['2', historyitem.id] },
                   '2'
                 ),
-                _react2.default.createElement(
+                oneselected ? _react2.default.createElement(
                   'option',
-                  { value: '1' },
-                  '1 - do not come here'
+                  { selected: 'selected', value: ['1', historyitem.id] },
+                  '1 - Do not come here'
+                ) : _react2.default.createElement(
+                  'option',
+                  { value: ['1', historyitem.id] },
+                  '1 - Do not come here'
                 )
               ),
-              ' ',
               historyitem.rating
             )
           );
@@ -35791,7 +35825,11 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
               'div',
               { className: 'col-md-5' },
               _react2.default.createElement('br', null),
-              _react2.default.createElement('img', { height: '125px', width: '125px', src: this.props.userdata.userImg }),
+              _react2.default.createElement(
+                'div',
+                { style: { width: "125px", height: "125px", overflow: 'hidden', 'textAlign': 'center' } },
+                _react2.default.createElement('img', { style: { display: 'block', 'textAlign': 'center', margin: 'auto' }, height: '125px', src: this.props.userdata.userImg })
+              ),
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',

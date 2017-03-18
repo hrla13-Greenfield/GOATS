@@ -97,7 +97,7 @@ export default class Navbar extends React.Component {
   
     return (
       <div >
-        <h1>Navbar goes here</h1>
+        <h1 style={{'fontFamily': "Brush Script MT, cursive", 'fontSize': "72px"}}>goats</h1>
         <ul className="nav nav-pils nav-stacked">
           <a href="#/tree"><li>Home</li></a>
           <a href="#/browse"><li>browse all</li></a>
