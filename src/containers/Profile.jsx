@@ -18,6 +18,7 @@ export default class Profile extends React.Component {
     this.renderPicInput = this.renderPicInput.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.changePic = this.changePic.bind(this);
+    
   }
   
   acceptRequest(reqid, user) {
@@ -38,6 +39,12 @@ export default class Profile extends React.Component {
       picInput: (<div>New image URL:<form onSubmit={() => this.changePic()}><input onChange={this.handleChange} type="text"></input></form></div>)
     })
   }
+
+  chooseRating(num) {
+    // this.props.dispatch(UserActions.chooseRating(num))
+    console.log(num.target.value,"this is num")
+  }
+
 
   render() {
     const divStyle = {
@@ -77,7 +84,14 @@ export default class Profile extends React.Component {
           <td>{tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}</td>
           <td>{historyitem.phone}</td>
           <td>{tmpCategory}</td>
-          <td>{historyitem.rating}</td>
+          <td><select onChange={this.chooseRating.bind(this)}>
+            <option value="notsure"> </option>
+            <option value="5">5 - the best!</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1 - do not come here</option>
+            </select> {historyitem.rating}</td>
         </tr>
       )
     })
@@ -115,6 +129,7 @@ export default class Profile extends React.Component {
              <th>Address: </th>
              <th>Phone: </th>
              <th>Category: </th>
+             <th>My Rating: </th>
            </tr>
            </thead>
            <tbody>
