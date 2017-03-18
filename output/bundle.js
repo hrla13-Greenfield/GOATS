@@ -6726,7 +6726,6 @@ function acceptRequest(reqid, user) {
     }).then(function () {
       dispatch(signIn(user));
     }).catch(function () {
-      console.log("error<<<");
       dispatch(unSuccess('Invalid selection, please try again'));
     });
   };

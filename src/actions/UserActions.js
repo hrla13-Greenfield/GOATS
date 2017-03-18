@@ -166,7 +166,6 @@ export function acceptRequest(reqid, user) {
       dispatch(signIn(user));
     })
     .catch(() => {
-      console.log("error<<<")
       dispatch(unSuccess('Invalid selection, please try again'));
     });
   };
