@@ -36476,10 +36476,6 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      // if(!!localStorage.getItem("userToken")){
-      //   console.log("inside true")
-      console.log('historz', history);
-      console.log();
       return _react2.default.createElement(
         'div',
         null,
@@ -36506,17 +36502,7 @@ var App = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(
-                      _reactRouter.Router,
-                      { history: _reactRouter.browserHistory },
-                      _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: _login2.default }),
-                      _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _login2.default }),
-                      _react2.default.createElement(_reactRouter.Route, { path: '/game', component: _gameindex2.default }),
-                      _react2.default.createElement(_reactRouter.Route, { path: '/tree', component: _Tree2.default }),
-                      _react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _Profile2.default }),
-                      _react2.default.createElement(_reactRouter.Route, { path: '/dayplanner', component: _Day2.default }),
-                      _react2.default.createElement(_reactRouter.Route, { path: '/browse', component: _Feed2.default })
-                    )
+                    this.props.children
                   )
                 )
               )
@@ -36524,12 +36510,6 @@ var App = function (_React$Component) {
           )
         )
       );
-      // } else {
-      //   console.log("inside false")
-      // return(
-      //   <div> <Navbar /></div>
-      // )
-      // }
     }
   }]);
 
@@ -38808,7 +38788,8 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
               { href: '/game', onClick: function onClick() {
                   return _this4.changeRoom(group.name);
                 } },
-              group.name
+              group.name,
+              _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
             ),
             _react2.default.createElement(
               'a',
@@ -38847,35 +38828,39 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             'li',
             null,
             _react2.default.createElement(
-              'a',
-              { href: '/tree' },
+              _reactRouter.Link,
+              { to: '/tree' },
               'Home'
             )
           ),
           _react2.default.createElement(
-            'a',
-            { href: '/browse' },
+            'li',
+            null,
             _react2.default.createElement(
-              'li',
-              null,
-              'browse all'
+              _reactRouter.Link,
+              { to: '/browse' },
+              'Browse All'
             )
           ),
           _react2.default.createElement(
-            'a',
-            { href: '/dayplanner' },
+            'li',
+            null,
             _react2.default.createElement(
-              'li',
-              null,
-              'plan my day'
+              _reactRouter.Link,
+              { to: '/dayplanner' },
+              'Plan my Day'
             )
           ),
           _react2.default.createElement(
-            'a',
-            { onClick: function onClick() {
-                return _this4.logout();
-              } },
-            'Logout'
+            'li',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { onClick: function onClick() {
+                  return _this4.logout();
+                } },
+              'Logout'
+            )
           ),
           _react2.default.createElement(
             'li',
@@ -60925,6 +60910,8 @@ var _reactRedux = __webpack_require__(12);
 
 var _redux = __webpack_require__(16);
 
+var _reactRouter = __webpack_require__(145);
+
 var _reduxThunk = __webpack_require__(167);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
@@ -60937,12 +60924,50 @@ var _index = __webpack_require__(166);
 
 var _index2 = _interopRequireDefault(_index);
 
+var _Tree = __webpack_require__(197);
+
+var _Tree2 = _interopRequireDefault(_Tree);
+
+var _gameindex = __webpack_require__(199);
+
+var _gameindex2 = _interopRequireDefault(_gameindex);
+
+var _Profile = __webpack_require__(196);
+
+var _Profile2 = _interopRequireDefault(_Profile);
+
+var _login = __webpack_require__(193);
+
+var _login2 = _interopRequireDefault(_login);
+
+var _Day = __webpack_require__(189);
+
+var _Day2 = _interopRequireDefault(_Day);
+
+var _Feed = __webpack_require__(191);
+
+var _Feed2 = _interopRequireDefault(_Feed);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom2.default.render(_react2.default.createElement(
-    _reactRedux.Provider,
-    { store: (0, _redux.createStore)(_index2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default)) },
-    _react2.default.createElement(_App2.default, null)
+  _reactRedux.Provider,
+  { store: (0, _redux.createStore)(_index2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default)) },
+  _react2.default.createElement(
+    _reactRouter.Router,
+    { history: _reactRouter.browserHistory },
+    _react2.default.createElement(
+      _reactRouter.Route,
+      { path: '/', component: _App2.default },
+      _react2.default.createElement(_reactRouter.IndexRoute, { component: _login2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _login2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: '/game', component: _gameindex2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: '/tree', component: _Tree2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _Profile2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: '/dayplanner', component: _Day2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: '/browse', component: _Feed2.default })
+    )
+  )
 ), document.getElementById('app'));
 
 /***/ })
