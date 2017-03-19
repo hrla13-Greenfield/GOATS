@@ -42,6 +42,11 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('ready-up', ready);
     console.log(`this is the ready ${ready}`)
   })
+  // socket for recommendation to pass to all users if the user won!!!
+  socket.on('recommendation', (rec) => {
+    socket.broadcast.emit('recommendation', rec);
+    console.log(`this event is ready to fire from the server ${rec}`)
+  })
   socket.on('count', (counter) => {
     socket.broadcast.emit('count', counter);
     console.log(`this is the count ${counter}`);

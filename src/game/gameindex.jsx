@@ -74,7 +74,7 @@ class GameLanding extends React.Component {
       self.setState({
       counter: true
     })
-    }, 4000);
+    }, 3000);
     }
   }
     render() {

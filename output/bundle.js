@@ -13230,7 +13230,7 @@ var GameLanding = (_dec = (0, _reactRedux.connect)(function (store) {
           self.setState({
             counter: true
           });
-        }, 4000);
+        }, 3000);
       }
     }
   }, {
