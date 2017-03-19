@@ -123,7 +123,7 @@ export default class Profile extends React.Component {
          <div className="row">
           <div className="col-md-5"><br />
           <h3>Currently Selected Activity</h3>
-          {this.renderCurrent()}
+          {this.props.userdata.current !== undefined ? (this.renderCurrent()) : <div></div>}
           </div>
          <div className="col-md-7"><h3>Pending group invites</h3>
          <table className="table">

@@ -10,7 +10,6 @@ const initialState = {
   userID: null,
   currentnickname: null,
   isLoading: true,
-  roomSelected: null,
   points: 0,
   invites: [],
   history: [],
@@ -19,6 +18,7 @@ const initialState = {
 };
 
 export default function groups(state = initialState, action) {
+  console.log(action)
   switch (action.type) {
 
     case types.SIGN_IN:
