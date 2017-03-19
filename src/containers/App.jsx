@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import Tree from './Tree.jsx';
 import Navbar from './Navbar.jsx';
 import Game from '../game/gameindex.jsx';
@@ -8,14 +8,17 @@ import Login from './Login/login.jsx';
 import Day from './Day.jsx';
 import Feed from './Feed.jsx';
 
+const createHistory = require('history').createBrowserHistory;
+const history = createHistory();
 
-const createHistory = require('history').createHashHistory;
+history.listen((location) => {
+    console.log('location', location);
+});
 
-const hashHistory = createHistory();
 // const location = history.location;
 
 // const unlisten = history.listen((location, action) => {
-  // console.log(action, location.pathname, location.state)
+//   console.log(action, location.pathname, location.state)
 // })
 
 
@@ -28,6 +31,8 @@ class App extends React.Component {
   render() {
     // if(!!localStorage.getItem("userToken")){
     //   console.log("inside true")
+    console.log('historz', history);
+    console.log()
     return (
       <div>
         <div className="row">
@@ -38,7 +43,7 @@ class App extends React.Component {
               </div>
               <div className="col-sm-9 col-lg-10">
                 <div>
-                  <Router history={hashHistory}>
+                  <Router location={history.location.hash} history={history}>
                     <div>
                       <Route exact path="/" component={Login} />
                       <Route path="/login" component={Login} />

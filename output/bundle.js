@@ -31138,6 +31138,7 @@ module.exports = (
 
 var utils = __webpack_require__(9);
 
+<<<<<<< HEAD
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
     if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
@@ -31151,6 +31152,20 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 /***/ }),
 /* 138 */
 /***/ (function(module, exports, __webpack_require__) {
+=======
+var createHistory = __webpack_require__(203).createBrowserHistory;
+var history = createHistory();
+
+history.listen(function (location) {
+  console.log('location', location);
+});
+
+// const location = history.location;
+
+// const unlisten = history.listen((location, action) => {
+//   console.log(action, location.pathname, location.state)
+// })
+>>>>>>> rebasing
 
 "use strict";
 
@@ -31266,8 +31281,15 @@ var GroupListItem = (_temp = _class = function (_Component) {
   _createClass(GroupListItem, [{
     key: 'render',
     value: function render() {
+<<<<<<< HEAD
       var _this2 = this;
 
+=======
+      // if(!!localStorage.getItem("userToken")){
+      //   console.log("inside true")
+      console.log('historz', history);
+      console.log();
+>>>>>>> rebasing
       return _react2.default.createElement(
         'li',
         null,
@@ -31278,9 +31300,43 @@ var GroupListItem = (_temp = _class = function (_Component) {
             'div',
             null,
             _react2.default.createElement(
+<<<<<<< HEAD
               'span',
               null,
               this.props.name
+=======
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'div',
+                { color: 'grey', className: 'col-sm-3 col-lg-2' },
+                _react2.default.createElement(_Navbar2.default, null)
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-9 col-lg-10' },
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Router,
+                    { location: history.location.hash, history: history },
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement(_reactRouter.Route, { exact: true, path: '/', component: _login2.default }),
+                      _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _login2.default }),
+                      _react2.default.createElement(_reactRouter.Route, { path: '/game', component: _gameindex2.default }),
+                      _react2.default.createElement(_reactRouter.Route, { path: '/tree', component: _Tree2.default }),
+                      _react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _Profile2.default }),
+                      _react2.default.createElement(_reactRouter.Route, { path: '/dayplanner', component: _Day2.default }),
+                      _react2.default.createElement(_reactRouter.Route, { path: '/browse', component: _Feed2.default })
+                    )
+                  )
+                ),
+                _react2.default.createElement('div', null)
+              )
+>>>>>>> rebasing
             )
           )
         ),
@@ -33252,6 +33308,12 @@ module.exports = hyphenate;
  * @typechecks
  */
 
+<<<<<<< HEAD
+=======
+var _reactRouter = __webpack_require__(300);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+>>>>>>> rebasing
 
 
 var hyphenate = __webpack_require__(157);
@@ -33315,6 +33377,7 @@ module.exports = isNode;
 "use strict";
 
 
+<<<<<<< HEAD
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -33325,6 +33388,77 @@ module.exports = isNode;
  *
  * @typechecks
  */
+=======
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          { style: { 'fontFamily': "Brush Script MT, cursive", 'fontSize': "72px" } },
+          'goats'
+        ),
+        _react2.default.createElement(
+          'ul',
+          { className: 'nav nav-pils nav-stacked' },
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/tree' },
+              'Home'
+            )
+          ),
+          _react2.default.createElement(
+            'a',
+            { onClick: function onClick() {
+                return _this4.logout();
+              } },
+            'Logout'
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            '________'
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            ' Welcome, ',
+            this.props.userdata.username
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'h3',
+            null,
+            'My Groups ',
+            _react2.default.createElement(
+              'a',
+              { onClick: this.groupInput },
+              ' ',
+              _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            this.state.group
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'red' },
+            this.props.userdata.note
+          ),
+          _react2.default.createElement('br', null),
+          mappedGroups
+        )
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+>>>>>>> rebasing
 
 var isNode = __webpack_require__(159);
 
