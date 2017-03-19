@@ -56849,27 +56849,33 @@ var Day = function (_React$Component) {
   _createClass(Day, [{
     key: 'render',
     value: function render() {
-      if (this.props.choices.zipCode === false) {
-        return _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(_LocationTree2.default, null)
-        );
+      if (!!localStorage.getItem("userToken") === false) {
+        window.location.href = "/#/login";
+        return false;
       } else {
-        return _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
+
+        if (this.props.choices.zipCode === false) {
+          return _react2.default.createElement(
             'div',
             null,
-            _react2.default.createElement(_NoPlan2.default, null)
-          ),
-          _react2.default.createElement(
+            _react2.default.createElement(_LocationTree2.default, null)
+          );
+        } else {
+          return _react2.default.createElement(
             'div',
             null,
-            _react2.default.createElement(_DayPlanner2.default, null)
-          )
-        );
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(_NoPlan2.default, null)
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(_DayPlanner2.default, null)
+            )
+          );
+        }
       }
     }
   }]);
@@ -57641,18 +57647,23 @@ var Feed = function (_React$Component) {
   _createClass(Feed, [{
     key: 'render',
     value: function render() {
-      if (this.props.choices.zipCode === false) {
-        return _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(_LocationTree2.default, null)
-        );
+      if (!!localStorage.getItem("userToken") === false) {
+        window.location.href = "/#/login";
+        return false;
       } else {
-        return _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(_Browse2.default, null)
-        );
+        if (this.props.choices.zipCode === false) {
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(_LocationTree2.default, null)
+          );
+        } else {
+          return _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(_Browse2.default, null)
+          );
+        }
       }
     }
   }]);
