@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as UserActions from '../actions/UserActions';
 import GroupList from '../components/GroupList.jsx';
 import AddGroupInput from '../components/AddGroupInput.jsx';
+import { Link } from 'react-router';
 
 const io = require('socket.io-client');
 const socket = io();
@@ -67,7 +68,7 @@ export default class Navbar extends React.Component {
   logout(){
     console.log("insidelogout")
     localStorage.clear();
-    location.href= "/#/"
+    location.href= "/"
     window.location.reload()
 
   }
@@ -89,7 +90,7 @@ export default class Navbar extends React.Component {
     const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>))
     return(
       <div key={idx}>
-      <h4><a href="#/game" onClick={() => this.changeRoom(group.name)}>{group.name}</a><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
+      <h4><a href="/game" onClick={() => this.changeRoom(group.name)}>{group.name}</a><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
       <div>{this.state[group.id]}</div>
       <ul>{mappedUsers}</ul>
       </div>
@@ -99,16 +100,16 @@ export default class Navbar extends React.Component {
       <div >
         <h1 style={{'fontFamily': "Brush Script MT, cursive", 'fontSize': "72px"}}>goats</h1>
         <ul className="nav nav-pils nav-stacked">
-          <a href="#/tree"><li>Home</li></a>
-          <a href="#/browse"><li>browse all</li></a>
-          <a href="#/dayplanner"><li>plan my day</li></a>
+          <li><a href="/tree">Home</a></li>
+          <a href="/browse"><li>browse all</li></a>
+          <a href="/dayplanner"><li>plan my day</li></a>
           <a onClick={() => this.logout()}>Logout</a>
       
           <li>________</li>
             <li> Welcome, {this.props.userdata.username}</li>
-            <a href="#/profile"><li>View Profile</li></a>
+            <a href="/profile"><li>View Profile</li></a>
             <br />
-            <a href="#/profile">{this.renderInviteNotification()}</a>
+            <a href="/profile">{this.renderInviteNotification()}</a>
             
             
           <hr />
@@ -123,7 +124,7 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-
+    console.log("here in navbar")
     if (this.props.userdata.isLoading) {
       return (
         <div>

@@ -12,7 +12,7 @@ class Game extends React.Component {
     render() {
       // console.log(!!localStorage.getItem("userToken"), "this is in game")
       if(!!localStorage.getItem("userToken") === false){
-      window.location.href= "/#/login"
+      window.location.href= "/login"
       return false;
     }else{
         return(  

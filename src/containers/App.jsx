@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
+import { Router, Route, Link, browserHistory } from 'react-router';
 import Tree from './Tree.jsx';
 import Navbar from './Navbar.jsx';
 import Game from '../game/gameindex.jsx';
@@ -7,16 +7,6 @@ import Profile from './Profile.jsx';
 import Login from './Login/login.jsx';
 import Day from './Day.jsx';
 import Feed from './Feed.jsx';
-
-
-const createHistory = require('history').createHashHistory;
-
-const hashHistory = createHistory();
-// const location = history.location;
-
-// const unlisten = history.listen((location, action) => {
-  // console.log(action, location.pathname, location.state)
-// })
 
 
 class App extends React.Component {
@@ -28,6 +18,8 @@ class App extends React.Component {
   render() {
     // if(!!localStorage.getItem("userToken")){
     //   console.log("inside true")
+    console.log('historz', history);
+    console.log()
     return (
       <div>
         <div className="row">
@@ -38,19 +30,18 @@ class App extends React.Component {
               </div>
               <div className="col-sm-9 col-lg-10">
                 <div>
-                  <Router history={hashHistory}>
                     <div>
-                      <Route exact path="/" component={Login} />
-                      <Route path="/login" component={Login} />
-                      <Route path="/game" component={Game} />
-                      <Route path="/tree" component={Tree} />
-                      <Route path="/profile" component={Profile} />
-                      <Route path="/dayplanner" component={Day} />
-                      <Route path="/browse" component={Feed} />
+                      <Router history={browserHistory}>
+                        <Route exact path="/" component={Login} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/game" component={Game} />
+                        <Route path="/tree" component={Tree} />
+                        <Route path="/profile" component={Profile} />
+                        <Route path="/dayplanner" component={Day} />
+                        <Route path="/browse" component={Feed} />
+                      </Router>
                     </div>
-                  </Router>
                 </div>
-                <div />
               </div>
             </div>
           </div>

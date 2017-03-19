@@ -7,13 +7,9 @@ import App from './containers/App.jsx';
 import reducers from './reducers/index.js';
 
 
-// const client = axios.create({
-//   baseURL: 'http://localhost:8000/api',
-//   responseType: 'json',
-// });
 
 ReactDOM.render(
   <Provider store={createStore(reducers, applyMiddleware(thunk))} >
-    <App />
+      <App />
   </Provider >
   , document.getElementById('app'));

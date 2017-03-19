@@ -67,7 +67,7 @@ export default class Profile extends React.Component {
     };
 
     if(!!localStorage.getItem("userToken") === false){
-      window.location.href= "/#/login"
+      window.location.href= "/login"
       return false;
     }else{
     const mappedInvites = this.props.userdata.invites.map((invite, idx) => {
