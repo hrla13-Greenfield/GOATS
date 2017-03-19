@@ -13180,7 +13180,6 @@ var GameLanding = (_dec = (0, _reactRedux.connect)(function (store) {
 
     var self = _this;
     socket.on('init-game', function (data) {
-      console.log("987");
       if (data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
         self.setState({
           opponentPicture: _react2.default.createElement('img', { src: data.opponentPicture, height: '50px' }),
