@@ -3394,27 +3394,27 @@ function selectChoice(option, zip, userID, username) {
   if (option === 'food') {
     return {
       type: 'CHOICES_SELECTED',
-      payload: [{ img: 'http://www.maturetimes.co.uk/wp-content/uploads/2013/10/breakfast-including-coffee-honey-848x478.jpg', option: 'breakfast' }, { img: 'http://bjxcenter.com/wp-content/uploads/2015/05/dinner.jpg', option: 'lunch/dinner' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyfood' }]
+      payload: [{ img: './assets/breakfast.jpg', option: 'breakfast' }, { img: './assets/dinner.jpg', option: 'lunch/dinner' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyfood' }]
     };
   } else if (option === 'party') {
     return {
       type: 'CHOICES_SELECTED',
-      payload: [{ img: 'https://i.ytimg.com/vi/CX8Uuynkppw/maxresdefault.jpg', option: 'bar' }, { img: 'https://s-media-cache-ak0.pinimg.com/originals/42/26/8a/42268a15745703bbff25a4ca2e7e461b.jpg', option: 'club' }, { img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTpwzRlQlQemkHCfO4JA4yYbGX_tnStjZLPxRnaMaIcjTeGq0N', option: 'lounge' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyparty' }]
+      payload: [{ img: './assets/bar.jpg', option: 'bar' }, { img: './assets/club.jpg', option: 'club' }, { img: './assets/lounge.jpg', option: 'lounge' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyparty' }]
     };
   } else if (option === 'sports') {
     return {
       type: 'CHOICES_SELECTED',
-      payload: [{ img: 'https://indonesia.tripcanvas.co/bali/wp-content/uploads/2015/02/kitesurfing21.jpg', option: 'extreme' }, { img: 'http://caffeyoga.com/wp-content/uploads/2016/01/beach-yoga1.jpg', option: 'chill' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anysports' }]
+      payload: [{ img: './assets/extreme.jpg', option: 'extreme' }, { img: './assets/chill.jpg', option: 'chill' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anysports' }]
     };
   } else if (option === 'relax') {
     return {
       type: 'CHOICES_SELECTED',
-      payload: [{ img: 'http://bhubaneswarlive.com/wp-content/uploads/2017/01/spa-services-in-bhubaneswar.jpg', option: 'body&mind' }, { img: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQlBVJ8BIMYMBvtYycyIWcH4fQ-GLJ2eal2tLfDcYWfTQiaPURd3w', option: 'getOut' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyrelax' }]
+      payload: [{ img: './assets/body&mind.jpg', option: 'body&mind' }, { img: './assets/getout.jpg', option: 'getOut' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyrelax' }]
     };
   } else if (option === 'activity') {
     return {
       type: 'CHOICES_SELECTED',
-      payload: [{ img: 'http://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_D_SantaCruz_T2_Lisa_7547806186_6171c42b54_o_1280x642.jpg', option: 'entertainment' }, { img: 'http://www.travelinsurance.org/wp-content/uploads/2009/11/skydiving.jpg', option: 'daredevil' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyactivity' }]
+      payload: [{ img: './assets/entertain.jpg', option: 'entertainment' }, { img: './assets/daredevil.jpg', option: 'daredevil' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyactivity' }]
     };
     // server calls
   } else if (option === 'breakfast') {
@@ -40157,7 +40157,7 @@ var initialState = {
   zipCode: false,
   showAll: [],
 
-  firstLoad: [{ img: './assets/food.jpg', option: 'food', title: 'food' }, { img: 'http://www.miamiandbeaches.com/~/media/Images/GMCVB/MiamiAndBeaches/Featured%20Articles/Featured%20Article%20Headers/clubs-101-3-612-x-338.jpg', option: 'party', title: 'party' }, { img: 'http://www.pkvitality.com/wp-content/uploads/2016/12/accuracy.jpg', option: 'sports', title: 'sports' }, { img: 'http://s.hswstatic.com/gif/relaxation-quiz-orig.jpg', option: 'relax', title: 'relax' }, { img: 'https://secure.parksandresorts.wdpromedia.com/resize/mwImage/1/640/360/75/wdpromedia.disney.go.com/media/wdpro-assets/dlr/gallery/destinations/disneyland-park/disneyland-gallery25.jpg?21042014145156', option: 'activity', title: 'activity' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'any', title: 'I have no idea' }]
+  firstLoad: [{ img: './assets/food.jpg', option: 'food' }, { img: './assets/party.jpg', option: 'party' }, { img: './assets/sports.jpg', option: 'sports' }, { img: './assets/relax.jpg', option: 'relax' }, { img: './assets/activity.jpg', option: 'activity' }, { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'any', title: 'I have no idea' }]
 };
 
 //console.log('in redcucer')
