@@ -16,10 +16,6 @@ class App extends React.Component {
   }
 
   render() {
-    // if(!!localStorage.getItem("userToken")){
-    //   console.log("inside true")
-    console.log('historz', history);
-    console.log()
     return (
       <div>
         <div className="row">
@@ -30,16 +26,8 @@ class App extends React.Component {
               </div>
               <div className="col-sm-9 col-lg-10">
                 <div>
-                    <div>
-                      <Router history={browserHistory}>
-                        <Route exact path="/" component={Login} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/game" component={GameLanding} />
-                        <Route path="/tree" component={Tree} />
-                        <Route path="/profile" component={Profile} />
-                        <Route path="/dayplanner" component={Day} />
-                        <Route path="/browse" component={Feed} />
-                      </Router>
+                  <div>
+                      {this.props.children}
                     </div>
                 </div>
               </div>
@@ -47,14 +35,8 @@ class App extends React.Component {
           </div>
         </div>
       </div>
-    )
-  // } else {
-  //   console.log("inside false")
-  // return(
-  //   <div> <Navbar /></div>
-  // )
-  // }
-} 
+    );
+  }
 }
 
 export default App;

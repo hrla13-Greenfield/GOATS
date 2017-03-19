@@ -91,7 +91,8 @@ export default class Navbar extends React.Component {
     const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>))
     return(
       <div key={idx}>
-      <h4><a href="/game" onClick={() => this.changeRoom(group.name)}>{group.name}</a><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
+      <h4><a href="/game" onClick={() => this.changeRoom(group.name)}>{group.name}<i className="fa fa-gamepad" aria-hidden="true"></i>
+</a><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
       <div>{this.state[group.id]}</div>
       <ul>{mappedUsers}</ul>
       </div>
@@ -101,10 +102,10 @@ export default class Navbar extends React.Component {
       <div >
         <h1 style={{'fontFamily': "Brush Script MT, cursive", 'fontSize': "72px"}}>goats</h1>
         <ul className="nav nav-pils nav-stacked">
-          <li><a href="/tree">Home</a></li>
-          <a href="/browse"><li>browse all</li></a>
-          <a href="/dayplanner"><li>plan my day</li></a>
-          <a onClick={() => this.logout()}>Logout</a>
+          <li><Link to={'/tree'}>Home</Link></li>
+          <li><Link to={'/browse'}>Browse All</Link></li>
+          <li><Link to={'/dayplanner'}>Plan my Day</Link></li>
+          <li><Link onClick={() => this.logout()}>Logout</Link></li>
       
           <li>________</li>
             <li> Welcome, {this.props.userdata.username}</li>
