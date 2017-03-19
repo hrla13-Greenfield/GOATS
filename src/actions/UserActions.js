@@ -240,7 +240,7 @@ export function chooseRating(rating, historyid, username) {
   };
 }
 
-export function deletehistory(historyid) {
+export function deletehistory(historyid, username) {
   return (dispatch) => {
     dispatch(isLoading(true));
     axios.post('/api/users/deletehistory', {
