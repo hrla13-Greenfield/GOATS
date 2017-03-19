@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route } from 'react-router';
 import Tree from './Tree.jsx';
 import Navbar from './Navbar.jsx';
-import Game from '../game/gameindex.jsx';
+import GameLanding from '../game/gameindex.jsx';
 import Profile from './Profile.jsx';
 import Login from './Login/login.jsx';
 import Day from './Day.jsx';
@@ -42,7 +42,7 @@ class App extends React.Component {
                     <div>
                       <Route exact path="/" component={Login} />
                       <Route path="/login" component={Login} />
-                      <Route path="/game" component={Game} />
+                      <Route path="/game" component={GameLanding} />
                       <Route path="/tree" component={Tree} />
                       <Route path="/profile" component={Profile} />
                       <Route path="/dayplanner" component={Day} />
