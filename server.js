@@ -36,6 +36,10 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('init-game2', info);
     console.log(`this is something ${info}`);
   });
+  socket.on('ready-up', (ready) => {
+    socket.broadcast.emit('ready-up', ready);
+    console.log(`this is the ready ${ready}`)
+  })
   socket.on('count', (counter) => {
     socket.broadcast.emit('count', counter);
     console.log(`this is the count ${counter}`);
