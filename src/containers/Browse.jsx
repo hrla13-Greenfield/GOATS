@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { browse } from '../actions/index.jsx';
 import { wantToDo } from '../actions/index.jsx';
 import InfiniteScroll from 'redux-infinite-scroll';
-
+import * as UserActions from '../actions/UserActions';
 class Browse extends React.Component {
 
  // componentWillMount() {
@@ -14,6 +14,10 @@ class Browse extends React.Component {
 
 _loadMore() {
     this.props.dispatch(browse(this.props.choices.updatedZipcode, this.props.choices.showAll.length))
+  }
+  wantToDo(item) {
+    this.props.dispatch(wantToDo(item, this.props.userdata.userID));
+    this.props.dispatch(UserActions.signIn(this.props.userdata.username));
   }
 
   renderAll() {
@@ -28,7 +32,7 @@ _loadMore() {
             <h5> {item.name} </h5>
             <h6> Description:{ item.categories.map((item) => ( <div>{item.title}</div>)) } </h6>
             <h6> {Math.round(item.distance * 0.000621371*100)/100} miles from you </h6>
-            <div><button onClick={() => this.props.dispatch(wantToDo(item, this.props.userdata.userID))} className="btn btn-success">I want to do this!</button></div>
+            <div><button onClick={() => this.wantToDo(item)} className="btn btn-success">I want to do this!</button></div>
           </div>
           </div>
           </div>

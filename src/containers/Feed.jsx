@@ -8,7 +8,7 @@ import Location from './LocationTree.jsx';
 class Feed extends React.Component {
   render(){
   if(!!localStorage.getItem("userToken") === false){
-      window.location.href= "/#/login"
+      window.location.href= "/login"
       return false;
     } else {
      if (this.props.choices.zipCode === false) {

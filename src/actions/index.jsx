@@ -1,5 +1,6 @@
 
 import axios from 'axios';
+import * as UserActions from '../actions/UserActions';
 
 let data;
 let selection;
@@ -125,7 +126,7 @@ export function getAll(data) {
   };
 }
 
-export function selectChoice(option, zip, userID) {
+export function selectChoice(option, zip, userID, username) {
   console.log('zip in selectChoice', zip);
   if (option === 'food') {
     return {
@@ -175,8 +176,8 @@ export function selectChoice(option, zip, userID) {
       axios.get('api/getActivities', { params: {
         term: 'food', filter: 'coffee', zip },
         headers: {
-        'Content-type': 'application/x-www-form-urlencoded',
-      },
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
       })
       .then((results) => {
         data = results.data.businesses;
@@ -185,7 +186,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -194,7 +198,30 @@ export function selectChoice(option, zip, userID) {
   } else if (option === 'lunch/dinner') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-      term: 'food', filter: 'restaurants', zip },
+        term: 'food', filter: 'restaurants', zip },
+        headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+      })
+      .then((results) => {
+        data = results.data.businesses;
+        selection = data[Math.floor(Math.random() * data.length)];
+        dispatch(getData(selection));
+        const input = { selection,
+          userID };
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    };
+  } else if (option === 'bar') {
+    return (dispatch) => {
+      axios.get('api/getActivities', { params: {
+      term: 'bars', filter: 'bars', zip },
       headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
@@ -205,35 +232,18 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
       });
     };
-  } else if (option === 'bar') {
+  } else if (option === 'club') {
     return (dispatch) => {
     axios.get('api/getActivities', { params: {
-        term: 'bars', filter: 'bars', zip },
-        headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-        },
-      })
-      .then((results) => {
-        data = results.data.businesses;
-        selection = data[Math.floor(Math.random() * data.length)];
-        dispatch(getData(selection));
-        const input = { selection,
-          userID };
-        axios.post('api/users/history', input);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-  } else if (option === 'club') {
-  return (dispatch) => {
-      axios.get('api/getActivities', { params: {
         term: 'clubs', filter: 'danceclubs', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
@@ -245,14 +255,17 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
       });
-    };
-} else if (option === 'lounge') {
-    return (dispatch) => {
+  };
+  } else if (option === 'lounge') {
+  return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'lounge', filter: 'lounges', zip },
         headers: {
@@ -265,13 +278,16 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
       });
     };
-  } else if (option === 'extreme') {
+} else if (option === 'extreme') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'sports', filter: 'boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving', zip },
@@ -285,7 +301,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -305,7 +324,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -325,7 +347,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -345,7 +370,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -365,7 +393,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -385,7 +416,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -405,7 +439,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -445,7 +482,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -465,7 +505,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -485,7 +528,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -505,7 +551,10 @@ export function selectChoice(option, zip, userID) {
         dispatch(getData(selection));
         const input = { selection,
           userID };
-        axios.post('api/users/history', input);
+        axios.post('api/users/history', input)
+        .then(() => {
+          UserActions.signIn(username);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -629,12 +678,13 @@ export function wantToDo(item, userID) {
       userID };
     console.log(input, 'input');
     axios.post('api/users/history', input)
-  .then((result) => {
-    console.log('result', result);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+        .then((result) => {
+          UserActions.signIn(username);
+          console.log('result', result);
+        })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 }
 

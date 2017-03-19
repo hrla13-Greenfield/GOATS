@@ -13,7 +13,9 @@ app.use(morgan('combined'));
 app.use(express.static('./output'));
 app.use('/api', myRouter);
 
-
+app.get('/*', function(req, res) {
+  res.sendFile(__dirname+'/output/index.html')
+})
 const server = app.listen(PORT, () => {
   console.log(`connected to ${PORT}`);
 });

@@ -10,7 +10,7 @@ import Location from './LocationTree.jsx';
 class Day extends React.Component {
   render(){
   if(!!localStorage.getItem("userToken") === false){
-      window.location.href= "/#/login"
+      window.location.href= "/login"
       return false;
     } else {
 

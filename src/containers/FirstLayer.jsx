@@ -12,7 +12,7 @@ class FirstLayer extends React.Component {
       <div className="col-md-4 col-sm-6 col-xs-12">
         <img className="allPics"
           key={ choice.img }
-          onClick={() => this.props.selectChoice(choice.option, this.props.choices.updatedZipcode, this.props.userdata.userID)}
+          onClick={() => this.props.selectChoice(choice.option, this.props.choices.updatedZipcode, this.props.userdata.userID, this.props.userdata.username)}
           src={ choice.img } 
           style={{ borderRadius: 5, tintColor: '#0000CD' }}/></div>
       ));
