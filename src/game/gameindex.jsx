@@ -28,7 +28,6 @@ class GameLanding extends React.Component {
 
     var self = this;
     socket.on('init-game', function (data) {
-      console.log("987")
       if (data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
         self.setState({
           opponentPicture: <img src={data.opponentPicture} height='50px' />,
@@ -75,7 +74,7 @@ class GameLanding extends React.Component {
       self.setState({
       counter: true
     })
-    }, 4000);
+    }, 3000);
     }
   }
     render() {
