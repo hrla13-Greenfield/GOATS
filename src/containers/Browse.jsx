@@ -23,7 +23,7 @@ _loadMore() {
   renderAll() {
     console.log(this.props.choices.showAll, 'this.props.choices.showAll');
     return this.props.choices.showAll.map((item) => (
-      <div className="col-md-4 col-sm-6 col-xs-12">
+      <div className="col-md-4 col-sm-6 col-xs-12" height="300px">
         <div className="thumbnail">
           <div style={{ width: '200px', height:'180px', overflow:'hidden'}}>
             <a href={item.url}><img src={item.image_url} height="180" className="feedPics"/></a>
