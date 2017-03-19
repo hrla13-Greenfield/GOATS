@@ -61,7 +61,8 @@ export default class Navbar extends React.Component {
       opponentPicture: this.props.userdata.userImg,
       opponentUsername: this.props.userdata.username,
       opponentScore: 0,
-      room: groupName
+      room: groupName,
+      opponentSelection: this.props.userdata.current.name, 
     })
   }
 

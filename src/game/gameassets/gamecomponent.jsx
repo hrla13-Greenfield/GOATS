@@ -30,27 +30,6 @@ class GameComponent extends React.Component {
       this.handleRandom = this.handleRandom.bind(this);
 
     var self = this;
-    // socket.on('init-game', function(data) {
-    //     if(data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
-    //         self.setState({
-    //             opponentPicture: [<img src={data.opponentPicture} height='50px'/>],
-    //             opponentUsername: [data.opponentUsername],
-    //             opponentScore: [data.opponentScore],
-    //             room: data.room
-    //         })
-    //     socket.emit('init-game2', self.props.userdata)
-    //     }
-    // })
-    // socket.on('init-game2', function(data) {
-    //     if(data.roomSelected === self.state.myRoom && data.username !== self.props.userdata.username) {
-    //         self.setState({
-    //             opponentPicture: [<img src={data.userImg} height='50px'/>],
-    //             opponentUsername:[data.username],
-    //             opponentScore: 0,
-    //             room: data.roomSelected
-    //         })
-    //     }
-    // })
     socket.on('count', function(data) {
         console.log('this is the count for the data', data.score)
         // if(data.selectedRoom === self.state.myRoom) {
@@ -113,13 +92,13 @@ class GameComponent extends React.Component {
               img: "http://opengameart.org/sites/default/files/cat_spin_kick.gif"
           })
         }
-        if(currCount >= 10) {
+        if(currCount >= 10 || this.state.opponentScore === -10) {
           this.setState({
               winCondition: "YOU WIN!",
               img: "http://opengameart.org/sites/default/files/cat_a1_super.gif"
           })
         }
-        if(currCount <= -10) {
+        if(currCount <= -10 || this.state.opponentScore === 10) {
           this.setState({
               winCondition: "YOU LOSE! GIT GUD!",
               img: "http://opengameart.org/sites/default/files/mon1_walk.gif"
@@ -142,6 +121,25 @@ class GameComponent extends React.Component {
     }
 
     render() {
+        if(this.state.winCondition === "YOU WIN!") {
+            return(
+            <div>
+              <div>{this.state.winCondition}</div>
+              <img src={this.state.img}/>
+              <div>{this.props.userdata.current.name}</div>  
+            </div>
+            )
+        } 
+        // /*else if(this.state.winCondition === "YOU LOSE! GIT GUD!) {
+        //     return(
+        //     <div>
+        //       <div>{this.state.winCondition}</div>
+        //       <img src={this.state.img}/>
+        //       <div>{this.props.userdata.current.name}</div>  
+        //     </div> 
+        //     )
+        // }*/
+
         return(
         <div onKeyPress={this.handleCount}>
             <div>{this.state.group}</div>
