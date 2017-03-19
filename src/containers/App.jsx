@@ -1,16 +1,5 @@
 import React from 'react';
 import Navbar from './Navbar.jsx';
-import GameLanding from '../game/gameindex.jsx';
-import Profile from './Profile.jsx';
-import Login from './Login/login.jsx';
-import Day from './Day.jsx';
-import Feed from './Feed.jsx';
-
-
-const createHistory = require('history').createHashHistory;
-
-const hashHistory = createHistory();
-
 
 class App extends React.Component {
   constructor(props) {
