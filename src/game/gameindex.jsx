@@ -57,7 +57,8 @@ class GameLanding extends React.Component {
     })
   }
 
-  rdyup() {
+  rdyup() { 
+    
     socket.emit('ready-up', {
       roomname: this.props.userdata.roomSelected
     })
