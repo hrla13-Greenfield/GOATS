@@ -64,6 +64,7 @@ export default class Navbar extends React.Component {
       room: groupName,
       opponentSelection: this.props.userdata.current.name, 
     })
+    
   }
 
   logout(){
@@ -91,8 +92,8 @@ export default class Navbar extends React.Component {
     const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>))
     return(
       <div key={idx}>
-      <h4><a href="/game" onClick={() => this.changeRoom(group.name)}>{group.name}<i className="fa fa-gamepad" aria-hidden="true"></i>
-</a><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
+      <h4><Link to="/game" onClick={() => this.changeRoom(group.name)}>{group.name}  <i className="fa fa-gamepad" aria-hidden="true"></i>
+</Link><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
       <div>{this.state[group.id]}</div>
       <ul>{mappedUsers}</ul>
       </div>
@@ -109,9 +110,9 @@ export default class Navbar extends React.Component {
       
           <li>________</li>
             <li> Welcome, {this.props.userdata.username}</li>
-            <a href="/profile"><li>View Profile</li></a>
+            <Link to="/profile"><li>View Profile</li></Link>
             <br />
-            <a href="/profile">{this.renderInviteNotification()}</a>
+            <Link to="/profile">{this.renderInviteNotification()}</Link>
             
             
           <hr />
@@ -126,7 +127,6 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    console.log("here in navbar")
     if (this.props.userdata.isLoading) {
       return (
         <div>

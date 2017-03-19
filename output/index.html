@@ -2,13 +2,25 @@
 <html>
   <head>
     <script src="http://cdn.auth0.com/js/lock-passwordless-2.2.3.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.2.0.min.js"
+  integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I="
+  crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/0ef19af188.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
   <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">  
+  
     <body>
       <div class="container-fluid" id="app"></div>
       <script src="bundle.js"></script>
+      <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
     </body>
 </html>

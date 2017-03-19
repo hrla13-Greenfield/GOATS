@@ -1,13 +1,11 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes.jsx';
 
-
-
 export function signInSuccess(userinfo, username) {
   var userinfo = userinfo.data;
   const newGroups = [];
   const newGroupsByID = [];
-  for (let i = 0; i < userinfo.usergroups.length; i++) {
+  for (let i = 0; i < userinfo.usergroups.length; i += 1) {
     if (userinfo.usergroups[i].Users.length !== 0) {
       newGroups.push(userinfo.usergroups[i].id);
 
@@ -70,7 +68,7 @@ export function signInSuccess(userinfo, username) {
   };
 }
 
-export function isLoading(bool) {
+export function isLoading() {
   return {
     type: types.USER_LOADING,
     isLoading: true,
