@@ -39674,14 +39674,11 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
         var initRandom = charArr[Math.floor(charArr.length * Math.random())];
         _this.state = {
             count: 0,
-            opponentPicture: [],
-            opponentUsername: [],
-            opponentScore: [],
+            opponentScore: 0,
             random: initRandom,
             winCondition: "Get to 10 points to WIN!",
             penalty: "Let's Go!",
             img: "http://opengameart.org/sites/default/files/cat_a1.gif",
-            myRoom: _this.props.userdata.roomSelected,
             room: ""
         };
         _this.handleCount = _this.handleCount.bind(_this);
@@ -39689,33 +39686,35 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
         _this.handleRandom = _this.handleRandom.bind(_this);
 
         var self = _this;
-        socket.on('init-game', function (data) {
-            if (data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
-                self.setState({
-                    opponentPicture: [_react2.default.createElement('img', { src: data.opponentPicture, height: '50px' })],
-                    opponentUsername: [data.opponentUsername],
-                    opponentScore: [data.opponentScore],
-                    room: data.room
-                });
-                socket.emit('init-game2', self.props.userdata);
-            }
-        });
-        socket.on('init-game2', function (data) {
-            if (data.roomSelected === self.state.myRoom && data.username !== self.props.userdata.username) {
-                self.setState({
-                    opponentPicture: [_react2.default.createElement('img', { src: data.userImg, height: '50px' })],
-                    opponentUsername: [data.username],
-                    opponentScore: 0,
-                    room: data.roomSelected
-                });
-            }
-        });
+        // socket.on('init-game', function(data) {
+        //     if(data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
+        //         self.setState({
+        //             opponentPicture: [<img src={data.opponentPicture} height='50px'/>],
+        //             opponentUsername: [data.opponentUsername],
+        //             opponentScore: [data.opponentScore],
+        //             room: data.room
+        //         })
+        //     socket.emit('init-game2', self.props.userdata)
+        //     }
+        // })
+        // socket.on('init-game2', function(data) {
+        //     if(data.roomSelected === self.state.myRoom && data.username !== self.props.userdata.username) {
+        //         self.setState({
+        //             opponentPicture: [<img src={data.userImg} height='50px'/>],
+        //             opponentUsername:[data.username],
+        //             opponentScore: 0,
+        //             room: data.roomSelected
+        //         })
+        //     }
+        // })
         socket.on('count', function (data) {
-            if (data.selectedRoom === self.state.myRoom) {
-                self.setState({
-                    opponentScore: [data.score]
-                });
-            }
+            console.log('this is the count for the data', data.score);
+            // if(data.selectedRoom === self.state.myRoom) {
+            console.log('am i here?');
+            self.setState({
+                opponentScore: data.score
+            });
+            // }
         });
         return _this;
     }
@@ -39839,48 +39838,15 @@ var GameComponent = (_dec = (0, _reactRedux.connect)(function (store) {
                         this.state.count
                     ),
                     _react2.default.createElement(
+                        'div',
+                        null,
+                        'Opponent\'s Score: ',
+                        this.state.opponentScore
+                    ),
+                    _react2.default.createElement(
                         'h6',
                         null,
                         this.state.penalty
-                    ),
-                    _react2.default.createElement(
-                        'h6',
-                        null,
-                        'myRoom: ',
-                        this.state.myRoom
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(
-                            'h4',
-                            null,
-                            'Opponent Information:'
-                        ),
-                        _react2.default.createElement(
-                            'h6',
-                            null,
-                            'Username: ',
-                            this.state.opponentUsername
-                        ),
-                        _react2.default.createElement(
-                            'h6',
-                            null,
-                            'Picture: ',
-                            this.state.opponentPicture
-                        ),
-                        _react2.default.createElement(
-                            'h6',
-                            null,
-                            'Room: ',
-                            this.state.room
-                        ),
-                        _react2.default.createElement(
-                            'h6',
-                            null,
-                            'Score: ',
-                            this.state.opponentScore
-                        )
                     )
                 ),
                 _react2.default.createElement(
@@ -39904,10 +39870,12 @@ exports.default = GameComponent;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
 
 var _react = __webpack_require__(3);
 
@@ -39921,6 +39889,8 @@ var _gamecomponent = __webpack_require__(198);
 
 var _gamecomponent2 = _interopRequireDefault(_gamecomponent);
 
+var _reactRedux = __webpack_require__(12);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39929,39 +39899,133 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Game = function (_React$Component) {
-  _inherits(Game, _React$Component);
+var io = __webpack_require__(159);
+var socket = io();
 
-  function Game(props) {
-    _classCallCheck(this, Game);
+var GameLanding = (_dec = (0, _reactRedux.connect)(function (store) {
+    return {
+        userdata: store.userdata
+    };
+}), _dec(_class = function (_React$Component) {
+    _inherits(GameLanding, _React$Component);
 
-    var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
+    function GameLanding(props) {
+        _classCallCheck(this, GameLanding);
 
-    _this.state = {};
-    return _this;
-  }
+        var _this = _possibleConstructorReturn(this, (GameLanding.__proto__ || Object.getPrototypeOf(GameLanding)).call(this, props));
 
-  _createClass(Game, [{
-    key: 'render',
-    value: function render() {
-      // console.log(!!localStorage.getItem("userToken"), "this is in game")
-      if (!!localStorage.getItem("userToken") === false) {
-        window.location.href = "/login";
-        return false;
-      } else {
-        return _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(_gamecomponent2.default, null)
-        );
-      }
+        _this.state = {
+            opponentPicture: '',
+            opponentUsername: '',
+            opponentSelection: '',
+            myRoom: _this.props.userdata.roomSelected,
+            room: ''
+        };
+
+        var self = _this;
+        socket.on('init-game', function (data) {
+            if (data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
+                self.setState({
+                    opponentPicture: _react2.default.createElement('img', { src: data.opponentPicture, height: '50px' }),
+                    opponentUsername: data.opponentUsername,
+                    opponentSelection: data.opponentSelection,
+                    room: data.room
+                });
+                socket.emit('init-game2', self.props.userdata);
+            }
+        });
+        socket.on('init-game2', function (data) {
+            if (data.roomSelected === self.state.myRoom && data.username !== self.props.userdata.username) {
+                self.setState({
+                    opponentPicture: _react2.default.createElement('img', { src: data.userImg, height: '50px' }),
+                    opponentUsername: data.username,
+                    opponentSelection: data.current.name,
+                    room: data.roomSelected
+                });
+            }
+        });
+        return _this;
     }
-  }]);
 
-  return Game;
-}(_react2.default.Component);
+    _createClass(GameLanding, [{
+        key: 'render',
+        value: function render() {
+            if (!!localStorage.getItem("userToken") === false) {
+                window.location.href = "/login";
+                return false;
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    this.state.opponentUsername === '' ? _react2.default.createElement(
+                        'div',
+                        null,
+                        'Waiting for Opponent'
+                    ) : _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            'Opponent Found!'
+                        ),
+                        _react2.default.createElement(
+                            'button',
+                            { onClick: function onClick() {
+                                    return _react2.default.createElement(_gamecomponent2.default, null);
+                                } },
+                            'Start'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Opponent Status: ',
+                            this.opponentStatus,
+                            ' ',
+                            this.state.opponentStatus
+                        ),
+                        _react2.default.createElement(
+                            'h4',
+                            null,
+                            'Opponent Information:'
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Room: ',
+                            this.state.myRoom
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Picture: ',
+                            this.state.opponentPicture
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Username: ',
+                            this.state.opponentUsername
+                        ),
+                        _react2.default.createElement(
+                            'h6',
+                            null,
+                            'Recommendation: ',
+                            this.state.opponentSelection
+                        )
+                    )
+                );
+            }
+        }
+    }]);
 
-exports.default = Game;
+    return GameLanding;
+}(_react2.default.Component)) || _class);
+exports.default = GameLanding;
 
 /***/ }),
 /* 200 */

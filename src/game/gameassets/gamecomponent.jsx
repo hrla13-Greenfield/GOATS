@@ -18,14 +18,11 @@ class GameComponent extends React.Component {
       var initRandom = charArr[Math.floor(charArr.length * Math.random())]
       this.state = {
         count: 0,
-        opponentPicture: [],
-        opponentUsername: [],
-        opponentScore: [],
+        opponentScore: 0,
         random: initRandom,
         winCondition: "Get to 10 points to WIN!",
         penalty: "Let's Go!",
         img: "http://opengameart.org/sites/default/files/cat_a1.gif",
-        myRoom: this.props.userdata.roomSelected,
         room: "" 
       };
       this.handleCount = this.handleCount.bind(this);
@@ -33,33 +30,35 @@ class GameComponent extends React.Component {
       this.handleRandom = this.handleRandom.bind(this);
 
     var self = this;
-    socket.on('init-game', function(data) {
-        if(data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
-            self.setState({
-                opponentPicture: [<img src={data.opponentPicture} height='50px'/>],
-                opponentUsername: [data.opponentUsername],
-                opponentScore: [data.opponentScore],
-                room: data.room
-            })
-        socket.emit('init-game2', self.props.userdata)
-        }
-    })
-    socket.on('init-game2', function(data) {
-        if(data.roomSelected === self.state.myRoom && data.username !== self.props.userdata.username) {
-            self.setState({
-                opponentPicture: [<img src={data.userImg} height='50px'/>],
-                opponentUsername:[data.username],
-                opponentScore: 0,
-                room: data.roomSelected
-            })
-        }
-    })
+    // socket.on('init-game', function(data) {
+    //     if(data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
+    //         self.setState({
+    //             opponentPicture: [<img src={data.opponentPicture} height='50px'/>],
+    //             opponentUsername: [data.opponentUsername],
+    //             opponentScore: [data.opponentScore],
+    //             room: data.room
+    //         })
+    //     socket.emit('init-game2', self.props.userdata)
+    //     }
+    // })
+    // socket.on('init-game2', function(data) {
+    //     if(data.roomSelected === self.state.myRoom && data.username !== self.props.userdata.username) {
+    //         self.setState({
+    //             opponentPicture: [<img src={data.userImg} height='50px'/>],
+    //             opponentUsername:[data.username],
+    //             opponentScore: 0,
+    //             room: data.roomSelected
+    //         })
+    //     }
+    // })
     socket.on('count', function(data) {
-        if(data.selectedRoom === self.state.myRoom) {
+        console.log('this is the count for the data', data.score)
+        // if(data.selectedRoom === self.state.myRoom) {
+            console.log('am i here?')
             self.setState({
-                opponentScore: [data.score]
+                opponentScore: data.score
             })
-        }
+        // }
     })
     }
 
@@ -151,15 +150,8 @@ class GameComponent extends React.Component {
                 <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
                 <img src={this.state.img}/>
                 <div>Your Score: {this.state.count}</div>
+                <div>Opponent's Score: {this.state.opponentScore}</div>
                 <h6>{this.state.penalty}</h6>
-                <h6>myRoom: {this.state.myRoom}</h6>
-                <div>
-                    <h4>Opponent Information:</h4>
-                    <h6>Username: {this.state.opponentUsername}</h6>
-                    <h6>Picture: {this.state.opponentPicture}</h6>
-                    <h6>Room: {this.state.room}</h6>
-                    <h6>Score: {this.state.opponentScore}</h6>
-                </div>
             </div> 
             <button onClick={this.handleReset}>RESET</button>
         </div>
