@@ -28,13 +28,15 @@ class Location extends React.Component {
     return (
       <div className="centerdiv">
       <div className="jumbotron">
-      <h3>Where should GOATS take you next?</h3>
+      <h2 className="orange">Where should GOATS take you next?</h2>
+      <div className="spaceSmall"></div>
       <form onSubmit={this.handleSubmit.bind(this)}>
-       <input type="text" onChange={this.handleChange.bind(this)} placeholder="zipcode goes here"/>
-       <input type="submit" value="enter" className="btn btn-info btn-sm"/>
+       <input type="text" onChange={this.handleChange.bind(this)} placeholder="zipcode goes here" className="zipInput"/>
+        <div className="spaceSmall"></div>
+       <input type="submit" value="enter" className="btn btn-sm searchButton zipInput"/>
        </form>
       </div>
-      <div className="center">
+      <div className="goatsanimate">
       <img src={"./assets/goatssolo.png"} height="400px"></img>
       </div>
       </div>

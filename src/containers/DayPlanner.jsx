@@ -15,79 +15,80 @@ class DayPlanner extends React.Component {
   renderDay() {
       items = (this.props.choices.dayLoad.map((item) => {
         return (
-          <div className="col-md-6 col-sm-12 col-xs-12">
-            <div> {item.name} </div>
+          <div className="col-md-6 col-sm-12 col-xs-12 morning">
+            <h4 className="headingBold"> {item.name} </h4>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
             <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
-            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
-            <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
+            <h6> {item.phone} </h6>
           </div>
         )
       }))
       items2 = (this.props.choices.dayLoadtwo.map((item) => {
         return (
-          <div className="col-md-6 col-sm-12 col-xs-12">
-            <div> {item.name} </div>
+          <div className="col-md-6 col-sm-12 col-xs-12 morning">
+            <h4 className="headingBold"> {item.name} </h4>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
             <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
-            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
-            <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
+            <h6> {item.phone} </h6>
+            
           </div>
         )
       }))
       items3 = (this.props.choices.dayLoadthree.map((item) => {
         return (
-          <div className="col-md-6 col-sm-12 col-xs-12">
-            <div> {item.name} </div>
+          <div className="col-md-6 col-sm-12 col-xs-12 afternoon">
+            <h4 className="headingBold"> {item.name} </h4>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
             <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
-            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
-            <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
+            <h6> {item.phone} </h6>
           </div>
         )
       }))
       items4 = (this.props.choices.dayLoadfour.map((item) => {
         return (
-          <div  className="col-md-6 col-sm-12 col-xs-12">
-            <div> {item.name} </div>
+          <div  className="col-md-6 col-sm-12 col-xs-12 afternoon" >
+            <h4 className="headingBold"> {item.name} </h4>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
             <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
-            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
-            <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
+            <h6> {item.phone} </h6>
           </div>
         )
       }))
       items5 = (this.props.choices.dayLoadfive.map((item) => {
         return (
-          <div  className="col-md-6 col-sm-12 col-xs-12">
-            <div> {item.name} </div>
+          <div  className="col-md-6 col-sm-12 col-xs-12 night">
+            <h4 className="headingBold"> {item.name} </h4>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
             <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
-            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
-            <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
+            <h6> {item.phone} </h6>
           </div>
         )
       }));
       items6 = (this.props.choices.dayLoadsix.map((item) => {
         return (
-          <div  className="col-md-6 col-sm-12 col-xs-12">
-            <div> {item.name} </div>
+          <div  className="col-md-6 col-sm-12 col-xs-12 night">
+            <h4 className="headingBold"> {item.name} </h4>
             <div style={{width: '200px', height:'180px', overflow:'hidden'}}>
             <a href={item.url}><img src={item.image} height="180" /></a>
             </div>
-            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
-            <div> {item.phone} </div>
             <div> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
+            <h6> Description:{ item.description.map((item) => ( <div>{item.title}</div>)) } </h6>
+            <h6> {item.phone} </h6>
           </div>
         )
       }));
@@ -98,21 +99,27 @@ class DayPlanner extends React.Component {
         <div>
           <div>{this.renderDay()}</div>
         <div> 
-          <div><h2>Morning</h2><div/>
+        <div className="space"></div>
+          <div><h2 className="headingBold">Morning</h2></div>
           <div>{items}</div>
           <div>{items2}</div>
         </div>
+        <br/>
+        <div className="space"></div>
         <div>
-         <div><h2>Afternoon</h2></div>
+         <div className="space"></div>
+         <div><h2 className="headingBold">Afternoon</h2></div>
           <div>{items3}</div>
           <div>{items4}</div>
         </div>
+        <br/>
+        <div className="space"></div>
         <div>
-         <div><h2>Night</h2></div>
+         <div className="space"></div>
+         <div><h2 className="headingBold">Night</h2></div>
           <div>{items5}</div>
           <div>{items6}</div>
         </div>
-      </div>
       </div>
       );
     } else {

@@ -9,8 +9,8 @@ class Suggestion extends React.Component {
   renderChoices () {
     return this.props.choices.firstLoad.map((choice) => {
       return (
-        <div className="centered">
-        <h3 className="headings"> Here is what GoatBot picked for you</h3>
+        <div className="centered jumbotron">
+        <h3 className="headings"> Here is what GOATS picked for you</h3>
         <div className="spaceSmall"></div>
          <h2 className="headingsW"> { choice.name } </h2>
          <div className="spaceSmall"></div>

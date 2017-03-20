@@ -4,7 +4,6 @@
 }
 .gify {
   margin: 0 auto;
-  align-items: center;
 }
 .red {
   color: red;
@@ -15,7 +14,7 @@
 }
 
 .gify {
-  /*margin: 200px*/
+ margin-left: '200px'
 }
 
 .headings {
@@ -134,3 +133,72 @@ a {
   color: white;
 }
 
+@keyframes goats {
+    0%   { left:0px; top:0px;}
+    25%  { left:200px; top:0px;}
+    50%  { left:200px; top:200px;}
+    75%  { left:0px; top:200px;}
+    100% { left:0px; top:0px;}
+}
+
+.goatsanimate {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    padding-left: 230px;
+    -webkit-animation-name: goats;
+    -webkit-animation-duration: 4s;
+    animation-name: goats;
+    animation-duration: 4s;
+}
+
+.jumbotron {
+  background-color: black !important;
+  opacity: 0.7
+}
+
+.searchButton {
+  background-color: #ffa64d;
+  color: black
+}
+
+.zipInput {
+  text-align: center;
+}
+
+.orange {
+  color: #ffa64d;
+}
+
+.buttonDiv {
+  padding-left: 25px;
+}
+
+.inlineButton {
+  width:250px;
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+  border-color: #ffa64d;
+  opacity: 0.7
+  
+}
+
+.morning {
+  background-color: #ffa64d !important;
+  opacity: 0.7
+}
+
+.afternoon {
+  background-color: #999999 !important;
+  opacity: 0.7
+}
+
+.night {
+  background-color:#ffa64d !important;
+  opacity: 0.7
+}
+
+.headingBold {
+  font-weight: bold !important
+}
