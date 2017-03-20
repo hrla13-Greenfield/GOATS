@@ -57,6 +57,12 @@ loginWithSocial(){
   render() {
     return (
       <div> 
+<<<<<<< HEAD
+=======
+        <span className="col-md-6">
+        <h1> goats </h1>
+        </span>
+>>>>>>> trying to rebase
       <button onClick={this.loginWithEmailCode.bind(this)}>Email Code</button>
       <button onClick={this.loginWithSocial.bind(this)} >Social</button>
       </div>
