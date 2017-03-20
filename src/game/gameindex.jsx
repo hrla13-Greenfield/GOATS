@@ -100,13 +100,13 @@ class GameLanding extends React.Component {
             <div>
               <div className="alert alert-success" role="alert">Opponent Found!</div>
 
-              <div className="col-md-4 centerthis col-md-offset-4 card">
+              <div className="profileCard card">
 
-                <img className="card-img-top" src={this.state.opponentPicture} alt="Card image cap" />
+                <img className="profilePicture card-img-top" src={this.state.opponentPicture} alt="Card image cap" />
                 <div className="card-block">
                   <h4 className="card-title">{this.state.opponentUsername}</h4>
                   <p className="card-text">Room: {this.state.myRoom}</p>
-                  <p className="card-text">Their Selection: {this.state.opponentSelection}</p>
+                  <p className="card-text">Selection: {this.state.opponentSelection}</p>
                   <p className="card-text"><small className="text-muted"><button onClick={() => this.rdyup()}>GET READY TO RUMBLE</button></small></p>
                 </div>
               </div>
