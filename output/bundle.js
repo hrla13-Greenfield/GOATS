@@ -38670,8 +38670,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -38711,73 +38709,73 @@ var Browse = function (_React$Component) {
       var _this2 = this;
 
       return this.props.choices.showAll.map(function (item) {
-        var _React$createElement;
-
         return _react2.default.createElement(
           'div',
-          (_React$createElement = { className: 'equal' }, _defineProperty(_React$createElement, 'className', 'col-md-4 col-sm-6 col-xs-12'), _defineProperty(_React$createElement, 'height', '300px'), _React$createElement),
+          { className: 'col-md-4 col-sm-6 col-xs-12', height: '300px' },
           _react2.default.createElement(
             'div',
             { className: 'thumbnail' },
             _react2.default.createElement(
               'div',
-              { className: 'browsecenter', style: { width: '200px', height: '180px', overflow: 'hidden' } },
+              { style: { margin: "0 auto", width: '200px', height: '180px', overflow: 'hidden' } },
               _react2.default.createElement(
                 'a',
                 { href: item.url },
-                _react2.default.createElement('img', { src: item.image_url, height: '180', className: 'feedPics' })
+                _react2.default.createElement('img', { src: item.image_url, height: '180px', className: 'feedPics' })
               )
             ),
             _react2.default.createElement(
               'div',
               { className: 'caption' },
               _react2.default.createElement(
-                'h5',
-                null,
-                ' ',
-                item.name,
-                ' '
-              ),
-              _react2.default.createElement(
-                'h6',
-                null,
-                ' Description:',
-                item.categories.map(function (item) {
-                  return _react2.default.createElement(
-                    'div',
-                    null,
-                    item.title
-                  );
-                }),
-                ' '
-              ),
-              _react2.default.createElement(
-                'h6',
-                null,
-                ' ',
-                Math.round(item.distance * 0.000621371 * 100) / 100,
-                ' miles from you '
-              ),
-              item.name === _this2.props.userdata.current.name ? _react2.default.createElement(
-                'button',
-                { className: 'btn btn-browseselect' },
-                'Selected'
-              ) : _react2.default.createElement(
                 'div',
-                null,
+                { style: { width: '350px', height: '180px', overflow: 'hidden' } },
                 _react2.default.createElement(
+                  'h5',
+                  null,
+                  ' ',
+                  item.name,
+                  ' '
+                ),
+                _react2.default.createElement(
+                  'h6',
+                  null,
+                  ' Description:',
+                  item.categories.map(function (item) {
+                    return _react2.default.createElement(
+                      'div',
+                      null,
+                      item.title
+                    );
+                  }),
+                  ' '
+                ),
+                _react2.default.createElement(
+                  'h6',
+                  null,
+                  ' ',
+                  Math.round(item.distance * 0.000621371 * 100) / 100,
+                  ' miles from you '
+                ),
+                item.name === _this2.props.userdata.current.name ? _react2.default.createElement(
                   'button',
-                  { onClick: function onClick() {
-                      return _this2.wantToDo(item);
-                    }, className: 'btn btn-browsebutton' },
-                  'I want to do this!'
+                  { className: 'btn btn-browseselect' },
+                  'Selected'
+                ) : _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'button',
+                    { onClick: function onClick() {
+                        return _this2.wantToDo(item);
+                      }, className: 'btn btn-browsebutton' },
+                    'I want to do this!'
+                  )
                 )
               )
             )
           )
-        )
-        // </div>
-        ;
+        );
       });
     }
   }, {

@@ -82,16 +82,15 @@ a {
   position: relative;
     top: 10%;
     transform: translateY(10%);*/
-  
-  padding-top: 200px;
-  padding-right: 300px;
-  padding-left:80px
+  padding-top: 50px;
+  padding-right: 350px;
+  padding-left:300px;
 
 }
 
 .buttonlogin{
-  padding-left: 300px;
-  padding-right: 350px;
+  padding-left: 500px;
+  padding-right: 200px;
   padding-bottom: 200px;
 }
 
@@ -104,7 +103,6 @@ a {
   width: 250px;
 }
 
-<<<<<<< HEAD
 .gameholder{
   text-align: center;
 }
@@ -136,7 +134,6 @@ a {
   background-color: lightgreen;
   color: white;
 }
-=======
 .btn-browsebutton {
   color: white;
   background-color: #272525;
@@ -155,12 +152,6 @@ a {
   width: 250px;
 }
 
-.equal {
-  display: flex;
-  display: -webkit-flex;
-}
-
->>>>>>> working on browse
 
 @keyframes goats {
     0%   { left:0px; top:0px;}

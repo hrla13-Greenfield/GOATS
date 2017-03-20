@@ -23,25 +23,33 @@ class Browse extends React.Component {
 
   renderAll() {
     return this.props.choices.showAll.map(item => (
-      <div className="equal" className="col-md-4 col-sm-6 col-xs-12" height="300px">
-        {/*<div className="row row-eq-height">*/}
+      <div className="col-md-4 col-sm-6 col-xs-12" height="300px">
+
         <div className="thumbnail">
-          <div className="browsecenter" style={{ width: '200px', height: '180px', overflow: 'hidden' }}>
-            <a href={item.url}><img src={item.image_url} height="180" className="feedPics" /></a>
+          <div style={{ margin: "0 auto", width: '200px', height: '180px', overflow: 'hidden' }}>
+            <a href={item.url}>
+            <img src={item.image_url} height="180px" className="feedPics" /></a>
           </div>
-          <div className="caption">
+        
+          <div className="caption" >
+            <div style={{ width: '350px', height: '180px', overflow: 'hidden' }}>
             <h5> {item.name} </h5>
             <h6> Description:{ item.categories.map(item => (<div>{item.title}</div>)) } </h6>
             <h6> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </h6>
             {item.name === this.props.userdata.current.name ?
-            (<button className="btn btn-browseselect">Selected</button>) :
+            (
+              <button className="btn btn-browseselect">Selected</button>) :
             (<div>
               <button onClick={() => this.wantToDo(item)} className="btn btn-browsebutton">
                 I want to do this!</button></div>)}
+                </div>
           </div>
         </div>
       </div>
-      // </div>
+   
+  
+  
+
         ));
   }
   render() {
