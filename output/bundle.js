@@ -38758,12 +38758,16 @@ var Browse = function (_React$Component) {
                   ' miles from you '
                 ),
                 item.name === _this2.props.userdata.current.name ? _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-browseselect' },
-                  'Selected'
+                  'div',
+                  { className: 'browsecenter' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-browseselect' },
+                    'Selected'
+                  )
                 ) : _react2.default.createElement(
                   'div',
-                  null,
+                  { className: 'browsecenter' },
                   _react2.default.createElement(
                     'button',
                     { onClick: function onClick() {

@@ -152,6 +152,7 @@ a {
   width: 250px;
 }
 
+<<<<<<< HEAD
 
 @keyframes goats {
     0%   { left:0px; top:0px;}
@@ -252,3 +253,8 @@ a {
   margin-right: 200px;
 }
 
+=======
+.browsecenter {
+  text-align: center;
+}
+>>>>>>> made button centered

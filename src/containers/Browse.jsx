@@ -36,10 +36,11 @@ class Browse extends React.Component {
             <h5> {item.name} </h5>
             <h6> Description:{ item.categories.map(item => (<div>{item.title}</div>)) } </h6>
             <h6> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </h6>
+            
             {item.name === this.props.userdata.current.name ?
-            (
-              <button className="btn btn-browseselect">Selected</button>) :
-            (<div>
+            (<div className="browsecenter">
+              <button className="btn btn-browseselect">Selected</button></div>) :
+            (<div className="browsecenter">
               <button onClick={() => this.wantToDo(item)} className="btn btn-browsebutton">
                 I want to do this!</button></div>)}
                 </div>
