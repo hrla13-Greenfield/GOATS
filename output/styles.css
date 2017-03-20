@@ -133,9 +133,10 @@ a {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.container {
+/*.container {
     padding: 2px 16px;
-}
+}*/
+
 .btn-browsebutton {
   color: white;
   background-color: #272525;
@@ -286,3 +287,27 @@ a {
 .bold {
   font-weight: bold;
 }
+
+.profilePicture{
+  height: 255px;
+  width: 255px;
+  margin: auto;
+}
+
+.profileCard{
+  text-align: center;
+  margin: 0 auto;
+  height: 405px;
+  width: 255px;
+  padding: 0px;
+}
+
+.gameCard{
+  height: 460px;
+  width: 330px;
+  background-color: white;
+  margin: auto;
+  text-align: center;
+}
+
+

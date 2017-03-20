@@ -24,6 +24,7 @@ class GameComponent extends React.Component {
       penalty: "Let's Go!",
       img: 'https://s-media-cache-ak0.pinimg.com/originals/bb/af/a7/bbafa7a2b4273e152995aaeb9ae4477a.gif',
       room: '',
+      disconnect: '',
     };
     this.handleCount = this.handleCount.bind(this);
     this.handleReset = this.handleReset.bind(this);
@@ -37,16 +38,17 @@ class GameComponent extends React.Component {
         oppCurrent: data.currSuggestion,
       });
     });
+    socket.on('disconnect', (data) => {
+      console.log('this is from the socket disconnect on the client side')
+      self.setState({
+        disconnect: 'USER DISCONNECTED!'
+      })
+    })
+
   }
 
   componentDidMount() {
     setInterval(this.handleRandom, 900);
-  }
-
-  componentWillUnmount() {
-    socket.emit('end', () => {
-      socket.close();
-    });
   }
 
   handleRandom(event) {
@@ -228,21 +230,29 @@ class GameComponent extends React.Component {
     }
 
     return (
-      <div>
-        <div className="col-md-4 col-md-offset-4 card" onKeyPress={this.handleCount}>
-
-          <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
-          <img className="card-img-top" src={this.state.img} alt="Card image cap" />
-          <div className="card-block">
-            <h4 className="card-title">{this.state.winCondition}</h4>
-            <p className="card-text">Your Score: {this.state.count}</p>
-            <p className="card-text">Opponent's Score: {this.state.opponentScore}</p>
-            <p className="card-text">{this.state.penalty === "Let's Go!" ? <span className="label label-primary">{this.state.penalty}</span> : this.state.penalty === 'You Suck!' ? <span className="label label-danger">{this.state.penalty}</span> : <span className="label label-success">{this.state.penalty}</span>}</p>
-            <p className="card-text"><small className="text-muted"><button onClick={this.handleRandom}>PLAY</button></small></p>
-          </div>
+    <div>
+    <div className="gameCard card" onKeyPress={this.handleCount}>
+                  
+      <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
+      <img className="card-img-top" src={this.state.img} alt="Card image cap"/>
+        <div className="card-block">
+          <h4 className="card-title">{this.state.winCondition}</h4>
+          <p className="card-text">Your Score: {this.state.count}</p>
+          <p className="card-text">Opponent's Score: {this.state.opponentScore}</p>
+          <p className="card-text">{this.state.penalty === "Let's Go!" ? <span className="label label-primary">{this.state.penalty}</span> : this.state.penalty === 'You Suck!' ? <span className="label label-danger">{this.state.penalty}</span> : <span className="label label-success">{this.state.penalty}</span>}</p>
+          <p className="card-text"><small className="text-muted"><button>PLAY</button></small></p>
         </div>
       </div>
+      </div>
     );
+
+    if(this.state.disconnect === 'USER DISCONNECTED!') {
+      return(
+        <div> 
+          {this.state.disconnect}
+        </div>
+      )
+    }  
   }
 }
 
