@@ -12,7 +12,7 @@ class Suggestion extends React.Component {
         <div className="spaceSmall" />
         <h2 className="headingsW"> {choice.name} </h2>
         <div className="spaceSmall" />
-        <div><a href={choice.url}><img src={choice.image} height="300" className="picCenter" /></a></div>
+        <div className="picCenter"><a href={choice.url}><img src={choice.image} height="300" /></a></div>
         <div className="spaceSmall" />
         <div className="headings"> Description:{choice.description.map((item, idx) => (<div key={idx}>{item.title}</div>))} </div>
         <div className="spaceSmall" />
