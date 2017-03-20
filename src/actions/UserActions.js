@@ -205,6 +205,7 @@ export function addGroup(groupName, userID, username) {
     .then(() => {
       dispatch(doneLoading());
       dispatch(signIn(username));
+      dispatch(unSuccess('New group created!'));
     })
     .catch(() => {
       dispatch(unSuccess('Unable to create group, please try again'));

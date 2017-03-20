@@ -6,6 +6,9 @@
   margin: 0 auto;
   align-items: center;
 }
+.red {
+  color: red;
+}
 
 .feedPics {
     background-color: rgba(29, 247, 216, 0.7);

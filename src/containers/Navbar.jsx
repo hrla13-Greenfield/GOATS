@@ -86,51 +86,26 @@ export default class Navbar extends React.Component {
     }
   }
 
-  renderlist() {
-    const mappedGroups = this.props.userdata.currentGroupsByID.map((group, idx) => { 
-    const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>))
-    return(
-      <div key={idx}>
-      <h4><Link to="/game" onClick={() => this.changeRoom(group.name)}>{group.name}  <i className="fa fa-gamepad" aria-hidden="true"></i>
-</Link><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
-      <div>{this.state[group.id]}</div>
-      <ul>{mappedUsers}</ul>
-      </div>
-    )}) 
-  
-    return (
-      <div className="navbar navbar-light">
-        <div>
-        <h1>Heading</h1>
-        <ul className="nav nav-pils nav-stacked">
-
-      
-          <li>________</li>
-            <span className="navbar-orange"><li><h5> Hey,<br />{this.props.userdata.username}!</h5></li></span>
-            <li><Link to="/profile">View Profile</Link></li>
-            <Link to="/profile">{this.renderInviteNotification()}</Link>
-            
-          <li>________</li>
-          <h3>My Groups <a onClick={this.groupInput}> <span className="glyphicon glyphicon-plus-sign"></span></a></h3>
-          <div>{this.state.group}</div>
-          <div className="red">{this.props.userdata.note}</div>
-          <br />
-          {mappedGroups}
-        </ul>
-      </div>
-      </div>
-    );
-  }
 
   render() {
-    
+    console.log(this.props.userdata.note)
     if (this.props.userdata.isLoading) {
       return (
         <div>
         </div>
       )
     } else {
-            {this.renderlist()}
+    const mappedGroups = this.props.userdata.currentGroupsByID.map((group, idx) => { 
+    const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>))
+    return(
+      <div className="col-md-12" key={idx}>
+      <h4><Link to="/game" onClick={() => this.changeRoom(group.name)}>{group.name}  <i className="fa fa-gamepad" aria-hidden="true"></i>
+      </Link> <span onClick={() => this.friendInput(group.id)} className="glyphicon glyphicon-plus-sign"></span></h4>
+      <div>{this.state[group.id]}</div>
+      <ul>{mappedUsers}</ul>
+      <li className="divider"></li>
+      </div>
+    )})
 
        return (
       <nav className="navbar navbar-light">
@@ -142,25 +117,23 @@ export default class Navbar extends React.Component {
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <a className="navbar-brand" href="#">Brand</a>
+      <a className="navbar-brand" href="#"><img height="50px" src="./assets/goatslogosmall.png"></img></a>
     </div>
-
+    <br />
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul className="nav navbar-nav">
-        <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li><Link to="/profile">Hey, {this.props.userdata.username}!{this.renderInviteNotification()}</Link></li>
         <li className="dropdown">
           <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Groups <span className="caret"></span></a>
           <ul className="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li className="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li className="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <form>
+            {mappedGroups}
+            </form>
           </ul>
         </li>
+        <li><a onClick={this.groupInput}> <span className="glyphicon glyphicon-plus-sign"></span></a></li>
+        <li><a>{this.state.group}</a></li>
+        <li><a><div className="red">{this.props.userdata.note}</div></a></li>
       </ul>
       <ul className="nav navbar-nav navbar-right">
           <li><Link to={'/tree'}>Home</Link></li>
