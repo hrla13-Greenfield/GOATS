@@ -26,7 +26,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoPlan);
-
-  //<div style={{ width: '250px', height: '210px', overflow: 'hidden', position: 'center', margin: '25px' }}>
-  //<iframe src="https://i.giphy.com/PtziVPCCEn6so.gif" width="480" height="391" frameBorder="0" className="gify" />
-  //</div>

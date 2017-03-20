@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UserActions from '../actions/UserActions';
-import GroupList from '../components/GroupList.jsx';
-import AddGroupInput from '../components/AddGroupInput.jsx';
 
 @connect((store) => {
   return {

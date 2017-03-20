@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { selectChoice } from '../actions/index.jsx';
@@ -8,8 +7,8 @@ import { selectChoice } from '../actions/index.jsx';
 class FirstLayer extends React.Component {
 
   renderChoices() {
-    return this.props.choices.firstLoad.map(choice => (
-      <div className="col-md-4 col-sm-6 col-xs-12">
+    return this.props.choices.firstLoad.map((choice, idx) => (
+      <div key={idx} className="col-md-4 col-sm-6 col-xs-12">
         <div className="space" />
         <h2>{choice.title}</h2>
         <img

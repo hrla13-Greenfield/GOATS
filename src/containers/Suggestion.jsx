@@ -6,21 +6,20 @@ import { bindActionCreators } from 'redux';
 
 class Suggestion extends React.Component {
   renderChoices() {
-    console.log('this props choices', this.props.choices);
-    return this.props.choices.firstLoad.map(choice => (
-      <div className="centered jumbotron suggestion">
+    return this.props.choices.firstLoad.map((choice, idx) => (
+      <div key={idx} className="centered jumbotron suggestion">
         <h3 className="headings"> Here is what GOATS picked for you</h3>
         <div className="spaceSmall" />
         <h2 className="headingsW"> {choice.name} </h2>
         <div className="spaceSmall" />
         <div><a href={choice.url}><img src={choice.image} height="300" className="picCenter" /></a></div>
         <div className="spaceSmall" />
-        <div className="headings"> Description:{choice.description.map(item => (<div>{item.title}</div>))} </div>
+        <div className="headings"> Description:{choice.description.map((item, idx) => (<div key={idx}>{item.title}</div>))} </div>
         <div className="spaceSmall" />
         <div className="headings">Distance: {Math.round(choice.distance * 0.000621371 * 100) / 100} miles from you </div>
         <div className="spaceSmall" />
         <h6 className="headings">Phone: {choice.phone} </h6>
-        <h6 className="headings">Address: {choice.address.map(item => (<div>{item}</div>))} </h6>
+        <h6 className="headings">Address: {choice.address.map((item, idx) => (<div key={idx}>{item}</div>))} </h6>
         <div className="space" />
         <div className="center">
           <button onClick={(() => this.props.goBack())} className="inlineButton">Go Back</button>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { browse, wantToDo } from '../actions/index.jsx';
 import InfiniteScroll from 'redux-infinite-scroll';
+import { browse, wantToDo } from '../actions/index.jsx';
 import * as UserActions from '../actions/UserActions';
 
 class Browse extends React.Component {
@@ -19,8 +19,8 @@ class Browse extends React.Component {
   }
 
   renderAll() {
-    return this.props.choices.showAll.map(item => (
-      <div className="col-md-4 col-sm-6 col-xs-12" height="300px">
+    return this.props.choices.showAll.map((item, idx) => (
+      <div key={idx} className="col-md-4 col-sm-6 col-xs-12" height="300px">
 
         <div className="thumbnail">
           <div style={{ margin: '0 auto', width: '200px', height: '180px', overflow: 'hidden' }}>
@@ -31,7 +31,7 @@ class Browse extends React.Component {
           <div className="caption" >
             <div style={{ width: '350px', height: '180px', overflow: 'hidden' }}>
               <h5> {item.name} </h5>
-              <h6> Description:{item.categories.map(item => (<div>{item.title}</div>))} </h6>
+              <h6> Description:{item.categories.map((item, idx) => (<div key={idx}>{item.title}</div>))} </h6>
               <h6> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </h6>
 
               {item.name === this.props.userdata.current.name ?
@@ -44,7 +44,7 @@ class Browse extends React.Component {
           </div>
         </div>
       </div>
-        ));
+    ));
   }
   render() {
     if (this.props.choices.showAll !== undefined) {
