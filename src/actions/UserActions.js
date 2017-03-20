@@ -117,6 +117,7 @@ export function signIn(username) {
   return (dispatch) => {
     //things won't show up if isLoading is true for the store
     dispatch(isLoading(true));
+    console.log(username, "mehhhhhhhhh")
     axios.get('/api/users', { params: {
       username,
     } })
@@ -195,7 +196,6 @@ export function declineRequest(reqid, user) {
 
 
 export function addGroup(groupName, userID, username) {
-  console.log(groupName, userID, username);
   return (dispatch) => {
     dispatch(isLoading(true));
     axios.post('/api/groups', {
@@ -203,12 +203,10 @@ export function addGroup(groupName, userID, username) {
       userID,
     })
     .then(() => {
-      console.log(username, "here");
       dispatch(doneLoading());
       dispatch(signIn(username));
     })
     .catch(() => {
-      console.log("fail");
       dispatch(unSuccess('Unable to create group, please try again'));
     });
   };
@@ -232,7 +230,6 @@ export function chooseRating(rating, historyid, username) {
     dispatch(signIn(username));
   })
   .catch(() => {
-    console.log("error<<<");
     dispatch(unSuccess('Invalid selection, please try again'));
   });
   };
@@ -265,7 +262,6 @@ export function changePic(url, userid, user) {
       dispatch(signIn(user));
     })
     .catch(() => {
-      console.log("error<<<");
       dispatch(unSuccess('Invalid selection, please try again'));
     });
   };

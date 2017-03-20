@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux';
 
 class Suggestion extends React.Component {
   renderChoices () {
-    console.log('props in renderChoices', this.props);
     return this.props.choices.firstLoad.map((choice) => {
       return (
         <div className="centered">

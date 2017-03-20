@@ -68,7 +68,6 @@ export default class Navbar extends React.Component {
   }
 
   logout(){
-    console.log("insidelogout")
     localStorage.clear();
     location.href= "/"
     window.location.reload()

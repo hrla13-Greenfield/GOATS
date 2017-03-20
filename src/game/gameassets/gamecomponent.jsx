@@ -31,8 +31,6 @@ class GameComponent extends React.Component {
 
     const self = this;
     socket.on('count', (data) => {
-      console.log('this is the count for the data', data.score);
-            // if(data.selectedRoom === self.state.myRoom) {
       self.setState({
         opponentScore: data.score,
         opponentUsername: data.username,
@@ -55,8 +53,6 @@ class GameComponent extends React.Component {
   }
 
   handleCount(event) {
-    console.log('in handle count');
-    console.log('opp:', this.state.opponentScore);
     event = event || window.event;
     let currCount = this.state.count;
     const charCode = event.keyCode || event.which;
@@ -103,7 +99,6 @@ class GameComponent extends React.Component {
       });
     }
     if (currCount <= -10 || this.state.opponentScore === 10) {
-      console.log('loseeeeeee');
       this.setState({
         winCondition: 'LOSE',
         img: 'http://opengameart.org/sites/default/files/mon1_walk.gif',
