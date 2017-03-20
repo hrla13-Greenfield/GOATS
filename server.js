@@ -5,7 +5,7 @@ const http = require('http');
 const myRouter = require(`${__dirname}/api/router.js`);
 const app = express();
 
-const PORT = 8000;
+const port = process.env.PORT || 8000
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -16,8 +16,8 @@ app.use('/api', myRouter);
 app.get('/*', function(req, res) {
   res.sendFile(__dirname+'/output/index.html')
 })
-const server = app.listen(PORT, () => {
-  console.log(`connected to ${PORT}`);
+const server = app.listen(port, () => {
+  console.log(`connected to ${port}`);
 });
 
 const io = require('socket.io')(server);

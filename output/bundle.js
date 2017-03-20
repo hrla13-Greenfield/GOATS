@@ -5188,7 +5188,7 @@ function signInSuccess(userinfo, username) {
       newGroupsByID.push(newGroupTemp);
     }
   }
-  var newCurrent;
+  var newCurrent = void 0;
   var newHistory = [];
   for (var k = userinfo.history.length - 1; k >= 0; k -= 1) {
     if (userinfo.history[k].id.toString() === userinfo.current) {
@@ -5277,12 +5277,12 @@ function unSuccess(text) {
 }
 
 function signIn(username) {
-  //dispatch is a redux term- call an action from our action handler list
-  //we are using thunk- which allows us to return a function instead of simple obj
+  // dispatch is a redux term- call an action from our action handler list
+  // we are using thunk- which allows us to return a function instead of simple obj
   return function (dispatch) {
-    //things won't show up if isLoading is true for the store
+    // things won't show up if isLoading is true for the store
     dispatch(isLoading(true));
-    console.log(username, "mehhhhhhhhh");
+    console.log(username, 'mehhhhhhhhh');
     _axios2.default.get('/api/users', { params: {
         username: username
       } }).then(function (result) {
@@ -5320,6 +5320,7 @@ function addFriend(groupID, friendName, userID, username) {
       dispatch(signIn(username));
     }).catch(function (err) {
       dispatch(unSuccess('Invalid selection, please try again'));
+      console.log(err);
     });
   };
 }
@@ -5347,6 +5348,7 @@ function declineRequest(reqid, user) {
       dispatch(signIn(user));
     }).catch(function (err) {
       dispatch(unSuccess('Invalid selection, please try again'));
+      console.log(err);
     });
   };
 }
@@ -36544,29 +36546,27 @@ var Day = function (_React$Component) {
         window.location.href = "/login";
         return false;
       } else {
-
         if (this.props.choices.zipCode === false) {
           return _react2.default.createElement(
             'div',
             null,
             _react2.default.createElement(_LocationTree2.default, null)
           );
-        } else {
-          return _react2.default.createElement(
+        }
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
             'div',
             null,
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(_NoPlan2.default, null)
-            ),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(_DayPlanner2.default, null)
-            )
-          );
-        }
+            _react2.default.createElement(_NoPlan2.default, null)
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(_DayPlanner2.default, null)
+          )
+        );
       }
     }
   }]);
@@ -38720,7 +38720,7 @@ var Browse = function (_React$Component) {
             { className: 'thumbnail' },
             _react2.default.createElement(
               'div',
-              { style: { margin: "0 auto", width: '200px', height: '180px', overflow: 'hidden' } },
+              { style: { margin: '0 auto', width: '200px', height: '180px', overflow: 'hidden' } },
               _react2.default.createElement(
                 'a',
                 { href: item.url },
