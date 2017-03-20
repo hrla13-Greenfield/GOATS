@@ -30,7 +30,7 @@ class GameLanding extends React.Component {
     socket.on('init-game', function (data) {
       if (data.room === self.state.myRoom && data.opponentUsername !== self.props.userdata.username) {
         self.setState({
-          opponentPicture: <img src={data.opponentPicture} height='50px' />,
+          opponentPicture: data.opponentPicture,
           opponentUsername: data.opponentUsername,
           opponentSelection: data.opponentSelection,
           room: data.room
@@ -41,7 +41,7 @@ class GameLanding extends React.Component {
     socket.on('init-game2', function (data) {
       if (data.roomSelected === self.state.myRoom && data.username !== self.props.userdata.username) {
         self.setState({
-          opponentPicture: <img src={data.userImg} height='50px' />,
+          opponentPicture: data.userImg,
           opponentUsername: data.username,
           opponentSelection: data.current.name,
           room: data.roomSelected
@@ -58,7 +58,6 @@ class GameLanding extends React.Component {
   }
 
   rdyup() { 
-    
     socket.emit('ready-up', {
       roomname: this.props.userdata.roomSelected
     })
@@ -85,21 +84,35 @@ class GameLanding extends React.Component {
       if (this.state.gameReady === true) {
         this.rdyup2();
         return (
-         this.state.counter === true ? (<div><GameComponent /></div>) : (<div>Get ready</div>)
+         this.state.counter === true ? (<div className="gameholder"><GameComponent /></div>) : (<div className='getready'>Get ready</div>)
         )
       } else {
-      return (
-        <div>
-          {this.state.opponentUsername === '' ? <div>Waiting for Opponent</div> : <div><div>Opponent Found!</div><button onClick={() => this.rdyup()}>Ready !</button></div>}
-          <div>
-            <h4>Opponent Information:</h4>
-            <h6>Room: {this.state.myRoom}</h6>
-            <h6>Picture: {this.state.opponentPicture}</h6>
-            <h6>Username: {this.state.opponentUsername}</h6>
-            <h6>Recommendation: {this.state.opponentSelection}</h6>
+        if(this.state.opponentUsername === '') {
+          return (
+            <div className="alert alert-danger" role="alert">
+              <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span className="sr-only">Error:</span>
+              Waiting for Opponent...
+            </div>
+          )
+        } else {
+          return (
+          <div className='gameholder'>
+
+            <div className="alert alert-success" role="alert">Opponent Found!</div>
+
+              <div className="card">
+              <img className="card-img-top" src={this.state.opponentPicture} height='300px' alt="Card image cap"/>
+              <div className="card-block">
+                <h4 className="card-title">{this.state.opponentUsername}</h4>
+                <p className="card-text">Room: {this.state.myRoom}</p>
+                <p className="card-text">Their Selection: {this.state.opponentSelection}</p>
+                <p class="card-text"><small class="text-muted"><button onClick={() => this.rdyup()}>GET READY TO RUMBLE</button></small></p>
+              </div>
           </div>
-        </div>
-      )
+          </div>
+          )
+        }
       }
     }
   }
