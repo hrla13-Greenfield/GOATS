@@ -1,29 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Browse from './Browse.jsx'
-import { Provider } from 'react-redux';
+import Browse from './Browse.jsx';
 import { connect } from 'react-redux';
 import Location from './LocationTree.jsx';
 
 class Feed extends React.Component {
-  render(){
-  if(!!localStorage.getItem("userToken") === false){
-      window.location.href= "/login"
+  render() {
+    if (!!localStorage.getItem('userToken') === false) {
+      window.location.href = '/login';
       return false;
     } else {
-     if (this.props.choices.zipCode === false) {
+      if (this.props.choices.zipCode === false) {
+        return (
+          <div>
+            <Location />
+          </div>
+        );
+      }
       return (
         <div>
-          <Location />
+          <Browse />
         </div>
-      )} else {
-    return (
-    <div>
-     <Browse />
-    </div>
-    )
-  }
-}
+      );
+    }
   }
 }
 

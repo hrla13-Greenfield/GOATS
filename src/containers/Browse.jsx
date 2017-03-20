@@ -4,11 +4,8 @@ import { bindActionCreators } from 'redux';
 import { browse, wantToDo } from '../actions/index.jsx';
 import InfiniteScroll from 'redux-infinite-scroll';
 import * as UserActions from '../actions/UserActions';
-class Browse extends React.Component {
 
- // componentWillMount() {
- // this.props.dispatch(browse(this.props.choices.updatedZipcode));
-// }
+class Browse extends React.Component {
 
   _loadMore() {
     this.props.dispatch(

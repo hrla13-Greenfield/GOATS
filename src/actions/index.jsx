@@ -10,7 +10,6 @@ let selection3;
 let selection4;
 let selection5;
 let selection6;
-const array = [];
 
 export function submitLocation(zip) {
   return {

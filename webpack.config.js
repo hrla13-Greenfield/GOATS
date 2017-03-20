@@ -5,7 +5,7 @@ const DEV = path.resolve(__dirname, 'src');
 const OUTPUT = path.resolve(__dirname, 'output');
 
 const config = {
-  entry: `${DEV  }/index.jsx`,
+  entry: `${DEV}/index.jsx`,
   output: {
     path: OUTPUT,
     filename: 'bundle.js',

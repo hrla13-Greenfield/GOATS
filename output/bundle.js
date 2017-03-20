@@ -3288,7 +3288,6 @@ var selection3 = void 0;
 var selection4 = void 0;
 var selection5 = void 0;
 var selection6 = void 0;
-var array = [];
 
 function submitLocation(zip) {
   return {
@@ -8314,7 +8313,10 @@ var Location = function (_React$Component) {
           _react2.default.createElement(
             'form',
             { onSubmit: this.handleSubmit.bind(this) },
-            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange.bind(this), placeholder: 'zipcode goes here', className: 'zipInput' }),
+            _react2.default.createElement('input', {
+              type: 'text', onChange: this.handleChange.bind(this),
+              placeholder: 'zipcode goes here', className: 'zipInput'
+            }),
             _react2.default.createElement('div', { className: 'spaceSmall' }),
             _react2.default.createElement('input', { type: 'submit', value: 'enter', className: 'btn btn-sm searchButton zipInput' })
           )
@@ -8322,7 +8324,7 @@ var Location = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'goatsanimate' },
-          _react2.default.createElement('img', { src: "./assets/goatssolo.png", height: '250px' })
+          _react2.default.createElement('img', { src: './assets/goatssolo.png', height: '250px' })
         )
       );
     }
@@ -12636,15 +12638,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(12);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _reactRedux = __webpack_require__(11);
-
-var _index = __webpack_require__(29);
-
-var _redux = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12711,7 +12705,7 @@ var Suggestion = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'headings' },
-            'Distance: ',
+            'Distance:',
             Math.round(choice.distance * 0.000621371 * 100) / 100,
             ' miles from you '
           ),
@@ -36500,9 +36494,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(12);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
+var _reactRedux = __webpack_require__(11);
 
 var _DayPlanner = __webpack_require__(195);
 
@@ -36511,12 +36503,6 @@ var _DayPlanner2 = _interopRequireDefault(_DayPlanner);
 var _NoPlan = __webpack_require__(198);
 
 var _NoPlan2 = _interopRequireDefault(_NoPlan);
-
-var _Suggestion = __webpack_require__(103);
-
-var _Suggestion2 = _interopRequireDefault(_Suggestion);
-
-var _reactRedux = __webpack_require__(11);
 
 var _LocationTree = __webpack_require__(58);
 
@@ -36542,8 +36528,8 @@ var Day = function (_React$Component) {
   _createClass(Day, [{
     key: 'render',
     value: function render() {
-      if (!!localStorage.getItem("userToken") === false) {
-        window.location.href = "/login";
+      if (!!localStorage.getItem('userToken') === false) {
+        window.location.href = '/login';
         return false;
       } else {
         if (this.props.choices.zipCode === false) {
@@ -36599,10 +36585,6 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(12);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _Browse = __webpack_require__(194);
 
 var _Browse2 = _interopRequireDefault(_Browse);
@@ -36633,8 +36615,8 @@ var Feed = function (_React$Component) {
   _createClass(Feed, [{
     key: 'render',
     value: function render() {
-      if (!!localStorage.getItem("userToken") === false) {
-        window.location.href = "/login";
+      if (!!localStorage.getItem('userToken') === false) {
+        window.location.href = '/login';
         return false;
       } else {
         if (this.props.choices.zipCode === false) {
@@ -36643,13 +36625,12 @@ var Feed = function (_React$Component) {
             null,
             _react2.default.createElement(_LocationTree2.default, null)
           );
-        } else {
-          return _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(_Browse2.default, null)
-          );
         }
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_Browse2.default, null)
+        );
       }
     }
   }]);
@@ -37304,10 +37285,6 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(12);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _FirstLayer = __webpack_require__(196);
 
 var _FirstLayer2 = _interopRequireDefault(_FirstLayer);
@@ -37330,7 +37307,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//import restaurant from './assets/treepics/Restaurant.jpeg';
+// import restaurant from './assets/treepics/Restaurant.jpeg';
 
 var Tree = function (_React$Component) {
   _inherits(Tree, _React$Component);
@@ -37344,29 +37321,28 @@ var Tree = function (_React$Component) {
   _createClass(Tree, [{
     key: 'render',
     value: function render() {
-      if (!!localStorage.getItem("userToken") === false) {
-        window.location.href = "/login";
+      if (!!localStorage.getItem('userToken') === false) {
+        window.location.href = '/login';
         return false;
+      }
+      if (this.props.choices.zipCode === false) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_LocationTree2.default, null)
+        );
+      } else if (this.props.choices.finalSelection === false) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_FirstLayer2.default, null)
+        );
       } else {
-        if (this.props.choices.zipCode === false) {
-          return _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(_LocationTree2.default, null)
-          );
-        } else if (this.props.choices.finalSelection === false) {
-          return _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(_FirstLayer2.default, null)
-          );
-        } else {
-          return _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(_Suggestion2.default, null)
-          );
-        }
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_Suggestion2.default, null)
+        );
       }
     }
   }]);
@@ -38690,12 +38666,6 @@ var Browse = function (_React$Component) {
 
   _createClass(Browse, [{
     key: '_loadMore',
-
-
-    // componentWillMount() {
-    // this.props.dispatch(browse(this.props.choices.updatedZipcode));
-    // }
-
     value: function _loadMore() {
       this.props.dispatch((0, _index.browse)(this.props.choices.updatedZipcode, this.props.choices.showAll.length));
     }
@@ -38861,12 +38831,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var items;
-var items2;
-var items3;
-var items4;
-var items5;
-var items6;
+var items = void 0;
+var items2 = void 0;
+var items3 = void 0;
+var items4 = void 0;
+var items5 = void 0;
+var items6 = void 0;
 
 var DayPlanner = function (_React$Component) {
   _inherits(DayPlanner, _React$Component);
@@ -38903,7 +38873,6 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'orange' },
-            ' ',
             Math.round(item.distance * 0.000621371 * 100) / 100,
             ' miles from you '
           ),
@@ -38952,7 +38921,6 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'orange' },
-            ' ',
             Math.round(item.distance * 0.000621371 * 100) / 100,
             ' miles from you '
           ),
@@ -39001,7 +38969,6 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'orange' },
-            ' ',
             Math.round(item.distance * 0.000621371 * 100) / 100,
             ' miles from you '
           ),
@@ -39050,14 +39017,13 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'orange' },
-            ' ',
             Math.round(item.distance * 0.000621371 * 100) / 100,
             ' miles from you '
           ),
           _react2.default.createElement(
             'h6',
             { className: 'orange' },
-            ' Description:',
+            'Description:',
             item.description.map(function (item) {
               return _react2.default.createElement(
                 'div',
@@ -39099,14 +39065,13 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'orange' },
-            ' ',
             Math.round(item.distance * 0.000621371 * 100) / 100,
             ' miles from you '
           ),
           _react2.default.createElement(
             'h6',
             { className: 'orange' },
-            ' Description:',
+            'Description:',
             item.description.map(function (item) {
               return _react2.default.createElement(
                 'div',
@@ -39148,14 +39113,13 @@ var DayPlanner = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'orange' },
-            ' ',
             Math.round(item.distance * 0.000621371 * 100) / 100,
             ' miles from you '
           ),
           _react2.default.createElement(
             'h6',
             { className: 'orange' },
-            ' Description:',
+            'Description:',
             item.description.map(function (item) {
               return _react2.default.createElement(
                 'div',
@@ -39264,9 +39228,8 @@ var DayPlanner = function (_React$Component) {
             )
           )
         );
-      } else {
-        return _react2.default.createElement('div', null);
       }
+      return _react2.default.createElement('div', null);
     }
   }]);
 
@@ -39344,13 +39307,15 @@ var FirstLayer = function (_React$Component) {
             null,
             choice.title
           ),
-          _react2.default.createElement('img', { className: 'allPics',
+          _react2.default.createElement('img', {
+            className: 'allPics',
             key: choice.img,
             onClick: function onClick() {
               return _this2.props.selectChoice(choice.option, _this2.props.choices.updatedZipcode, _this2.props.userdata.userID, _this2.props.userdata.username);
             },
             src: choice.img,
-            style: { borderRadius: 5, tintColor: '#0000CD' } }),
+            style: { borderRadius: 5, tintColor: '#0000CD' }
+          }),
           _react2.default.createElement('div', { className: 'space' })
         );
       });
@@ -39790,10 +39755,6 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(12);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _reactRedux = __webpack_require__(11);
 
 var _redux = __webpack_require__(16);
@@ -39835,9 +39796,12 @@ var NoPlan = function (_React$Component) {
           { className: 'buttonDiv' },
           _react2.default.createElement(
             'button',
-            { onClick: function onClick() {
+            {
+              onClick: function onClick() {
                 return _this2.props.planDay(_this2.props.choices.updatedZipcode);
-              }, className: 'inlineButton' },
+              },
+              className: 'inlineButton'
+            },
             'Help me plan my day'
           )
         )
