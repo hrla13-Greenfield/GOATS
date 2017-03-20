@@ -44,7 +44,7 @@ class Browse extends React.Component {
           </div>
         </div>
       </div>
-        ));
+    ));
   }
   render() {
     if (this.props.choices.showAll !== undefined) {
