@@ -51,8 +51,8 @@ export default class Profile extends React.Component {
 
   renderCurrent() {
     return(
-    <div><div style={{width:"200px",height:"200px",overflow:'hidden', 'textAlign':'center'}}><img height="200px" src={this.props.userdata.current.image}></img></div>
-    {this.props.userdata.current.name}<br /></div>
+    <div className="col-md-8 col-md-offset-2"><div style={{width:"200px",height:"200px",overflow:'hidden', 'textAlign':'center'}}><img height="200px" src={this.props.userdata.current.image}></img></div>
+    <h4>{this.props.userdata.current.name}</h4><br /></div>
     )
   }
 
@@ -108,21 +108,23 @@ export default class Profile extends React.Component {
             {threeselected ? (<option selected="selected" value={['3', historyitem.id]}>3</option>) : (<option value={['3', historyitem.id]}>3</option>)}
             {twoselected ? (<option selected="selected" value={['2', historyitem.id]}>2</option>) : (<option value={['2', historyitem.id]}>2</option>)}
             {oneselected ? (<option selected="selected" value={['1', historyitem.id]}>1 - Do not come here</option>) : (<option value={['1', historyitem.id]}>1 - Do not come here</option>)}
-            </select>{historyitem.rating}</td>
+            </select><h1 className="headings">{historyitem.rating}</h1></td>
             <td><a onClick={() => this.deletehistory(historyitem.id)}><span className="glyphicon glyphicon-remove red"></span></a></td>
         </tr>
       )
     })
     return (
-      <div className="col-md-12">
-        <div className="row"><div className="col-md-9"><h1>{this.props.userdata.username}<small> | Profile</small></h1></div><div className="col-md-2"><br /><div style={{width:"80px",height:"80px",overflow:'hidden', 'textAlign':'center'}}><img style={{display:'block','textAlign':'center', margin:'auto'}}height="80px" src={this.props.userdata.userImg}></img></div>
+      <div className="profilecenter" style={{textAlign: 'center'}}>
+      <div className="col-md-10 col-md-offset-1 whitee">
+        <div className="row"><div className="col-md-9"><h1 className="headings">{this.props.userdata.username}<small> | Profile</small></h1></div><div className="col-md-2"><br /><div style={{width:"80px",height:"80px",overflow:'hidden', 'textAlign':'center'}}>
+          <img style={{display:'block','textAlign':'center', margin:'auto'}}height="80px" src={this.props.userdata.userImg}></img></div>
         <a onClick={() => this.renderPicInput()}><small>Change</small></a><br />{this.state.picInput}</div></div>
          <div className="row">
-          <div className="col-md-5"><br />
+          <div className="col-md-5 profilecenter"><br />
           <h3>Currently Selected Activity</h3>
           {this.props.userdata.current !== undefined ? (this.renderCurrent()) : <div></div>}
           </div>
-         <div className="col-md-7"><h3>Pending group invites</h3>
+         <div className="whitee col-md-7"><h3>Pending group invites</h3>
          <table className="table">
            <thead>
            <tr>
@@ -157,6 +159,7 @@ export default class Profile extends React.Component {
            </tbody>
            </table>
           </div>
+      </div>
       </div>
     );
   }

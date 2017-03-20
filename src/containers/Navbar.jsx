@@ -108,7 +108,7 @@ export default class Navbar extends React.Component {
     )})
 
        return (
-      <nav className="navbar navbar-light">
+      <nav className="navbar navbar-light navbar-collapse">
   <div className="container-fluid">
     <div className="navbar-header">
       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -117,7 +117,7 @@ export default class Navbar extends React.Component {
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <a className="navbar-brand" href="#"><img height="50px" src="./assets/goatslogosmall.png"></img></a>
+      <a onClick={() => window.location.href= "/tree"} className="navbar-brand"><img height="50px" src="./assets/goatslogosmall.png"></img></a>
     </div>
     <br />
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
