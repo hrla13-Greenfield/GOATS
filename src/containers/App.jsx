@@ -9,24 +9,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="row">
-          <div className="container-fluid">
-            <div className="row">
-              <div color="grey" className="col-sm-3 col-lg-2">
+<div>
                 <Navbar />
-              </div>
-              <div className="col-sm-9 col-lg-10">
-                <div>
-                  <div>
                     {this.props.children}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+</div>
     );
   }
 }

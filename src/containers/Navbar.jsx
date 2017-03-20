@@ -103,16 +103,12 @@ export default class Navbar extends React.Component {
         <div>
         <h1>Heading</h1>
         <ul className="nav nav-pils nav-stacked">
-          <li><Link to={'/tree'}>Home</Link></li>
-          <li><Link to={'/browse'}>Browse All</Link></li>
-          <li><Link to={'/dayplanner'}>Plan my Day</Link></li>
-          <li><Link onClick={() => this.logout()}>Logout</Link></li>
+
       
           <li>________</li>
             <span className="navbar-orange"><li><h5> Hey,<br />{this.props.userdata.username}!</h5></li></span>
             <li><Link to="/profile">View Profile</Link></li>
             <Link to="/profile">{this.renderInviteNotification()}</Link>
-            
             
           <li>________</li>
           <h3>My Groups <a onClick={this.groupInput}> <span className="glyphicon glyphicon-plus-sign"></span></a></h3>
@@ -127,16 +123,54 @@ export default class Navbar extends React.Component {
   }
 
   render() {
+    
     if (this.props.userdata.isLoading) {
       return (
         <div>
         </div>
       )
     } else {
+            {this.renderlist()}
+
        return (
-    <div>
-      {this.renderlist()}
+      <nav className="navbar navbar-light">
+  <div className="container-fluid">
+    <div className="navbar-header">
+      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span className="sr-only">Toggle navigation</span>
+        <span className="icon-bar"></span>
+        <span className="icon-bar"></span>
+        <span className="icon-bar"></span>
+      </button>
+      <a className="navbar-brand" href="#">Brand</a>
     </div>
+
+    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul className="nav navbar-nav">
+        <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li className="dropdown">
+          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Groups <span className="caret"></span></a>
+          <ul className="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li className="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li className="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul className="nav navbar-nav navbar-right">
+          <li><Link to={'/tree'}>Home</Link></li>
+          <li><Link to={'/browse'}>Browse All</Link></li>
+          <li><Link to={'/dayplanner'}>Plan my Day</Link></li>
+          <li><Link onClick={() => this.logout()}>Logout</Link></li>
+      </ul>
+    </div>
+  </div>
+</nav>
     )
     }
   }

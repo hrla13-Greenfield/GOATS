@@ -36467,36 +36467,8 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-          'div',
-          { className: 'row' },
-          _react2.default.createElement(
-            'div',
-            { className: 'container-fluid' },
-            _react2.default.createElement(
-              'div',
-              { className: 'row' },
-              _react2.default.createElement(
-                'div',
-                { color: 'grey', className: 'col-sm-3 col-lg-2' },
-                _react2.default.createElement(_Navbar2.default, null)
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'col-sm-9 col-lg-10' },
-                _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement(
-                    'div',
-                    null,
-                    this.props.children
-                  )
-                )
-              )
-            )
-          )
-        )
+        _react2.default.createElement(_Navbar2.default, null),
+        this.props.children
       );
     }
   }]);
@@ -39622,44 +39594,6 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
             _react2.default.createElement(
               'li',
               null,
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/tree' },
-                'Home'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/browse' },
-                'Browse All'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/dayplanner' },
-                'Plan my Day'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                _reactRouter.Link,
-                { onClick: function onClick() {
-                    return _this4.logout();
-                  } },
-                'Logout'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
               '________'
             ),
             _react2.default.createElement(
@@ -39727,13 +39661,177 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
   }, {
     key: 'render',
     value: function render() {
+      var _this5 = this;
+
       if (this.props.userdata.isLoading) {
         return _react2.default.createElement('div', null);
       } else {
+        {
+          this.renderlist();
+        }
+
         return _react2.default.createElement(
-          'div',
-          null,
-          this.renderlist()
+          'nav',
+          { className: 'navbar navbar-light' },
+          _react2.default.createElement(
+            'div',
+            { className: 'container-fluid' },
+            _react2.default.createElement(
+              'div',
+              { className: 'navbar-header' },
+              _react2.default.createElement(
+                'button',
+                { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'sr-only' },
+                  'Toggle navigation'
+                ),
+                _react2.default.createElement('span', { className: 'icon-bar' }),
+                _react2.default.createElement('span', { className: 'icon-bar' }),
+                _react2.default.createElement('span', { className: 'icon-bar' })
+              ),
+              _react2.default.createElement(
+                'a',
+                { className: 'navbar-brand', href: '#' },
+                'Brand'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
+              _react2.default.createElement(
+                'ul',
+                { className: 'nav navbar-nav' },
+                _react2.default.createElement(
+                  'li',
+                  { className: 'active' },
+                  _react2.default.createElement(
+                    'a',
+                    { href: '#' },
+                    'Link ',
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'sr-only' },
+                      '(current)'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    'a',
+                    { href: '#' },
+                    'Link'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  { className: 'dropdown' },
+                  _react2.default.createElement(
+                    'a',
+                    { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-expanded': 'false' },
+                    'My Groups ',
+                    _react2.default.createElement('span', { className: 'caret' })
+                  ),
+                  _react2.default.createElement(
+                    'ul',
+                    { className: 'dropdown-menu', role: 'menu' },
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        'a',
+                        { href: '#' },
+                        'Action'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        'a',
+                        { href: '#' },
+                        'Another action'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        'a',
+                        { href: '#' },
+                        'Something else here'
+                      )
+                    ),
+                    _react2.default.createElement('li', { className: 'divider' }),
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        'a',
+                        { href: '#' },
+                        'Separated link'
+                      )
+                    ),
+                    _react2.default.createElement('li', { className: 'divider' }),
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        'a',
+                        { href: '#' },
+                        'One more separated link'
+                      )
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'ul',
+                { className: 'nav navbar-nav navbar-right' },
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/tree' },
+                    'Home'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/browse' },
+                    'Browse All'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/dayplanner' },
+                    'Plan my Day'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { onClick: function onClick() {
+                        return _this5.logout();
+                      } },
+                    'Logout'
+                  )
+                )
+              )
+            )
+          )
         );
       }
     }
