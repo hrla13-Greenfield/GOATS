@@ -4,7 +4,6 @@
 }
 .gify {
   margin: 0 auto;
-  align-items: center;
 }
 .red {
   color: red;
@@ -15,7 +14,9 @@
 }
 
 .gify {
-  /*margin: 200px*/
+ float: 'right';
+ margin: 0 0 10px 10px;
+
 }
 
 .headings {
@@ -42,8 +43,8 @@ body {
 
 .centered {
   position: absolute; 
-  top: 50%;
-  left: 50%;
+  top: 100%;
+  left: 60%;
 }
 
 .noRepeat {
@@ -66,8 +67,9 @@ a {
   color: black !important;
 }
 .centerdiv {
-  padding-top: 50px;
+  padding-top: 25px;
   padding-right: 150px;
+  padding-left: 150px
 }
 
 .center {
@@ -132,5 +134,104 @@ a {
 .card-success{
   background-color: lightgreen;
   color: white;
+}
+
+@keyframes goats {
+    0%   { left:0px; top:0px;}
+    25%  { left:200px; top:0px;}
+    50%  { left:200px; top:200px;}
+    75%  { left:0px; top:200px;}
+    100% { left:0px; top:0px;}
+}
+
+.goatsanimate {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    padding-left: 230px;
+    -webkit-animation-name: goats;
+    -webkit-animation-duration: 4s;
+    animation-name: goats;
+    animation-duration: 4s;
+}
+
+.jumbotron {
+  background-color: black !important;
+  opacity: 0.7;
+}
+
+.suggestion {
+  width: 750px
+}
+
+.searchButton {
+  background-color: #ffa64d;
+  color: black;
+  margin-left: 390px;
+  width: 250px
+}
+
+.zipInput {
+  text-align: center;
+  margin-left: 390px;
+  width: 250px
+}
+
+.orange {
+  color: #ffa64d;
+}
+
+.buttonDiv {
+  padding-left: 25px;
+}
+
+.inlineButton {
+  width:250px;
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+  border-color: #ffa64d;
+  opacity: 0.7
+  
+}
+
+.morning {
+  background-color:  black !important;
+  opacity: 0.7
+}
+
+.afternoon {
+  background-color:  black !important;
+  opacity: 0.7
+}
+
+.night {
+  background-color:black !important;
+  opacity: 0.7
+}
+
+.headingBold {
+  font-weight: bold !important
+}
+
+.centerHeading {
+  margin-left: 280px
+}
+
+.allPics {
+  padding-left: 25px;
+}
+
+.picCenter {
+  padding-left: 180px;
+}
+
+.white {
+  color: white;
+}
+
+.dayplanner {
+  margin-left: 200px;
+  margin-right: 200px;
 }
 

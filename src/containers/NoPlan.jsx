@@ -7,11 +7,13 @@ import { planDay } from '../actions/index.jsx';
 class NoPlan extends React.Component {
   render(){
   return (
-    <div className="gify">
-     <div style={{width: '300px', height:'250px', overflow:'hidden', position:'center'}}>
+    <div>
+     <div style={{width: '250px', height:'210px', overflow:'hidden', position:'center', margin: '25px'}}>
       <iframe src="http://i.giphy.com/PtziVPCCEn6so.gif" width="480" height="391" frameBorder="0" className="gify"></iframe>
      </div>
-      <button onClick={() => this.props.planDay(this.props.choices.updatedZipcode)} className="btn btn-info btn-sm">Help!</button>
+     <div className="buttonDiv">
+      <button onClick={() => this.props.planDay(this.props.choices.updatedZipcode)} className="inlineButton">Help me plan my day</button>
+    </div>
     </div>
    )
  } 

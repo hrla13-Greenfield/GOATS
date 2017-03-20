@@ -9,12 +9,12 @@ class Suggestion extends React.Component {
   renderChoices () {
     return this.props.choices.firstLoad.map((choice) => {
       return (
-        <div className="centered">
-        <h3 className="headings"> Here is what GoatBot picked for you</h3>
+        <div className="centered jumbotron suggestion">
+        <h3 className="headings"> Here is what GOATS picked for you</h3>
         <div className="spaceSmall"></div>
          <h2 className="headingsW"> { choice.name } </h2>
          <div className="spaceSmall"></div>
-         <div><a href={choice.url}><img src= { choice.image } height="300" /></a></div>
+         <div><a href={choice.url}><img src= { choice.image } height="300" className="picCenter" /></a></div>
          <div className="spaceSmall"></div>
          <div className="headings"> Description:{ choice.description.map((item) => ( <div>{item.title}</div>)) } </div>
          <div className="spaceSmall"></div>
