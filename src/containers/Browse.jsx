@@ -10,7 +10,7 @@ class Browse extends React.Component {
   _loadMore() {
     this.props.dispatch(
       browse(this.props.choices.updatedZipcode, this.props.choices.showAll.length),
-      );
+    );
   }
   wantToDo(item) {
     const self = this;
@@ -31,15 +31,15 @@ class Browse extends React.Component {
           <div className="caption" >
             <div style={{ width: '350px', height: '180px', overflow: 'hidden' }}>
               <h5> {item.name} </h5>
-              <h6> Description:{ item.categories.map(item => (<div>{item.title}</div>)) } </h6>
+              <h6> Description:{item.categories.map(item => (<div>{item.title}</div>))} </h6>
               <h6> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </h6>
 
               {item.name === this.props.userdata.current.name ?
-            (<div className="browsecenter">
-              <button className="btn btn-browseselect">Selected</button></div>) :
-            (<div className="browsecenter">
-              <button onClick={() => this.wantToDo(item)} className="btn btn-browsebutton">
-                I want to do this!</button></div>)}
+                (<div className="browsecenter">
+                  <button className="btn btn-browseselect">Selected</button></div>) :
+                (<div className="browsecenter">
+                  <button onClick={() => this.wantToDo(item)} className="btn btn-browsebutton">
+                    I want to do this!</button></div>)}
             </div>
           </div>
         </div>

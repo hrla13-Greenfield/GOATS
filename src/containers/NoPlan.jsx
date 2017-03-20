@@ -7,14 +7,8 @@ class NoPlan extends React.Component {
   render() {
     return (
       <div>
-        <div style={{ width: '250px', height: '210px', overflow: 'hidden', position: 'center', margin: '25px' }}>
-          <iframe src="http://i.giphy.com/PtziVPCCEn6so.gif" width="480" height="391" frameBorder="0" className="gify" />
-        </div>
         <div className="buttonDiv">
-          <button
-            onClick={() => this.props.planDay(this.props.choices.updatedZipcode)}
-            className="inlineButton"
-          >Help me plan my day</button>
+          <button onClick={() => this.props.planDay(this.props.choices.updatedZipcode)} className="inlineButton">Help me plan my day</button>
         </div>
       </div>
     );
@@ -32,3 +26,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoPlan);
+
+  //<div style={{ width: '250px', height: '210px', overflow: 'hidden', position: 'center', margin: '25px' }}>
+  //<iframe src="https://i.giphy.com/PtziVPCCEn6so.gif" width="480" height="391" frameBorder="0" className="gify" />
+  //</div>

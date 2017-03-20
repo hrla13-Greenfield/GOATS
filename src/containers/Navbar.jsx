@@ -122,9 +122,9 @@ export default class Navbar extends React.Component {
     <br />
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul className="nav navbar-nav">
-        <li><Link to="/profile">Hey, {this.props.userdata.username}!{this.renderInviteNotification()}</Link></li>
+        <li className="navifont orange"><Link to="/profile">Hey, {this.props.userdata.username}!{this.renderInviteNotification()}</Link></li>
         <li className="dropdown">
-          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Groups <span className="caret"></span></a>
+          <a href="#" className="dropdown-toggle navifont" data-toggle="dropdown" role="button" aria-expanded="false">My Groups <span className="caret"></span></a>
           <ul className="dropdown-menu" role="menu">
             <form>
             {mappedGroups}
@@ -136,10 +136,10 @@ export default class Navbar extends React.Component {
         <li><a><div className="red">{this.props.userdata.note}</div></a></li>
       </ul>
       <ul className="nav navbar-nav navbar-right">
-          <li><Link to={'/tree'}>Home</Link></li>
-          <li><Link to={'/browse'}>Browse All</Link></li>
-          <li><Link to={'/dayplanner'}>Plan my Day</Link></li>
-          <li><Link onClick={() => this.logout()}>Logout</Link></li>
+          <li className="navifont"><Link to={'/tree'}>Home</Link></li>
+          <li className="navifont"><Link to={'/browse'}>Browse All</Link></li>
+          <li className="navifont"><Link to={'/dayplanner'}>Plan my Day</Link></li>
+          <li className="navifont"><Link onClick={() => this.logout()}>Logout</Link></li>
       </ul>
     </div>
   </div>

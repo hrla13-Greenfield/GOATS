@@ -8,20 +8,19 @@ class Feed extends React.Component {
     if (!!localStorage.getItem('userToken') === false) {
       window.location.href = '/login';
       return false;
-    } else {
-      if (this.props.choices.zipCode === false) {
-        return (
-          <div>
-            <Location />
-          </div>
-        );
-      }
+    }
+    if (this.props.choices.zipCode === false) {
       return (
         <div>
-          <Browse />
+          <Location />
         </div>
       );
     }
+    return (
+      <div>
+        <Browse />
+      </div>
+    );
   }
 }
 

@@ -201,10 +201,11 @@ a {
 }
 
 .buttonDiv {
-  padding-left: 25px;
+  padding-left: 550px;
 }
 
 .inlineButton {
+  font-size: 18px;
   width:250px;
   background-color: black;
   color: white;
@@ -275,4 +276,13 @@ a {
 
 .profilecenter {
   text-align: center;
+}
+
+.navifont {
+  /*font-weight: bold;*/
+  font-size: 18px
+}
+
+.bold {
+  font-weight: bold;
 }
