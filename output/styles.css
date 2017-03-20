@@ -6,6 +6,9 @@
   margin: 0 auto;
   align-items: center;
 }
+.red {
+  color: red;
+}
 
 .feedPics {
     background-color: rgba(29, 247, 216, 0.7);
@@ -47,6 +50,21 @@ body {
   background-repeat: no-repeat;
 }
 
+.navbar-light {
+  background-color: white;
+}
+
+.navbar-orange {
+  color: #ffa64d;
+}
+
+.navi: hover {
+ background-color: #ffa64d !important;
+}
+
+a {
+  color: black !important;
+}
 .centerdiv {
   padding-top: 50px;
   padding-right: 150px;

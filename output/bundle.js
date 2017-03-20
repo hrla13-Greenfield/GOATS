@@ -5360,6 +5360,7 @@ function addGroup(groupName, userID, username) {
     }).then(function () {
       dispatch(doneLoading());
       dispatch(signIn(username));
+      dispatch(unSuccess('New group created!'));
     }).catch(function () {
       dispatch(unSuccess('Unable to create group, please try again'));
     });
@@ -36467,36 +36468,8 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-          'div',
-          { className: 'row' },
-          _react2.default.createElement(
-            'div',
-            { className: 'container-fluid' },
-            _react2.default.createElement(
-              'div',
-              { className: 'row' },
-              _react2.default.createElement(
-                'div',
-                { color: 'grey', className: 'col-sm-3 col-lg-2' },
-                _react2.default.createElement(_Navbar2.default, null)
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'col-sm-9 col-lg-10' },
-                _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement(
-                    'div',
-                    null,
-                    this.props.children
-                  )
-                )
-              )
-            )
-          )
-        )
+        _react2.default.createElement(_Navbar2.default, null),
+        this.props.children
       );
     }
   }]);
@@ -39556,167 +39529,198 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
       }
     }
   }, {
-    key: 'renderlist',
-    value: function renderlist() {
-      var _this4 = this;
-
-      var mappedGroups = this.props.userdata.currentGroupsByID.map(function (group, idx) {
-        var mappedUsers = group.members.map(function (user, index) {
-          return _react2.default.createElement(
-            'li',
-            { key: index },
-            user
-          );
-        });
-        return _react2.default.createElement(
-          'div',
-          { key: idx },
-          _react2.default.createElement(
-            'h4',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/game', onClick: function onClick() {
-                  return _this4.changeRoom(group.name);
-                } },
-              group.name,
-              '  ',
-              _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
-            ),
-            _react2.default.createElement(
-              'a',
-              { onClick: function onClick() {
-                  return _this4.friendInput(group.id);
-                } },
-              '   ',
-              _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _this4.state[group.id]
-          ),
-          _react2.default.createElement(
-            'ul',
-            null,
-            mappedUsers
-          )
-        );
-      });
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          { style: { 'fontFamily': "Brush Script MT, cursive", 'fontSize': "72px" } },
-          'goats'
-        ),
-        _react2.default.createElement(
-          'ul',
-          { className: 'nav nav-pils nav-stacked' },
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/tree' },
-              'Home'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/browse' },
-              'Browse All'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/dayplanner' },
-              'Plan my Day'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { onClick: function onClick() {
-                  return _this4.logout();
-                } },
-              'Logout'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            '________'
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            ' Welcome, ',
-            this.props.userdata.username
-          ),
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/profile' },
-            _react2.default.createElement(
-              'li',
-              null,
-              'View Profile'
-            )
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/profile' },
-            this.renderInviteNotification()
-          ),
-          _react2.default.createElement('hr', null),
-          _react2.default.createElement(
-            'h3',
-            null,
-            'My Groups ',
-            _react2.default.createElement(
-              'a',
-              { onClick: this.groupInput },
-              ' ',
-              _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            this.state.group
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'red' },
-            this.props.userdata.note
-          ),
-          _react2.default.createElement('br', null),
-          mappedGroups
-        )
-      );
-    }
-  }, {
     key: 'render',
     value: function render() {
+      var _this4 = this;
+
+      console.log(this.props.userdata.note);
       if (this.props.userdata.isLoading) {
         return _react2.default.createElement('div', null);
       } else {
+        var mappedGroups = this.props.userdata.currentGroupsByID.map(function (group, idx) {
+          var mappedUsers = group.members.map(function (user, index) {
+            return _react2.default.createElement(
+              'li',
+              { key: index },
+              user
+            );
+          });
+          return _react2.default.createElement(
+            'div',
+            { className: 'col-md-12', key: idx },
+            _react2.default.createElement(
+              'h4',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/game', onClick: function onClick() {
+                    return _this4.changeRoom(group.name);
+                  } },
+                group.name,
+                '  ',
+                _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
+              ),
+              ' ',
+              _react2.default.createElement('span', { onClick: function onClick() {
+                  return _this4.friendInput(group.id);
+                }, className: 'glyphicon glyphicon-plus-sign' })
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _this4.state[group.id]
+            ),
+            _react2.default.createElement(
+              'ul',
+              null,
+              mappedUsers
+            ),
+            _react2.default.createElement('li', { className: 'divider' })
+          );
+        });
+
         return _react2.default.createElement(
-          'div',
-          null,
-          this.renderlist()
+          'nav',
+          { className: 'navbar navbar-light' },
+          _react2.default.createElement(
+            'div',
+            { className: 'container-fluid' },
+            _react2.default.createElement(
+              'div',
+              { className: 'navbar-header' },
+              _react2.default.createElement(
+                'button',
+                { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'sr-only' },
+                  'Toggle navigation'
+                ),
+                _react2.default.createElement('span', { className: 'icon-bar' }),
+                _react2.default.createElement('span', { className: 'icon-bar' }),
+                _react2.default.createElement('span', { className: 'icon-bar' })
+              ),
+              _react2.default.createElement(
+                'a',
+                { className: 'navbar-brand', href: '#' },
+                _react2.default.createElement('img', { height: '50px', src: './assets/goatslogosmall.png' })
+              )
+            ),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement(
+              'div',
+              { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
+              _react2.default.createElement(
+                'ul',
+                { className: 'nav navbar-nav' },
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/profile' },
+                    'Hey, ',
+                    this.props.userdata.username,
+                    '!',
+                    this.renderInviteNotification()
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  { className: 'dropdown' },
+                  _react2.default.createElement(
+                    'a',
+                    { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-expanded': 'false' },
+                    'My Groups ',
+                    _react2.default.createElement('span', { className: 'caret' })
+                  ),
+                  _react2.default.createElement(
+                    'ul',
+                    { className: 'dropdown-menu', role: 'menu' },
+                    _react2.default.createElement(
+                      'form',
+                      null,
+                      mappedGroups
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    'a',
+                    { onClick: this.groupInput },
+                    ' ',
+                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    'a',
+                    null,
+                    this.state.group
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    'a',
+                    null,
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'red' },
+                      this.props.userdata.note
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'ul',
+                { className: 'nav navbar-nav navbar-right' },
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/tree' },
+                    'Home'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/browse' },
+                    'Browse All'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/dayplanner' },
+                    'Plan my Day'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { onClick: function onClick() {
+                        return _this4.logout();
+                      } },
+                    'Logout'
+                  )
+                )
+              )
+            )
+          )
         );
       }
     }

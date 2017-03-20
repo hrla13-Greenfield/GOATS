@@ -86,56 +86,64 @@ export default class Navbar extends React.Component {
     }
   }
 
-  renderlist() {
-    const mappedGroups = this.props.userdata.currentGroupsByID.map((group, idx) => { 
-    const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>))
-    return(
-      <div key={idx}>
-      <h4><Link to="/game" onClick={() => this.changeRoom(group.name)}>{group.name}  <i className="fa fa-gamepad" aria-hidden="true"></i>
-</Link><a onClick={() => this.friendInput(group.id)}>   <span className="glyphicon glyphicon-plus-sign"></span></a></h4>
-      <div>{this.state[group.id]}</div>
-      <ul>{mappedUsers}</ul>
-      </div>
-    )}) 
-  
-    return (
-      <div >
-        <h1 style={{'fontFamily': "Brush Script MT, cursive", 'fontSize': "72px"}}>goats</h1>
-        <ul className="nav nav-pils nav-stacked">
-          <li><Link to={'/tree'}>Home</Link></li>
-          <li><Link to={'/browse'}>Browse All</Link></li>
-          <li><Link to={'/dayplanner'}>Plan my Day</Link></li>
-          <li><Link onClick={() => this.logout()}>Logout</Link></li>
-      
-          <li>________</li>
-            <li> Welcome, {this.props.userdata.username}</li>
-            <Link to="/profile"><li>View Profile</li></Link>
-            <br />
-            <Link to="/profile">{this.renderInviteNotification()}</Link>
-            
-            
-          <hr />
-          <h3>My Groups <a onClick={this.groupInput}> <span className="glyphicon glyphicon-plus-sign"></span></a></h3>
-          <div>{this.state.group}</div>
-          <div className="red">{this.props.userdata.note}</div>
-          <br />
-          {mappedGroups}
-        </ul>
-      </div>
-    );
-  }
 
   render() {
+    console.log(this.props.userdata.note)
     if (this.props.userdata.isLoading) {
       return (
         <div>
         </div>
       )
     } else {
+    const mappedGroups = this.props.userdata.currentGroupsByID.map((group, idx) => { 
+    const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>))
+    return(
+      <div className="col-md-12" key={idx}>
+      <h4><Link to="/game" onClick={() => this.changeRoom(group.name)}>{group.name}  <i className="fa fa-gamepad" aria-hidden="true"></i>
+      </Link> <span onClick={() => this.friendInput(group.id)} className="glyphicon glyphicon-plus-sign"></span></h4>
+      <div>{this.state[group.id]}</div>
+      <ul>{mappedUsers}</ul>
+      <li className="divider"></li>
+      </div>
+    )})
+
        return (
-    <div>
-      {this.renderlist()}
+      <nav className="navbar navbar-light">
+  <div className="container-fluid">
+    <div className="navbar-header">
+      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span className="sr-only">Toggle navigation</span>
+        <span className="icon-bar"></span>
+        <span className="icon-bar"></span>
+        <span className="icon-bar"></span>
+      </button>
+      <a className="navbar-brand" href="#"><img height="50px" src="./assets/goatslogosmall.png"></img></a>
     </div>
+    <br />
+    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul className="nav navbar-nav">
+        <li><Link to="/profile">Hey, {this.props.userdata.username}!{this.renderInviteNotification()}</Link></li>
+        <li className="dropdown">
+          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Groups <span className="caret"></span></a>
+          <ul className="dropdown-menu" role="menu">
+            <form>
+            {mappedGroups}
+            </form>
+          </ul>
+        </li>
+        <li><a onClick={this.groupInput}> <span className="glyphicon glyphicon-plus-sign"></span></a></li>
+        <li><a>{this.state.group}</a></li>
+        <li><a><div className="red">{this.props.userdata.note}</div></a></li>
+      </ul>
+      <ul className="nav navbar-nav navbar-right">
+          <li><Link to={'/tree'}>Home</Link></li>
+          <li><Link to={'/browse'}>Browse All</Link></li>
+          <li><Link to={'/dayplanner'}>Plan my Day</Link></li>
+          <li><Link onClick={() => this.logout()}>Logout</Link></li>
+      </ul>
+    </div>
+  </div>
+</nav>
     )
     }
   }
