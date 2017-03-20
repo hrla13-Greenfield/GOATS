@@ -22410,11 +22410,11 @@ var Suggestion = function (_React$Component) {
           _react2.default.createElement('div', { className: 'spaceSmall' }),
           _react2.default.createElement(
             'div',
-            null,
+            { className: 'picCenter' },
             _react2.default.createElement(
               'a',
               { href: choice.url },
-              _react2.default.createElement('img', { src: choice.image, height: '300', className: 'picCenter' })
+              _react2.default.createElement('img', { src: choice.image, height: '300' })
             )
           ),
           _react2.default.createElement('div', { className: 'spaceSmall' }),
