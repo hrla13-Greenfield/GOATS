@@ -29,7 +29,8 @@ export function getData(selection) {
         phone: selection.display_phone,
         distance: selection.distance,
         description: selection.categories,
-        url: selection.url },
+        url: selection.url,
+        address: selection.location.display_address },
     ],
   };
 }
@@ -133,7 +134,7 @@ export function selectChoice(option, zip, userID, username) {
       type: 'CHOICES_SELECTED',
       payload: [{ img: './assets/breakfast.jpg', option: 'breakfast' },
       { img: './assets/dinner.jpg', option: 'lunch/dinner' },
-      { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyfood' },
+      { img: './assets/Idkgoat.png', option: 'anyfood' },
       ],
     };
   } else if (option === 'party') {
@@ -142,7 +143,7 @@ export function selectChoice(option, zip, userID, username) {
       payload: [{ img: './assets/bar.jpg', option: 'bar' },
       { img: './assets/club.jpg', option: 'club' },
       { img: './assets/lounge.jpg', option: 'lounge' },
-      { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyparty' },
+      { img: './assets/Idkgoat.png', option: 'anyparty' },
       ],
     };
   } else if (option === 'sports') {
@@ -150,7 +151,7 @@ export function selectChoice(option, zip, userID, username) {
       type: 'CHOICES_SELECTED',
       payload: [{ img: './assets/extreme.jpg', option: 'extreme' },
       { img: './assets/chill.jpg', option: 'chill' },
-      { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anysports' },
+      { img: './assets/Idkgoat.png', option: 'anysports' },
       ],
     };
   } else if (option === 'relax') {
@@ -158,7 +159,7 @@ export function selectChoice(option, zip, userID, username) {
       type: 'CHOICES_SELECTED',
       payload: [{ img: './assets/body&mind.jpg', option: 'body&mind' },
       { img: './assets/getout.jpg', option: 'getOut' },
-      { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyrelax' },
+      { img: './assets/Idkgoat.png', option: 'anyrelax' },
       ],
     };
   } else if (option === 'activity') {
@@ -166,7 +167,7 @@ export function selectChoice(option, zip, userID, username) {
       type: 'CHOICES_SELECTED',
       payload: [{ img: './assets/entertain.jpg', option: 'entertainment' },
       { img: './assets/daredevil.jpg', option: 'daredevil' },
-      { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'anyactivity' },
+      { img: './assets/Idkgoat.png', option: 'anyactivity' },
       ],
     };
   // server calls

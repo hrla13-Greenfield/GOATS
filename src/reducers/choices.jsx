@@ -14,7 +14,7 @@ var initialState = {
     { img: './assets/sports.jpg', option: 'sports' },
     { img: './assets/relax.jpg', option: 'relax' },
     { img: './assets/activity.jpg', option: 'activity' },
-    { img: 'https://abtasty-mtgy74j.netdna-ssl.com/content/uploads/homer-brain-monkey.jpg', option: 'any', title: 'I have no idea' },
+    { img: './assets/Idkgoat.png', option: 'any' },
   ],
  /* dayLoad: [
     { name: 'food' },

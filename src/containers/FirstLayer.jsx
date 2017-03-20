@@ -24,7 +24,8 @@ class FirstLayer extends React.Component {
     return (
       <div>
       <div className="spaceSmall"></div>
-      <h2 className="headings">Click what you feel like</h2>
+      <h1 className="headings">Click what you feel like</h1>
+      <h4 className="headingsW">GoatBot will help you make a decision</h4>
       <div className="space"></div>
       <div>
         { this.renderChoices() }</div>

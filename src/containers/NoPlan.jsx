@@ -6,10 +6,9 @@ import { planDay } from '../actions/index.jsx';
 
 class NoPlan extends React.Component {
   render(){
-    console.log('inNoPlan');
   return (
-    <div>
-     <div style={{width: '300px', height:'250px', overflow:'hidden'}}>
+    <div className="gify">
+     <div style={{width: '300px', height:'250px', overflow:'hidden', position:'center'}}>
       <iframe src="http://i.giphy.com/PtziVPCCEn6so.gif" width="480" height="391" frameBorder="0" className="gify"></iframe>
      </div>
       <button onClick={() => this.props.planDay(this.props.choices.updatedZipcode)} className="btn btn-info btn-sm">Help!</button>
