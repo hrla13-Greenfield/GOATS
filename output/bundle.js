@@ -22082,7 +22082,18 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
                   return _this4.changeRoom(group.name);
                 } },
               group.name,
+              _react2.default.createElement(
+                'span',
+                null,
+                ' \xA0\xA0 '
+              ),
               _react2.default.createElement('i', { className: 'fa fa-gamepad', 'aria-hidden': 'true' })
+            ),
+            ' ',
+            _react2.default.createElement(
+              'span',
+              null,
+              ' \xA0 \xA0\xA0'
             ),
             _react2.default.createElement('span', {
               onClick: function onClick() {

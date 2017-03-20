@@ -103,9 +103,9 @@ export default class Navbar extends React.Component {
       const mappedUsers = group.members.map((user, index) => (<li key={index}>{user}</li>));
       return (
         <div className="col-md-12" key={idx}>
-          <h4><Link to="/game" onClick={() => this.changeRoom(group.name)}>{group.name}
-            <i className="fa fa-gamepad" aria-hidden="true" />
-          </Link>
+          <h4><Link to="/game" onClick={() => this.changeRoom(group.name)}>{group.name}<span> &nbsp;&nbsp; </span>
+            <i className="fa fa-gamepad" aria-hidden="true" /> 
+          </Link> <span> &nbsp; &nbsp;&nbsp;</span>
             <span
               onClick={() => this.friendInput(group.id)}
               className="glyphicon glyphicon-plus-sign"
