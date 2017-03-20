@@ -56,12 +56,11 @@ loginWithSocial(){
 
   render() {
     return (
-      <div> 
+      <div>
         <span>
           <div className="centerlogin">
           <img src={'./assets/goats.png'} className="img-responsive" ></img>
           </div>
-
         </span>
         <div className="buttonlogin">
       <button className="btn btn-logincustom btn-lg" onClick={this.loginWithEmailCode.bind(this)}>SIGN IN</button>
