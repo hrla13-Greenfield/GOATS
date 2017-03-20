@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import * as UserActions from '../actions/UserActions';
+import * as UserActions from './UserActions.js';
 
 let data;
 let selection;
@@ -13,7 +13,6 @@ let selection6;
 const array = [];
 
 export function submitLocation(zip) {
-  console.log('this works', zip);
   return {
     type: 'ZIP_SUBMITTED',
     payload: zip,
@@ -119,7 +118,6 @@ export function getDay6(selection6) {
 }
 
 export function getAll(data) {
-  console.log(data, 'data');
   return {
     type: 'BROWSE',
     payload:
@@ -128,7 +126,6 @@ export function getAll(data) {
 }
 
 export function selectChoice(option, zip, userID, username) {
-  console.log('zip in selectChoice', zip);
   if (option === 'food') {
     return {
       type: 'CHOICES_SELECTED',
@@ -172,7 +169,6 @@ export function selectChoice(option, zip, userID, username) {
     };
   // server calls
   } else if (option === 'breakfast') {
-    console.log(userID);
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'food', filter: 'coffee', zip },
@@ -183,7 +179,6 @@ export function selectChoice(option, zip, userID, username) {
       .then((results) => {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
-        console.log(selection, '+++++++++');
         dispatch(getData(selection));
         const input = { selection,
           userID };
@@ -201,8 +196,8 @@ export function selectChoice(option, zip, userID, username) {
       axios.get('api/getActivities', { params: {
         term: 'food', filter: 'restaurants', zip },
         headers: {
-        'Content-type': 'application/x-www-form-urlencoded',
-      },
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
       })
       .then((results) => {
         data = results.data.businesses;
@@ -222,11 +217,11 @@ export function selectChoice(option, zip, userID, username) {
   } else if (option === 'bar') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
-      term: 'bars', filter: 'bars', zip },
-      headers: {
+        term: 'bars', filter: 'bars', zip },
+        headers: {
           'Content-type': 'application/x-www-form-urlencoded',
         },
-    })
+      })
       .then((results) => {
         data = results.data.businesses;
         selection = data[Math.floor(Math.random() * data.length)];
@@ -244,7 +239,7 @@ export function selectChoice(option, zip, userID, username) {
     };
   } else if (option === 'club') {
     return (dispatch) => {
-    axios.get('api/getActivities', { params: {
+      axios.get('api/getActivities', { params: {
         term: 'clubs', filter: 'danceclubs', zip },
         headers: {
           'Content-type': 'application/x-www-form-urlencoded',
@@ -264,9 +259,9 @@ export function selectChoice(option, zip, userID, username) {
       .catch((err) => {
         console.error(err);
       });
-  };
+    };
   } else if (option === 'lounge') {
-  return (dispatch) => {
+    return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'lounge', filter: 'lounges', zip },
         headers: {
@@ -288,7 +283,7 @@ export function selectChoice(option, zip, userID, username) {
         console.error(err);
       });
     };
-} else if (option === 'extreme') {
+  } else if (option === 'extreme') {
     return (dispatch) => {
       axios.get('api/getActivities', { params: {
         term: 'sports', filter: 'boxing,bootcamps,martialarts,flyboarding,hanggliding,horseracing,mountainbiking,rafting,rock_climbing,kiteboarding,diving', zip },
@@ -565,7 +560,6 @@ export function selectChoice(option, zip, userID, username) {
 }
 
 export function planDay(zip) {
-  console.log('zip in planday', zip);
   return (dispatch) => {
     axios.get('api/getActivities', { params: {
       term: 'breakfast', filter: 'restaurants', zip },
@@ -664,7 +658,6 @@ export function browse(zip, offset) {
     })
       .then((results) => {
         data = results.data.businesses;
-        console.log('DATAAAA', data);
         dispatch(getAll(data));
       })
       .catch((err) => {
@@ -673,15 +666,13 @@ export function browse(zip, offset) {
   };
 }
 
-export function wantToDo(item, userID) {
-  return () => {
+export function wantToDo(item, userID, username) {
+  return (dispatch) => {
     const input = { selection: item,
       userID };
-    console.log(input, 'input');
     axios.post('api/users/history', input)
-        .then((result) => {
-          UserActions.signIn(username);
-          console.log('result', result);
+        .then(() => {
+          dispatch(UserActions.signIn(username));
         })
       .catch((err) => {
         console.error(err);

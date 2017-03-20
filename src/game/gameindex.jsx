@@ -78,8 +78,6 @@ class GameLanding extends React.Component {
     }
   }
     render() {
-      console.log(this.state.opponentUsername);
-      console.log(this.props.userdata.roomSelected)
       if(!!localStorage.getItem("userToken") === false){
       window.location.href= "/login"
       return false;

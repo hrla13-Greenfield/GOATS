@@ -35,7 +35,6 @@ myRouter.route('/users/picture')
 
 myRouter.route('/users/rating')
   .post((req, res) => {
-    console.log(req.body, "this is req.body")
     controller.chooseRating(req, res);
   });
 

@@ -18,7 +18,6 @@ const initialState = {
 };
 
 export default function groups(state = initialState, action) {
-  console.log(action)
   switch (action.type) {
 
     case types.SIGN_IN:

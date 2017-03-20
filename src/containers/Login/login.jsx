@@ -28,7 +28,6 @@ loginWithEmailCode() {
     // });
 lock.emailcode(function(err, profile, id_token, state){
     if(!err){
-      console.log(profile);
         localStorage.setItem('userToken', id_token);
         //send a redux action that sets state.auth.authenticated to true
         // state.auth.user to profile
@@ -36,11 +35,7 @@ lock.emailcode(function(err, profile, id_token, state){
         window.location.href= "/tree"; 
         self.props.dispatch(UserActions.signIn(profile.email))
         
-        console.log(profile.nickname, "profile")
-        console.log(id_token, "id token")
-        console.log(state, "this is state")
         if(localStorage.getItem("userToken")){
-          console.log("true")
         }
     }
 });
@@ -55,7 +50,6 @@ loginWithSocial(){
   			  responseType: 'token',
   			  callbackURL : this.AUTH0_CALLBACKURL
 			}, function(result){
-        console.log(result)
       });
 		  }
 

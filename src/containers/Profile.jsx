@@ -47,12 +47,9 @@ export default class Profile extends React.Component {
 
   deletehistory(historyid){
     this.props.dispatch(UserActions.deletehistory(historyid, this.props.userdata.username))
-    console.log(this.props.userdata.username, "this is username")
-    console.log(historyid, "this is historyid")
   }
 
   renderCurrent() {
-    console.log(this.props.userdata.current)
     return(
     <div><div style={{width:"200px",height:"200px",overflow:'hidden', 'textAlign':'center'}}><img height="200px" src={this.props.userdata.current.image}></img></div>
     {this.props.userdata.current.name}<br /></div>
