@@ -22,7 +22,7 @@ class GameComponent extends React.Component {
       random: initRandom,
       winCondition: 'Get to 10 points to WIN!',
       penalty: "Let's Go!",
-      img: 'http://opengameart.org/sites/default/files/cat_a1.gif',
+      img: 'https://s-media-cache-ak0.pinimg.com/originals/bb/af/a7/bbafa7a2b4273e152995aaeb9ae4477a.gif',
       room: '',
     };
     this.handleCount = this.handleCount.bind(this);
@@ -36,12 +36,18 @@ class GameComponent extends React.Component {
         opponentUsername: data.username,
         oppCurrent: data.currSuggestion,
       });
-            // }
     });
   }
 
   componentDidMount() {
     setInterval(this.handleRandom, 900);
+  }
+
+  componentWillUnmount() {
+    socket.emit('end', () => {
+      console.log('disconnect from client')
+      socket.close();
+    });
   }
 
   handleRandom(event) {
@@ -75,7 +81,7 @@ class GameComponent extends React.Component {
       });
       this.setState({
         penalty: 'You Rock!',
-        img: 'http://opengameart.org/sites/default/files/cat_a5.gif',
+        img: 'https://s-media-cache-ak0.pinimg.com/originals/bb/af/a7/bbafa7a2b4273e152995aaeb9ae4477a.gif',
       });
     }
     if (charStr !== this.state.random) {
@@ -89,19 +95,19 @@ class GameComponent extends React.Component {
       });
       this.setState({
         penalty: 'You Suck!',
-        img: 'http://opengameart.org/sites/default/files/cat_spin_kick.gif',
+        img: 'https://31.media.tumblr.com/b427bb920841552191c7cd744d81c40e/tumblr_inline_n2j4stARQt1rnyp4t.gif',
       });
     }
     if (currCount >= 10 || this.state.opponentScore === -10) {
       this.setState({
         winCondition: 'YOU WIN!',
-        img: 'http://opengameart.org/sites/default/files/cat_a1_super.gif',
+        img: 'http://vignette2.wikia.nocookie.net/goatlings/images/6/67/8bit_Goat.gif/revision/latest?cb=20140531215233',
       });
     }
     if (currCount <= -10 || this.state.opponentScore === 10) {
       this.setState({
-        winCondition: 'LOSE',
-        img: 'http://opengameart.org/sites/default/files/mon1_walk.gif',
+        winCondition: 'YOU LOSE, GIT GUD!',
+        img: 'https://thirtysomethingaf.files.wordpress.com/2016/09/giphy1.gif?w=696',
       });
     }
     this.setState({
@@ -133,7 +139,10 @@ class GameComponent extends React.Component {
       }
       return (
         <div>
-          <div>{this.state.winCondition}</div>
+          <div className="alert alert-dismissible alert-success">
+            <button type="button" className="close" data-dismiss="alert">&times;</button>
+            <strong>{this.state.winCondition}</strong> <a href="#" class="alert-link"></a>
+          </div>
 
           <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         View Activity Details
@@ -160,7 +169,6 @@ class GameComponent extends React.Component {
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -181,7 +189,10 @@ class GameComponent extends React.Component {
 
       return (
         <div>
-                    You lose! Click to view {this.state.opponentUsername}'s activity:
+          <div className="alert alert-dismissible alert-danger">
+            <button type="button" className="close" data-dismiss="alert">&times;</button>
+            <strong>YOU LOSE! Click to view {this.state.opponentUsername}'s activity:</strong> <a href="#" class="alert-link"></a>
+          </div>
                 <br />
           <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         View Activity Details
@@ -208,7 +219,6 @@ class GameComponent extends React.Component {
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -219,20 +229,23 @@ class GameComponent extends React.Component {
     }
 
     return (
-      <div onKeyPress={this.handleCount}>
-        <div>{this.state.group}</div>
-        <div>
-          <h5>{this.state.winCondition}</h5>
-          <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
-          <img src={this.state.img} />
-          <div>Your Score: {this.state.count}</div>
-          <div>Opponent's Score: {this.state.opponentScore}</div>
-          <h6>{this.state.penalty}</h6>
+    <div>
+    <div class="card" onKeyPress={this.handleCount}>
+      <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
+      <img class="card-img-top" src={this.state.img} alt="Card image cap"/>
+        <div class="card-block">
+          <h4 class="card-title">{this.state.winCondition}</h4>
+          <p class="card-text">Your Score: {this.state.count}</p>
+          <p class="card-text">Opponent's Score: {this.state.opponentScore}</p>
+          <p class="card-text">{this.state.penalty === "Let's Go!" ? <span className="label label-primary">{this.state.penalty}</span> : this.state.penalty === 'You Suck!' ? <span className="label label-danger">{this.state.penalty}</span> : <span className="label label-success">{this.state.penalty}</span>}</p>
+          <p class="card-text"><small class="text-muted"><button onClick={this.handleRandom}>PLAY</button></small></p>
         </div>
-        <button onClick={this.handleReset}>RESET</button>
       </div>
-    );
+      </div>
+
+    );  
   }
 }
 
 export default GameComponent;
+ 

@@ -46,6 +46,10 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('count', counter);
     console.log(`this is the count ${counter}`);
   });
+  socket.on('end', (data) => {
+    socket.disconnect()
+    console.log(`disconnected! ${data}`)
+  })
 });
 
 
