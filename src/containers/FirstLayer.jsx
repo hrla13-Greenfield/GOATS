@@ -8,27 +8,31 @@ import { selectChoice } from '../actions/index.jsx';
 class FirstLayer extends React.Component {
 
   renderChoices() {
-    return this.props.choices.firstLoad.map((choice) => ( 
+    return this.props.choices.firstLoad.map(choice => (
       <div className="col-md-4 col-sm-6 col-xs-12">
-        <div className="space"></div>
+        <div className="space" />
         <h2>{choice.title}</h2>
-        <img className="allPics"
-          key={ choice.img }
-          onClick={() => this.props.selectChoice(choice.option, this.props.choices.updatedZipcode, this.props.userdata.userID, this.props.userdata.username)}
-          src={ choice.img } 
-          style={{ borderRadius: 5, tintColor: '#0000CD' }}/>
-          <div className="space"></div></div>
+        <img
+          className="allPics"
+          key={choice.img}
+          onClick={() => this.props.selectChoice(
+            choice.option, this.props.choices.updatedZipcode,
+            this.props.userdata.userID, this.props.userdata.username)}
+          src={choice.img}
+          style={{ borderRadius: 5, tintColor: '#0000CD' }}
+        />
+        <div className="space" /></div>
       ));
   }
 
   render() {
     return (
       <div>
-      <div className="spaceSmall"></div>
-      <h1 className="headings">Click what you feel like</h1>
-      <h4 className="headingsW">Goats will help you make a decision</h4>
-      <div>
-        { this.renderChoices() }</div>
+        <div className="spaceSmall" />
+        <h1 className="headings">Click what you feel like</h1>
+        <h4 className="headingsW">Goats will help you make a decision</h4>
+        <div>
+          { this.renderChoices() }</div>
       </div>
     );
   }

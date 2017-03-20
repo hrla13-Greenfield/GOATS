@@ -1,32 +1,34 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { planDay } from '../actions/index.jsx';
 
 class NoPlan extends React.Component {
-  render(){
-  return (
-    <div>
-     <div style={{width: '250px', height:'210px', overflow:'hidden', position:'center', margin: '25px'}}>
-      <iframe src="http://i.giphy.com/PtziVPCCEn6so.gif" width="480" height="391" frameBorder="0" className="gify"></iframe>
-     </div>
-     <div className="buttonDiv">
-      <button onClick={() => this.props.planDay(this.props.choices.updatedZipcode)} className="inlineButton">Help me plan my day</button>
-    </div>
-    </div>
-   )
- } 
+  render() {
+    return (
+      <div>
+        <div style={{ width: '250px', height: '210px', overflow: 'hidden', position: 'center', margin: '25px' }}>
+          <iframe src="http://i.giphy.com/PtziVPCCEn6so.gif" width="480" height="391" frameBorder="0" className="gify" />
+        </div>
+        <div className="buttonDiv">
+          <button
+            onClick={() => this.props.planDay(this.props.choices.updatedZipcode)}
+            className="inlineButton"
+          >Help me plan my day</button>
+        </div>
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-      choices: state.choices,
-    };
-  }
+  return {
+    choices: state.choices,
+  };
+}
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ planDay }, dispatch);
-  }
+  return bindActionCreators({ planDay }, dispatch);
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoPlan);
