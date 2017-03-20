@@ -26,31 +26,27 @@ class Browse extends React.Component {
       <div className="col-md-4 col-sm-6 col-xs-12" height="300px">
 
         <div className="thumbnail">
-          <div style={{ margin: "0 auto", width: '200px', height: '180px', overflow: 'hidden' }}>
+          <div style={{ margin: '0 auto', width: '200px', height: '180px', overflow: 'hidden' }}>
             <a href={item.url}>
-            <img src={item.image_url} height="180px" className="feedPics" /></a>
+              <img src={item.image_url} height="180px" className="feedPics" /></a>
           </div>
-        
+
           <div className="caption" >
             <div style={{ width: '350px', height: '180px', overflow: 'hidden' }}>
-            <h5> {item.name} </h5>
-            <h6> Description:{ item.categories.map(item => (<div>{item.title}</div>)) } </h6>
-            <h6> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </h6>
-            
-            {item.name === this.props.userdata.current.name ?
+              <h5> {item.name} </h5>
+              <h6> Description:{ item.categories.map(item => (<div>{item.title}</div>)) } </h6>
+              <h6> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </h6>
+
+              {item.name === this.props.userdata.current.name ?
             (<div className="browsecenter">
               <button className="btn btn-browseselect">Selected</button></div>) :
             (<div className="browsecenter">
               <button onClick={() => this.wantToDo(item)} className="btn btn-browsebutton">
                 I want to do this!</button></div>)}
-                </div>
+            </div>
           </div>
         </div>
       </div>
-   
-  
-  
-
         ));
   }
   render() {

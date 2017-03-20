@@ -23,7 +23,7 @@ export function signInSuccess(userinfo, username) {
       newGroupsByID.push(newGroupTemp);
     }
   }
-  var newCurrent;
+  let newCurrent;
   const newHistory = [];
   for (let k = userinfo.history.length - 1; k >= 0; k -= 1) {
     if (userinfo.history[k].id.toString() === userinfo.current) {
@@ -112,12 +112,12 @@ export function unSuccess(text) {
 }
 
 export function signIn(username) {
-  //dispatch is a redux term- call an action from our action handler list
-  //we are using thunk- which allows us to return a function instead of simple obj
+  // dispatch is a redux term- call an action from our action handler list
+  // we are using thunk- which allows us to return a function instead of simple obj
   return (dispatch) => {
-    //things won't show up if isLoading is true for the store
+    // things won't show up if isLoading is true for the store
     dispatch(isLoading(true));
-    console.log(username, "mehhhhhhhhh")
+    console.log(username, 'mehhhhhhhhh');
     axios.get('/api/users', { params: {
       username,
     } })
@@ -153,12 +153,13 @@ export function addFriend(groupID, friendName, userID, username) {
       userID,
     },
     ).then(() => {
-      var txt = 'Invite sent to '+friendName;
+      const txt = `Invite sent to ${friendName}`;
       dispatch(unSuccess(txt));
       dispatch(signIn(username));
     })
     .catch((err) => {
       dispatch(unSuccess('Invalid selection, please try again'));
+      console.log(err);
     });
   };
 }
@@ -190,6 +191,7 @@ export function declineRequest(reqid, user) {
     })
     .catch((err) => {
       dispatch(unSuccess('Invalid selection, please try again'));
+      console.log(err);
     });
   };
 }
@@ -249,7 +251,6 @@ export function deletehistory(historyid, username) {
       dispatch(unSuccess('Invalid selection, please try again'));
     });
   };
-
 }
 
 export function changePic(url, userid, user) {
