@@ -99,8 +99,9 @@ export default class Navbar extends React.Component {
     )}) 
   
     return (
-      <div >
-        <h1 style={{'fontFamily': "Brush Script MT, cursive", 'fontSize': "72px"}}>goats</h1>
+      <div className="navbar navbar-light">
+        <div>
+        <h1>Heading</h1>
         <ul className="nav nav-pils nav-stacked">
           <li><Link to={'/tree'}>Home</Link></li>
           <li><Link to={'/browse'}>Browse All</Link></li>
@@ -108,19 +109,19 @@ export default class Navbar extends React.Component {
           <li><Link onClick={() => this.logout()}>Logout</Link></li>
       
           <li>________</li>
-            <li> Welcome, {this.props.userdata.username}</li>
-            <Link to="/profile"><li>View Profile</li></Link>
-            <br />
+            <span className="navbar-orange"><li><h5> Hey,<br />{this.props.userdata.username}!</h5></li></span>
+            <li><Link to="/profile">View Profile</Link></li>
             <Link to="/profile">{this.renderInviteNotification()}</Link>
             
             
-          <hr />
+          <li>________</li>
           <h3>My Groups <a onClick={this.groupInput}> <span className="glyphicon glyphicon-plus-sign"></span></a></h3>
           <div>{this.state.group}</div>
           <div className="red">{this.props.userdata.note}</div>
           <br />
           {mappedGroups}
         </ul>
+      </div>
       </div>
     );
   }

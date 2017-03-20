@@ -39607,103 +39607,120 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'navbar navbar-light' },
         _react2.default.createElement(
-          'h1',
-          { style: { 'fontFamily': "Brush Script MT, cursive", 'fontSize': "72px" } },
-          'goats'
-        ),
-        _react2.default.createElement(
-          'ul',
-          { className: 'nav nav-pils nav-stacked' },
+          'div',
+          null,
           _react2.default.createElement(
-            'li',
+            'h1',
             null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/tree' },
-              'Home'
-            )
+            'Heading'
           ),
           _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/browse' },
-              'Browse All'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/dayplanner' },
-              'Plan my Day'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { onClick: function onClick() {
-                  return _this4.logout();
-                } },
-              'Logout'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            '________'
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            ' Welcome, ',
-            this.props.userdata.username
-          ),
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/profile' },
+            'ul',
+            { className: 'nav nav-pils nav-stacked' },
             _react2.default.createElement(
               'li',
               null,
-              'View Profile'
-            )
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/profile' },
-            this.renderInviteNotification()
-          ),
-          _react2.default.createElement('hr', null),
-          _react2.default.createElement(
-            'h3',
-            null,
-            'My Groups ',
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/tree' },
+                'Home'
+              )
+            ),
             _react2.default.createElement(
-              'a',
-              { onClick: this.groupInput },
-              ' ',
-              _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            this.state.group
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'red' },
-            this.props.userdata.note
-          ),
-          _react2.default.createElement('br', null),
-          mappedGroups
+              'li',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/browse' },
+                'Browse All'
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/dayplanner' },
+                'Plan my Day'
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { onClick: function onClick() {
+                    return _this4.logout();
+                  } },
+                'Logout'
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '________'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'navbar-orange' },
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'h5',
+                  null,
+                  ' Hey,',
+                  _react2.default.createElement('br', null),
+                  this.props.userdata.username,
+                  '!'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/profile' },
+                'View Profile'
+              )
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/profile' },
+              this.renderInviteNotification()
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '________'
+            ),
+            _react2.default.createElement(
+              'h3',
+              null,
+              'My Groups ',
+              _react2.default.createElement(
+                'a',
+                { onClick: this.groupInput },
+                ' ',
+                _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus-sign' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              this.state.group
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'red' },
+              this.props.userdata.note
+            ),
+            _react2.default.createElement('br', null),
+            mappedGroups
+          )
         )
       );
     }

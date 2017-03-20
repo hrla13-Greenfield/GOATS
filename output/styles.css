@@ -47,6 +47,24 @@ body {
   background-repeat: no-repeat;
 }
 
+.navbar-light {
+  background-color: white;
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 220px
+}
+
+.navbar-orange {
+  color: #ffa64d;
+}
+
+.navi: hover {
+ background-color: #ffa64d !important;
+}
+
+a {
+  color: black !important;
+}
 .centerdiv {
   padding-top: 50px;
   padding-right: 150px;
