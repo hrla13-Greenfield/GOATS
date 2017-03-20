@@ -16,7 +16,8 @@ class FirstLayer extends React.Component {
           key={ choice.img }
           onClick={() => this.props.selectChoice(choice.option, this.props.choices.updatedZipcode, this.props.userdata.userID, this.props.userdata.username)}
           src={ choice.img } 
-          style={{ borderRadius: 5, tintColor: '#0000CD' }}/></div>
+          style={{ borderRadius: 5, tintColor: '#0000CD' }}/>
+          <div className="space"></div></div>
       ));
   }
 
@@ -25,8 +26,8 @@ class FirstLayer extends React.Component {
       <div>
       <div className="spaceSmall"></div>
       <h1 className="headings">Click what you feel like</h1>
-      <h4 className="headingsW">GoatBot will help you make a decision</h4>
-      <div className="space"></div>
+      <h4 className="headingsW">Goats will help you make a decision</h4>
+      <div className="spaceSmall"></div>
       <div>
         { this.renderChoices() }</div>
       </div>

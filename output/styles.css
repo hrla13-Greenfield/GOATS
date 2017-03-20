@@ -46,3 +46,13 @@ body {
 .noRepeat {
   background-repeat: no-repeat;
 }
+
+.centerdiv {
+  padding-top: 50px;
+  padding-right: 150px;
+}
+
+.center {
+  position: absolute;
+  padding-left: 230px;
+}
