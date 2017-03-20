@@ -245,7 +245,8 @@ a {
 }
 
 .picCenter {
-  padding-left: 180px;
+  text-align: center;
+  padding-left: 25%
 }
 
 .white {
