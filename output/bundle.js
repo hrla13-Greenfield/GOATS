@@ -8298,17 +8298,26 @@ var Location = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'jumbotron' },
+        { className: 'centerdiv' },
         _react2.default.createElement(
-          'h3',
-          null,
-          'Where should your next adventure take place?'
+          'div',
+          { className: 'jumbotron' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Where should GOATS take you next?'
+          ),
+          _react2.default.createElement(
+            'form',
+            { onSubmit: this.handleSubmit.bind(this) },
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange.bind(this), placeholder: 'zipcode goes here' }),
+            _react2.default.createElement('input', { type: 'submit', value: 'enter', className: 'btn btn-info btn-sm' })
+          )
         ),
         _react2.default.createElement(
-          'form',
-          { onSubmit: this.handleSubmit.bind(this) },
-          _react2.default.createElement('input', { type: 'text', onChange: this.handleChange.bind(this), placeholder: 'zipcode goes here' }),
-          _react2.default.createElement('input', { type: 'submit', value: 'enter', className: 'btn btn-info btn-sm' })
+          'div',
+          { className: 'center' },
+          _react2.default.createElement('img', { src: "./assets/goatssolo.png", height: '400px' })
         )
       );
     }
@@ -39326,7 +39335,8 @@ var FirstLayer = function (_React$Component) {
               return _this2.props.selectChoice(choice.option, _this2.props.choices.updatedZipcode, _this2.props.userdata.userID, _this2.props.userdata.username);
             },
             src: choice.img,
-            style: { borderRadius: 5, tintColor: '#0000CD' } })
+            style: { borderRadius: 5, tintColor: '#0000CD' } }),
+          _react2.default.createElement('div', { className: 'space' })
         );
       });
     }
@@ -39345,9 +39355,9 @@ var FirstLayer = function (_React$Component) {
         _react2.default.createElement(
           'h4',
           { className: 'headingsW' },
-          'GoatBot will help you make a decision'
+          'Goats will help you make a decision'
         ),
-        _react2.default.createElement('div', { className: 'space' }),
+        _react2.default.createElement('div', { className: 'spaceSmall' }),
         _react2.default.createElement(
           'div',
           null,
