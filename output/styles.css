@@ -104,6 +104,7 @@ a {
   width: 250px;
 }
 
+<<<<<<< HEAD
 .gameholder{
   text-align: center;
 }
@@ -135,6 +136,31 @@ a {
   background-color: lightgreen;
   color: white;
 }
+=======
+.btn-browsebutton {
+  color: white;
+  background-color: #272525;
+  border-color: #ffa64d;
+  border-width: 2px;
+  /*border-radius: 24px;*/
+  width: 250px;
+}
+
+.btn-browseselect {
+  color: #272525;
+  background-color: #ffa64d;
+  border-color: #272525;
+  border-width: 2px;
+  /*border-radius: 24px;*/
+  width: 250px;
+}
+
+.equal {
+  display: flex;
+  display: -webkit-flex;
+}
+
+>>>>>>> working on browse
 
 @keyframes goats {
     0%   { left:0px; top:0px;}

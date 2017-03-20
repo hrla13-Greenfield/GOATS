@@ -23,9 +23,10 @@ class Browse extends React.Component {
 
   renderAll() {
     return this.props.choices.showAll.map(item => (
-      <div className="col-md-4 col-sm-6 col-xs-12" height="300px">
+      <div className="equal" className="col-md-4 col-sm-6 col-xs-12" height="300px">
+        {/*<div className="row row-eq-height">*/}
         <div className="thumbnail">
-          <div style={{ width: '200px', height: '180px', overflow: 'hidden' }}>
+          <div className="browsecenter" style={{ width: '200px', height: '180px', overflow: 'hidden' }}>
             <a href={item.url}><img src={item.image_url} height="180" className="feedPics" /></a>
           </div>
           <div className="caption">
@@ -33,13 +34,14 @@ class Browse extends React.Component {
             <h6> Description:{ item.categories.map(item => (<div>{item.title}</div>)) } </h6>
             <h6> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </h6>
             {item.name === this.props.userdata.current.name ?
-            (<button className="btn btn-primary">Selected</button>) :
+            (<button className="btn btn-browseselect">Selected</button>) :
             (<div>
-              <button onClick={() => this.wantToDo(item)} className="btn btn-success">
+              <button onClick={() => this.wantToDo(item)} className="btn btn-browsebutton">
                 I want to do this!</button></div>)}
           </div>
         </div>
       </div>
+      // </div>
         ));
   }
   render() {
