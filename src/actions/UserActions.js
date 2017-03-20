@@ -10,7 +10,7 @@ export function signInSuccess(userinfo, username) {
       newGroups.push(userinfo.usergroups[i].id);
 
       const membersTemp = [];
-      for (let j = 0; j < userinfo.usergroups[i].Users.length; j++) {
+      for (let j = 0; j < userinfo.usergroups[i].Users.length; j += 1) {
         if (userinfo.usergroups[i].Users[j].username !== username) {
           membersTemp.push(userinfo.usergroups[i].Users[j].username);
         }
@@ -44,7 +44,7 @@ export function signInSuccess(userinfo, username) {
     newHistory.push(historyTemp);
   }
   const newInvites = [];
-  for (let l = 0; l < userinfo.invites.length; l++) {
+  for (let l = 0; l < userinfo.invites.length; l += 1) {
     const tmpInvite = {
       groupID: userinfo.invites[l].GroupId,
       userID: userinfo.invites[l].UserId,
@@ -117,7 +117,6 @@ export function signIn(username) {
   return (dispatch) => {
     // things won't show up if isLoading is true for the store
     dispatch(isLoading(true));
-    console.log(username, 'mehhhhhhhhh');
     axios.get('/api/users', { params: {
       username,
     } })
