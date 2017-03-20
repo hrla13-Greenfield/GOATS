@@ -119,9 +119,14 @@ export function getDay6(selection6) {
 export function getAll(data) {
   return {
     type: 'BROWSE',
-    payload:
-      { data },
+    payload: { data }
   };
+}
+
+export function goBack(){
+  return {
+    type: 'GOBACK',
+   };
 }
 
 export function selectChoice(option, zip, userID, username) {

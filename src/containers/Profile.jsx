@@ -18,7 +18,6 @@ export default class Profile extends React.Component {
     this.renderPicInput = this.renderPicInput.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.changePic = this.changePic.bind(this);
-    
   }
   
   acceptRequest(reqid, user) {
@@ -51,7 +50,7 @@ export default class Profile extends React.Component {
 
   renderCurrent() {
     return(
-    <div className="col-md-8 col-md-offset-2"><div style={{width:"200px",height:"200px",overflow:'hidden', 'textAlign':'center'}}><img height="200px" src={this.props.userdata.current.image}></img></div>
+    <div className="col-md-8 col-md-offset-2"><div style={{width:"200px",height:"200px",overflow:'hidden', 'textAlign':'center', marginLeft: '45px'}}><img height="200px" src={this.props.userdata.current.image}></img></div>
     <h4>{this.props.userdata.current.name}</h4><br /></div>
     )
   }
@@ -116,15 +115,15 @@ export default class Profile extends React.Component {
     return (
       <div className="profilecenter" style={{textAlign: 'center'}}>
       <div className="col-md-10 col-md-offset-1 whitee">
-        <div className="row"><div className="col-md-9"><h1 className="headings">{this.props.userdata.username}<small> | Profile</small></h1></div><div className="col-md-2"><br /><div style={{width:"80px",height:"80px",overflow:'hidden', 'textAlign':'center'}}>
+        <div className="row"><div className="col-md-6 col-md-offset-3"><h4>{this.props.userdata.username}<small> | Profile</small></h4></div><div className="col-md-2"><br /><div style={{width:"80px",height:"80px",overflow:'hidden', 'textAlign':'center'}}>
           <img style={{display:'block','textAlign':'center', margin:'auto'}}height="80px" src={this.props.userdata.userImg}></img></div>
         <a onClick={() => this.renderPicInput()}><small>Change</small></a><br />{this.state.picInput}</div></div>
          <div className="row">
           <div className="col-md-5 profilecenter"><br />
-          <h3>Currently Selected Activity</h3>
+          <h3 className="headings">Current GOATS Pick</h3>
           {this.props.userdata.current !== undefined ? (this.renderCurrent()) : <div></div>}
           </div>
-         <div className="whitee col-md-7"><h3>Pending group invites</h3>
+         <div className="whitee col-md-7"><h3 className="headings">Pending group invites</h3>
          <table className="table">
            <thead>
            <tr>
@@ -142,7 +141,7 @@ export default class Profile extends React.Component {
         </div>
         <div className="row">
           <br />  <br />
-         <h3> User history list </h3>
+         <h3 className="headings">My history</h3>
                   <table className="table">
            <thead>
            <tr>
