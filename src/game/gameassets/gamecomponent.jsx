@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 const io = require('socket.io-client');
+
 const socket = io();
 
 @connect((store) => {
@@ -45,7 +45,6 @@ class GameComponent extends React.Component {
 
   componentWillUnmount() {
     socket.emit('end', () => {
-      console.log('disconnect from client')
       socket.close();
     });
   }
@@ -141,7 +140,7 @@ class GameComponent extends React.Component {
         <div>
           <div className="alert alert-dismissible alert-success">
             <button type="button" className="close" data-dismiss="alert">&times;</button>
-            <strong>{this.state.winCondition}</strong> <a href="#" className="alert-link"></a>
+            <strong>{this.state.winCondition}</strong> <a href="#" className="alert-link" />
           </div>
 
           <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -164,7 +163,7 @@ class GameComponent extends React.Component {
                     </a></div>
                   <h3>{this.props.userdata.current.name}</h3><br />
                   {tmpCategory}<br />
-                 {tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}<br />
+                  {tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}<br />
                   {this.props.userdata.current.phone}<br />
                 </div>
                 <div className="modal-footer">
@@ -191,9 +190,9 @@ class GameComponent extends React.Component {
         <div>
           <div className="alert alert-dismissible alert-danger">
             <button type="button" className="close" data-dismiss="alert">&times;</button>
-            <strong>YOU LOSE! Click to view {this.state.opponentUsername}'s activity:</strong> <a href="#" className="alert-link"></a>
+            <strong>YOU LOSE! Click to view {this.state.opponentUsername}'s activity:</strong> <a href="#" className="alert-link" />
           </div>
-                <br />
+          <br />
           <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         View Activity Details
               </button>
@@ -207,14 +206,14 @@ class GameComponent extends React.Component {
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div className="modal-body" style={{ textAlign: 'center'}}>
+                <div className="modal-body" style={{ textAlign: 'center' }}>
                   <div className="centerthis">
                     <a href={this.state.oppCurrent.url}>
-                      <img style={{ display: 'block', textAlign: 'center', margin: 'auto'}} height="250px" src={this.state.oppCurrent.image} />
+                      <img style={{ display: 'block', textAlign: 'center', margin: 'auto' }} height="250px" src={this.state.oppCurrent.image} />
                     </a></div>
                   <h3>{this.state.oppCurrent.name}</h3><br />
                   {tmpCategory}<br />
-                 {tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}<br />
+                  {tmpHistory.display_address[0]}<br />{tmpHistory.display_address[1]}<br />
                   {this.state.oppCurrent.phone}<br />
                 </div>
                 <div className="modal-footer">
@@ -229,23 +228,23 @@ class GameComponent extends React.Component {
     }
 
     return (
-    <div>
-    <div className="col-md-4 col-md-offset-4 card" onKeyPress={this.handleCount}>
-                  
-      <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
-      <img className="card-img-top" src={this.state.img} alt="Card image cap"/>
-        <div className="card-block">
-          <h4 className="card-title">{this.state.winCondition}</h4>
-          <p className="card-text">Your Score: {this.state.count}</p>
-          <p className="card-text">Opponent's Score: {this.state.opponentScore}</p>
-          <p className="card-text">{this.state.penalty === "Let's Go!" ? <span className="label label-primary">{this.state.penalty}</span> : this.state.penalty === 'You Suck!' ? <span className="label label-danger">{this.state.penalty}</span> : <span className="label label-success">{this.state.penalty}</span>}</p>
-          <p className="card-text"><small className="text-muted"><button onClick={this.handleRandom}>PLAY</button></small></p>
+      <div>
+        <div className="col-md-4 col-md-offset-4 card" onKeyPress={this.handleCount}>
+
+          <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
+          <img className="card-img-top" src={this.state.img} alt="Card image cap" />
+          <div className="card-block">
+            <h4 className="card-title">{this.state.winCondition}</h4>
+            <p className="card-text">Your Score: {this.state.count}</p>
+            <p className="card-text">Opponent's Score: {this.state.opponentScore}</p>
+            <p className="card-text">{this.state.penalty === "Let's Go!" ? <span className="label label-primary">{this.state.penalty}</span> : this.state.penalty === 'You Suck!' ? <span className="label label-danger">{this.state.penalty}</span> : <span className="label label-success">{this.state.penalty}</span>}</p>
+            <p className="card-text"><small className="text-muted"><button onClick={this.handleRandom}>PLAY</button></small></p>
+          </div>
         </div>
       </div>
-      </div>
-    );  
+    );
   }
 }
 
 export default GameComponent;
- 
+

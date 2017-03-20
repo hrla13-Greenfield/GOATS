@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { planDay } from '../actions/index.jsx';
@@ -13,69 +12,69 @@ let items6;
 
 class DayPlanner extends React.Component {
   renderDay() {
-    items = (this.props.choices.dayLoad.map(item => (
-      <div className="col-md-6 col-sm-12 col-xs-12 morning row-equal-height" height="300px">
+    items = (this.props.choices.dayLoad.map((item, idx) => (
+      <div key={idx} className="col-md-6 col-sm-12 col-xs-12 morning row-equal-height" height="300px">
         <h4 className="headingBold orange"> {item.name} </h4>
         <div style={{ width: '200px', height: '180px', overflow: 'hidden' }}>
           <a href={item.url}><img src={item.image} height="180" /></a>
         </div>
         <div className="orange"> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
-        <h6 className="orange"> Description:{item.description.map(item => (<div>{item.title}</div>))} </h6>
+        <h6 className="orange"> Description:{item.description.map((item, idx) => (<div key={idx}>{item.title}</div>))} </h6>
         <h6 className="orange"> {item.phone} </h6>
       </div>
       )));
-    items2 = (this.props.choices.dayLoadtwo.map(item => (
-      <div className="col-md-6 col-sm-12 col-xs-12 morning row-equal-height" height="300px">
+    items2 = (this.props.choices.dayLoadtwo.map((item, idx) => (
+      <div key={idx} className="col-md-6 col-sm-12 col-xs-12 morning row-equal-height" height="300px">
         <h4 className="headingBold orange"> {item.name} </h4>
         <div style={{ width: '200px', height: '180px', overflow: 'hidden' }}>
           <a href={item.url}><img src={item.image} height="180" /></a>
         </div>
         <div className="orange"> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
-        <h6 className="orange"> Description:{item.description.map(item => (<div>{item.title}</div>))} </h6>
+        <h6 className="orange"> Description:{item.description.map((item, idx) => (<div key={idx}>{item.title}</div>))} </h6>
         <h6 className="orange"> {item.phone} </h6>
       </div>
       )));
-    items3 = (this.props.choices.dayLoadthree.map(item => (
-      <div className="col-md-6 col-sm-12 col-xs-12 afternoon row-equal-height" height="300px">
+    items3 = (this.props.choices.dayLoadthree.map((item, idx) => (
+      <div key={idx} className="col-md-6 col-sm-12 col-xs-12 afternoon row-equal-height" height="300px">
         <h4 className="headingBold orange"> {item.name} </h4>
         <div style={{ width: '200px', height: '180px', overflow: 'hidden' }}>
           <a href={item.url}><img src={item.image} height="180" /></a>
         </div>
         <div className="orange"> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
-        <h6 className="orange"> Description:{item.description.map(item => (<div>{item.title}</div>))} </h6>
+        <h6 className="orange"> Description:{item.description.map((item, idx) => (<div key={idx} >{item.title}</div>))} </h6>
         <h6 className="orange"> {item.phone} </h6>
       </div>
       )));
-    items4 = (this.props.choices.dayLoadfour.map(item => (
-      <div className="col-md-6 col-sm-12 col-xs-12 afternoon row-equal-height" height="300px" >
+    items4 = (this.props.choices.dayLoadfour.map((item, idx) => (
+      <div key={idx} className="col-md-6 col-sm-12 col-xs-12 afternoon row-equal-height" height="300px" >
         <h4 className="headingBold orange"> {item.name} </h4>
         <div style={{ width: '200px', height: '180px', overflow: 'hidden' }}>
           <a href={item.url}><img src={item.image} height="180" /></a>
         </div>
         <div className="orange"> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
-        <h6 className="orange"> Description:{item.description.map(item => (<div>{item.title}</div>))} </h6>
+        <h6 className="orange"> Description:{item.description.map((item, idx) => (<div key={idx}>{item.title}</div>))} </h6>
         <h6 className="orange"> {item.phone} </h6>
       </div>
       )));
-    items5 = (this.props.choices.dayLoadfive.map(item => (
-      <div className="col-md-6 col-sm-12 col-xs-12 night row-equal-height" height="300px">
+    items5 = (this.props.choices.dayLoadfive.map((item, idx) => (
+      <div key={idx} className="col-md-6 col-sm-12 col-xs-12 night row-equal-height" height="300px">
         <h4 className="headingBold orange"> {item.name} </h4>
         <div style={{ width: '200px', height: '180px', overflow: 'hidden' }}>
           <a href={item.url}><img src={item.image} height="180" /></a>
         </div>
         <div className="orange"> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
-        <h6 className="orange"> Description:{item.description.map(item => (<div>{item.title}</div>))} </h6>
+        <h6 className="orange"> Description:{item.description.map((item, idx) => (<div key={idx}>{item.title}</div>))} </h6>
         <h6 className="orange"> {item.phone} </h6>
       </div>
       )));
-    items6 = (this.props.choices.dayLoadsix.map(item => (
-      <div className="col-md-6 col-sm-12 col-xs-12 night row-equal-height" height="300px">
+    items6 = (this.props.choices.dayLoadsix.map((item, idx) => (
+      <div key={idx} className="col-md-6 col-sm-12 col-xs-12 night row-equal-height" height="300px">
         <h4 className="headingBold orange"> {item.name} </h4>
         <div style={{ width: '200px', height: '180px', overflow: 'hidden' }}>
           <a href={item.url}><img src={item.image} height="180" /></a>
         </div>
         <div className="orange"> {Math.round(item.distance * 0.000621371 * 100) / 100} miles from you </div>
-        <h6 className="orange"> Description:{item.description.map(item => (<div>{item.title}</div>))} </h6>
+        <h6 className="orange"> Description:{item.description.map((item, idx) => (<div key={idx}>{item.title}</div>))} </h6>
         <h6 className="orange"> {item.phone} </h6>
       </div>
       )));
