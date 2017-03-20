@@ -74,3 +74,30 @@ a {
   position: absolute;
   padding-left: 230px;
 }
+
+.centerlogin{
+  /*text-align: center;
+  position: relative;
+    top: 10%;
+    transform: translateY(10%);*/
+  
+  padding-top: 200px;
+  padding-right: 300px;
+  padding-left:80px
+
+}
+
+.buttonlogin{
+  padding-left: 300px;
+  padding-right: 350px;
+  padding-bottom: 200px;
+}
+
+.btn-logincustom {
+  color: white;
+  background-color: #272525;
+  border-color: #ffa64d;
+  border-width: 2px;
+  border-radius: 24px;
+  width: 250px;
+}

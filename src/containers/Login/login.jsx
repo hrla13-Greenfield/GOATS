@@ -57,8 +57,16 @@ loginWithSocial(){
   render() {
     return (
       <div> 
-      <button onClick={this.loginWithEmailCode.bind(this)}>Email Code</button>
-      <button onClick={this.loginWithSocial.bind(this)} >Social</button>
+        <span>
+          <div className="centerlogin">
+          <img src={'./assets/goats.png'} className="img-responsive" ></img>
+          </div>
+
+        </span>
+        <div className="buttonlogin">
+      <button className="btn btn-logincustom btn-lg" onClick={this.loginWithEmailCode.bind(this)}>SIGN IN</button>
+      {/*<button onClick={this.loginWithSocial.bind(this)} >Social</button>*/}
+      </div>
       </div>
     );
   }
