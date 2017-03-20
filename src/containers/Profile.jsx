@@ -113,7 +113,7 @@ export default class Profile extends React.Component {
     return (
       <div className="profilecenter" style={{textAlign: 'center'}}>
       <div className="col-md-10 col-md-offset-1 whitee">
-        <div className="row"><div className="col-md-6 col-md-offset-3"><h4>{this.props.userdata.username}<small> | Profile</small></h4></div><div className="col-md-2"><br /><div style={{width:"80px",height:"80px",overflow:'hidden', 'textAlign':'center'}}>
+        <div className="row"><div className="col-md-6 col-md-offset-3"><h4>{this.props.userdata.username}<small> | Profile</small></h4></div><div className="centerthis col-md-2"><br /><div style={{width:"80px",height:"80px",overflow:'hidden', 'textAlign':'center'}}>
           <img style={{display:'block','textAlign':'center', margin:'auto'}}height="80px" src={this.props.userdata.userImg}></img></div>
         <a onClick={() => this.renderPicInput()}><small>Change</small></a><br />{this.state.picInput}</div></div>
          <div className="row">

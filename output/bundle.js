@@ -19736,7 +19736,7 @@ var Profile = (_dec = (0, _reactRedux.connect)(function (store) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-2' },
+                { className: 'centerthis col-md-2' },
                 _react2.default.createElement('br', null),
                 _react2.default.createElement(
                   'div',
