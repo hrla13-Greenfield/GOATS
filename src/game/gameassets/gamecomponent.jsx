@@ -141,7 +141,7 @@ class GameComponent extends React.Component {
         <div>
           <div className="alert alert-dismissible alert-success">
             <button type="button" className="close" data-dismiss="alert">&times;</button>
-            <strong>{this.state.winCondition}</strong> <a href="#" class="alert-link"></a>
+            <strong>{this.state.winCondition}</strong> <a href="#" className="alert-link"></a>
           </div>
 
           <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -158,7 +158,7 @@ class GameComponent extends React.Component {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <div style={{ width: '250px', height: '250px', overflow: 'hidden', textAlign: 'center' }}>
+                  <div className="centerthis">
                     <a href={this.props.userdata.current.url}>
                       <img style={{ display: 'block', textAlign: 'center', margin: 'auto' }} height="250px" src={this.props.userdata.current.image} />
                     </a></div>
@@ -191,7 +191,7 @@ class GameComponent extends React.Component {
         <div>
           <div className="alert alert-dismissible alert-danger">
             <button type="button" className="close" data-dismiss="alert">&times;</button>
-            <strong>YOU LOSE! Click to view {this.state.opponentUsername}'s activity:</strong> <a href="#" class="alert-link"></a>
+            <strong>YOU LOSE! Click to view {this.state.opponentUsername}'s activity:</strong> <a href="#" className="alert-link"></a>
           </div>
                 <br />
           <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -207,10 +207,10 @@ class GameComponent extends React.Component {
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div className="modal-body">
-                  <div style={{ width: '250px', height: '250px', overflow: 'hidden', textAlign: 'center' }}>
+                <div className="modal-body" style={{ textAlign: 'center'}}>
+                  <div className="centerthis">
                     <a href={this.state.oppCurrent.url}>
-                      <img style={{ display: 'block', textAlign: 'center', margin: 'auto' }} height="250px" src={this.state.oppCurrent.image} />
+                      <img style={{ display: 'block', textAlign: 'center', margin: 'auto'}} height="250px" src={this.state.oppCurrent.image} />
                     </a></div>
                   <h3>{this.state.oppCurrent.name}</h3><br />
                   {tmpCategory}<br />
@@ -230,19 +230,19 @@ class GameComponent extends React.Component {
 
     return (
     <div>
-    <div class="card" onKeyPress={this.handleCount}>
+    <div className="col-md-4 col-md-offset-4 card" onKeyPress={this.handleCount}>
+                  
       <h3>PRESS: <b>{(this.state.random).toUpperCase()}</b></h3>
-      <img class="card-img-top" src={this.state.img} alt="Card image cap"/>
-        <div class="card-block">
-          <h4 class="card-title">{this.state.winCondition}</h4>
-          <p class="card-text">Your Score: {this.state.count}</p>
-          <p class="card-text">Opponent's Score: {this.state.opponentScore}</p>
-          <p class="card-text">{this.state.penalty === "Let's Go!" ? <span className="label label-primary">{this.state.penalty}</span> : this.state.penalty === 'You Suck!' ? <span className="label label-danger">{this.state.penalty}</span> : <span className="label label-success">{this.state.penalty}</span>}</p>
-          <p class="card-text"><small class="text-muted"><button onClick={this.handleRandom}>PLAY</button></small></p>
+      <img className="card-img-top" src={this.state.img} alt="Card image cap"/>
+        <div className="card-block">
+          <h4 className="card-title">{this.state.winCondition}</h4>
+          <p className="card-text">Your Score: {this.state.count}</p>
+          <p className="card-text">Opponent's Score: {this.state.opponentScore}</p>
+          <p className="card-text">{this.state.penalty === "Let's Go!" ? <span className="label label-primary">{this.state.penalty}</span> : this.state.penalty === 'You Suck!' ? <span className="label label-danger">{this.state.penalty}</span> : <span className="label label-success">{this.state.penalty}</span>}</p>
+          <p className="card-text"><small className="text-muted"><button onClick={this.handleRandom}>PLAY</button></small></p>
         </div>
       </div>
       </div>
-
     );  
   }
 }

@@ -48,8 +48,8 @@ class GameLanding extends React.Component {
         })
       }
     })
-    socket.on('ready-up', function(data) {
-      if(data.roomname === self.props.userdata.roomSelected) {
+    socket.on('ready-up', function (data) {
+      if (data.roomname === self.props.userdata.roomSelected) {
         self.setState({
           gameReady: true,
         })
@@ -57,37 +57,37 @@ class GameLanding extends React.Component {
     })
   }
 
-  rdyup() { 
+  rdyup() {
     socket.emit('ready-up', {
       roomname: this.props.userdata.roomSelected
     })
-      this.setState({
-        gameReady: true,
-      })
+    this.setState({
+      gameReady: true,
+    })
   }
 
   rdyup2() {
     var self = this;
     if (this.state.counter === false) {
-    setTimeout(() => {
-      self.setState({
-      counter: true
-    })
-    }, 3000);
+      setTimeout(() => {
+        self.setState({
+          counter: true
+        })
+      }, 3000);
     }
   }
-    render() {
-      if(!!localStorage.getItem("userToken") === false){
-      window.location.href= "/login"
+  render() {
+    if (!!localStorage.getItem("userToken") === false) {
+      window.location.href = "/login"
       return false;
     } else {
       if (this.state.gameReady === true) {
         this.rdyup2();
         return (
-         this.state.counter === true ? (<div className="gameholder"><GameComponent /></div>) : (<div className='getready'>Get ready</div>)
+          this.state.counter === true ? (<div className="gameholder"><GameComponent /></div>) : (<div className='getready'>Get ready</div>)
         )
       } else {
-        if(this.state.opponentUsername === '') {
+        if (this.state.opponentUsername === '') {
           return (
             <div className="alert alert-danger" role="alert">
               <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -97,20 +97,20 @@ class GameLanding extends React.Component {
           )
         } else {
           return (
-          <div className='gameholder'>
+            <div>
+              <div className="alert alert-success" role="alert">Opponent Found!</div>
 
-            <div className="alert alert-success" role="alert">Opponent Found!</div>
+              <div className="col-md-4 centerthis col-md-offset-4 card">
 
-              <div className="card">
-              <img className="card-img-top" src={this.state.opponentPicture} height='300px' alt="Card image cap"/>
-              <div className="card-block">
-                <h4 className="card-title">{this.state.opponentUsername}</h4>
-                <p className="card-text">Room: {this.state.myRoom}</p>
-                <p className="card-text">Their Selection: {this.state.opponentSelection}</p>
-                <p class="card-text"><small class="text-muted"><button onClick={() => this.rdyup()}>GET READY TO RUMBLE</button></small></p>
+                <img className="card-img-top" src={this.state.opponentPicture} alt="Card image cap" />
+                <div className="card-block">
+                  <h4 className="card-title">{this.state.opponentUsername}</h4>
+                  <p className="card-text">Room: {this.state.myRoom}</p>
+                  <p className="card-text">Their Selection: {this.state.opponentSelection}</p>
+                  <p className="card-text"><small className="text-muted"><button onClick={() => this.rdyup()}>GET READY TO RUMBLE</button></small></p>
+                </div>
               </div>
-          </div>
-          </div>
+            </div>
           )
         }
       }
