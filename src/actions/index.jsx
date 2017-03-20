@@ -184,7 +184,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -207,7 +207,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -230,7 +230,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -253,7 +253,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -276,7 +276,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -299,7 +299,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -322,7 +322,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -345,7 +345,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -368,7 +368,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -391,7 +391,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -414,7 +414,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -437,7 +437,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -480,7 +480,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -503,7 +503,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -526,7 +526,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
@@ -549,7 +549,7 @@ export function selectChoice(option, zip, userID, username) {
           userID };
         axios.post('api/users/history', input)
         .then(() => {
-          UserActions.signIn(username);
+          dispatch(UserActions.signIn(username));
         });
       })
       .catch((err) => {
