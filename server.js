@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const http = require('http');
 const myRouter = require(`${__dirname}/api/router.js`);
 const app = express();
-
+const cors = require('cors');
 const port = process.env.PORT || 8000
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 app.use(express.static('./output'));
 app.use('/api', myRouter);
+app.use(cors())
 
 app.get('/*', function(req, res) {
   res.sendFile(__dirname+'/output/index.html')
