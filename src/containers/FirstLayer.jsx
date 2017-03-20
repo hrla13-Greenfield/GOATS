@@ -27,7 +27,6 @@ class FirstLayer extends React.Component {
       <div className="spaceSmall"></div>
       <h1 className="headings">Click what you feel like</h1>
       <h4 className="headingsW">Goats will help you make a decision</h4>
-      <div className="spaceSmall"></div>
       <div>
         { this.renderChoices() }</div>
       </div>

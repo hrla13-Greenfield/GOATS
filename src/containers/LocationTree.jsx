@@ -28,7 +28,7 @@ class Location extends React.Component {
     return (
       <div className="centerdiv">
       <div className="jumbotron">
-      <h2 className="orange">Where should GOATS take you next?</h2>
+      <h2 className="orange centerHeading">Where should GOATS take you next?</h2>
       <div className="spaceSmall"></div>
       <form onSubmit={this.handleSubmit.bind(this)}>
        <input type="text" onChange={this.handleChange.bind(this)} placeholder="zipcode goes here" className="zipInput"/>
@@ -37,7 +37,7 @@ class Location extends React.Component {
        </form>
       </div>
       <div className="goatsanimate">
-      <img src={"./assets/goatssolo.png"} height="400px"></img>
+      <img src={"./assets/goatssolo.png"} height="250px"></img>
       </div>
       </div>
     );

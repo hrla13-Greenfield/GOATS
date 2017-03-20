@@ -14,7 +14,9 @@
 }
 
 .gify {
- margin-left: '200px'
+ float: 'right';
+ margin: 0 0 10px 10px;
+
 }
 
 .headings {
@@ -41,8 +43,8 @@ body {
 
 .centered {
   position: absolute; 
-  top: 50%;
-  left: 50%;
+  top: 100%;
+  left: 60%;
 }
 
 .noRepeat {
@@ -65,8 +67,9 @@ a {
   color: black !important;
 }
 .centerdiv {
-  padding-top: 50px;
+  padding-top: 25px;
   padding-right: 150px;
+  padding-left: 150px
 }
 
 .center {
@@ -154,16 +157,24 @@ a {
 
 .jumbotron {
   background-color: black !important;
-  opacity: 0.7
+  opacity: 0.7;
+}
+
+.suggestion {
+  width: 750px
 }
 
 .searchButton {
   background-color: #ffa64d;
-  color: black
+  color: black;
+  margin-left: 390px;
+  width: 250px
 }
 
 .zipInput {
   text-align: center;
+  margin-left: 390px;
+  width: 250px
 }
 
 .orange {
@@ -185,20 +196,42 @@ a {
 }
 
 .morning {
-  background-color: #ffa64d !important;
+  background-color:  black !important;
   opacity: 0.7
 }
 
 .afternoon {
-  background-color: #999999 !important;
+  background-color:  black !important;
   opacity: 0.7
 }
 
 .night {
-  background-color:#ffa64d !important;
+  background-color:black !important;
   opacity: 0.7
 }
 
 .headingBold {
   font-weight: bold !important
 }
+
+.centerHeading {
+  margin-left: 280px
+}
+
+.allPics {
+  padding-left: 25px;
+}
+
+.picCenter {
+  padding-left: 180px;
+}
+
+.white {
+  color: white;
+}
+
+.dayplanner {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+

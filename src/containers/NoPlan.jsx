@@ -8,7 +8,7 @@ class NoPlan extends React.Component {
   render(){
   return (
     <div>
-     <div className="gify"style={{width: '250px', height:'210px', overflow:'hidden', position:'center', margin: '25px'}}>
+     <div style={{width: '250px', height:'210px', overflow:'hidden', position:'center', margin: '25px'}}>
       <iframe src="http://i.giphy.com/PtziVPCCEn6so.gif" width="480" height="391" frameBorder="0" className="gify"></iframe>
      </div>
      <div className="buttonDiv">
