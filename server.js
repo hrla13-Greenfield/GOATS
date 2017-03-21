@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-
 const myRouter = require(`${__dirname}/api/router.js`);
 const app = express();
 const cors = require('cors');
@@ -42,12 +41,18 @@ const io = require('socket.io')(server);
 
 const rooms = {};
 
-// standard user connection through browser
+// DA WHOLE SHABANG FOR SOCKETS ON THE SERVER SIDE!!!
+// each one is used depending on which identified socket 
+// inside gamecomponent.
+// All socket BROADCAST emit is here!!! 
+// FLAGS for users to not emit their information back to them.
+
 io.on('connection', (socket) => {
   console.log('a user connected!');
   socket.on('disconnect', (socket) => {
     console.log('a user disconnected!');
   });
+  // The socket emit event on the client side is in NAVBAR
   socket.on('init-game', (info) => {
     socket.broadcast.emit('init-game', info);
     console.log(`this is opponent ${info}`);
