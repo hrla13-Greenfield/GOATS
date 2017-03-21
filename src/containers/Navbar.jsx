@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import * as UserActions from '../actions/UserActions';
 
 const io = require('socket.io-client');
-
 const socket = io();
 
 //Connect to redux store to access userdata

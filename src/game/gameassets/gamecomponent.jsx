@@ -2,18 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const io = require('socket.io-client');
-
 const socket = io();
 
+// requires store for opponent score
 @connect((store) => {
     return {
         userdata: store.userdata,
     };
 })
 
+// the Actual game itself
 class GameComponent extends React.Component {
   constructor(props) {
     super(props);
+    // used to generate random character to press at initial start up, as opposed to hard-coded characters
     const charArr = ['a', 's', 'd', 'f'];
     const initRandom = charArr[Math.floor(charArr.length * Math.random())];
     this.state = {
@@ -30,6 +32,7 @@ class GameComponent extends React.Component {
     this.handleReset = this.handleReset.bind(this);
     this.handleRandom = this.handleRandom.bind(this);
 
+    // socket on listeners from client side
     const self = this;
     socket.on('count', (data) => {
       self.setState({
@@ -38,6 +41,10 @@ class GameComponent extends React.Component {
         oppCurrent: data.currSuggestion,
       });
     });
+    
+    // Attempted to kill socket, if a person leaves the page or disconnects in any other means. 
+    // setState was supposed to notify the connected user that someone has disconnected!
+    // worked for a bit, but slow to register... Was attempting to implement this last minute
     socket.on('disconnect', (data) => {
       console.log('this is from the socket disconnect on the client side')
       self.setState({
@@ -47,10 +54,12 @@ class GameComponent extends React.Component {
 
   }
 
+  // Allows for game to process a higher level of difficulty by rerendering characters at a set interval
   componentDidMount() {
     setInterval(this.handleRandom, 900);
   }
 
+  // The primary functionality of the randomization of the input for the game
   handleRandom(event) {
     const charArr = ['a', 's', 'd', 'f'];
     const randomChar = charArr[Math.floor(charArr.length * Math.random())];
@@ -59,18 +68,24 @@ class GameComponent extends React.Component {
     });
   }
 
+  // The game's main functionality for score keeping and keeping track of win conditions, etc.
   handleCount(event) {
+
+    // allows for the keys to be inputed properly depending on which keycode presented
     event = event || window.event;
     let currCount = this.state.count;
     const charCode = event.keyCode || event.which;
     const charStr = String.fromCharCode(charCode);
 
+    // Basic game logic
     if (currCount >= 10) {
       return;
     }
     if (currCount <= -10) {
       return;
     }
+    // socket.emits are used to spit the data to the other user that is connected to the socket
+    // socket room is currently defaulted to one... No specified room implemented
     if (charStr === this.state.random) {
       currCount += 1;
       socket.emit('count', {
@@ -114,6 +129,8 @@ class GameComponent extends React.Component {
     this.setState({
       count: currCount,
     });
+    // Required for the user to know which key to press next, without it you will be playing the game blind...
+    // if that's the case its not a game at all. 
     this.handleRandom();
   }
 
@@ -126,7 +143,7 @@ class GameComponent extends React.Component {
     });
   }
 
-
+  // MODAL component for the results at the end of the game, giving you the proper result of the resulting winner!
   render() {
     if (this.state.winCondition === 'YOU WIN!') {
       const tmpHistory = JSON.parse(this.props.userdata.current.address);
@@ -177,6 +194,8 @@ class GameComponent extends React.Component {
 
         </div>
       );
+
+    // Same application as the above comment, this one is for the losing end
     } else if (this.state.opponentScore >= 10) {
       const tmpHistory = JSON.parse(this.state.oppCurrent.address);
       const cat = JSON.parse(this.state.oppCurrent.category);
@@ -229,6 +248,10 @@ class GameComponent extends React.Component {
       );
     }
 
+    // Actual rendering for the game!!!
+    // onKeyPress is only available if the play button is focused on the page.
+    // was trying to figure out how to make the whole page be able to change the input
+    // of the score... Apparently failed and implemented a crappy work around
     return (
     <div>
     <div className="gameCard card" onKeyPress={this.handleCount}>
@@ -246,6 +269,7 @@ class GameComponent extends React.Component {
       </div>
     );
 
+    // Rendering a notification for the connected user to know if their opponent disconnected
     if(this.state.disconnect === 'USER DISCONNECTED!') {
       return(
         <div> 
