@@ -9,12 +9,12 @@ import * as UserActions from '../../actions/UserActions.js';
   };
 }) 
 
-
+// place your auth0 credential here
 class Login extends React.Component {
   constructor(props) {
     super(props);
-this.AUTH0_CLIENT_ID = 'prZdyhStrcE55F4qE5C6V0WK7FiovNoo';
-this.AUTH0_DOMAIN = 'yangemilym.auth0.com';
+this.AUTH0_CLIENT_ID = ;
+this.AUTH0_DOMAIN = ;
 this.AUTH0_CALLBACKURL = 'http://localhost:8000/tree';
 self = this;
   }
@@ -22,36 +22,32 @@ self = this;
 
 loginWithEmailCode() {
 	const lock = new Auth0LockPasswordless(this.AUTH0_CLIENT_ID, this.AUTH0_DOMAIN);
-		// lock.emailcode({
-		// responseType:'token', 
-		// callbackURL: this.AUTH0_CALLBACKURL
-    // });
 lock.emailcode(function(err, profile, id_token, state){
     if(!err){
+      //setting token to local Storage 
         localStorage.setItem('userToken', id_token);
-        //send a redux action that sets state.auth.authenticated to true
-        // state.auth.user to profile
-
+        // directing user to /tree 
         window.location.href= "/tree"; 
         self.props.dispatch(UserActions.signIn(profile.email))
         
-        if(localStorage.getItem("userToken")){
-        }
+        // if(localStorage.getItem("userToken")){
+        // }
     }
 });
 	}
 
 
+//login with social -- not working yet
 
-loginWithSocial(){
-	const lock = new Auth0LockPasswordless(this.AUTH0_CLIENT_ID, this.AUTH0_DOMAIN);
-      		lock.social({
-  			  connections: ["facebook", "linkedin"],
-  			  responseType: 'token',
-  			  callbackURL : this.AUTH0_CALLBACKURL
-			}, function(result){
-      });
-		  }
+// loginWithSocial(){
+// 	const lock = new Auth0LockPasswordless(this.AUTH0_CLIENT_ID, this.AUTH0_DOMAIN);
+//       		lock.social({
+//   			  connections: ["facebook", "linkedin"],
+//   			  responseType: 'token',
+//   			  callbackURL : this.AUTH0_CALLBACKURL
+// 			}, function(result){
+//       });
+// 		  }
 
 
   render() {
