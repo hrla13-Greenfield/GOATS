@@ -37,11 +37,17 @@ export default class Profile extends React.Component {
     })
   }
 
+// allows user to choose rating
+//rating is chosen by the select option below
+//look @ controllers
   chooseRating(num) {
     var tmprating = num.target.value.split(",")
     this.props.dispatch(UserActions.chooseRating(tmprating[0], tmprating[1], this.props.userdata.username))
   }
 
+//this will delete a single entry in the history section for profile
+// called by the onclick below
+//look @ controllers
   deletehistory(historyid){
     this.props.dispatch(UserActions.deletehistory(historyid, this.props.userdata.username))
   }
@@ -60,6 +66,9 @@ export default class Profile extends React.Component {
       overflow: 'hidden',
     };
 
+//checks if there is a token in local store
+// if yes, user will have access to profile
+//if not, then they will be directed to login page
     if(!!localStorage.getItem("userToken") === false){
       window.location.href= "/login"
       return false;

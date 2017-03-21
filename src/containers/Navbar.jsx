@@ -75,6 +75,9 @@ export default class Navbar extends React.Component {
     });
   }
 
+// logout button
+//this will clear the localStorage & destroy the token
+// will redirect you to login page & refresh
   logout() {
     localStorage.clear();
     location.href = '/';
@@ -118,6 +121,8 @@ export default class Navbar extends React.Component {
       );
     });
 
+
+//logout button is here- logout function called on click
     return (
       <nav className="navbar navbar-light navbar-collapse">
         <div className="container-fluid">
