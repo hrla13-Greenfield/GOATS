@@ -3,7 +3,9 @@ const controller = require('./controller');
 const fs = require('fs');
 const db = require('./db/schema');
 
+// Router catches all calls to /api endpoint and uses functions in Controller to respond appropriately
 
+//  /api/groups .post creates a new group record
 myRouter.route('/groups')
   .post((req, res) => {
     const newGroup = db.Group.build({
@@ -28,16 +30,19 @@ myRouter.route('/groups')
     });
   });
 
+// Updates user's profile picture
 myRouter.route('/users/picture')
   .post((req, res) => {
     controller.updatePic(req, res);
   });
 
+//Updates user's rating on a history item
 myRouter.route('/users/rating')
   .post((req, res) => {
     controller.chooseRating(req, res);
   });
 
+//Populates store with user's information in DB
 myRouter.route('/users')
   .get((req, res) => {
     db.User.findAll({ where: { username: req.query.username } })
@@ -50,6 +55,7 @@ myRouter.route('/users')
     });
   });
 
+//Creates new group invite
 myRouter.route('/users/invites')
   .post((req, res) => {
     if (req.body.type === 'acc') {
@@ -59,31 +65,25 @@ myRouter.route('/users/invites')
     }
   });
 
+//Deltes item from user's history (profile page)
 myRouter.route('/users/deletehistory')
   .post((req, res) => {
     controller.deletehistory(req, res);
   });
 
+//Adds item to user's history page
 myRouter.route('/users/history')
  .post((req, res) => {
    controller.createHistory(req, res);
  });
 
+// Creates pendinginvite to add a new user to a group
 myRouter.route('/users/groups')
   .post((req, res) => {
     controller.addToGroup(req, res);
   });
 
-myRouter.route('/getBars')
-  .get((req, res) => {
-    controller.getBars(req, res);
-  });
-
-myRouter.route('/getClubs')
-  .get((req, res) => {
-    controller.getClubs(req, res);
-  });
-
+//Generic yelp call based on parameters passed in
 myRouter.route('/getActivities')
   .get((req, res) => {
     let query = req.query;

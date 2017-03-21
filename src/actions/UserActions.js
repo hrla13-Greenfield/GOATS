@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes.jsx';
 
+//if db call is successful then repopulate redux store
 export function signInSuccess(userinfo, username) {
   var userinfo = userinfo.data;
   const newGroups = [];
@@ -68,6 +69,7 @@ export function signInSuccess(userinfo, username) {
   };
 }
 
+// do not render content on the page until isLoading is set to false
 export function isLoading() {
   return {
     type: types.USER_LOADING,
@@ -82,12 +84,15 @@ export function saveNickname(nickname) {
   };
 }
 
+// sets a note on Navbar to user for invitations, etc
 export function updateNote(text) {
   return {
     type: types.NOT_SUCCESSFUL,
     note: text,
   };
 }
+
+//remove note from navbar after setInterval
 export function clearNote() {
   return {
     type: types.NOT_SUCCESSFUL,
@@ -95,6 +100,7 @@ export function clearNote() {
   };
 }
 
+// load component when loading is complete
 export function doneLoading() {
   return {
     type: types.DONE_LOADING,
@@ -111,6 +117,8 @@ export function unSuccess(text) {
   };
 }
 
+
+// creates database call and calls SigninSuccess if successful
 export function signIn(username) {
   // dispatch is a redux term- call an action from our action handler list
   // we are using thunk- which allows us to return a function instead of simple obj
@@ -143,6 +151,7 @@ export function addGroupSuccess(groupName) {
   };
 }
 
+//create db call to add friend to group
 export function addFriend(groupID, friendName, userID, username) {
   return (dispatch) => {
     dispatch(isLoading(true));
@@ -163,6 +172,7 @@ export function addFriend(groupID, friendName, userID, username) {
   };
 }
 
+// dispatch db call to add user to group
 export function acceptRequest(reqid, user) {
   return (dispatch) => {
     dispatch(isLoading(true));
@@ -178,6 +188,8 @@ export function acceptRequest(reqid, user) {
     });
   };
 }
+
+// destroy pending invite request
 export function declineRequest(reqid, user) {
   return (dispatch) => {
     dispatch(isLoading(true));
@@ -195,7 +207,7 @@ export function declineRequest(reqid, user) {
   };
 }
 
-
+// dispatch call to DB to create new usergroup
 export function addGroup(groupName, userID, username) {
   return (dispatch) => {
     dispatch(isLoading(true));

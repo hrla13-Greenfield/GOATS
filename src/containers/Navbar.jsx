@@ -7,6 +7,7 @@ const io = require('socket.io-client');
 
 const socket = io();
 
+//Connect to redux store to access userdata
 @connect((store) => {
   return {
     userdata: store.userdata,
@@ -31,14 +32,18 @@ export default class Navbar extends React.Component {
   }
 
   handleChange(e) {
+    //Updates state with the contents of textbox
     this.setState({ value: e.target.value });
   }
   groupInput() {
+    // render input field next to Groups dropdown to allow new group creation
     this.setState({
       group: (<form onSubmit={() => this.addGroup()}>
         <input onChange={this.handleChange} type="text" /></form>),
     });
   }
+
+  //renders textbox inside of groups dropdown to allow end user to invite another user to group
   friendInput(groupID) {
     this.setState({
       [groupID]: (<form onSubmit={() => this.addFriend(groupID)}>
@@ -48,7 +53,8 @@ export default class Navbar extends React.Component {
   inputChange(e) {
     this.this.setState({ text: e.target.value });
   }
-
+  
+  //dispatch a function to invite a new user to a group
   addFriend(groupID) {
     this.props.dispatch(
       UserActions.addFriend(
@@ -59,11 +65,16 @@ export default class Navbar extends React.Component {
       ),
       );
   }
+
+  //dispatch a function to create a new group
   addGroup() {
     this.props.dispatch(UserActions.addGroup(
       this.state.value, this.props.userdata.userID, this.props.userdata.username,
       ));
   }
+
+  //Sets store with group name clicked to set room for game functionality
+  //redirects user to game window when clicked and emits a socket event to the server 
   changeRoom(groupName) {
     this.props.dispatch(UserActions.selectRoom(groupName));
     socket.emit('init-game', {
@@ -84,6 +95,7 @@ export default class Navbar extends React.Component {
     window.location.reload();
   }
 
+  //when pendinginvites > 0 then render a notification on the navbar
   renderInviteNotification() {
     if (this.props.userdata.invites.length > 0) {
       return (
@@ -95,8 +107,9 @@ export default class Navbar extends React.Component {
     );
   }
 
-
+  
   render() {
+    //Keeps page from loading until the store has been populated
     if (this.props.userdata.isLoading) {
       return (
         <div />
@@ -121,8 +134,8 @@ export default class Navbar extends React.Component {
       );
     });
 
-
-//logout button is here- logout function called on click
+    //logout button is here- logout function called on click
+    //Navbar created through bootstrap
     return (
       <nav className="navbar navbar-light navbar-collapse">
         <div className="container-fluid">

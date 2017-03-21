@@ -9,6 +9,7 @@ const cors = require('cors');
 const port = process.env.PORT || 8000;
 
 
+// middleware used for all server routes
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('combined'));
@@ -16,6 +17,7 @@ app.use(express.static('./output'));
 app.use('/api', myRouter);
 app.use(cors());
 
+//Attach cors headers to all server requests
 app.all('*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
@@ -28,6 +30,7 @@ app.all('*', (req, res, next) => {
   }
 });
 
+// all routes except for /api/* will pass back index.html .. routing handled by react-router on the front end
 app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/output/index.html`);
 });
