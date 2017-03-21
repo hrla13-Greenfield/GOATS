@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UserActions from '../actions/UserActions';
 
+// connect to Redux store
 @connect((store) => {
   return {
     userdata: store.userdata,
@@ -18,19 +19,27 @@ export default class Profile extends React.Component {
     this.changePic = this.changePic.bind(this);
   }
   
+  //dispatch a function to accept pending request
   acceptRequest(reqid, user) {
     this.props.dispatch(UserActions.acceptRequest(reqid, user))
   }
+
+  //dispatch a function the destroys pending request when X is clicked
   declineRequest(reqid, user) {
     this.props.dispatch(UserActions.declineRequest(reqid, user));
   }
 
+  // update a user's profile pic
   changePic() {
     this.props.dispatch(UserActions.changePic(this.state.value, this.props.userdata.userID, this.props.userdata.username))
   }
+
+  //sets state with contents of textbox
   handleChange(e) {
     this.setState({ value: e.target.value})
   }
+
+  //render a textbox on the screen for user to update profile picture when Change is clicked
   renderPicInput() {
     this.setState({
       picInput: (<div>New image URL:<form onSubmit={() => this.changePic()}><input onChange={this.handleChange} type="text"></input></form></div>)
@@ -52,6 +61,7 @@ export default class Profile extends React.Component {
     this.props.dispatch(UserActions.deletehistory(historyid, this.props.userdata.username))
   }
 
+  // Display the last selected activity from Browse or Tree
   renderCurrent() {
     return(
     <div className="col-md-8 col-md-offset-2"><div style={{width:"200px",height:"200px",overflow:'hidden', 'textAlign':'center', marginLeft: '45px'}}><img height="200px" src={this.props.userdata.current.image}></img></div>
@@ -83,6 +93,8 @@ export default class Profile extends React.Component {
         </tr>
       )
     })
+
+    // Create a table row for every item in user's history list
     const mappedHistory = this.props.userdata.history.map((historyitem, index) => {
       var tmpHistory = JSON.parse(historyitem.address);
       var cat = JSON.parse(historyitem.category)

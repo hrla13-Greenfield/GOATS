@@ -1,6 +1,7 @@
 import * as types from '../constants/ActionTypes.jsx';
 import _ from 'lodash';
 
+//set initial redux state on page refresh
 const initialState = {
   signedIn: false,
   currentGroups: [],
@@ -20,6 +21,7 @@ const initialState = {
 export default function groups(state = initialState, action) {
   switch (action.type) {
 
+    // populate store with user's data on page refresh or sign-in
     case types.SIGN_IN:
       return {
         ...state,
@@ -35,6 +37,7 @@ export default function groups(state = initialState, action) {
         current: action.current,
       };
 
+    // display a note to the user when adding a group, friend, or another error has occurred
     case types.NOT_SUCCESSFUL:
       return {
         ...state,

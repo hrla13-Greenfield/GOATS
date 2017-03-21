@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const db = require('./db.js');
 
+//User table connects to Group through UserGroups [junction table]
+
 const User = db.define('User', {
   createdAt: {
     type: Sequelize.DATE,

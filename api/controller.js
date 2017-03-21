@@ -1,6 +1,7 @@
 const request = require('request');
 const db = require('./db/schema');
 
+//Stores a new user in the database
 exports.createUser = function (req, res) {
   const newuser = db.User.build({
     username: req.query.username,
@@ -14,6 +15,7 @@ exports.createUser = function (req, res) {
   });
 };
 
+//Update profile picture from Profile component
 exports.updatePic = function (req, res) {
   db.User.update(
     { image: req.body.url },
@@ -23,6 +25,7 @@ exports.updatePic = function (req, res) {
   });
 };
 
+//Change rating from Profile component
 exports.chooseRating = function (req, res) {
   db.UserHistory.update(
     { user_rating: req.body.rating },
@@ -32,6 +35,7 @@ exports.chooseRating = function (req, res) {
   });
 };
 
+//Deletes a single history item from Profile page
 exports.deletehistory = function (req, res) {
   console.log(req.body.historyid, "this is history id")
   db.UserHistory.destroy({ where: { id: req.body.historyid } })
@@ -43,20 +47,16 @@ exports.deletehistory = function (req, res) {
   });
 };
 
-
+//Create a new group, then add originating user to usergroups junction table
 exports.createGroup = function (req, res) {
-  console.log(req);
-  console.log('_____________');
   const newGroup = db.Group.build({
     name: req.query.groupName,
   });
-  console.log('line 21');
   newGroup.save().then((result) => {
     const newUserGroup = db.userGroup.build({
       GroupId: result.id,
       UserId: req.query.userID,
     });
-    console.log('line 27');
     newUserGroup.save().then((record) => {
       res.send('Success');
     })
@@ -71,6 +71,7 @@ exports.createGroup = function (req, res) {
   });
 };
 
+//Accept a request (profile page) adds the affected user to UserGroups junction table, then destroys invite record
 exports.acceptRequest = function (requestID, req, res) {
   db.PendingInvites.find({ where: { id: requestID } })
   .then((result) => {
@@ -90,6 +91,7 @@ exports.acceptRequest = function (requestID, req, res) {
   });
 };
 
+//Destroys pendinginvite 
 exports.declineRequest = function (requestID, req, res) {
   db.PendingInvites.destroy({ where: { id: requestID } })
   .then(() => {
@@ -100,7 +102,7 @@ exports.declineRequest = function (requestID, req, res) {
   });
 };
 
-
+//Adds pendinginvite record to affected user
 exports.addToGroup = function (req, res) {
   db.User.findOne({ where: { username: req.body.friendName } }).then((results) => {
     if (results) {
@@ -125,6 +127,8 @@ exports.addToGroup = function (req, res) {
   });
 };
 
+// Populates redux store with information that should be readily accessible.
+// Called when page refreshes, user logs in, or change is made to DB
 exports.returnUserData = function (req, res) {
   const cb = function (usergroups, userid, points, image, current) {
     db.PendingInvites.findAll({ where: { UserId: userid } })
@@ -176,7 +180,7 @@ exports.returnUserData = function (req, res) {
   });
 };
 
-
+// Adds selection to user's history page
 exports.createHistory = function (req, res) {
   const location = JSON.stringify(req.body.selection.location);
   const categories = JSON.stringify(req.body.selection.categories);
@@ -200,6 +204,8 @@ exports.createHistory = function (req, res) {
 .then(result => res.send(result));
 };
 
+//Bearer token valid for 180 days. 
+// TO DO .. Create a functiont to check if bearer token is still valid and request a new token if necessary
 const getBearer = function (cb) {
   cb('SdD00ggp7OHQgJemq0WJjtjf_LjFvvydOwCVxc1t3tYBCAXCShdoWNlWlOV-hGVp6l-Uvkq8PDVpX5atIxgw_MPQOdVg7qksvS3QCZOqMN_8k42TnaLBEvIQ0h3CWHYx');
   // const options = { method: 'POST',
@@ -219,7 +225,8 @@ const getBearer = function (cb) {
   //   cb(body);
 };
 
-
+// Generic query to access YELP api based on search terms passed in
+// Offset is used to access the next 50 results on BROWSE page
 exports.getActivity = function (req, res, query) {
   let offset;
   if (req.query.offset === undefined) {
