@@ -33,7 +33,11 @@
  2.[Tree Selection] >> Pressing a series of categories
  3.[Browse All] >>
  4.[Plan My Day] >>
- 5.[Profile/Groups] >>
+ 5.[Groups] >> 
+  Access groups by selecting MyGroups from navbar dropdwon. Add a new group by selecting (+) on the adjacent button, or add another user to the group by selecting the (+) next to the group name on the dropdown. Enter the Game component by clicking the group name on a group with at least 1 other member.
+  
+ 5.[Profile] >> 
+  Access profile by clicking your username on the Navbar. To change profile picture, click 'change' in the top right section. Accept or reject pending group invitations by clicking (checkmark) or (x). For each history item the user can click the image to route to Yelp, change the rating, or delete from their history
  6.[Game] >>
 
 
@@ -51,11 +55,9 @@
 
 From within the root directory:
 
-```sh
-sudo npm install -g bower
 npm install
 bower install
-```
+
 
 ### Roadmap
 
