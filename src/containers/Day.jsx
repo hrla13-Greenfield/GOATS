@@ -4,6 +4,7 @@ import DayPlanner from './DayPlanner.jsx';
 import NoPlan from './NoPlan.jsx';
 import Location from './LocationTree.jsx';
 
+//this component renders Location, NoPlan, which has the button to call PlanMyDay and the PlanMyDay Component
 class Day extends React.Component {
   render() {
     if (!!localStorage.getItem('userToken') === false) {

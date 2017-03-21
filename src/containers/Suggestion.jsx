@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { selectChoice, goBack } from '../actions/index.jsx';
 import { bindActionCreators } from 'redux';
 
-
+// this component renders the final suggestion coming from the yelp api call
+// first Load is being updated to the action payload array items coming from yelp
 class Suggestion extends React.Component {
   renderChoices() {
     return this.props.choices.firstLoad.map((choice, idx) => (
@@ -22,6 +23,7 @@ class Suggestion extends React.Component {
         <h6 className="headings">Address: {choice.address.map((item, idx) => (<div key={idx}>{item}</div>))} </h6>
         <div className="space" />
         <div className="center">
+        {/*{//this function allows to go back to first layer to make a new choice in initialState}*/}
           <button onClick={(() => this.props.goBack())} className="inlineButton">Go Back</button>
         </div>
       </div>

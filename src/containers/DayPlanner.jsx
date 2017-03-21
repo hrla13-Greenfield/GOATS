@@ -10,6 +10,8 @@ let items4;
 let items5;
 let items6;
 
+//each items variable in DayPlanner renders one item for a specific, random search result
+//each dayLoad refers to an array of 50 results matching the respective yelp calls
 class DayPlanner extends React.Component {
   renderDay() {
     items = (this.props.choices.dayLoad.map((item, idx) => (
@@ -80,6 +82,8 @@ class DayPlanner extends React.Component {
       )));
   }
   render() {
+    //this section renders the results
+    //the if statement makes sure that all the calls are completed before data is rendered
     if (this.props.choices.dayLoadtwo !== undefined && this.props.choices.dayLoadthree !== undefined && this.props.choices.dayLoad !== undefined && this.props.choices.dayLoadfour !== undefined && this.props.choices.dayLoadfive !== undefined && this.props.choices.dayLoadsix !== undefined) {
       return (
         <div className="dayplanner">

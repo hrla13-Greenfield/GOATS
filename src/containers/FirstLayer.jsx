@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { selectChoice } from '../actions/index.jsx';
 
-
+//this component renders the initial state and onClick the respective second FirstLayer
+//firstLoad is the action payload that is being updated after the first click on any of the initial state items
 class FirstLayer extends React.Component {
-
   renderChoices() {
     return this.props.choices.firstLoad.map((choice, idx) => (
       <div key={idx} className="col-md-4 col-sm-6 col-xs-12">
@@ -14,6 +14,7 @@ class FirstLayer extends React.Component {
         <img
           className="allPics"
           key={choice.img}
+          /* {//the below function renders the views for the two layers as well as the final suggestion}*/
           onClick={() => this.props.selectChoice(
             choice.option, this.props.choices.updatedZipcode,
             this.props.userdata.userID, this.props.userdata.username)}

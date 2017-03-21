@@ -4,6 +4,9 @@ import Location from './LocationTree.jsx';
 import Suggestion from './Suggestion.jsx';
 import { connect } from 'react-redux';
 
+//this component is rendered in the home path of the page and renders the part that asks 
+//for location, as well as FirstLayer, onclick the respective second layer and Suggestion, 
+//which makes the actual yelp api call
 class Tree extends React.Component {
   render() {
     if (!!localStorage.getItem('userToken') === false) {

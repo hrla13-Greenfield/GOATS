@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { submitLocation } from '../actions/index.jsx';
 
-
+//this component asks for zipCode, which is then passed down as parameter to the yelp api call
 class Location extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +12,7 @@ class Location extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+//this sets state to the value in the input
   handleChange(event) {
     const self = this;
     self.setState({
@@ -22,7 +23,7 @@ class Location extends React.Component {
   handleSubmit() {
     this.props.submitLocation(this.state.value);
   }
-
+//this is the jsx part of the component 
   render() {
     return (
       <div className="centerdiv">

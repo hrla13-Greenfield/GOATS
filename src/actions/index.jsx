@@ -11,6 +11,7 @@ let selection4;
 let selection5;
 let selection6;
 
+//this action handler sets payload to zipCode so that it can be passed down to yelp api call as param
 export function submitLocation(zip) {
   return {
     type: 'ZIP_SUBMITTED',
@@ -18,6 +19,7 @@ export function submitLocation(zip) {
   };
 }
 
+//this function gets the data for the final suggestion on the home route
 export function getData(selection) {
   return {
     type: 'FINAL_SELECTED',
@@ -33,6 +35,8 @@ export function getData(selection) {
   };
 }
 
+//the next 6 functions are called to get data for each of the 6 suggestions in dayplanner
+//getday is a function being called in the below axios calls to yelp api
 export function getDay(selection1) {
   return {
     type: 'DAY_SELECTED',
@@ -116,6 +120,7 @@ export function getDay6(selection6) {
   };
 }
 
+//get all is being called in axios call to yelp for the browse all feature
 export function getAll(data) {
   return {
     type: 'BROWSE',
@@ -123,12 +128,15 @@ export function getAll(data) {
   };
 }
 
+//this function is needed to go back to initialState, which is the first few in Home
 export function goBack() {
   return {
     type: 'GOBACK',
   };
 }
 
+//selectChoice is called onClick and will render second layer views or specific resulst for 
+//each possibility/conditional statement in the the tree survey
 export function selectChoice(option, zip, userID, username) {
   if (option === 'food') {
     return {
@@ -562,7 +570,7 @@ export function selectChoice(option, zip, userID, username) {
     };
   }
 }
-
+//this function makes specific axios calls for each section on the dayplanner
 export function planDay(zip) {
   return (dispatch) => {
     axios.get('api/getActivities', { params: {
@@ -652,6 +660,7 @@ export function planDay(zip) {
   };
 }
 
+//this function makes an yelp call for the browse all feed
 export function browse(zip, offset) {
   return (dispatch) => {
     axios.get('api/getActivities', { params: {
@@ -669,7 +678,7 @@ export function browse(zip, offset) {
       });
   };
 }
-
+//this function makes request to server to store data in userhistory in current item in userdata in db
 export function wantToDo(item, userID, username) {
   return (dispatch) => {
     const input = { selection: item,
