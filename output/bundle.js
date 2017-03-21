@@ -3280,6 +3280,7 @@ var selection4 = void 0;
 var selection5 = void 0;
 var selection6 = void 0;
 
+//this action handler sets payload to zipCode so that it can be passed down to yelp api call as param
 function submitLocation(zip) {
   return {
     type: 'ZIP_SUBMITTED',
@@ -3287,6 +3288,7 @@ function submitLocation(zip) {
   };
 }
 
+//this function gets the data for the final suggestion on the home route
 function getData(selection) {
   return {
     type: 'FINAL_SELECTED',
@@ -3300,6 +3302,8 @@ function getData(selection) {
   };
 }
 
+//the next 6 functions are called to get data for each of the 6 suggestions in dayplanner
+//getday is a function being called in the below axios calls to yelp api
 function getDay(selection1) {
   return {
     type: 'DAY_SELECTED',
@@ -3371,6 +3375,7 @@ function getDay6(selection6) {
   };
 }
 
+//get all is being called in axios call to yelp for the browse all feature
 function getAll(data) {
   return {
     type: 'BROWSE',
@@ -3378,12 +3383,15 @@ function getAll(data) {
   };
 }
 
+//this function is needed to go back to initialState, which is the first few in Home
 function goBack() {
   return {
     type: 'GOBACK'
   };
 }
 
+//selectChoice is called onClick and will render second layer views or specific resulst for 
+//each possibility/conditional statement in the the tree survey
 function selectChoice(option, zip, userID, username) {
   if (option === 'food') {
     return {
@@ -3751,7 +3759,7 @@ function selectChoice(option, zip, userID, username) {
     };
   }
 }
-
+//this function makes specific axios calls for each section on the dayplanner
 function planDay(zip) {
   return function (dispatch) {
     _axios2.default.get('api/getActivities', { params: {
@@ -3829,6 +3837,7 @@ function planDay(zip) {
   };
 }
 
+//this function makes an yelp call for the browse all feed
 function browse(zip, offset) {
   return function (dispatch) {
     _axios2.default.get('api/getActivities', { params: {
@@ -3844,7 +3853,7 @@ function browse(zip, offset) {
     });
   };
 }
-
+//this function makes request to server to store data in userhistory in current item in userdata in db
 function wantToDo(item, userID, username) {
   return function (dispatch) {
     var input = { selection: item,
@@ -8282,6 +8291,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//this component asks for zipCode, which is then passed down as parameter to the yelp api call
 var Location = function (_React$Component) {
   _inherits(Location, _React$Component);
 
@@ -8296,6 +8306,9 @@ var Location = function (_React$Component) {
     return _this;
   }
 
+  //this sets state to the value in the input
+
+
   _createClass(Location, [{
     key: 'handleChange',
     value: function handleChange(event) {
@@ -8309,6 +8322,8 @@ var Location = function (_React$Component) {
     value: function handleSubmit() {
       this.props.submitLocation(this.state.value);
     }
+    //this is the jsx part of the component 
+
   }, {
     key: 'render',
     value: function render() {
@@ -19095,6 +19110,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//this component renders navbar and all the other routes to the other components
+//children comes from browser history
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -19163,6 +19180,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//this component renders Location, NoPlan, which has the button to call PlanMyDay and the PlanMyDay Component
 var Day = function (_React$Component) {
   _inherits(Day, _React$Component);
 
@@ -19250,6 +19268,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//this is the parent component for Location and Browse component
 var Feed = function (_React$Component) {
   _inherits(Feed, _React$Component);
 
@@ -19864,6 +19883,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//this component is rendered in the home path of the page and renders the part that asks 
+//for location, as well as FirstLayer, onclick the respective second layer and Suggestion, 
+//which makes the actual yelp api call
 var Tree = function (_React$Component) {
   _inherits(Tree, _React$Component);
 
@@ -21162,14 +21184,22 @@ var Browse = function (_React$Component) {
 
   _createClass(Browse, [{
     key: '_loadMore',
+
+
+    //loadMore is necessary for InfiniteScroll in the browser feed
     value: function _loadMore() {
-      this.props.dispatch((0, _index.browse)(this.props.choices.updatedZipcode, this.props.choices.showAll.length));
+      this.props.dispatch(
+      //this part calls the browse function with current zipcode and the showAll payload from the actionhandlers
+      (0, _index.browse)(this.props.choices.updatedZipcode, this.props.choices.showAll.length));
     }
+    //this function stores the activity in the userhistroies table and also as the current item on the userID
+
   }, {
     key: 'wantToDo',
     value: function wantToDo(item) {
       var self = this;
       this.props.dispatch((0, _index.wantToDo)(item, self.props.userdata.userID, self.props.userdata.username));
+      //this function makes sure that the selected item automatically refreshes in the userprofile, current item and history
       this.props.dispatch(UserActions.signIn(self.props.userdata.username));
     }
   }, {
@@ -21329,6 +21359,9 @@ var items3 = void 0;
 var items4 = void 0;
 var items5 = void 0;
 var items6 = void 0;
+
+//each items variable in DayPlanner renders one item for a specific, random search result
+//each dayLoad refers to an array of 50 results matching the respective yelp calls
 
 var DayPlanner = function (_React$Component) {
   _inherits(DayPlanner, _React$Component);
@@ -21640,6 +21673,8 @@ var DayPlanner = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      //this section renders the results
+      //the if statement makes sure that all the calls are completed before data is rendered
       if (this.props.choices.dayLoadtwo !== undefined && this.props.choices.dayLoadthree !== undefined && this.props.choices.dayLoad !== undefined && this.props.choices.dayLoadfour !== undefined && this.props.choices.dayLoadfive !== undefined && this.props.choices.dayLoadsix !== undefined) {
         return _react2.default.createElement(
           'div',
@@ -21777,6 +21812,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//this component renders the initial state and onClick the respective second FirstLayer
+//firstLoad is the action payload that is being updated after the first click on any of the initial state items
 var FirstLayer = function (_React$Component) {
   _inherits(FirstLayer, _React$Component);
 
@@ -21803,8 +21840,9 @@ var FirstLayer = function (_React$Component) {
           ),
           _react2.default.createElement('img', {
             className: 'allPics',
-            key: choice.img,
-            onClick: function onClick() {
+            key: choice.img
+            /* {//the below function renders the views for the two layers as well as the final suggestion}*/
+            , onClick: function onClick() {
               return _this2.props.selectChoice(choice.option, _this2.props.choices.updatedZipcode, _this2.props.userdata.userID, _this2.props.userdata.username);
             },
             src: choice.img,
@@ -22298,6 +22336,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//this button calls the planDay function to render the new view for the day plan
 var NoPlan = function (_React$Component) {
   _inherits(NoPlan, _React$Component);
 
@@ -22376,6 +22415,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// this component renders the final suggestion coming from the yelp api call
+// first Load is being updated to the action payload array items coming from yelp
 var Suggestion = function (_React$Component) {
   _inherits(Suggestion, _React$Component);
 
@@ -23076,6 +23117,8 @@ var initialState = {
 
   firstLoad: [{ img: './assets/food.jpg', option: 'food' }, { img: './assets/party.jpg', option: 'party' }, { img: './assets/sports.jpg', option: 'sports' }, { img: './assets/relax.jpg', option: 'relax' }, { img: './assets/activity.jpg', option: 'activity' }, { img: './assets/Idkgoat.png', option: 'any' }]
 };
+
+//all these reducers update state coming from action handlers in index.jsx for respective Components
 
 /***/ }),
 /* 198 */

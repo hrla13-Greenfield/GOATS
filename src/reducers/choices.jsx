@@ -24,7 +24,7 @@ let initialState = {
   ],*/
 };
 
-
+//all these reducers update state coming from action handlers in index.jsx for respective Components
 export default function (state = initialState, action) {
   switch (action.type) {
     case 'CHOICES_SELECTED':

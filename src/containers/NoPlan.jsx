@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { planDay } from '../actions/index.jsx';
 
+//this button calls the planDay function to render the new view for the day plan
 class NoPlan extends React.Component {
   render() {
     return (

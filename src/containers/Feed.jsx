@@ -3,6 +3,7 @@ import Browse from './Browse.jsx';
 import { connect } from 'react-redux';
 import Location from './LocationTree.jsx';
 
+//this is the parent component for Location and Browse component
 class Feed extends React.Component {
   render() {
     if (!!localStorage.getItem('userToken') === false) {
